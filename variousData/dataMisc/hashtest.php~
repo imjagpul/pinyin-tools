@@ -1,0 +1,11 @@
+<?php
+echo strlen('asfd');
+?>
+
+<br>
+
+<?php
+
+echo strlen(sha1('pastvina'));
+
+?>

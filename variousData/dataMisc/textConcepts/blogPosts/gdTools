@@ -1,0 +1,46 @@
+### foto od Premka
+# Čus, postnul jsem to gds2000tools na web, nechceš mi tam dát nějakou fotku toho osciloskopu?
+
+gds2000tools is a set of free, simple UNIX/Linux software tools for oscilloscopes.
+
+Originally publicated at ### under the GPL3 license, however the link seems to be dead.
+
+That is why I post it here, hopefully it will be useful for you. Note I have no intention to develop the software.
+
+Supported models (according to the ##README##):
+
+Works with:
+	* GW Instek GDS-2000 series oscilloscopes (GDS-2062, GDS-2064,
+	  GDS-2102, GDS-2104, GDS-2202, GDS-2204).
+
+The tools should also work (not tested) with the
+
+	* GW Instek GDS-800 series oscilloscopes (GDS-806, GDS-810,
+	  GDS-820, GDS-840)
+
+	* GW Instek GDS-1000 series oscilloscopes (GDS-1022, GDS-1042,
+	  GDS-1062, GDS-1102)
+
+	* GW Instek GDS-1000A series oscilloscopes (GDS-1062A, GDS-1102A,
+	  GDS-1152A)
+
+	* ISO-TECH IDS-8000 series oscilloscopes (IDS-8062, IDS-8102,
+	  IDS-8104, IDS-8202, IDS-8204)
+
+	* ISO-TECH IDS-6000A series oscilloscopes (IDS-6062A, IDS-6102A,
+	  IDS-6152A)
+
+	* ISO-TECH IDS-6000 series oscilloscopes (IDS-6022, IDS-6042)
+
+	* Voltcraft-plus DSO-4000 series oscilloscopes (DSO-4022,
+	  DSO-4042, DSO-4062, DSO-4102),
+
+	* Voltcraft-plus DSO-4000A series (DSO-4062A, DSO-4152A),
+
+	* Voltcraft-plus DSO-8000 series oscilloscopes (DSO-8062,
+	  DSO-8064, DSO-8104, DSO-8204)
+
+	* Tenma 72-7235, 72-7240 
+
+The GDS-3000 series, the GDS-122, and the GRS-6000A series are not
+supported.

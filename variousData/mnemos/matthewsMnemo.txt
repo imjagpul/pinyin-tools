@@ -1,0 +1,1514 @@
+﻿#please note the following two characters are not the same (!)
+一	yī (yí; yì) one
+一	yī (yí; yì) one
+二	èr two
+三	sān three
+十	shí ten
+口	kǒu mouth
+日	rì sun
+几	jǐ several
+幾	jǐ several
+也	yě also
+不	bù not
+木	mù tree
+机	jī machine
+機	jī machine
+杯	bēi cup
+人	rén person
+亻	person
+他	tā he
+力	lì power
+女	nǚ woman
+她	tā she
+子	zi child
+好	hǎo (hào) good
+丨	NA stick
+
+个	gè number of items
+個	gè number of items
+八	bā eight
+儿	ér (r) boy
+兒	ér (r) boy
+丶	a drop
+白	bái white
+勹	NA wrap
+勺	sháo ladle
+的	de (dí) of
+囗	NA enclosed
+四	sì four
+乂	NA shears
+亠	NA lid
+文	wén culture
+⻌	NA road
+这	zhè this
+這	zhè this
+门	mén gate
+門	mén gate
+们	men people
+們	men people
+止	zhǐ stop
+正	zhèng upright
+
+
+是	shì is
+手	shǒu hand
+戈	gē dagger
+我	wǒ I
+中	zhōng middle
+厶	NA cocoon
+丿	NA slide
+么	me appendage
+麼	me appendage
+麽	me appendage
+什	shén what?
+甚	shén what?
+五	wǔ five
+七	qī seven
+九	jiǔ nine
+六	liù six
+百	bǎi hundred
+边	biān side
+邊	biān side
+卜	bǔ, bo fortune teller
+上	shàng above
+下	xià below
+马	mǎ horse
+馬	mǎ horse
+吗	ma question mark
+嗎	ma question mark
+妈	mā mother
+媽	mā mother
+大	dà (dài) big
+太	tài too much
+夫	fū husband
+小	xiǎo small
+
+尔	ěr thou
+爾	ěr thou
+你	nǐ you
+又	yòu right hand
+𠂇	NA left hand
+友	yǒu friend
+土	tǔ earth
+地	dì, de 1. ground 2. -ly
+
+在	zài at
+
+云	yún cloud
+雲	yún cloud
+运	yùn transport
+運	yùn transport
+动	dòng move
+動	dòng move
+
+会	huì meeting
+會	huì meeting
+王	Wáng king
+玉	yù jade
+国	guó country
+國	guó country
+月	yuè moon
+朋	péng companion
+有	yǒu have
+未	wèi not yet
+妹	mèi younger sister
+丷	NA horns
+来	lái come
+來	lái come
+了	le; liǎo 1. transition 2. complete
+兄	xiōng older brother
+兑	duì to convert
+兌	duì to convert
+讠	NA words
+言	NA words
+说	shuō say
+說	shuō say
+吾	wú yours truly
+语	yǔ language
+語	yǔ language
+夕	xī evening
+多	duō many
+名	míng name
+外	wài outside
+刀	dāo knife
+分	fēn (fèn) division
+刂	NA knife (component)
+至	zhì until
+到	dào arrive
+倒	dǎo; dào topple; invert
+天	tiān heaven
+明	míng bright
+氵	shuǐ water
+汉	Hàn Han Chinese
+漢	Hàn Han Chinese
+另	lìng other
+别	bié don't
+別	bié don't
+如	rú if
+彳	chì step forward
+丁	dīng nail
+亍	chù footstep
+行	xíng; háng 1. OK 2. line
+冖	NA cover
+⺍	NA hands reaching down
+
+学	xué study
+學	xué study
+车	chē car
+車	chē car
+连	lián linked up
+連	lián linked up
+廾	NA two hands
+开	kāi open
+開	kāi open
+去	qù go
+法	fǎ law
+耳	ěr ear
+取	qǔ acquire
+
+千	qiān thousand
+䒑	NA feet
+刖	yuè canoe
+前	qián in front of
+宀	NA house
+安	ān peace
+字	zì Chinese character
+目	mù eye
+自	zì self
+咱	zán we
+阝	NA mound; city
+阳	yáng in the open
+陽	yáng in the open
+阴	yīn hidden
+陰	yīn hidden
+冄	NA furs
+那	nà that
+哪	nǎ (na); něi which
+西	xī west
+要	yào; yāo want; ask for
+酉	yǒu whisky bottle
+酒	jiǔ liquor
+从	cóng from
+從	cóng from
+寸	cùn inch
+村	cūn village
+时	shí time
+時	shí time
+过	guò cross
+過	guò cross
+身	shēn body
+射	shè to shoot
+谢	xiè thank
+謝	xiè thank
+豕	shǐ pig
+家	jiā household
+山	shān mountain
+羊	yáng sheep
+样	yàng appearance
+樣	yàng appearance
+班	bān team
+出	chū exit
+石	shí stone
+础	chǔ plinth
+礎	chǔ plinth
+岁	suì years old
+歲	suì years old
+旦	dàn dawn
+但	dàn but
+㝵	NA get
+得	dé; de; děi obtain; in such a way that (adverbial); must
+公	gōng public
+𠄌	NA barb
+以	yǐ using
+之	zhī of
+为	wéi; wèi act as; for
+為	wéi; wèi act as; for
+办	bàn manage
+辦	bàn manage
+
+
+干	gān; gàn dry; work
+午	wǔ noon
+禾	hé grain
+和	hé; huó 1. with 2. mix
+母	mǔ mother
+每	měi every
+海	hǎi sea
+
+用	yòng to use
+半	bàn half
+利	lì benefit
+
+生	shēng life
+胜	shèng triumph
+勝	shèng triumph
+姓	xìng surname
+星	xīng star
+⺧	NA calf
+先	xiān ahead
+告	gào inform
+洗	xǐ wash
+可	kě may
+河	hé river
+何	hé what
+阿	ā ah
+啊	ā (a) eh!
+首	shǒu head
+道	dào way
+发	fā (fà) send out
+發	fā (fà) send out
+工	gōng work
+江	jiāng river
+厂	chǎng cliff
+廠	chǎng cliff
+𠂆	NA drag
+
+后	hòu rear
+後	hòu rear
+
+而	ér and yet
+扌	NA hand
+找	zhǎo look for
+打	dǎ hit
+对	duì correct
+對	duì correct
+树	shù tree
+樹	shù tree
+田	tián field
+男	nán male
+里	lǐ (li) in
+裏	lǐ (li) in
+裡	lǐ (li) in
+理	lǐ reason
+电	diàn electricity
+電	diàn electricity
+冂	NA outer limits
+同	tóng same
+心	xīn heart
+必	bì inevitably
+相	xiāng; xiàng mutual; appearance
+想	xiǎng think about
+思	sī think
+乛 	NA knee
+今	jīn now
+念	niàn to study
+
+年	nián year
+殳	shū to strike
+没	méi not
+沒	méi not
+广	guǎng shelter
+廣	guǎng shelter
+床	chuáng bed
+长	cháng; zhǎng 1. long 2. chief
+長	cháng; zhǎng 1. long 2. chief
+弓	gōng a bow
+张	zhāng​ sheet (of paper)
+張	zhāng​ sheet (of paper)
+本	běn source
+体	tǐ body
+體	tǐ body
+书	shū book
+書	shū book
+立	lì to stand
+位	wèi place
+拉	lā (lǎ) pull
+啦	la exclamation
+火	huǒ fire
+灯	dēng lamp
+燈	dēng lamp
+占	zhàn occupy
+佔	zhàn occupy
+站	zhàn station
+灬	NA fire
+点	diǎn speck
+點	diǎn speck
+店	diàn store
+果	guǒ fruit
+棵	kē number of trees
+课	kè lesson
+課	kè lesson
+攵	NA to tap
+政	zhèng government
+古	gǔ old
+故	gù former
+姑	gū aunt
+胡	hú beard
+鬍	hú beard
+湖	hú lake
+克	kè gram
+辛	xīn spicy
+亲	qīn kin
+親	qīn kin
+产	chǎn to produce
+產	chǎn to produce
+卡	kǎ card
+还	hái; huán 1. still 2. give back
+還	hái; huán 1. still 2. give back
+看	kàn look at
+讨	tǎo ask for
+討	tǎo ask for
+回	huí return
+妾	qiè concubine
+接	jiē receive
+
+差	chà fall short
+着	zháo; zhe (zhāo) 1. to catch 2. -ing
+著	zháo; zhe (zhāo) 1. to catch 2. -ing
+匕	bǐ spoon
+能	néng able to
+乍	zhà suddenly
+作	zuò do
+昨	zuó yesterday
+左	zuǒ left (side)
+做	zuò do
+坐	zuò sit
+座	zuò seat
+右	yòu right (side)
+见	jiàn see
+見	jiàn see
+现	xiàn the present (time)
+現	xiàn the present (time)
+观	guān observe
+觀	guān observe
+再	zài again
+艹	cǎo grass
+苦	kǔ bitter
+入	rù enter
+内	nèi inside
+內	nèi inside
+呐	nà (na) [shout]
+吶	nà (na) [shout]
+肉	ròu meat
+两	liǎng couple
+兩	liǎng couple
+辆	liàng number of cars
+輛	liàng number of cars
+俩	liǎ two people
+倆	liǎ two people
+
+满	mǎn full
+滿	mǎn full
+互	hù reciprocal
+它	tā it
+比	bǐ compare with
+批	pī criticize
+切	qiè cut
+𠃌	NA blade
+司	sī departement
+词	cí word
+詞	cí word
+
+典	diǎn reference book
+纟	NA thread
+红	hóng red
+紅	hóng red
+细	xì slender
+細	xì slender
+其	qí this or that
+期	qī due
+基	jī foundation
+犬	quǎn dog
+尤	yóu especially
+
+京	Jīng capital
+就	jiù right away
+斤	jīn axe
+近	jìn close
+听	tīng listen
+聽	tīng listen
+新	xīn new
+
+𢀖	NA channel
+经	jīng go through
+經	jīng go through
+轻	qīng lightweight
+輕	qīng lightweight
+
+头	tóu head
+頭	tóu head
+乛	NA cap
+买	mǎi buy
+買	mǎi buy
+卖	mài sell
+賣	mài sell
+读	dú to read
+讀	dú to read
+实	shí real
+實	shí real
+旨	zhǐ purpose
+指	zhǐ point at
+仑	lún meditate
+侖	lún meditate
+论	lùn discuss
+論	lùn discuss
+认	rèn recognize
+認	rèn recognize
+只	zhǐ; zhī only; one of a pair
+祇	zhǐ; zhī only; one of a pair
+隻	zhǐ; zhī only; one of a pair
+织	zhī weave
+織	zhī weave
+识	shí knowledge
+識	shí knowledge
+音	yīn sound
+意	yì idea
+戊	wù fifth
+成	chéng turn into
+城	chéng town
+耂	NA old man
+者	zhě specialist
+都	dōu; dū 1. all 2. metropolis
+犭	NA dog
+猪	zhū pig
+豬	zhū pig
+老	lǎo old
+孝	xiào filial piety
+教	jiāo; jiào teach
+
+
+灬	NA dog food
+然	rán however
+彐	NA snout
+当	dāng act as
+當	dāng act as
+尸	shī corpse
+屍	shī corpse
+尼	ní nun
+呢	ne as for
+户	hù door
+戶	hù door
+所	suǒ building
+己	jǐ self
+记	jì note down
+記	jì note down
+纪	jì discipline
+紀	jì discipline
+已	yǐ already
+巳	sì snake
+走	zǒu walk
+起	qǐ rise up
+导	dǎo guide
+導	dǎo guide
+钅	NA gold
+钟	zhōng clock
+鐘	zhōng clock
+种	zhǒng (zhòng) species
+種	zhǒng (zhòng) species
+足	zú foot
+艮	gèn stubborn
+很	hěn very
+根	gēn root
+跟	gēn with
+眼	yǎn eye
+银	yín silver
+銀	yín silver
+良	liáng good
+娘	niáng young lady
+孃	niáng young lady
+食	shí food
+饣	shí food
+饿	è hungry
+餓	è hungry
+问	wèn ask
+問	wèn ask
+闻	wén hear
+聞	wén hear
+方	fāng direction
+访	fǎng visit
+訪	fǎng visit
+房	fáng house
+放	fàng release
+旁	páng beside
+万	wàn ten thousand
+萬	wàn ten thousand
+主	zhǔ lord
+住	zhù to live in
+注	zhù pour
+註	zhù pour
+往	wàng; wǎng towards; go
+兀	wù pedestal
+元	yuán yuan
+园	yuán garden
+園	yuán garden
+远	yuǎn distant
+遠	yuǎn distant
+玩	wán play
+完	wán finish
+院	yuàn institute
+𢆉	NA offend
+南	nán south
+幸	xìng good fortune
+倖	xìng good fortune
+平	píng level
+苹	píng [apple]
+蘋	píng [apple]
+评	píng comment on
+評	píng comment on
+
+事	shì affair
+面	miàn face
+麵	miàn face
+此	cǐ this
+些	xiē a few
+咅	NA spit
+倍	bèi multiple
+部	bù section
+丬	NA firewood
+爿	NA firewood
+北	běi north
+
+将	jiàng going to
+將	jiàng going to
+东	dōng east
+東	dōng east
+乐	yuè (lè) music
+樂	yuè (lè) music
+竹	zhú bamboo
+算	suàn reckon
+
+第	dì Number
+弟	dì younger brother
+
+劳	láo toil
+勞	láo toil
+加	jiā add
+驾	jià drive (a vehicle)
+咖	kā [coffee]
+非	fēi un-
+啡	fēi [coffee]
+排	pái line
+反	fǎn oppose
+饭	fàn meal
+飯	fàn meal
+板	bǎn board
+米	mǐ rice
+青	qīng blue-green
+请	qǐng please
+請	qǐng please
+清	qīng transparent
+晴	qíng fine weather
+忄	NA heart
+情	qíng state of affairs
+睛	jīng pupil (of eye)
+精	jīng splendid
+
+亮	liàng shining
+亭	tíng pavilion
+停	tíng halt
+单	shàn single
+單	shàn single
+间	jiān room
+間	jiān room
+简	jiǎn simple
+簡	jiǎn simple
+合	hé join together
+拿	ná using
+拾	shí pick up
+哈	hā laugh
+给	gěi (jǐ) for (someone)
+給	gěi (jǐ) for (someone)
+答	dá (dā) answer
+片	piàn slice
+丩	NA entangle
+叫	jiào call
+收	shōu accept
+卑	bēi inferior
+啤	pí [beer]
+井	jǐng a well
+讲	jiǎng talk
+講	jiǎng talk
+进	jìn proceed
+進	jìn proceed
+改	gǎi alter
+冫	NA ice
+况	kuàng situation
+況	kuàng situation
+欠	qiàn lacking
+次	cì times
+吹	chuī puff
+欢	huān joyful
+歡	huān joyful
+久	jiǔ long time
+爪	zhǎo; zhuǎ claw
+爫	NA claw
+
+爱	ài love
+愛	ài love
+暖	nuǎn warm
+父	fù father
+巴	bā wait for
+吧	ba suggestion
+把	bǎ handle
+爸	bà dad
+爬	pá climb
+关	guān switch off
+關	guān switch off
+送	sòng deliver
+联	lián connect
+聯	lián connect
+言	yán words
+信	xìn letter
+少	shǎo (shào) few
+步	bù step
+省	shěng province
+交	jiāo pay
+饺	jiǎo dumpling
+餃	jiǎo dumpling
+较	jiào comparison
+較	jiào comparison
+校	xiào school
+牛	niú cow
+件	jiàn number of things
+哥	gē older brother
+歌	gē song
+
+应	yīng (yìng) should
+應	yīng (yìng) should
+冋	NA skylight
+向	xiàng towards
+响	xiǎng noisy
+響	xiǎng noisy
+化	huà to change
+花	huā flower
+历	lì experience
+曆	lì experience
+歷	lì experience
+旧	jiù outdated
+舊	jiù outdated
+业	yè industry
+業	yè industry
+亚	yà Asia
+亞	yà Asia
+並	NA stand side by side
+碰	pèng bump into
+史	shǐ history
+吏	lì an official
+使	shǐ use
+更	gèng even more
+便	pián; biàn 1. advantageous 2. convenient
+央	yāng center
+英	yīng hero
+夬	guài to separate
+块	kuài lump
+塊	kuài lump
+快	kuài quick
+决	jué decide
+決	jué decide
+觉	jué; jiào 1. feel 2. sleep
+覺	jué; jiào 1. feel 2. sleep
+定	dìng decide on
+重	zhòng (chóng) heavy
+董	dǒng director
+懂	dǒng to understand
+垂	chuí droop
+睡	shuì sleep
+⺄	NA bird's wing
+飞	fēi to fly
+飛	fēi to fly
+气	qì air
+氣	qì air
+汽	qì steam
+乙	yǐ second
+亿	yì hundred million
+億	yì hundred million
+艺	yì art
+藝	yì art
+乞	qǐ beg
+吃	chī eat
+全	quán whole
+色	sè color
+角	jiǎo dime
+确	què certain
+確	què certain
+觜	NA heron
+嘴	zuǐ mouth
+最	zuì utmost
+炎	yán inflammation
+谈	tán talk over
+談	tán talk over
+与	yǔ; yù with
+與	yǔ; yù with
+写	xiě write
+寫	xiě write
+丂	qiǎo choke
+号	hào date
+號	hào date
+廿	niàn twenty
+度	dù degress
+态	tài attitude
+態	tài attitude
+巾	jīn towel
+市	shì market
+帀	encompass
+师	shī master
+師	shī master
+卅	sà thirty
+
+带	dài belt
+帶	dài belt
+示	shì sign
+票	piào ticket
+漂	piào pretty
+礻	sign
+社	shè society
+祝	zhù best wishes
+视	shì to watch
+視	shì to watch
+
+表	biǎo indicator
+錶	biǎo indicator
+衣	yī clothes
+农	nóng farm
+農	nóng farm
+衤	clothes
+初	chū beginning
+皮	pí skin
+被	bèi by
+破	pò damage
+坏	huài bad
+壞	huài bad
+且	qiě bookcase
+姐	jiě older sister
+助	zhù to help
+租	zū rent
+祖	zǔ ancestor
+组	zǔ organize
+組	zǔ organize
+宜	yí appropriate
+谊	yì friendship
+誼	yì friendship
+
+直	zhí straight
+真	zhēn truly
+毛	máo wool
+笔	bǐ pen
+筆	bǐ pen
+
+尸	NA pile of earth
+民	mín the people
+弋	yì stake
+代	dài substitute
+舌	shé tongue
+刮	guā to blow
+话	huà speech
+話	huà speech
+适	shì suitable
+適	shì suitable
+活	huó alive
+术	shù craft
+術	shù craft
+支	zhī branch
+技	jì skill
+寺	sì temple
+等	děng wait for
+持	chí maintain
+特	tè special
+义	yì just
+義	yì just
+风	fēng wind
+風	fēng wind
+娄	Lóu trouble
+婁	Lóu trouble
+数	shù; shǔ number; to count
+數	shù; shǔ number; to count
+楼	lóu story
+樓	lóu story
+层	céng tier
+層	céng tier
+室	shì a room
+屋	wū accommodation
+握	wò grasp
+提	tí carry
+让	ràng allow
+讓	ràng allow
+贝	bèi sea shell
+貝	bèi sea shell
+页	yè page
+頁	yè page
+题	tí topic
+題	tí topic
+员	yuán member
+員	yuán member
+圆	yuán circle
+圓	yuán circle
+高	gāo high
+搞	gǎo engaged in
+台	tái platform
+臺	tái platform
+檯	tái platform
+治	zhì treat (disease)
+抬	tái raise
+始	shǐ start
+谷	gǔ valley
+容	róng tolerate
+士	shì scholar
+志	zhì intention
+声	shēng voice
+聲	shēng voice
+壮	zhuàng sturdy
+壯	zhuàng sturdy
+装	zhuāng pretend
+裝	zhuāng pretend
+矢	shǐ arrow
+知	zhī to know
+匚	fāng container
+医	yī heal
+醫	yī heal
+𠀐	shopping basket
+贵	guì expensive
+貴	guì expensive
+您	nín you (polite)
+束	shù bundle
+敕	imperial decree
+整	zhěng entire
+欶	suck
+嗽	sòu cough
+亥	hài pig
+该	gāi ought
+該	gāi ought
+孩	hái youngster
+咳	ké cough
+刻	kè quarter (hour)
+隹	pigeon
+谁	shuí (shéi) who?
+誰	shuí (shéi) who?
+推	tuī push
+难	nán difficult
+難	nán difficult
+准	zhǔn accurate
+準	zhǔn accurate
+集	jí assemble
+夂	pursue
+处	chù (chǔ) place
+處	chù (chǔ) place
+各	gè each
+路	lù path
+客	kè guest
+丙	bǐng third
+疒	nì illness
+病	bìng disease
+杂	zá mixed
+雜	zá mixed
+怎	zěn how?
+庄	zhuāng premises
+莊	zhuāng premises
+脏	zāng dirty
+髒	zāng dirty
+总	zǒng always
+總	zǒng always
+责	zé duty
+責	zé duty
+绩	jì achievement
+績	jì achievement
+负	fù to shoulder
+負	fù to shoulder
+才	cái only just
+纔	cái only just
+团	tuán group
+團	tuán group
+糰	tuán group
+因	yīn because
+恩	ēn a favor
+嗯	ng eh
+困	kùn difficulty
+睏	kùn difficulty
+水	shuǐ water
+求	qiú request
+球	qiú ball
+勿	wù don't
+忽	hū sudden
+物	wù thing
+易	yì easy
+踢	tī kick
+
+场	chǎng site
+場	chǎng site
+汤	tāng soup
+湯	tāng soup
+扬	yáng make known
+揚	yáng make known
+奶	nǎi milk
+乃	nǎi sigh
+及	jí reach
+极	jí extremity
+極	jí extremity
+级	jí grade
+級	jí grade
+
+原	yuán original
+愿	yuàn to desire
+願	yuàn to desire
+吉	jí auspicious
+结	jié (jiē) tie up
+結	jié (jiē) tie up
+喜	xǐ celebration
+
+周	zhōu week
+週	zhōu week
+调	diào tune
+調	diào tune
+尚	shàng esteem
+躺	tǎng lie down
+堂	táng hall
+常	cháng often
+掌	zhǎng palm (of hand)
+条	tiáo slip of paper
+條	tiáo slip of paper
+务	wù to work at
+務	wù to work at
+备	bèi prepare
+備	bèi prepare
+鱼	yú fish
+魚	yú fish
+复	fù repeat
+復	fù repeat
+複	fù repeat
+壬	rén ninth
+任	rèn whatever
+计	jì calculate
+計	jì calculate
+设	shè establish
+設	shè establish
+划	huà (huá) to plan
+劃	huà (huá) to plan
+或	huò or
+咸	xián salty
+鹹	xián salty
+感	gǎn feel
+喊	hǎn shout
+布	bù cloth
+希	xī to wish
+卩	seal
+节	jié festival
+節	jié festival
+却	què despite
+卻	què despite
+脚	jiǎo foot
+腳	jiǎo foot
+𠬝	ruler
+报	bào to report
+報	bào to report
+服	fú obey
+甬	explosion
+通	tōng pass through
+痛	tòng to ache
+㔾	hardship
+厄	è uphill
+危	wēi danger
+顾	gù attend to
+顧	gù attend to
+𠃊	conceal
+亡	wáng perish
+忙	máng busy
+忘	wàng forget
+
+望	wàng gaze
+雨	yǔ rain
+雪	xuě snow
+彡	hairs
+参	cān consult
+參	cān consult
+景	jǐng view
+影	yǐng shadow
+匃	beggar
+曷	a drink
+喝	hē to drink
+渴	kě thirsty
+
+继	jì continue
+繼	jì continue
+世	shì world
+
+介	jiè between
+界	jiè boundary
+亦	yì as well
+变	biàn transform
+變	biàn transform
+夭	die young
+笑	xiào smile
+乔	qiáo tall
+喬	qiáo tall
+桥	qiáo bridge
+橋	qiáo bridge
+歹	dǎi evil
+列	liè line up
+例	lì example
+死	sǐ die
+
+解	jiě untie
+刍	hay
+芻	hay
+急	jí urgent
+彦	yàn a good man
+彥	yàn a good man
+颜	yán complexion
+顏	yán complexion
+许	xǔ to permit
+許	xǔ to permit
+需	xū need
+须	xū have to
+续	xù carry on
+續	xù carry on
+令	lìng command
+冷	lěng cold
+零	líng zero
+领	lǐng to lead
+領	lǐng to lead
+召	zhào summon
+绍	shào continue
+紹	shào continue
+昭	zhāo obvious
+照	zhào shine
+查	chá check up
+佥	conference
+僉	conference
+检	jiǎn inspect
+檢	jiǎn inspect
+脸	liǎn face
+臉	liǎn face
+险	xiǎn risky
+險	xiǎn risky
+验	yàn examine
+驗	yàn examine
+式	shì style
+试	shì to try
+試	shì to try
+考	kǎo to test
+斗	dòu; dǒu fight
+鬥	dòu; dǒu fight
+科	kē classification
+研	yán research
+幺	yāo smallest
+糸	mì thread
+系	xì cluster
+累	léi (lěi) exhausted
+戋	tiny
+戔	tiny
+践	jiàn carry out
+踐	jiàn carry out
+钱	qián money
+錢	qián money
+浅	qiǎn shallow
+淺	qiǎn shallow
+乚	hook
+礼	lǐ gift
+禮	lǐ gift
+乱	luàn chaotic
+亂	luàn chaotic
+
+育	yù nurture
+川	flood
+㐬	birth
+流	liú to flow
+穴	xué hole
+究	jiū investigate
+空	kōng (kòng) empty
+突	tū prominent
+罙	hearth
+深	shēn deep
+由	yóu because
+抽	chōu to extract
+邮	yóu mail
+郵	yóu mail
+申	shēn to state
+神	shén gods
+
+寅	yín tiger
+演	yǎn perform
+黄	huáng yellow
+黃	huáng yellow
+
+共	gòng collectively
+凵	pit
+画	huà drawing
+畫	huà drawing
+怕	pà fear
+拍	pāi clap
+吅	cry out
+哭	kū weep
+器	qì utensil
+品	pǐn goods
+喿	chirp
+操	cāo exercise
+澡	zǎo bathe
+早	zǎo early
+章	zhāng badge
+草	cǎo straw
+包	bāo parcel
+饱	bǎo replete
+飽	bǎo replete
+抱	bào embrace
+跑	pǎo run
+冏	porthole
+商	shāng trade
+佰	bǎi $100 check
+宿	sù stay overnight
+予	yǔ bestow
+预	yù in advance
+預	yù in advance
+舍	shè shed
+捨	shè shed
+舒	shū spread out
+兴	xìng (xīng) excited
+興	xìng (xīng) excited
+矛	máo spear
+矞	stab
+橘	jú tangerine
+桔	jú tangerine
+举	jǔ to raise
+舉	jǔ to raise
+句	jù sentence
+局	jú office
+够	gòu enough
+夠	gòu enough
+付	fù pay
+附	fù near to
+府	fǔ government
+凶	xiōng terrible
+兇	xiōng terrible
+㐫	brain
+禸	rump
+离	lí distant from
+離	lí distant from
+禺	yú monkey
+遇	yù encounter
+脱	tuō undress
+脫	tuō undress
+聿	write with brush
+廴	stride
+建	jiàn build
+健	jiàn strong
+廷	tíng court
+庭	tíng courtyard
+挺	tǐng exceptionally
+肖	xiào resemble
+消	xiāo vanish
+息	xī stop
+
+
+留	liú remain
+
+𠂢	tributary
+派	pài group
+
+
+展	zhǎn display
+畏	wèi respect
+喂	wèi Hey!
+
+
+
+候	hòu wait for
+齐	qí tidy
+齊	qí tidy
+挤	jǐ squeeze
+擠	jǐ squeeze
+济	jì bring relief
+濟	jì bring relief
+
+
+黑	hēi black
+曾	céng; zēng used to be
+增	zēng to increase
+免	miǎn avoid
+晚	wǎn evening
+象	xiàng elephant
+像	xiàng likeness
+奂	wonderful
+奐	wonderful
+换	huàn exchange
+換	huàn exchange
+冈	gāng ridge
+岡	gāng ridge
+刚	gāng barely
+剛	gāng barely
+钢	gāng steel
+鋼	gāng steel
+鸟	niǎo bird
+鳥	niǎo bird
+鸡	jī chicken
+雞	jī chicken
+虫	chóng insect
+蟲	chóng insect
+虽	suī although
+雖	suī although
+舟	zhōu boat
+般	bān a sort
+搬	bān move
+
+卬	aspire
+迎	yíng greet
+氏	shì surname
+纸	zhǐ paper
+紙	zhǐ paper
+氐	settle down
+低	dī low
+永	yǒng forever
+泳	yǒng swim
+
+族	zú clan
+斿	yóu roam
+游	yóu to tour
+遊	yóu to tour
+冬	dōng winter
+疼	téng ache
+图	tú diagram
+圖	tú diagram
+
+春	chūn springtime
+秋	qiū autumn
+夏	xià summer
+
+丸	wán pellet
+执	zhí hold on to
+執	zhí hold on to
+热	rè hot
+熱	rè hot
+享	xiǎng enjoy
+孰	cooked
+熟	shú familiar
+
+
+坚	jiān resolute
+堅	jiān resolute
+紧	jǐn tight
+緊	jǐn tight
+
+览	lǎn to view
+覽	lǎn to view
+皿	dish
+监	jiān supervise
+監	jiān supervise
+蓝	lán blue
+藍	lán blue
+篮	lán basket
+籃	lán basket
+畐	plenty
+福	fú blessing
+富	fù wealthy
+丰	fēng abundant
+豐	fēng abundant
+邦	bāng nation
+帮	bāng help
+幫	bāng help
+韦	wéi leather
+韋	wéi leather
+围	wéi surround
+圍	wéi surround
+伟	wěi great
+偉	wěi great
+圭	jade block
+挂	guà hang
+掛	guà hang
+封	fēng seal up
+街	jiē street
+革	gé leather
+鞋	xié shoe
+双	shuāng pair
+雙	shuāng pair
+
+炼	liàn smelt
+煉	liàn smelt
+练	liàn to train
+練	liàn to train
+
+殳	ivy
+段	duàn piece
+锻	duàn forge
+鍛	duàn forge
+屯	tún to store
+顿	dùn session
+頓	dùn session
+烦	fán bother
+煩	fán bother
+斥	chì drive out
+诉	sù tell
+訴	sù tell
+约	yuē approximate
+約	yuē approximate
+药	yào medicine
+藥	yào medicine
+争	zhēng contend
+爭	zhēng contend
+净	jìng clean
+淨	jìng clean
+静	jìng calm
+靜	jìng calm
+𠦝	daybreak
+朝	cháo facing
+卓	zhuō eminent
+掉	diào to drop
+桌	zhuō table
+
+敢	gǎn dare
+休	xiū leisure
+退	tuì retreat
+腿	tuǐ leg
+豆	dòu bean
+荳	dòu bean
+短	duǎn brief
+吴	shout out
+吳	shout out
+误	wù mistake
+誤	wù mistake
+采	cǎi; cài pick
+採	cǎi; cài pick
+彩	cǎi colorful
+菜	cài vegetable
+釆	claw marks
+番	fān a time
+播	bō to sow
+习	xí to practice
+習	xí to practice
+羽	yǔ feather
+翻	fān turn over
+
+译	yì translate
+譯	yì translate
+余	yú surplus
+餘	yú surplus
+除	chú to remove
+茶	chá tea
+奇	qí; jī strange
+骑	qí ride
+騎	qí ride
+椅	yǐ chair
+寄	jì send
+昔	xī the old days
+错	cuò mistake
+錯	cuò mistake
+借	jiè borrow
+
+散	sàn disperse
+
+船	chuán ship
+铅	qiān lead
+鉛	qiān lead
+疋	bolt of cloth
+蛋	dàn egg
+林	lín a wood
+楚	chǔ clear
+麻	má hemp
+嘛	ma surely
+隶	lì subordinate
+隸	lì subordinate
+康	kāng good health
+录	lù to record
+錄	lù to record
+绿	lǜ green
+綠	lǜ green
+旅	lǚ travel
+俞	yú catamaran
+愉	yú happy
+输	shū lose
+輸	shū lose
+凉	liáng cool
+涼	liáng cool
+谅	liàng forgive
+諒	liàng forgive
+夗	turn in one's sleep
+宛	wǎn winding
+碗	wǎn bowl
+香	xiāng fragrant
+奴	nú slave
+努	nǔ exert oneself
+焦	jiāo scorched
+蕉	jiāo [banana]
+
+唐	Táng Tang
+糖	táng sugar
+夋	hesitate
+酸	suān sour
+委	wěi entrust
+矮	ǎi short
+囱	cōng [chimney]
+囪	cōng [chimney]
+窗	chuāng window
+
+寒	to block up
+
+寒	hán freezing
+赛	sài compete
+賽	sài compete
+
+扁	biǎn; piān flat
+匾	biǎn; piān flat
+萹	biǎn; piān flat
+遍	biàn everywhere
+篇	piān piece of paper
+昌	chāng prosperous
+唱	chàng sing
+冃	hood
+冒	mào risk
+帽	mào hat
+辰	chén heavenly body
+晨	chén morning
+毌	pierced
+贯	guàn pierce
+貫	guàn pierce
+惯	guàn habitual
+慣	guàn habitual
+尺	chǐ ruler
+迟	chí late
+遲	chí late
+
+尧	Yáo Chieftain Yao
+堯	Yáo Chieftain Yao
+烧	shāo burn
+燒	shāo burn
+旡	to swallow
+既	jì since
+概	gài summary
+牙	yá tooth
+呀	yā (ya) oh!
+穿	chuān penetrate
+異	different
+𢦏	wound
+戴	dài to wear
+乘	chéng ride
+剩	shèng residue
+
+官	guān an official
+馆	guǎn public building
+館	guǎn public building
+罒	net
+曼	màn graceful
+慢	màn slow
+罢	bà stop
+罷	bà stop
+摆	bǎi arrange
+擺	bǎi arrange
+舛	opposing
+
+舞	wǔ dance
+兆	zhào omen
+跳	tiào jump
+甫	fǔ just now
+辅	fǔ assist
+輔	fǔ assist
+尃	spread over
+傅	fù teacher
+并	bìng actually
+瓦	wǎ; wà tile
+瓶	píng bottle
+
+祭	jì worship
+察	chá inspect
+擦	cā wipe
+末	mò tip
+袜	wà socks
+襪	wà socks
+𢆶	teeny weeny
+兹	zī jet black
+茲	zī jet black
+磁	cí magnets
+丢	diū mislay
+丟	diū mislay
+宴	yàn banquet
+夜	yè night
+假	jià (jiǎ) vacation
+墙	qiáng wall
+牆	qiáng wall
+赢	yíng win
+贏	yíng win

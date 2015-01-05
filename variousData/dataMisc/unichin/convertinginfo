@@ -1,0 +1,8 @@
+
+============= (geany) regex replace:
+
+^(....).+\t(.+)$
+echo unicodeChrHex('\1'); echo "\2"; echo "\n";
+
+
+

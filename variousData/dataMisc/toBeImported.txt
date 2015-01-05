@@ -1,0 +1,1169 @@
+一	one	#1
+二	two	#2
+三	three	#3
+十	ten	#4
+口	mouth	#5
+日	sun	#6
+几	several	#7
+也	also	#8
+不	not	#9
+木	tree	#10a
+机	machine	#10
+杯	cup	#11
+人	person	#12
+亻	person	#13a
+他	he	#13
+力	power	#14
+女	woman	#15
+她	she	#16
+子	child	#17
+好	good	#18
+丨	stick	#19a
+个 without 丨(not 人)	tent	#19b
+个	number of items	#19
+八	eight	#20
+儿	boy	#21
+丶	a drop	#22a
+白	white	#22
+勹	wrap	#23a
+勺	ladle	#23b
+的	of	#23
+囗	enclosed	#24a
+四	four	#24
+乂	shears	#25a
+亠	lid	#25b
+文	culture	#25
+⻌	road	#26a
+这	this	#26
+门	gate	#27
+们	people	#28
+止	stop	#29a
+正	upright	#29
+是 without 旦, i.e. the alternative form of 止 (29a)	stop	#30a
+是 without 日， i.e. alternative form of 正 (29)	upright	#30b
+是	is	#30
+手	hand	#31
+戈	dagger	#32a
+我	I	#32
+中	middle	#33
+厶	cocoon	#34a
+丿	slide	#34b
+么	appendage	#34
+什	what?	#35
+五	five	#36
+七	seven	#37
+九	nine	#38
+六	six	#39
+百 without日	thumb tack	#40a
+百	hundred	#40
+边	side	#41
+卜	fortune teller	#42a
+上	above	#42
+下	below	#43
+马	horse	#44
+吗	question mark	#45
+妈	mother	#46
+大	big	#47
+太	too much	#48
+夫	husband	#49
+小	small	#50
+尔 without 小	to bow	#51a
+尔	thou	#51b
+你	you	#51
+又	right hand	#52
+𠂇	left hand	#53a
+友	friend	#53
+土	earth	#54a
+地	1. ground 2. -ly	#54
+在 without 土	talent	#55a
+在	at	#55
+一 on top of 厶	swoop	#56a
+云	cloud	#56
+运	transport	#57
+动	move	#58
+ i.e. the top three strokes of 会	combine	#59a
+会	meeting	#59
+王	king	#60a
+玉	jade	#60b
+国	country	#60
+月	moon	#61
+朋	companion	#62
+有	have	#63
+未	not yet	#64a
+妹	younger sister	#64
+丷	horns	#65a
+来	come	#65
+了	1. transition 2. complete	#66
+兄	older brother	#67a
+兑	to convert	#67b
+讠	words	#67c
+说	say	#67
+吾	yours truly	#68a
+语	language	#68
+夕	evening	#69a
+多	many	#69
+名	name	#70
+外	outside	#71
+刀	knife	#72
+分	division	#73
+刂	knife (component)	#74a
+至	until	#74b
+到	arrive	#74
+倒	topple; invert	#75
+天	heaven	#76
+明	bright	#77
+氵	water	#78a
+汉	Han Chinese	#78
+另	other	#79a
+别	don't	#79
+如	if	#80
+彳	step forward	#81a
+丁	nail	#81b
+亍	footstep	#81c
+行	1. OK 2. line	#81
+冖	cover	#82a
+⺍	hands reaching down	#82b
+ i.e. 学 without  子	“unveil"	#82c
+学	study	#82
+车	car	#83
+连	linked up	#84
+廾	two hands	#85a
+开	open	#85
+去	go	#86
+法	law	#87
+耳	ear	#88a
+取	acquire	#88
+丿 i.e. the top stroke of 千	beret	#89a
+千	thousand	#89
+䒑	feet	#90a
+刖	canoe	#90b
+前	in front of	#90
+宀	house	#91a
+安	peace	#91
+字	Chinese character	#92
+目	eye	#93
+自	self	#94
+咱	we	#95
+阝	mound; city	#96a
+阳	in the open	#96
+阴	hidden	#97
+冄	furs	#98a
+那	that	#98
+哪	which	#99
+西	west	#100
+要	want; ask for	#101
+酉	whisky bottle	#102a
+酒	liquor	#102
+从	from	#103
+寸	inch	#104a
+村	village	#104
+时	time	#105
+过	cross	#106
+身	body	#107
+射	to shoot	#108a
+谢	thank	#108
+豕	pig	#109a
+家	household	#109
+山	mountain	#110
+羊	sheep	#111
+样	appearance	#112
+班	team	#113
+出	exit	#114
+石	stone	#115a
+础	plinth	#115
+岁	years old	#116
+旦	dawn	#117a
+但	but	#117
+㝵	get	#118a
+得	obtain; in such a way that (adverbial); must	#118
+公	public	#119
+𠄌	barb	#120a
+以	using	#120
+之	of	#121
+为	act as; for	#122
+办	manage	#123
+the first stroke on the upper left corner of 午	label	#124a
+午 without 十	clouds	#124b
+干	dry; work	#124
+午	noon	#125
+禾	grain	#126a
+和	1. with 2. mix	#126
+母	mother	#127
+每	every	#128
+海	sea	#129
+用 without 冂	criminal	#130a
+用	to use	#130
+半	half	#131
+利	benefit	#132
+生 without the small stroke on the left	plant	#133a
+生	life	#133
+胜	triumph	#134
+姓	surname	#135
+星	star	#136
+⺧	calf	#137a
+先	ahead	#137
+告	inform	#138
+洗	wash	#139
+可	may	#140
+河	river	#141
+何	what	#142
+阿	ah	#143a
+啊	eh!	#143
+首	head	#144
+道	way	#145
+发	send out	#146
+工	work	#147
+江	river	#148
+厂	cliff	#149
+𠂆	drag	#150a
+一 on top of 口	pile up	#150b
+后	rear	#150
+而 without 'thumb tack'	comb	#151a
+而	and yet	#151
+扌	hand	#152a
+找	look for	#152
+打	hit	#153
+对	correct	#154
+树	tree	#155
+田	field	#156a
+男	male	#156
+里	in	#157
+理	reason	#158
+电	electricity	#159
+冂	outer limits	#160a
+同	same	#160
+心	heart	#161
+必	inevitably	#162
+相	mutual; appearance	#163
+想	think about	#164
+思	think	#165
+乛 (the bottom stroke of 今)	knee	#166a
+今	now	#166
+念	to study	#167
+年 without the two top strokes (i.e. 'clouds')	surpass	#168a
+年	year	#168
+殳	to strike	#169a
+没	not	#169
+广	shelter	#170
+床	bed	#171
+长	1. long 2. chief	#172
+弓	a bow	#173a
+张	sheet (of paper)	#173
+本	source	#174
+体	body	#175
+书	book	#176
+立	to stand	#177
+位	place	#178
+拉	pull	#179
+啦	exclamation	#180
+火	fire	#181
+灯	lamp	#182
+占	occupy	#183
+站	station	#184
+灬	fire	#185a
+点	speck	#185
+店	store	#186
+果	fruit	#187
+棵	number of trees	#188
+课	lesson	#189
+攵	to tap	#190a
+政	government	#190
+古	old	#191a
+故	former	#191
+姑	aunt	#192
+胡	beard	#193a
+湖	lake	#193
+克	gram	#194
+辛	spicy	#195
+亲	kin	#196
+产	to produce	#197
+卡	card	#198
+还	1. still 2. give back	#199
+看	look at	#200
+讨	ask for	#201
+回	return	#202
+妾	concubine	#203a
+接	receive	#203
+差 without  工, i.e. almost like 羊	sheep	#204a
+差	fall short	#204
+着	1. to catch 2. -ing	#205
+匕	spoon	#206a
+能	able to	#206
+乍	suddenly	#207a
+作	do	#207
+昨	yesterday	#208
+左	left (side)	#209
+做	do	#210
+坐	sit	#211
+座	seat	#212
+右	right (side)	#213
+见	see	#214
+现	the present (time)	#215
+观	observe	#216
+再	again	#217
+艹	grass	#218a
+苦	bitter	#218
+入	enter	#219a
+内	inside	#219
+呐	[shout]	#220
+肉	meat	#221
+两	couple	#222
+辆	number of cars	#223
+俩	two people	#224
+ i.e. 满 without 氵	scales	#225a
+满	full	#225
+互	reciprocal	#226
+它	it	#227
+比	compare with	#228
+批	criticize	#229
+切	cut	#230
+𠃌	blade	#231a
+司	departement	#231b
+词	word	#231
+典 without the bottom 八	bend	#232a
+典	reference book	#232
+纟	thread	#233a
+红	red	#233
+细	slender	#234
+其	this or that	#235
+期	due	#236
+基	foundation	#237
+犬	dog	#238a
+尤	especially	#238
+亠 on top of 口	tall	#239a
+京	capital	#239b
+就	right away	#239
+斤	axe	#240
+近	close	#241
+听	listen	#242
+新	new	#243
+the top right part of 经, i.e. without 纟and 工	underground river	#244a
+𢀖 i.e. 经 without 纟	channel	#244b
+经	go through	#244
+轻	lightweight	#245
+丶 丶 i.e. the two drops on top of each other as in 头	ice crystals	#246a
+头	head	#246
+乛	cap	#247a
+买	buy	#247
+卖	sell	#248
+读	to read	#249
+实	real	#250
+旨	purpose	#251a
+指	point at	#251
+仑	meditate	#252a
+论	discuss	#252
+认	recognize	#253
+只	only; one of a pair	#254
+织	weave	#255
+识	knowledge	#256
+音	sound	#257
+意	idea	#258
+戊	fifth	#259a
+成	turn into	#259
+城	town	#260
+耂	old man	#261a
+者	specialist	#261
+都	1. all 2. metropolis	#262
+犭	dog	#263a
+猪	pig	#263
+老	old	#264
+孝	filial piety	#265a
+教	teach	#265
+ i.e. a distorted 月 as in the top left of 然	moon	#266a
+然 without 灬	dog food	#266b
+然	however	#266
+彐	snout	#267a
+当	act as	#267
+尸	corpse	#268a
+尼	nun	#268b
+呢	as for	#268
+户	door	#269
+所	building	#270
+己	self	#271
+记	note down	#272
+纪	discipline	#273
+已	already	#274
+巳	snake	#275a
+走	walk	#275
+起	rise up	#276
+导	guide	#277
+钅	gold	#278a
+钟	clock	#278
+种	species	#279
+足	foot	#280
+艮	stubborn	#281a
+很	very	#281
+根	root	#282
+跟	with	#283
+眼	eye	#284
+银	silver	#285
+良	good	#286a
+娘	young lady	#286
+食	food	#287
+饣	food	#288a
+饿	hungry	#288
+问	ask	#289
+闻	hear	#290
+方	direction	#291
+访	visit	#292
+房	house	#293
+放	release	#294
+旁	beside	#295
+万	ten thousand	#296
+主	lord	#297
+住	to live in	#298
+注	pour	#299
+往	towards; go	#300
+兀	pedestal	#301a
+元	yuan	#301
+园	garden	#302
+远	distant	#303
+玩	play	#304
+完	finish	#305
+院	institute	#306
+𢆉 i.e. 南 without 十 and 冂	offend	#307a
+南	south	#307
+幸	good fortune	#308
+平	level	#309
+苹	[apple]	#310
+评	comment on	#311
+事 without 一 and 口 at the top	dexterity	#312a
+事	affair	#312
+面	face	#313
+此	this	#314a
+些	a few	#314
+咅	spit	#315a
+倍	multiple	#315
+部	section	#316
+丬	firewood	#317a
+北	north	#317
+夕 on top of 寸	to lay out	#318a
+将	going to	#318
+东	east	#319
+乐	music	#320
+竹 i.e. the upper part of 算	bamboo	#321a
+算	reckon	#321
+弟 without 丷	sequence	#322a
+第	Number	#322
+弟	younger brother	#323
+ i.e. 艹 on top of 冖	glowing	#324a
+劳	toil	#324
+加	add	#325
+架	drive (a vehicle)	#326
+咖	[coffee]	#327
+非	un-	#328
+啡	[coffee]	#329
+排	line	#330
+反	oppose	#331
+饭	meal	#332
+板	board	#333
+米	rice	#334
+青	blue-green	#335
+请	please	#336
+清	transparent	#337
+晴	fine weather	#338
+忄	heart	#339a
+情	state of affairs	#339
+睛	pupil (of eye)	#340
+精	splendid	#341
+ i.e.  亠, 口, 冖 on top of each other	gazebo	#342a
+亮	shining	#342
+亭	pavilion	#343a
+停	halt	#343
+单	single	#344
+间	room	#345
+简	simple	#346
+合	join together	#347
+拿	using	#348
+拾	pick up	#349
+哈	laugh	#350
+给	for (someone)	#351
+答	answer	#352
+片	slice	#353
+丩	entangle	#354a
+叫	call	#354
+收	accept	#355
+卑	inferior	#356a
+啤	[beer]	#356
+井	a well	#357a
+讲	talk	#357
+进	proceed	#358
+改	alter	#359
+冫	ice	#360a
+况	situation	#360
+欠	lacking	#361a
+次	times	#361
+吹	puff	#362
+欢	joyful	#363
+久	long time	#364
+爪	claw	#365a
+爫	claw	#365b
+爫 on top of 冖 as in 爱	hand down	#365c
+爱	love	#365
+暖	warm	#366
+父	father	#367
+巴	wait for	#368a
+吧	suggestion	#368
+把	handle	#369
+爸	dad	#370
+爬	climb	#371
+关	switch off	#372
+送	deliver	#373
+联	connect	#374
+言	words	#375
+信	letter	#376
+少	few	#377
+步	step	#378
+省	province	#379
+交	pay	#380
+饺	dumpling	#381
+较	comparison	#382
+校	school	#383
+牛	cow	#384
+件	number of things	#385
+哥	older brother	#386
+歌	song	#387
+应 without 广	haul up	#388a
+应	should	#388
+冋	skylight	#389a
+向	towards	#389
+响	noisy	#390
+化	to change	#391
+花	flower	#392
+历	experience	#393
+旧	outdated	#394
+业	industry	#395
+亚	Asia	#396a
+並	stand side by side	#396b
+碰	bump into	#396
+史	history	#397
+吏	an official	#398a
+使	use	#398
+更	even more	#399
+便	1. advantageous 2. convenient	#400
+央	center	#401a
+英	hero	#401
+夬	to separate	#402a
+块	lump	#402
+快	quick	#403
+决	decide	#404
+觉	1. feel 2. sleep	#405
+定	decide on	#406
+重	heavy	#407
+董	director	#408a
+懂	to understand	#408
+垂	droop	#409a
+睡	sleep	#409
+⺄	bird's wing	#410a
+飞	to fly	#410
+气	air	#411
+汽	steam	#412
+乙	second	#413a
+亿	hundred million	#413
+艺	art	#414
+乞	beg	#415a
+吃	eat	#415
+全	whole	#416
+色	color	#417
+角	dime	#418
+确	certain	#419
+觜	heron	#420a
+嘴	mouth	#420
+最	utmost	#421
+炎	inflammation	#422a
+谈	talk over	#422
+与	with	#423a
+写	write	#423
+丂	choke	#424a
+号	date	#424
+廿	twenty	#425a
+度	degress	#425
+态	attitude	#426
+巾	towel	#427a
+市	market	#427
+帀	encompass	#428a
+师	master	#428
+卅	thirty	#429a
+冖 on top of 巾	sash	#429b
+带	belt	#429
+示	sign	#430
+票	ticket	#431
+漂	pretty	#432
+礻	sign	#433a
+社	society	#433
+祝	best wishes	#434
+视	to watch	#435
+ i.e. 衣 without 亠	a dress	#436a
+表	indicator	#436
+衣	clothes	#437
+农	farm	#438
+衤	clothes	#439a
+初	beginning	#439
+皮	skin	#440a
+被	by	#440
+破	damage	#441
+坏	bad	#442
+且	bookcase	#443
+姐	older sister	#444
+助	to help	#445
+租	rent	#446
+祖	ancestor	#447
+组	organize	#448
+宜	appropriate	#449
+谊	friendship	#450
+直 without 十	treasure	#451a
+直	straight	#451
+真	truly	#452
+毛	wool	#453
+笔	pen	#454
+民 without 尸	pile of earth	#455a
+民	the people	#455
+弋	stake	#456a
+代	substitute	#456
+舌	tongue	#457a
+刮	to blow	#457
+话	speech	#458
+适	suitable	#459
+活	alive	#460
+术	craft	#461
+支	branch	#462
+技	skill	#463
+寺	temple	#464a
+等	wait for	#464
+持	maintain	#465
+特	special	#466
+义	just	#467
+风	wind	#468
+娄	trouble	#469a
+数	number; to count	#469
+楼	story	#470
+层	tier	#471
+室	a room	#472
+屋	accommodation	#473
+握	grasp	#474
+提	carry	#475
+让	allow	#476
+贝	sea shell	#477a
+页	page	#477
+题	topic	#478
+员	member	#479
+圆	circle	#480
+高	high	#481
+搞	engaged in	#482
+台	platform	#483a
+治	treat (disease)	#483
+抬	raise	#484
+始	start	#485
+谷	valley	#486a
+容	tolerate	#486
+士	scholar	#487a
+志	intention	#487
+声	voice	#488
+壮	sturdy	#489a
+装	pretend	#489
+矢	arrow	#490a
+知	to know	#490
+匚	container	#491a
+医	heal	#491
+𠀐 i.e. 贵 without 贝	shopping basket	#492a
+贵	expensive	#492
+您	you (polite)	#493
+束	bundle	#494
+敕	imperial decree	#495a
+整	entire	#495
+欶	suck	#496a
+嗽	cough	#496
+亥	pig	#497a
+该	ought	#497
+孩	youngster	#498
+咳	cough	#499
+刻	quarter (hour)	#500
+隹	pigeon	#501a
+谁	who?	#501
+推	push	#502
+难	difficult	#503
+准	accurate	#504
+集	assemble	#505
+夂	pursue	#506a
+处	place	#506
+各	each	#507
+路	path	#508
+客	guest	#509
+丙	third	#510a
+疒	illness	#510b
+病	disease	#510
+杂	mixed	#511
+怎	how?	#512
+庄	premises	#513a
+脏	dirty	#513
+总	always	#514
+责	duty	#515
+绩	achievement	#516
+负	to shoulder	#517
+才	only just	#518
+团	group	#519
+因	because	#520
+恩	a favor	#521a
+嗯	eh	#521
+困	difficulty	#522
+水	water	#523
+求	request	#524
+球	ball	#525
+勿	don't	#526a
+忽	sudden	#526
+物	thing	#527
+易	easy	#528
+踢	kick	#529
+𠃓 i.e. 场 without 土	sunny	#530a
+场	site	#530
+汤	soup	#531
+扬	make known	#532
+奶	milk	#533
+乃	sigh	#533a
+及	reach	#534a
+极	extremity	#534
+级	grade	#535
+原 i.e. without 厂	spring	#536a
+原	original	#536
+愿	to desire	#537
+吉	auspicious	#538a
+结	tie up	#538
+喜	celebration	#539
+周 without 冂	foul mouth	#540a
+周	week	#540
+调	tune	#541
+尚	esteem	#542a
+躺	lie down	#542
+棠	hall	#543
+常	often	#544
+掌	palm (of hand)	#545
+条	slip of paper	#546
+务	to work at	#547
+备	prepare	#548
+鱼	fish	#549
+复	repeat	#550
+壬	ninth	#551a
+任	whatever	#551
+计	calculate	#552
+设	establish	#553
+划	to plan	#554
+或	or	#555
+咸	salty	#556a
+感	feel	#556
+喊	shout	#557
+布	cloth	#558
+希	to wish	#559
+卩	seal	#560a
+节	festival	#560
+却	despite	#561a
+脚	foot	#561
+𠬝	ruler	#562a
+报	to report	#562
+服	obey	#563
+甬	explosion	#564a
+通	pass through	#564
+痛	to ache	#565
+㔾	hardship	#566a
+厄	uphill	#566b
+危	danger	#566
+顾	attend to	#567
+𠃊	conceal	#568a
+亡	perish	#568b
+忙	busy	#568
+忘	forget	#569
+望 without 王	wane	#570a
+望	gaze	#570
+雨	rain	#571
+雪	snow	#572
+彡	hairs	#573a
+参	consult	#573
+景	view	#574a
+影	shadow	#574
+匃	beggar	#575a
+曷	a drink	#575b
+喝	to drink	#575
+渴	thirsty	#576
+ i.e. 继 without 纟	cut	#577a
+继	continue	#577
+世	world	#578
+the two bottom strokes of 介	grain stalks	#579a
+介	between	#579
+界	boundary	#580
+亦	as well	#581a
+变	transform	#581
+夭	die young	#582a
+笑	smile	#582
+乔	tall	#583a
+桥	bridge	#583
+歹	evil	#584a
+列	line up	#584b
+例	example	#584
+死	die	#585
+解 without 角	gimlet	#586a
+解	untie	#586
+刍	hay	#587a
+急	urgent	#587
+彦	a good man	#588a
+颜	complexion	#588
+许	to permit	#589
+需	need	#590
+须	have to	#591
+续	carry on	#592
+令	command	#593a
+冷	cold	#593
+零	zero	#594
+领	to lead	#595
+召	summon	#596a
+绍	continue	#596
+昭	obvious	#597a
+照	shine	#597
+查	check up	#598
+佥	conference	#599a
+检	inspect	#599
+脸	face	#600
+险	risky	#601
+验	examine	#602
+式	style	#603a
+试	to try	#603
+考	to test	#604
+斗	fight	#605a
+科	classification	#605
+研	research	#606
+幺	smallest	#607a
+糸	thread	#607b
+系	cluster	#607
+累	exhausted	#608
+戋	tiny	#609a
+践	carry out	#609
+钱	money	#610
+浅	shallow	#611
+乚	hook	#612a
+礼	gift	#612
+乱	chaotic	#613
+育 without 月	new-born baby	#614a
+育	nurture	#614
+川	flood	#615a
+㐬	birth	#615b
+流	to flow	#615
+穴	hole	#616a
+究	investigate	#616
+空	empty	#617
+突	prominent	#618
+罙	hearth	#619a
+深	deep	#619
+由	because	#620a
+抽	to extract	#620
+邮	mail	#621
+申	to state	#622a
+神	gods	#622
+寅 without 亠 and 八	polite	#623a
+寅	tiger	#623b
+演	perform	#623
+黄	yellow	#624
+ i.e. 共 without 八	bacon rashers	#625a
+共	collectively	#625
+凵	pit	#626a
+画	drawing	#626
+怕	fear	#627
+拍	clap	#628
+吅	cry out	#629a
+哭	weep	#629
+器	utensil	#630
+品	goods	#631a
+喿	chirp	#631b
+操	exercise	#631
+澡	bathe	#632
+早	early	#633
+章	badge	#634
+草	straw	#635
+包	parcel	#636
+饱	replete	#637
+抱	embrace	#638
+跑	run	#639
+冏	porthole	#640a
+商	trade	#640
+佰	$100 check	#641a
+宿	stay overnight	#641
+予	bestow	#642a
+预	in advance	#642
+舍	shed	#643
+舒	spread out	#644
+兴	excited	#645
+矛	spear	#646a
+矞	stab	#646b
+橘	tangerine	#646
+桔	tangerine	#647
+举	to raise	#648
+句	sentence	#649
+局	office	#650
+够	enough	#651
+付	pay	#652a
+附	near to	#652
+府	government	#653
+凶	terrible	#654a
+㐫	brain	#654b
+禸	rump	#654c
+离	distant from	#654
+禺	monkey	#655a
+遇	encounter	#655
+脱	undress	#656
+聿	write with brush	#657a
+廴	stride	#657b
+建	build	#657
+健	strong	#658
+廷	court	#659a
+庭	courtyard	#659
+挺	exceptionally	#660
+肖	resemble	#661a
+消	vanish	#661
+息	stop	#662
+留 withou 刀 and 田	an open door	#663a
+留 without 田	barred	#663b
+留	remain	#663
+ i.e. 𠂢 without 𠂆	brigade	#664a
+𠂢	tributary	#664b
+派	group	#664
+畏 without 田	a skirt	#665a
+展 without 尸	gown	#665b
+展	display	#665
+畏	respect	#666a
+喂	Hey!	#666
+ i.e. 侯 without 亻 and 矢	target	#667a
+侯 without 亻	archery contest	#667b
+亻丨side by side as in the left part of 候	man with a stick	#667c
+候	wait for	#667
+齐	tidy	#668
+挤	squeeze	#669
+济	bring relief	#670
+ i.e. the two "boxes" on top of 黑, but without the drops inside (almost like two 口口 side by side)	kiss	#671a
+ i.e. the two "boxes" of 黑 with the drops inside.	windowpane	#671b
+黑	black	#671
+曾	used to be	#672a
+增	to increase	#672
+免	avoid	#673a
+晚	evening	#673
+象	elephant	#674a
+像	likeness	#674
+奂	wonderful	#675a
+换	exchange	#675
+冈	ridge	#676a
+刚	barely	#676
+钢	steel	#677
+鸟	bird	#678a
+鸡	chicken	#678
+虫	insect	#679a
+虽	although	#679
+舟	boat	#680a
+般	a sort	#680
+搬	move	#681
+卬 without 卩	a vise	#682a
+卬	aspire	#682b
+迎	greet	#682
+氏	surname	#683a
+纸	paper	#683
+氐	settle down	#684a
+低	low	#684
+永	forever	#685
+泳	swim	#686
+ i.e. 斿 without 子	banner	#687a
+族	clan	#687
+斿	roam	#688a
+游	to tour	#688
+冬	winter	#689
+疼	ache	#690
+图	diagram	#691
+ i.e. 春 without 日	held in the hands	#692a
+春	springtime	#692
+秋	autumn	#693
+夏	summer	#694
+ i.e. the small stroke that pierces 丸	splinter	#695a
+丸	pellet	#695b
+执	hold on to	#695c
+热	hot	#695
+享	enjoy	#696a
+孰	cooked	#696b
+熟	familiar	#696
+刂except without the hooking of the right stroke, as in 坚	two sticks	#697a
+ i.e. 坚 without 土 	firm	#697b
+坚	resolute	#697
+紧	tight	#698
+ i.e. 览 without 见	prostrate	#699a
+览	to view	#699
+皿	dish	#700a
+监	supervise	#700b
+蓝	blue	#700
+篮	basket	#701
+畐	plenty	#702a
+福	blessing	#702
+富	wealthy	#703
+丰	abundant	#704
+邦	nation	#705a
+帮	help	#705
+韦	leather	#706a
+围	surround	#706
+伟	great	#707a
+圭	jade block	#708a
+挂	hang	#708
+封	seal up	#709
+街	street	#710
+革	leather	#711a
+鞋	shoe	#711
+双	pair	#712
+ i.e. 练 without 纟	to select	#713a
+炼	smelt	#713
+练	to train	#714
+段 without 殳	ivy	#715a
+段	piece	#715
+锻	forge	#716
+屯	to store	#717a
+顿	session	#717
+烦	bother	#718
+斥	drive out	#719a
+诉	tell	#719
+约	approximate	#720a
+药	medicine	#720
+争	contend	#721a
+净	clean	#721
+静	calm	#722
+𠦝	daybreak	#723a
+朝	facing	#723
+卓	eminent	#724a
+掉	to drop	#724
+桌	table	#725
+敢 without 攵	earring	#726a
+敢	dare	#726
+休	leisure	#727
+退	retreat	#728
+腿	leg	#729
+豆	bean	#730a
+短	brief	#730
+吴	shout out	#731a
+误	mistake	#731
+采	pick	#732a
+彩	colorful	#732
+菜	vegetable	#733
+釆	claw marks	#734a
+番	a time	#734b
+播	to sow	#734
+习	to practice	#735
+羽	feather	#736a
+翻	turn over	#736
+ i.e. 译 without 讠	watch over	#737a
+译	translate	#737
+余	surplus	#738a
+除	to remove	#738
+茶	tea	#739
+奇	strange	#740a
+骑	ride	#740
+椅	chair	#741
+寄	send	#742
+昔	the old days	#743a
+错	mistake	#743
+借	borrow	#744
+散 without 攵	midnight feast	#745a
+散	disperse	#745
+ i.e. 船 without 舟	ravine	#746a
+船	ship	#746
+铅	lead	#747
+疋	bolt of cloth	#748a
+蛋	egg	#748
+林	a wood	#749a
+楚	clear	#749
+麻	hemp	#750
+嘛	surely	#751
+隶	subordinate	#752a
+康	good health	#752
+录	to record	#753
+绿	green	#754
+旅	travel	#755
+俞	catamaran	#756a
+愉	happy	#756
+输	lose	#757
+凉	cool	#758
+谅	forgive	#759
+夗	turn in one's sleep	#760a
+宛	winding	#760b
+碗	bowl	#760
+香	fragrant	#761
+奴	slave	#762a
+努	exert oneself	#762
+焦	scorched	#763a
+蕉	[banana]	#763
+唐 without 广	rude	#764a
+唐	Tang	#764b
+糖	sugar	#764
+夋	hesitate	#765a
+酸	sour	#765
+委	entrust	#766a
+矮	short	#766
+囱	[chimney]	#767a
+窗	window	#767
+寒 without the top 宀 and bottom 八 and冫	bricks	#768a
+寒 without冫	to block up	#768b
+寒	freezing	#768
+赛	compete	#769
+𠕁 i.e. 扁 without 户	old book	#770a
+扁	flat	#770b
+遍	everywhere	#770
+篇	piece of paper	#771
+昌	prosperous	#772a
+唱	sing	#772
+冃	hood	#773a
+冒	risk	#773
+帽	hat	#774
+辰	heavenly body	#775a
+晨	morning	#775
+毌	pierced	#776a
+贯	pierce	#776b
+惯	habitual	#776
+尺	ruler	#777a
+迟	late	#777
+尧 without 兀	high up	#778a
+尧	Chieftain Yao	#778b
+烧	burn	#778
+旡	to swallow	#779a
+既	since	#779b
+概	summary	#779
+牙	tooth	#780a
+呀	oh!	#780
+穿	penetrate	#781
+異	different	#782a
+𢦏	wound	#782b
+戴	to wear	#782
+乘	ride	#783a
+剩	residue	#783
+ i.e. 官 without 宀	legion	#784a
+官	an official	#784b
+馆	public building	#784
+罒	net	#785a
+曼	graceful	#785b
+慢	slow	#785
+罢	stop	#786a
+摆	arrange	#786
+舛	opposing	#787a
+舞 without 舛	dancing	#787b
+舞	dance	#787
+兆	omen	#788a
+跳	jump	#788
+甫	just now	#789a
+辅	assist	#789
+尃	spread over	#790a
+傅	teacher	#790
+并	actually	#791a
+瓦	tile	#791b
+瓶	bottle	#791
+祭 without 示	Druid	#792a
+祭	worship	#792b
+察	inspect	#792c
+擦	wipe	#792
+末	tip	#793a
+袜	socks	#793
+𢆶 i.e. 幺幺 side by side as in 兹	teeny weeny	#794a
+兹	jet black	#794b
+磁	magnets	#794
+丢	mislay	#795
+宴	banquet	#796
+夜	night	#797
+假	vacation	#798
+墙	wall	#799
+赢	win	#800

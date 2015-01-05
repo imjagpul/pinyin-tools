@@ -1,0 +1,6 @@
+
+
+PUBLISH:
+
+7z a pinyintools.zip pinyintools
+tar -pczf pinyintools.tar.gz pinyintools

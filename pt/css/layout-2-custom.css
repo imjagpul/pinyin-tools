@@ -1,0 +1,44 @@
+/* no fixed width */ 
+
+#maincontainer {
+ 	width: 95%; 
+	margin: 0 auto;
+}
+
+#contentwrapper {
+	float: left;
+	width: 100%;
+}
+
+/*#maincolumn {
+	margin: 12px 220px 0 220px;
+}*/
+#maincolumn {
+	margin: 12px 30% 0 220px;
+}
+
+
+.text {
+	margin: 0 0 15px 15px;
+}
+
+#leftcolumn {
+	margin-top: 15px;
+	float: left;
+/*	width: 0px;*/
+	margin-left: -100%; 
+/*	margin-left: -960px; */
+}
+
+#rightcolumn {
+	margin-top: 0;
+	float: left;
+	/*width: 300px;
+	margin-left: -300px;*/
+	width: 30%;
+	margin-left: -30%;	
+}
+
+* html #leftcolumn { margin-top: 13px; } 
+* html #maincolumn { margin-top: 10px; }
+* html #rightcolumn { margin-top: 10px; }

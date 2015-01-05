@@ -1,0 +1,11 @@
+Split simplified and traditional:
+^(\S+)\s(\S+)\t(.+)$
+\1\t\3\n\2\t\3
+
+and double:
+^(\S+)\s(\S+)\s(\S+)\t(.+)$
+\1\t\4\n\2\t\4\n\3\t\4
+
+Remove junk:
+^[^\t]+[a-z][^\t]+.+$
+\1\t\3\n\2\t\3

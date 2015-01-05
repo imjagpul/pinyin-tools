@@ -1,0 +1,271 @@
+
+list untagged chars only
+
+when adding new, do not remove what already entered (composition)
+
+HRER : reimporting components. next step> 
+mass replace html to [] syntax
+
+!keyword list
+ (
+   old reimport:
+    颗	<b>number of satellites</b><br/>(A kid supposed to study biology.) A <span style="font-weight:600;">page </span>with <span style="font-weight:600;">fruits</span>, how boring... &quot;Do you know, what <span style="font-weight:600;">number of satellites </span>are there on the sky?&quot; The <span style="font-weight:600; color:#ff0000;">giant</span> closed the <span style="font-weight:600; color:#ff0000;">curtain </span>(to help him concentrate on the subject).<br/>fruit 果 + page 页
+    
+    compomenent or keyword:
+    <span style="font-weight:600;"></span>
+    soundword or archetype:
+    <span style="font-weight:600; color:#ff0000;">     
+ )
+
+////
+
+sorting steps:
+  
+  maintenance
+    *reimport?
+     (would having the soundswords be helpful? but from where should they be extracted?)
+    ALT:
+     *reformat the hard way
+     *then import soundwords
+     *then manual fill soundwords
+     *maintenance / list
+                  / autocorrect button
+     
+   
+   *mnemonics rules
+   *check: correspondence of transcription and given rules for mnemonics  
+
+
+steps:
+ optimize annotator (precached for offline)
+ 					(a solution for kindle)
+                     (old:char only kindle - hopefully faster)
+ user registration and profiles
+ sort the systems
+ lang8style
+  
+generalize systems:
+ (list of pinyins => keywords and archetypes) [c] to markup no link
+ 
+make texts easy!
+ add bible first
+ 
+refactor output:
+   show in browser
+   generate offline page
+   generate offline page - non-js
+   //generate .mobi file
+
+post the recommendations on blog and add links on char/matthews
+remove hardcoded simplified
+wheel as options (above the dictionaries)
+
+  @ INET: cosmetics browse 
+     Browse:
+                                                                Filter
+       NAME         editor: USERNAME   Browse Favorite Hide (icons)
+        TARGET
+        SHORTDESC
+  @ INET: style username in browse (gray, link, right position) 
+     onclick name - show desc
+     
+
+DONE:嚎
+DB_SORT:  MAKE mnemonic: 戍蔑缄幔 榨 忤粹 add as representative: 棘
+蔑 澎湃痍 (cely jeremiah) 
+
+add lookup> mark szstems as favorite, hide, pagination for lookup
+
+troubles:
+//FF sucks for big files b) slow  
+// 1) input output b) job queue
+ 
+db is confusing
+ 2) do the parsing
+ 
+GUI is ugly
+ *main page - at least four lines per paragraph (co takhle to postnout na lng8,aby to zkontrolovali)
+            * add images to illustrate the titles
+ 			* start with a simple pic - what this does (inspired by lang8.com)
+ *Settings - remove the tab and add it next to the logged in box instead
+quickpub:
+ registration
+ 
+ 
+keyword in html output has to be escaped (") (?)
+
+adding
+ system - a change link (as a part of non-js interface)
+
+==USEFUL
+texts
+caching
+
+
+order:  
+1.texts - add a few classics with sound from librivox; add canotnese + note
+ *just cosmetics - apply the plugin
+ *needs to have cahcing annotator implemented first
+ *import the giles
+2. demo page
+ *cometics - line by line
+ *test notice and link to soft and online service 
+ *parse http://en.wikisource.org/wiki/San_Tzu_Ching/San_Tzu_Ching , add as a mnemonic sistem
+3. users registration
+
+4. menu e.g. in char/index
+pub
+5. sort
+
+TO TEST:
+You may need to run the texts through an aligner like LF aligner first.
+http://aligner.sourceforge.net/
+
+
+TEXTS to add:
+~/Data/javaprojekty/PinyinToolsDb/data/texts
+
+https://librivox.org/three-classic-chinese-texts/
+
+https://librivox.org/multilingual-short-story-collection-001/
+
+sanzijing: http://www.gutenberg.org/ebooks/25160
+ 
+wuxia
+
+http://www.yellowbridge.com/literature/
+
+PARTS:
+nice menu
+
+PRESENTATION:
+
+index char
+*make usable (with menu, nicer lists)
+*down by radicals data
+*(add by Hessing)
+~/Data/javaprojekty/PinyinToolsDb/data/HSK
+
+quick bugs:
+DONE: *resolve bug afte rlogin " not authorized"
+*tune bugs in menu
+*keyword binding - suggests bad chars
+ add bug new char - compositions, when you do not fill keyword, other input is not kept
+ why fails? http://localhost/pt/s/drag 
+display char
+*make nice (e.g. http://localhost/pt/s/%E4%B8%AA )
+ 
+lookup char
+*make compositions nice
+#_detail.php :  make look nicer (a merge from GoldenDict#Modern look and Matthews PDF book styles)
+  ##compomentns not underlined (maybe; or maybe keywords only) 
+ 
+ edit chars:
+ *No results found => no comps set
+ *when adding comp manually, "No results found" stay
+ *delete stopped working as ajax
+*add char compositions
+ 1. tips descriptions
+ 2. implement non-javascript interface (suggest; CompositionsEditor: add, remove)
+
+user registration
+*add system
+*show system
+*user settings
+
+annot: kindle (odf) 
+
+mass import
+export
+              (PR_COSMETICS)
+*about -> image on title page 
+       DONE: -> tweet-friendly; rule of 3; tell stories (; 1h)
+       -> links to blog
+
+*Edit (PR_WIS)
+ Wysiwig ;2h
+ 
+*Usage tips
+ how to start (pick a system, import)
+ read with annotator
+  
+*Annotator (5h)(WD_ANN)
+ View.php: Note (tightly connected with )
+ link to example texts
+ *online
+   *settings (which system)
+   *direct input
+   *example text
+   
+   *direct output
+   //*kindlegen output //zatim jenom link na offline, az bude webserver, tak to zprovoznit
+   //   *txt uplaod
+ *offline
+ "Kindle dictionary"
+   (run PC or read online)
+   (don't have I kindle? maybe it's time to *get one*)
+   (but of course you can use any mobile device, if you don't mind reading out of LCD screens)
+*Text examples (2h)(PR_TEXTS)
+  bible
+  wuxia
+  normal books
+  classics
+
+WEB DEVELOP:
+
+CURRENT:
+testcase:
+你
+晏
+蠹
+
+*hide compositions
+
+ 
+*lastchange
+
+*dictionary results link
+ *in settings trad/simpl
+
+
+#user settings:
+##prefered pinyin format (fu4 fú )
+**traditional / simplified preference
+
+#hide php extension
+
+ANNOTATOR DEVELOP (after pub):
+*cantonese dict - convert from stardict
+
+^ Settings / browser: default / spec 
+^ Show in browser | Save as - GUI design
+
+*notes more user friendly (some kind of gui editor)
+^^ list untagged
+^^ tag editing support
+
+*make colorsdialog nicer (a color chooser and layout more regular)
+*a nice chinese icon
+
+DB_SORT (wild estimate: 30h; need to measure time speed):
+Matthews : set all subcompositions (80/388 #100)
+go throught all, inspect, merge old and new
+
+#add japanese, korean; hessig etc.
+#Matthews sort, add mnemos as private; maybe (ask) even public
+
+AFTER PUB
+
+Refactoring:
+add "with" on correct places
+delete "search" methods
+convert DictionaryWidget & LoginForm to CPortlet subclasses
+(maybe) replace all DBCriteria::compare with DBCriteria::addCondition  (or at least make sure "like" is not used)
+performance : link assets
+
+
+
+PROPAGATION:
+SEE PUBLICATION
+
+http://hktv.cc/hp/cantonesetojyutping/
