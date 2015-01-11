@@ -1,0 +1,4 @@
+ edit chars:
+ *No results found => no comps set
+ *when adding comp manually, "No results found" stay
+ *delete stopped working as ajax

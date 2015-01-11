@@ -1,0 +1,6 @@
+Refactoring:
+add "with" on correct places
+delete "search" methods
+convert DictionaryWidget & LoginForm to CPortlet subclasses
+(maybe) replace all DBCriteria::compare with DBCriteria::addCondition  (or at least make sure "like" is not used)
+performance : link assets

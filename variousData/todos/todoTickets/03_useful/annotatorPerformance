@@ -1,0 +1,15 @@
+CACHING
+optimize annotator (precached for offline)
+ 					(a solution for kindle)
+                     (old:char only kindle - hopefully faster)
+
+                     
+//FF sucks for big files b) slow  
+// 1) input output b) job queue
+ 
+refactor output:
+   show in browser
+   generate offline page
+   generate offline page - non-js
+   //generate .mobi file
+                     

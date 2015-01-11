@@ -1,0 +1,44 @@
+
+NEXT STEP:
+reimporting components. next step> 
+mass replace html to [] syntax
+
+OLD WORKPLANS:
+  
+  maintenance
+    *reimport?
+     (would having the soundswords be helpful? but from where should they be extracted?)
+    ALT:
+     *reformat the hard way
+     *then import soundwords
+     *then manual fill soundwords
+     *maintenance / list
+                  / autocorrect button
+     
+
+
+
+INDIVIDUAL DATA:
+DONE:嚎
+DB_SORT:  MAKE mnemonic: 戍蔑缄幔 榨 忤粹 add as representative: 棘
+蔑 澎湃痍 (cely jeremiah) 
+
+CLOUD WORK:
+DB_SORT (wild estimate: 30h; need to measure time speed):
+Matthews : set all subcompositions (80/388 #100)
+go throught all, inspect, merge old and new
+
+
+
+EXAMPLES:
+
+!keyword list
+ (
+   old reimport:
+    颗	<b>number of satellites</b><br/>(A kid supposed to study biology.) A <span style="font-weight:600;">page </span>with <span style="font-weight:600;">fruits</span>, how boring... &quot;Do you know, what <span style="font-weight:600;">number of satellites </span>are there on the sky?&quot; The <span style="font-weight:600; color:#ff0000;">giant</span> closed the <span style="font-weight:600; color:#ff0000;">curtain </span>(to help him concentrate on the subject).<br/>fruit 果 + page 页
+    
+    compomenent or keyword:
+    <span style="font-weight:600;"></span>
+    soundword or archetype:
+    <span style="font-weight:600; color:#ff0000;">     
+ )

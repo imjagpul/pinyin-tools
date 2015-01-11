@@ -1,0 +1,8 @@
+e.g. http://localhost/pt/s/%E4%B8%AA
+
+(inspired by book and taglich)
+
+lookup char
+*make compositions nice
+#_detail.php :  make look nicer (a merge from GoldenDict#Modern look and Matthews PDF book styles)
+  ##compomentns not underlined (maybe; or maybe keywords only) 

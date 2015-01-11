@@ -1,0 +1,9 @@
+  @ INET: cosmetics browse 
+     Browse:
+                                                                Filter
+       NAME         editor: USERNAME   Browse Favorite Hide (icons)
+        TARGET
+        SHORTDESC
+  @ INET: style username in browse (gray, link, right position) 
+     onclick name - show desc
+
