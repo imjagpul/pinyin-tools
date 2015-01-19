@@ -2,6 +2,7 @@
 
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
+//Yii::setPathOfAlias('user','modules/user');
 
 // require('components/Utilities.php'); //@TODO make it work
 // maybe we need to use 
@@ -47,6 +48,10 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		//the users plugin
+// 		'application.modules.user.*',
+		'application.modules.user.models.*',
+		'application.modules.user.components.*',
 	),
 
 	'modules'=>array(
@@ -58,14 +63,48 @@ return array(
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
+
+		'user'=>array(
+				# encrypting method (php hash function)
+				'hash' => 'sha512',
 		
+				# send activation email
+				'sendActivationMail' => false,
+		
+				# allow access for non-activated users
+				'loginNotActiv' => true,
+		
+				# activate user on registration (only sendActivationMail = false)
+				'activeAfterRegister' => true,
+		
+				# automatically login from registration
+				'autoLogin' => true,
+		
+				# registration path
+				'registrationUrl' => array('/user/registration'),
+		
+				# recovery password path
+				'recoveryUrl' => array('/user/recovery'),
+		
+				# login form path
+				'loginUrl' => array('/user/login'),
+		
+				# page after login
+				'returnUrl' => array('/user/profile'),
+		
+				# page after logout
+				'returnLogoutUrl' => array('/user/login'),
+		),
+				
 	),
 
 	// application components
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
+                'class' => 'WebUser',
+                'allowAutoLogin'=>true,
+                'loginUrl' => array('/user/login'),
 		),
 		 
 		'urlManager'=>array(
@@ -83,6 +122,7 @@ return array(
 			'username' => 'cndbuser',
 			'password' => 'cndbuserpwd',
 			'charset' => 'utf8',
+			'tablePrefix' => '',			
 		),
 		
 		'errorHandler'=>array(
@@ -92,7 +132,9 @@ return array(
 		
 		'assetManager' => array(
 				'linkAssets' => false,
-		),		
+		),
+
+		
 /*
 		'log'=>array(
 			'class'=>'CLogRouter',
