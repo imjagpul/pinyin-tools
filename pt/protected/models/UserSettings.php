@@ -20,6 +20,13 @@
 class UserSettings extends CActiveRecord
 {
 	/**
+	 * Which dictionaries have been checked when annotator was used last.
+	 * 
+	 * @var Array[Integer => Boolean] [id => set]
+	 */
+	private $lastAnnotatorDictionariesCache=NULL;
+	
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -127,8 +134,21 @@ class UserSettings extends CActiveRecord
 	 * Which dictionaries have been selected last time annotator was used.
 	 */
 	public function getLastAnnotatorDictionaries() {
-		$result=UserSettingsDictionaries::model()->findAllByAttributes(array('userId'=>$this->userId,
-				'annotator'=>1));
+		$result=$this->lastAnnotatorDictionariesCache;
+		
+		if($result==NULL) { 
+			if(!empty($this->userId)) {
+				//pull it out of db (if an user is logged in)
+				$result=UserSettingsDictionaries::model()->findAllByAttributes(array('userId'=>$this->userId,
+						'annotator'=>1));
+				$result=CHtml::listData($result,'dictionaryId','dictionaryId');
+				$this->lastAnnotatorDictionariesCache=$result;
+			} else {
+				//return default value;
+				$result = array("1"); 
+			}
+		}
+		
 		return $result;
 	}
 	
@@ -137,12 +157,20 @@ class UserSettings extends CActiveRecord
 	 * @param array $newValues array of ids
 	 */
 	public function setLastAnnotatorDictionaries($newValues) {
-
+		$this->lastAnnotatorDictionariesCache=$newValues;
+	}
+	
+	private function saveLastAnnotatorDictionaries() {
+		//do nothing if nothing to save
+		$newValues=$this->lastAnnotatorDictionariesCache;
+		if(is_null($newValues)) {
+			return;
+		}
+		
 		//set all dictionaries (that have a settings entry) to false
 		//NOTE by NOT including the addNotInCondition the $updatedCount (below) gives correct values 
 		$criteria=new CDbCriteria();
 		$criteria->compare('userId', $this->userId);
-// 		$criteria->addNotInCondition('dictionaryId', $newValues);
 		UserSettingsDictionaries::model()->updateAll(array('annotator'=>0), $criteria);
 		
 		//set all selected dictionaries (that have a settings entry) to true
@@ -224,8 +252,8 @@ class UserSettings extends CActiveRecord
 		if(!Yii::app()->user->isGuest) { //guest settings are not saved into any persistent storage (they are kept only in the current session)
 			//this is relevant when saving the settings for the first time per user
 			$this->userId=Yii::app()->user->getId(); //@TODO not sure if this is the correct place to set it, maybe when filling with default values would be better
-			
 			$this->save(false);  //no validation needed
+			$this->saveLastAnnotatorDictionaries(); //also save subsettings
 		}
 	}
 }
