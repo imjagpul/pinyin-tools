@@ -53,7 +53,8 @@ $cs->registerCssFile($baseUrl.'/css/main-gi.css');
 
 <div class="row">
 	<?php
-	echo CHtml::checkBoxList('selectedDictionaries', CHtml::listData($selectedDicts,'dictionaryId','dictionaryId'), CHtml::listData($allDicts,'id','name'));
+	echo CHtml::checkBoxList('selectedDictionaries', $selectedDicts, CHtml::listData($allDicts,'id','name'));
+	//echo CHtml::checkBoxList('selectedDictionaries', CHtml::listData($selectedDicts,'dictionaryId','dictionaryId'), CHtml::listData($allDicts,'id','name'));
 	?> 
 </div>
 <?php } ?>	
