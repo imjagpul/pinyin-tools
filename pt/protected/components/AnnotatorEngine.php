@@ -1,8 +1,8 @@
 <?php
 class AnnotatorEngine {
-	const ignoredCharsJs=" \\\",.;'!ă€‚ďĽŚă€Šă€‹â€¦ďĽšâ€śâ€ťďĽźďĽ�ă€€0"; //withonut newlines and with escaped quote
-	const ignoredChars=" \n\t\r\",.;'!ă€‚ďĽŚă€Šă€‹â€¦ďĽšâ€śâ€ťďĽźďĽ�ă€€0"; // @TODO complement special asian characters
-	
+	const ignoredCharsJs=" \\\",.;'!。，《》…：“”？！　0"; //withonut newlines and with escaped quote
+	const ignoredChars=" \n\t\r\",.;'!。，《》…：“”？！　0"; // @TODO complement special asian characters
+		
 	public $parent;
 	public $input;
 	public $systemID;
