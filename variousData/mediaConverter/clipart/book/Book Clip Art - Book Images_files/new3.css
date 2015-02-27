@@ -1,0 +1,72 @@
+/* Effective stylesheet produced by snapshot save */
+html, body { background-color: rgb(255, 255, 255); margin: 0px; padding: 0px; color: rgb(62, 53, 44); font-family: Georgia; font-size: 14px; text-align: center; min-height: 100%; }
+p { color: rgb(62, 53, 44); font-family: Georgia; font-size: 16px; text-align: left; padding: 1px; background-color: rgb(238, 238, 238); }
+p a { color: rgb(62, 53, 44); }
+p a:link { color: rgb(62, 53, 44); }
+p a:visited { color: rgb(62, 53, 44); }
+p a:hover { color: rgb(62, 53, 44); }
+a:link { color: rgb(62, 53, 44); text-decoration: none; }
+a:visited { color: rgb(62, 53, 44); text-decoration: none; }
+a:hover {  }
+a:active { color: rgb(62, 53, 44); text-decoration: none; }
+img { border: 0px none; }
+#wrapper { margin: 0px auto ! important; width: 1000px; position: relative; }
+h1 { margin: 0px; font-weight: normal; font-size: 16px; font-family: Georgia; color: rgb(62, 53, 44); display: inline; }
+h1 a { color: rgb(62, 53, 44); }
+h1 a:link { color: rgb(62, 53, 44); }
+h1 a:visited { color: rgb(62, 53, 44); }
+h1 a:hover { color: rgb(62, 53, 44); }
+#container { width: 1000px; background-color: rgb(255, 255, 255); min-height: 100%; float: left; }
+#header { width: 1000px; height: 100px; background-color: rgb(255, 255, 255); }
+#lefthead-div { float: right; width: 600px; height: 100px; text-align: left; }
+#middle-div { float: left; width: 310px; height: 100px; }
+#content2 { width: 833px; background-color: rgb(255, 255, 255); margin: 7px auto 0px; text-align: center; position: relative; }
+.leftcat-box2 { margin-bottom: 2px; float: left; width: 160px; margin-top: 2px; position: relative; }
+.content-box2 { margin-bottom: 2px; width: 833px; float: right; position: relative; margin-top: 5px; background-color: rgb(255, 255, 255); }
+#breadcrumbs { width: 98%; background: none repeat scroll 0% 0% rgb(2, 121, 147); padding: 1px; font-family: Times New Roman; font-size: 16px; font-weight: normal; text-align: left; color: rgb(255, 255, 255); margin-left: 3px; margin-bottom: 7px; }
+#breadcrumbs a:active, a:link, a:visited { color: rgb(255, 255, 255); }
+#breadcrumbs a:hover { color: rgb(120, 218, 236); }
+.cat2 { display: block; width: 160px; background-color: rgb(2, 121, 147); float: left; font-size: 16px; text-align: center; color: rgb(255, 255, 255); font-family: Georgia; height: 20px; padding: 2px; }
+.cat2 a { color: rgb(255, 255, 255); }
+.cat2 a:visited { color: rgb(255, 255, 255); }
+.cat2 a:active { color: rgb(255, 255, 255); }
+.leftnav2 { display: block; width: 160px; padding: 2px 0px 4px; float: left; font-size: 16px; text-align: center; color: rgb(62, 53, 44); margin-top: 10px; margin-left: 2px; font-family: Georgia; }
+ul.leftnav2 { font-size: 0.95em; float: left; width: 160px; margin: 0px 0px 0px 2px; list-style: outside none none; background: none repeat scroll 0% 0% rgb(255, 255, 255); text-align: left; color: rgb(62, 53, 44); }
+.leftnav2 a:link { color: rgb(62, 53, 44); }
+.leftnav2 a:visited { color: rgb(62, 53, 44); }
+ul.leftnav2 li a { display: block; text-decoration: none; width: 160px; padding: 0px; list-style: outside none none; text-align: left; color: rgb(62, 53, 44); }
+ul.leftnav2 li a:hover { color: rgb(243, 109, 134); }
+#footer { width: 1000px; background-color: rgb(128, 105, 88); color: rgb(255, 255, 255); text-align: left; clear: both; padding: 1px; height: 160px; border-top: 5px solid rgb(210, 246, 254); margin-top: 65px; }
+#footer a { color: rgb(255, 255, 255); }
+#footer a:visited { color: rgb(255, 255, 255); }
+#footer a:hover { color: rgb(243, 109, 134); text-decoration: underline; }
+#footerLeft { width: 323px; float: left; margin-top: 5px; border-right: 1px solid rgb(255, 255, 255); height: 140px; }
+#footerMiddle { width: 323px; float: left; margin-top: 5px; border-right: 1px solid rgb(255, 255, 255); height: 140px; }
+#footerRight { width: 323px; float: right; margin-top: 5px; height: 140px; font-size: 12px; }
+.footerTitle { font-size: 18px; color: rgb(255, 255, 255); width: 323px; text-align: center; font-weight: bold; }
+.info { float: left; width: 600px; text-align: left; font-size: 12px; margin-top: 5px; }
+.info a { color: rgb(62, 53, 44); }
+.info a:visited { color: rgb(62, 53, 44); }
+.info a:hover { color: rgb(243, 109, 134); text-decoration: underline; }
+.info p { text-align: center; }
+#topBar { width: 1000px; background-color: rgb(2, 121, 147); margin: 0px; padding: 0px; text-align: left; height: 25px; text-decoration: none; font-size: 18px; font-family: Georgia; color: rgb(255, 255, 255); }
+#topBar ul.nav { position: absolute; display: inline; padding: 0px; margin: 0px; float: left; width: 1000px; height: 25px; list-style-type: none; }
+#topBar ul.nav li { background: none repeat scroll 0% 0% transparent; padding: 0px; float: left; width: 140px; text-align: center; border-right: 1px solid rgb(255, 255, 255); list-style-type: none; }
+#topBar ul.nav li a { padding: 2px 6px; margin: 0px; display: block; text-decoration: none; font-size: 18px; font-family: Georgia; color: rgb(255, 255, 255); }
+#topBar ul.nav li a:hover, ul.nav li a:active { color: rgb(199, 209, 120); }
+#topBarLeft { float: left; width: 700px; margin: 0px; }
+#topBarRight { float: right; width: 275px; margin: 0px; }
+#topBar2 { width: 833px; background-color: rgb(255, 255, 255); margin: 17px 0px; padding: 0px; text-align: center; height: 108px; }
+div.col { margin: 1px; border: 1px solid rgb(238, 238, 238); float: left; text-align: center; width: 160px; height: 175px; }
+div.col img { display: inline; margin: 3px; }
+div.desc { text-align: center; width: 160px; margin: 1px; background: none repeat scroll 0% 0% rgb(238, 238, 238); color: rgb(62, 53, 44); }
+.desc a { color: rgb(62, 53, 44); }
+.desc a:visited { color: rgb(62, 53, 44); }
+.desc a:hover { color: rgb(243, 109, 134); text-decoration: underline; }
+div.col3 { margin: 1px; border: 1px solid rgb(238, 238, 238); float: left; text-align: center; width: 125px; height: 155px; }
+div.col3 a:visited { color: rgb(62, 53, 44); }
+div.descFront { text-align: center; width: 125px; margin: 1px; background: none repeat scroll 0% 0% rgb(238, 238, 238); }
+.descFront a { color: rgb(62, 53, 44); }
+.descFront a:visited { color: rgb(62, 53, 44); }
+.descFront a:hover { color: rgb(243, 109, 134); text-decoration: underline; }
+#mightLike { width: 530px; background-color: transparent; padding: 2px; font-family: Georgia; font-size: 20px; color: rgb(4, 174, 210); text-align: left; margin: 15px 0px 5px 1px; float: left; border-top: 1px solid rgb(2, 121, 147); }

@@ -1,0 +1,62 @@
+@charset "ISO-8859-1";
+/* Effective stylesheet produced by snapshot save */
+.miniColors-trigger { height: 22px; width: 22px; background: url("colors.png") no-repeat scroll -20px 0px transparent; vertical-align: middle; margin: 0px 0.25em; display: inline-block; outline: medium none; }
+#search_page { margin: 0px auto; width: auto; }
+#search_page img { border: 1px solid rgb(204, 204, 204); }
+#loading { width: 800px; min-height: 600px; display: none; text-align: center; font-size: 25px; color: rgb(204, 204, 204); font-family: Arial,Helvetica,sans-serif; padding-top: 200px; }
+#file_view { display: none; min-height: 400px; margin: 0px auto; }
+#no_results { display: none; min-height: 400px; }
+#search_results #next_button { display: inline-block; vertical-align: top; text-align: center; cursor: pointer; font-size: 23px; color: rgb(185, 185, 185); margin: 5px; }
+#search_results #next_button img { border: 0px none; }
+#search_results #next_button img.tail { height: 97px; width: 75px; }
+#search_results #next_button img.head { height: 97px; width: 52px; }
+.h1lookalike { font-size: 18px; font-weight: bold; margin: 0px; padding: 0pc 0pc 10px; color: rgb(0, 0, 0); }
+#middle.full_screen { max-width: none; min-width: 0px; }
+#middle.full_screen div#body { margin-left: 190px; float: none; width: auto; }
+div.search_nav { border-radius: 5px; margin: 0px; padding: 5px 10px; background-color: rgb(240, 240, 240); line-height: 19px; font-size: 11px; height: 38px; }
+div.search_nav div.left, div.search_nav div.right, div.search_nav div.center { display: inline-block; vertical-align: top; text-align: left; width: 25%; }
+div.search_nav div.right { text-align: right; }
+div.search_nav div.center { text-align: center; padding-top: 5px; font-size: 12px; width: 50%; }
+div.search_nav div.left select, div.search_nav div.right select { font-size: 11px; }
+div.search_nav div.center input.current_page { width: 30px; }
+div.search_nav div.center span.back_page, div.search_nav div.center span.next_page { background-color: rgb(75, 145, 214); line-height: 30px; font-weight: bold; margin: 0px 10px; font-size: 14px; cursor: pointer; color: rgb(255, 255, 255); width: 100px; border: medium none; padding: 5px; }
+div.search_nav div.center span.back_page { border-radius: 10px 0px 0px 10px; }
+div.search_nav div.center span.next_page { border-radius: 0px 10px 10px 0px; }
+#search_page_contents { padding: 0px 5px; min-height: 550px; }
+#search_results { font-size: 10px; margin: 3px 0px; }
+#search_results div.grid-next { display: none; }
+#search_results .img_container { display: inline-block; vertical-align: top; text-align: center; cursor: pointer; margin: 5px; color: rgb(102, 102, 102); }
+#search_results .img_container a { text-decoration: none; display: inline-block; color: rgb(153, 153, 153); }
+#search_results .img_container .titl { max-height: 25px; line-height: 12px; overflow: hidden; display: block; }
+#middle { max-width: none; padding: 10px 0px 0px; width: 100%; }
+#search_results.results-grd div.img_container { background-color: rgb(235, 235, 235); border: 1px solid rgb(235, 235, 235); overflow: hidden; padding: 0px; margin: 2px; height: auto; width: auto; }
+#search_results.results-grd div.img_container span.titl { display: none; }
+#search_results.results-grd div.img_container span.thumb-container { overflow: hidden; }
+#search_results.results-grd div.img_container span.thumb-container img { border: medium none; }
+#search_results.results-grd #next_button { display: none; }
+#search_results.results-grd div.grid-next { background-color: rgb(235, 235, 235); border: 1px solid rgb(235, 235, 235); display: inline-block; padding-right: 10px; padding-left: 10px; cursor: pointer; margin: 2px; }
+#search_results.results-grd div.grid-next div.grid-next-arrow { background-color: rgb(204, 204, 204); vertical-align: middle; display: inline-block; white-space: nowrap; text-align: center; padding: 14px 0px; margin: 20px 0px; font-size: 20px; color: rgb(255, 255, 255); }
+#search_results.results-grd div.grid-next div.grid-next-arrow-head { border-color: transparent transparent transparent rgb(204, 204, 204); border-width: 45px 0px 45px 70px; vertical-align: middle; display: inline-block; border-style: solid; height: 0px; width: 0px; }
+#sidebar { border-radius: 5px; background-color: rgb(255, 255, 255); border: 1px solid rgb(219, 219, 219); width: 170px; }
+#sidebar > ul > li.last { margin-bottom: 5px; border: medium none; }
+#sidebar > .title { color: rgb(0, 0, 0); text-align: center; }
+#sidebar > ul { list-style: outside none none; padding: 0px; margin: 0px; }
+#sidebar > ul > li { background: none repeat scroll 0% 0% rgb(255, 255, 255); padding-left: 5px; margin-left: 5px; font-size: 12px; }
+#sidebar input, #sidebar select { border-radius: 3px; background-color: rgb(255, 255, 255); border: 1px solid rgb(153, 193, 255); width: 150px; }
+#sidebar_term { padding-left: 3px; font-size: 12px; }
+#sidebar label { border-radius: 5px; font-size: 11px; display: block; }
+#sidebar label > input { width: auto; border: 0px none; }
+#artist_suggest { background-color: rgb(255, 255, 255); border: 1px solid gray; position: absolute; list-style: outside none none; display: none; z-index: 2500; padding: 0px; width: 150px; margin: 0px; }
+#artist_suggest li { padding: 3px 2px; }
+#sidebar > #csp_includes { border-radius: 5px; background-color: rgb(255, 255, 255); position: absolute; margin-top: 20px; color: rgb(102, 102, 102); padding: 5px; width: 160px; }
+#sidebar > #csp_includes > .stat { padding-top: 7px; font-size: 11px; font-style: italic; }
+span.help-small { background: url("sprite.png") no-repeat scroll -142px -100px transparent; display: inline-block; cursor: pointer; height: 16px; float: right; width: 16px; }
+#sidebar #sidebar_color_row #sidebar_color { vertical-align: middle; font-family: monospace; width: 60px; }
+#sidebar #sidebar_color_row #sidebar_color_controls { display: inline-block; text-align: center; padding-left: 6px; font-size: 0.9em; cursor: pointer; color: blue; }
+#sidebar #sidebar_color_row div.color-container { position: relative; }
+a.miniColors-trigger.empty { background-position: -20px -44px; }
+#sidebar_copyspace { margin: 2px 26px; width: 96px; }
+#sidebar_copyspace div.space { background-color: rgb(204, 204, 204); border: 1px solid rgb(255, 255, 255); display: inline-block; height: 20px; width: 30px; }
+h1 { padding-bottom: 20px; }
+li { padding: 0px; margin: 0px; line-height: normal; }
+ul { padding: 0px 0px 0px 10px; margin: 0px; }

@@ -1,0 +1,33 @@
+/* Effective stylesheet produced by snapshot save */
+html, body { color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-family: sans-serif; }
+a:link { color: rgb(0, 0, 255); }
+a:visited { color: rgb(136, 0, 136); }
+a:active { color: rgb(0, 0, 255); }
+img { border: medium none; }
+table { width: 100%; margin: 0px; border: medium none; }
+table.auto { width: auto; }
+tr, td, th { vertical-align: top; }
+th { white-space: nowrap; }
+.vc_icon { width: 16px; height: 16px; border: medium none; padding: 0px 1px; }
+.vc_navheader { background-color: rgb(204, 204, 204); padding: 0.25em; }
+.vc_navheader .pathdiv { padding: 0px 3px; }
+.vc_header { text-align: left; vertical-align: top; background-color: rgb(204, 204, 204); }
+.vc_header_sort { text-align: left; background-color: rgb(136, 255, 136); }
+.vc_row_even { background-color: rgb(255, 255, 255); }
+.vc_row_odd { background-color: rgb(240, 240, 240); }
+.vc_log { white-space: pre-wrap; word-wrap: break-word; }
+.vc_properties { margin: 1em 0px; }
+.vc_properties h2 { font-size: 115%; }
+.vc_summary { background-color: rgb(238, 238, 238); }
+#vc_file td { border-right-style: solid; border-right-color: rgb(80, 80, 80); text-decoration: none; font-weight: normal; font-style: normal; padding: 1px 5px; }
+.vc_file_line_number { border-right-width: 1px; background-color: rgb(238, 238, 238); color: rgb(80, 80, 80); text-align: right; }
+.vc_file_line_text { border-right-width: 0px; background-color: white; font-family: monospace; text-align: left; white-space: pre; width: 100%; }
+.pygments-c { color: rgb(64, 128, 128); font-style: italic; }
+.pygments-k { color: rgb(0, 128, 0); font-weight: bold; }
+.pygments-o { color: rgb(102, 102, 102); }
+.pygments-nb { color: rgb(0, 128, 0); }
+.pygments-nv { color: rgb(25, 23, 124); }
+.pygments-sb { color: rgb(186, 33, 33); }
+.pygments-s2 { color: rgb(186, 33, 33); }
+.pygments-se { color: rgb(187, 102, 34); font-weight: bold; }
+.pygments-s1 { color: rgb(186, 33, 33); }

@@ -1,0 +1,3483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><!-- ViewVC :: http://www.viewvc.org/ --><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>[mediawiki] Contents of /trunk/phase3/includes/zhtable/Makefile</title>
+<meta name="generator" content="ViewVC 1.1.5">
+<link rel="shortcut icon" href="%5Bmediawiki%5D%20Contents%20of%20_trunk_phase3_includes_zhtable_Makefile_files/favicon.ico.html" type="image/x-icon">
+<link rel="stylesheet" href="%5Bmediawiki%5D%20Contents%20of%20_trunk_phase3_includes_zhtable_Makefile_files/styles.css" type="text/css">
+
+</head>
+<body>
+<div class="vc_navheader">
+<table><tbody><tr>
+<td><strong><a href="http://svn.wikimedia.org/viewvc"><span class="pathdiv">/</span></a><a href="http://svn.wikimedia.org/viewvc/mediawiki/">[mediawiki]</a><span class="pathdiv">/</span><a href="http://svn.wikimedia.org/viewvc/mediawiki/trunk/">trunk</a><span class="pathdiv">/</span><a href="http://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/">phase3</a><span class="pathdiv">/</span><a href="http://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/includes/">includes</a><span class="pathdiv">/</span><a href="http://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/includes/zhtable/">zhtable</a><span class="pathdiv">/</span><a href="http://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/includes/zhtable/Makefile?view=log">Makefile</a></strong></td>
+<td style="text-align: right;"></td>
+</tr></tbody></table>
+</div>
+<div style="float: right; padding: 5px;"><a href="http://www.viewvc.org/" title="ViewVC Home"><img src="%5Bmediawiki%5D%20Contents%20of%20_trunk_phase3_includes_zhtable_Makefile_files/viewvc-logo.png" alt="ViewVC logotype" height="70" width="240"></a></div>
+<h1>Contents of /trunk/phase3/includes/zhtable/Makefile</h1>
+
+<p style="margin:0;">
+
+<a href="http://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/includes/zhtable/"><img src="%5Bmediawiki%5D%20Contents%20of%20_trunk_phase3_includes_zhtable_Makefile_files/back_small.png" class="vc_icon" alt="Parent Directory"> Parent Directory</a>
+
+| <a href="http://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/includes/zhtable/Makefile?view=log"><img src="%5Bmediawiki%5D%20Contents%20of%20_trunk_phase3_includes_zhtable_Makefile_files/log.png" class="vc_icon" alt="Revision Log"> Revision Log</a>
+
+
+
+
+</p>
+
+<hr>
+<div class="vc_summary">
+Revision <a href="http://svn.wikimedia.org/viewvc/mediawiki?view=revision&amp;revision=50768"><strong>50768</strong></a> -
+(<a href="http://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/includes/zhtable/Makefile?annotate=50768"><strong>show annotations</strong></a>)
+(<a href="http://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/includes/zhtable/Makefile?revision=50768&amp;view=co"><strong>download</strong></a>)
+
+
+<br><em>Tue May 19 14:54:49 2009 UTC</em>
+(5 years, 8 months ago)
+by <em>shinjiman</em>
+
+
+
+
+
+
+
+<br>File size: 16700 byte(s)
+
+
+
+
+
+
+<pre class="vc_log">changing the Unihan.zip source from ftp to http in order to getting more stable download.</pre>
+
+</div>
+
+
+
+
+
+
+<div id="vc_file">
+<table cellpadding="0" cellspacing="0">
+
+
+
+
+
+
+
+
+<tbody><tr class="vc_row_odd" id="l1">
+<td class="vc_file_line_number">1</td>
+
+<td class="vc_file_line_text"><span class="pygments-c">#</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l2">
+<td class="vc_file_line_number">2</td>
+
+<td class="vc_file_line_text"><span class="pygments-c"># Creating the file ZhConversion.php used for Simplified/Traditional</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l3">
+<td class="vc_file_line_number">3</td>
+
+<td class="vc_file_line_text"><span class="pygments-c"># Chinese conversion. It gets the basic conversion table from the Unihan </span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l4">
+<td class="vc_file_line_number">4</td>
+
+<td class="vc_file_line_text"><span class="pygments-c"># database, and construct the phrase tables using phrase libraries in</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l5">
+<td class="vc_file_line_number">5</td>
+
+<td class="vc_file_line_text"><span class="pygments-c"># the SCIM packages and the libtabe package. There are also special</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l6">
+<td class="vc_file_line_number">6</td>
+
+<td class="vc_file_line_text"><span class="pygments-c"># tables used to for adjustment. </span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l7">
+<td class="vc_file_line_number">7</td>
+
+<td class="vc_file_line_text"><span class="pygments-c">#</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l8">
+<td class="vc_file_line_number">8</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l9">
+<td class="vc_file_line_number">9</td>
+
+<td class="vc_file_line_text"><span class="pygments-nv">GREP</span> <span class="pygments-o">=</span> <span class="pygments-nv">LANG</span><span class="pygments-o">=</span>zh_CN.UTF8 grep
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l10">
+<td class="vc_file_line_number">10</td>
+
+<td class="vc_file_line_text"><span class="pygments-nv">SED</span> <span class="pygments-o">=</span> <span class="pygments-nv">LANG</span><span class="pygments-o">=</span>zh_CN.UTF8 sed
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l11">
+<td class="vc_file_line_number">11</td>
+
+<td class="vc_file_line_text"><span class="pygments-nv">DIFF</span> <span class="pygments-o">=</span> <span class="pygments-nv">LANG</span><span class="pygments-o">=</span>zh_CN.UTF8 diff
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l12">
+<td class="vc_file_line_number">12</td>
+
+<td class="vc_file_line_text">CC ?<span class="pygments-o">=</span> gcc
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l13">
+<td class="vc_file_line_number">13</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l14">
+<td class="vc_file_line_number">14</td>
+
+<td class="vc_file_line_text"><span class="pygments-nv">SF_MIRROR</span> <span class="pygments-o">=</span> easynews
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l15">
+<td class="vc_file_line_number">15</td>
+
+<td class="vc_file_line_text"><span class="pygments-nv">SCIM_TABLES_VER</span> <span class="pygments-o">=</span> 0.5.9
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l16">
+<td class="vc_file_line_number">16</td>
+
+<td class="vc_file_line_text"><span class="pygments-nv">SCIM_PINYIN_VER</span> <span class="pygments-o">=</span> 0.5.91
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l17">
+<td class="vc_file_line_number">17</td>
+
+<td class="vc_file_line_text"><span class="pygments-nv">LIBTABE_VER</span> <span class="pygments-o">=</span> 0.2.3
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l18">
+<td class="vc_file_line_number">18</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l19">
+<td class="vc_file_line_number">19</td>
+
+<td class="vc_file_line_text"><span class="pygments-c"># Installation directory</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l20">
+<td class="vc_file_line_number">20</td>
+
+<td class="vc_file_line_text"><span class="pygments-nv">INSTDIR</span> <span class="pygments-o">=</span> /usr/local/share/zhdaemons/
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l21">
+<td class="vc_file_line_number">21</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l22">
+<td class="vc_file_line_number">22</td>
+
+<td class="vc_file_line_text">all: ZhConversion.php tradphrases.notsure simpphrases.notsure wordlist toHans.dict toHant.dict toCN.dict toTW.dict toHK.dict toSG.dict
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l23">
+<td class="vc_file_line_number">23</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l24">
+<td class="vc_file_line_number">24</td>
+
+<td class="vc_file_line_text"><span class="pygments-c"># Download Unihan database and Traditional Chinese / Simplified Chinese phrases files</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l25">
+<td class="vc_file_line_number">25</td>
+
+<td class="vc_file_line_text">Unihan.zip:
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l26">
+<td class="vc_file_line_number">26</td>
+
+<td class="vc_file_line_text">        wget -nc http://www.unicode.org/Public/UNIDATA/Unihan.zip
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l27">
+<td class="vc_file_line_number">27</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l28">
+<td class="vc_file_line_number">28</td>
+
+<td class="vc_file_line_text">scim-tables-<span class="pygments-k">$(</span>SCIM_TABLES_VER<span class="pygments-k">)</span>.tar.gz:
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l29">
+<td class="vc_file_line_number">29</td>
+
+<td class="vc_file_line_text">        wget -nc http://<span class="pygments-k">$(</span>SF_MIRROR<span class="pygments-k">)</span>.dl.sourceforge.net/sourceforge/scim/scim-tables-<span class="pygments-k">$(</span>SCIM_TABLES_VER<span class="pygments-k">)</span>.tar.gz
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l30">
+<td class="vc_file_line_number">30</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l31">
+<td class="vc_file_line_number">31</td>
+
+<td class="vc_file_line_text">scim-pinyin-<span class="pygments-k">$(</span>SCIM_PINYIN_VER<span class="pygments-k">)</span>.tar.gz:
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l32">
+<td class="vc_file_line_number">32</td>
+
+<td class="vc_file_line_text">        wget -nc http://<span class="pygments-k">$(</span>SF_MIRROR<span class="pygments-k">)</span>.dl.sourceforge.net/sourceforge/scim/scim-pinyin-<span class="pygments-k">$(</span>SCIM_PINYIN_VER<span class="pygments-k">)</span>.tar.gz
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l33">
+<td class="vc_file_line_number">33</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l34">
+<td class="vc_file_line_number">34</td>
+
+<td class="vc_file_line_text">libtabe-<span class="pygments-k">$(</span>LIBTABE_VER<span class="pygments-k">)</span>.tgz:
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l35">
+<td class="vc_file_line_number">35</td>
+
+<td class="vc_file_line_text">        wget -nc http://<span class="pygments-k">$(</span>SF_MIRROR<span class="pygments-k">)</span>.dl.sourceforge.net/sourceforge/libtabe/libtabe-<span class="pygments-k">$(</span>LIBTABE_VER<span class="pygments-k">)</span>.tgz
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l36">
+<td class="vc_file_line_number">36</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l37">
+<td class="vc_file_line_number">37</td>
+
+<td class="vc_file_line_text"><span class="pygments-c"># Extract the file from a comressed files</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l38">
+<td class="vc_file_line_number">38</td>
+
+<td class="vc_file_line_text">Unihan.txt: Unihan.zip
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l39">
+<td class="vc_file_line_number">39</td>
+
+<td class="vc_file_line_text">        unzip -oq Unihan.zip
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l40">
+<td class="vc_file_line_number">40</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l41">
+<td class="vc_file_line_number">41</td>
+
+<td class="vc_file_line_text">EZ.txt.in: scim-tables-<span class="pygments-k">$(</span>SCIM_TABLES_VER<span class="pygments-k">)</span>.tar.gz
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l42">
+<td class="vc_file_line_number">42</td>
+
+<td class="vc_file_line_text">        tar -xzf scim-tables-<span class="pygments-k">$(</span>SCIM_TABLES_VER<span class="pygments-k">)</span>.tar.gz -O scim-tables-<span class="pygments-k">$(</span>SCIM_TABLES_VER<span class="pygments-k">)</span>/tables/zh/EZ-Big.txt.in &gt; EZ.txt.in
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l43">
+<td class="vc_file_line_number">43</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l44">
+<td class="vc_file_line_number">44</td>
+
+<td class="vc_file_line_text">Wubi.txt.in: scim-tables-<span class="pygments-k">$(</span>SCIM_TABLES_VER<span class="pygments-k">)</span>.tar.gz
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l45">
+<td class="vc_file_line_number">45</td>
+
+<td class="vc_file_line_text">        tar -xzf scim-tables-<span class="pygments-k">$(</span>SCIM_TABLES_VER<span class="pygments-k">)</span>.tar.gz -O scim-tables-<span class="pygments-k">$(</span>SCIM_TABLES_VER<span class="pygments-k">)</span>/tables/zh/Wubi.txt.in &gt; Wubi.txt.in
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l46">
+<td class="vc_file_line_number">46</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l47">
+<td class="vc_file_line_number">47</td>
+
+<td class="vc_file_line_text">Ziranma.txt.in: scim-tables-<span class="pygments-k">$(</span>SCIM_TABLES_VER<span class="pygments-k">)</span>.tar.gz
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l48">
+<td class="vc_file_line_number">48</td>
+
+<td class="vc_file_line_text">        tar -xzf scim-tables-<span class="pygments-k">$(</span>SCIM_TABLES_VER<span class="pygments-k">)</span>.tar.gz -O scim-tables-<span class="pygments-k">$(</span>SCIM_TABLES_VER<span class="pygments-k">)</span>/tables/zh/Ziranma.txt.in &gt; Ziranma.txt.in
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l49">
+<td class="vc_file_line_number">49</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l50">
+<td class="vc_file_line_number">50</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l51">
+<td class="vc_file_line_number">51</td>
+
+<td class="vc_file_line_text">phrase_lib.txt: scim-pinyin-<span class="pygments-k">$(</span>SCIM_PINYIN_VER<span class="pygments-k">)</span>.tar.gz
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l52">
+<td class="vc_file_line_number">52</td>
+
+<td class="vc_file_line_text">        tar -xzf scim-pinyin-<span class="pygments-k">$(</span>SCIM_PINYIN_VER<span class="pygments-k">)</span>.tar.gz -O scim-pinyin-<span class="pygments-k">$(</span>SCIM_PINYIN_VER<span class="pygments-k">)</span>/data/phrase_lib.txt &gt; phrase_lib.txt
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l53">
+<td class="vc_file_line_number">53</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l54">
+<td class="vc_file_line_number">54</td>
+
+<td class="vc_file_line_text">tsi.src: libtabe-<span class="pygments-k">$(</span>LIBTABE_VER<span class="pygments-k">)</span>.tgz     
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l55">
+<td class="vc_file_line_number">55</td>
+
+<td class="vc_file_line_text">        tar -xzf libtabe-<span class="pygments-k">$(</span>LIBTABE_VER<span class="pygments-k">)</span>.tgz -O libtabe/tsi-src/tsi.src &gt; tsi.src
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l56">
+<td class="vc_file_line_number">56</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l57">
+<td class="vc_file_line_number">57</td>
+
+<td class="vc_file_line_text"><span class="pygments-c"># Make a word list</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l58">
+<td class="vc_file_line_number">58</td>
+
+<td class="vc_file_line_text">wordlist: phrase_lib.txt EZ.txt.in tsi.src
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l59">
+<td class="vc_file_line_number">59</td>
+
+<td class="vc_file_line_text">        iconv -c -f big5 -t utf8 tsi.src | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/# //g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/[ ][0-9].*//'</span> &gt; wordlist
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l60">
+<td class="vc_file_line_number">60</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(.*\)\t[0-9][0-9]*.*/\1/'</span> phrase_lib.txt | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'1,5d'</span> &gt;&gt; wordlist
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l61">
+<td class="vc_file_line_number">61</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'1,/BEGIN_TABLE/d'</span> EZ.txt.in | colrm 1 8 | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\t.*//'</span> | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"^...*"</span> &gt;&gt; wordlist
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l62">
+<td class="vc_file_line_number">62</td>
+
+<td class="vc_file_line_text">        sort wordlist | uniq | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/ //g'</span> &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l63">
+<td class="vc_file_line_number">63</td>
+
+<td class="vc_file_line_text">        mv t wordlist
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l64">
+<td class="vc_file_line_number">64</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l65">
+<td class="vc_file_line_number">65</td>
+
+<td class="vc_file_line_text">printutf8: printutf8.c
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l66">
+<td class="vc_file_line_number">66</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>CC<span class="pygments-k">)</span> -o printutf8 printutf8.c
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l67">
+<td class="vc_file_line_number">67</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l68">
+<td class="vc_file_line_number">68</td>
+
+<td class="vc_file_line_text">unihan.t2s.t: Unihan.txt printutf8
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l69">
+<td class="vc_file_line_number">69</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> kSimplifiedVariant Unihan.txt | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'/#/d'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/kSimplifiedVariant//'</span> | ./printutf8 &gt; unihan.t2s.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l70">
+<td class="vc_file_line_number">70</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l71">
+<td class="vc_file_line_number">71</td>
+
+<td class="vc_file_line_text">trad2simp.t: trad2simp.manual unihan.t2s.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l72">
+<td class="vc_file_line_number">72</td>
+
+<td class="vc_file_line_text">        cp unihan.t2s.t tmp1
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l73">
+<td class="vc_file_line_number">73</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>I in <span class="pygments-sb">`</span>colrm 11 &lt; trad2simp.manual<span class="pygments-sb">`</span> ; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s2">"/^$$I/d"</span> tmp1 &gt; tmp2; mv tmp2 tmp1; <span class="pygments-k">done</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l74">
+<td class="vc_file_line_number">74</td>
+
+<td class="vc_file_line_text"><span class="pygments-k">        </span>cat trad2simp.manual tmp1 &gt; trad2simp.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l75">
+<td class="vc_file_line_number">75</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l76">
+<td class="vc_file_line_number">76</td>
+
+<td class="vc_file_line_text">unihan.s2t.t: Unihan.txt printutf8
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l77">
+<td class="vc_file_line_number">77</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> kTraditionalVariant Unihan.txt | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'/#/d'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/kTraditionalVariant//'</span> | ./printutf8 &gt; unihan.s2t.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l78">
+<td class="vc_file_line_number">78</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l79">
+<td class="vc_file_line_number">79</td>
+
+<td class="vc_file_line_text">simp2trad.t: unihan.s2t.t simp2trad.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l80">
+<td class="vc_file_line_number">80</td>
+
+<td class="vc_file_line_text">        cp unihan.s2t.t tmp1
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l81">
+<td class="vc_file_line_number">81</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>I in <span class="pygments-sb">`</span>colrm 11 &lt; simp2trad.manual<span class="pygments-sb">`</span> ; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s2">"/^$$I/d"</span> tmp1 &gt; tmp2; mv tmp2 tmp1; <span class="pygments-k">done</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l82">
+<td class="vc_file_line_number">82</td>
+
+<td class="vc_file_line_text"><span class="pygments-k">        </span>cat simp2trad.manual tmp1 &gt; simp2trad.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l83">
+<td class="vc_file_line_number">83</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l84">
+<td class="vc_file_line_number">84</td>
+
+<td class="vc_file_line_text">t2s_1tomany.t: trad2simp.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l85">
+<td class="vc_file_line_number">85</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -s <span class="pygments-s2">".\{19,\}"</span> trad2simp.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/U+...../"/'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/|U+...../"=&gt;"/'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/|U+.....//g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/|/",/'</span> &gt; t2s_1tomany.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l86">
+<td class="vc_file_line_number">86</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l87">
+<td class="vc_file_line_number">87</td>
+
+<td class="vc_file_line_text">t2s_1to1.t: trad2simp.t s2t_1tomany.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l88">
+<td class="vc_file_line_number">88</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s2">"/.*|.*|.*|.*/d"</span> trad2simp.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/U+[0-9a-z][0-9a-z]*/"/'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/|U+[0-9a-z][0-9a-z]*/"=&gt;"/'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/|/",/'</span> &gt; t2s_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l89">
+<td class="vc_file_line_number">89</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s1">'"."=&gt;"..",'</span> s2t_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\("."\)=&gt;".\(.\)",/"\2"=&gt;\1,/'</span> &gt;&gt; t2s_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l90">
+<td class="vc_file_line_number">90</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s1">'"."=&gt;"...",'</span> s2t_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\("."\)=&gt;".\(.\).",/"\2"=&gt;\1,/'</span> &gt;&gt; t2s_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l91">
+<td class="vc_file_line_number">91</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s1">'"."=&gt;"...",'</span> s2t_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\("."\)=&gt;"..\(.\)",/"\2"=&gt;\1,/'</span> &gt;&gt; t2s_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l92">
+<td class="vc_file_line_number">92</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s1">'"."=&gt;"....",'</span> s2t_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\("."\)=&gt;".\(.\)..",/"\2"=&gt;\1,/'</span> &gt;&gt; t2s_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l93">
+<td class="vc_file_line_number">93</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s1">'"."=&gt;"....",'</span> s2t_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\("."\)=&gt;"..\(.\).",/"\2"=&gt;\1,/'</span> &gt;&gt; t2s_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l94">
+<td class="vc_file_line_number">94</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s1">'"."=&gt;"....",'</span> s2t_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\("."\)=&gt;"...\(.\)",/"\2"=&gt;\1,/'</span> &gt;&gt; t2s_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l95">
+<td class="vc_file_line_number">95</td>
+
+<td class="vc_file_line_text">        sort t2s_1to1.t | uniq &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l96">
+<td class="vc_file_line_number">96</td>
+
+<td class="vc_file_line_text">        mv t t2s_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l97">
+<td class="vc_file_line_number">97</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l98">
+<td class="vc_file_line_number">98</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l99">
+<td class="vc_file_line_number">99</td>
+
+<td class="vc_file_line_text">s2t_1tomany.t: simp2trad.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l100">
+<td class="vc_file_line_number">100</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -s <span class="pygments-s2">".\{19,\}"</span> simp2trad.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/U+...../"/'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/|U+...../"=&gt;"/'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/|U+.....//g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/|/",/'</span> &gt; s2t_1tomany.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l101">
+<td class="vc_file_line_number">101</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l102">
+<td class="vc_file_line_number">102</td>
+
+<td class="vc_file_line_text">s2t_1to1.t: simp2trad.t t2s_1tomany.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l103">
+<td class="vc_file_line_number">103</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s2">"/.*|.*|.*|.*/d"</span> simp2trad.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/U+[0-9a-z][0-9a-z]*/"/'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/|U+[0-9a-z][0-9a-z]*/"=&gt;"/'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/|/",/'</span> &gt; s2t_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l104">
+<td class="vc_file_line_number">104</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s1">'"."=&gt;"..",'</span> t2s_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\("."\)=&gt;".\(.\)",/"\2"=&gt;\1,/'</span> &gt;&gt; s2t_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l105">
+<td class="vc_file_line_number">105</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s1">'"."=&gt;"...",'</span> t2s_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\("."\)=&gt;".\(.\).",/"\2"=&gt;\1,/'</span> &gt;&gt; s2t_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l106">
+<td class="vc_file_line_number">106</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s1">'"."=&gt;"...",'</span> t2s_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\("."\)=&gt;"..\(.\)",/"\2"=&gt;\1,/'</span> &gt;&gt; s2t_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l107">
+<td class="vc_file_line_number">107</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s1">'"."=&gt;"....",'</span> t2s_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\("."\)=&gt;".\(.\)..",/"\2"=&gt;\1,/'</span> &gt;&gt; s2t_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l108">
+<td class="vc_file_line_number">108</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s1">'"."=&gt;"....",'</span> t2s_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\("."\)=&gt;"..\(.\).",/"\2"=&gt;\1,/'</span> &gt;&gt; s2t_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l109">
+<td class="vc_file_line_number">109</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s1">'"."=&gt;"....",'</span> t2s_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\("."\)=&gt;"...\(.\)",/"\2"=&gt;\1,/'</span> &gt;&gt; s2t_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l110">
+<td class="vc_file_line_number">110</td>
+
+<td class="vc_file_line_text">        sort s2t_1to1.t | uniq &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l111">
+<td class="vc_file_line_number">111</td>
+
+<td class="vc_file_line_text">        mv t s2t_1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l112">
+<td class="vc_file_line_number">112</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l113">
+<td class="vc_file_line_number">113</td>
+
+<td class="vc_file_line_text">tphrase.t: EZ.txt.in tsi.src
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l114">
+<td class="vc_file_line_number">114</td>
+
+<td class="vc_file_line_text">        colrm 1 8 &lt; EZ.txt.in | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\t//g'</span> | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"^.\{2,4\}[0-9]"</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/[0-9]//g'</span> &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l115">
+<td class="vc_file_line_number">115</td>
+
+<td class="vc_file_line_text">        iconv -c -f big5 -t utf8 tsi.src | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/ [0-9].*//g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/[# ]//g'</span>| <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"^.\{2,4\}"</span>  &gt;&gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l116">
+<td class="vc_file_line_number">116</td>
+
+<td class="vc_file_line_text">        sort t | uniq &gt; tphrase.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l117">
+<td class="vc_file_line_number">117</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l118">
+<td class="vc_file_line_number">118</td>
+
+<td class="vc_file_line_text">alltradphrases.t: tphrase.t s2t_1tomany.t tradphrases_exclude.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l119">
+<td class="vc_file_line_number">119</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span>cat s2t_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/.*=&gt;".//'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/"//g'</span> |<span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/,/\n/'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(.\)/\1\n/g'</span> |sort | uniq<span class="pygments-sb">`</span>; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -s <span class="pygments-nv">$$</span>i tphrase.t ; <span class="pygments-k">done</span>  &gt; alltradphrases.t <span class="pygments-o">||</span> <span class="pygments-nb">true</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l120">
+<td class="vc_file_line_number">120</td>
+
+<td class="vc_file_line_text"><span class="pygments-nb">        </span>cat alltradphrases.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -vf tradphrases_exclude.manual &gt; alltradphrases.tt ; mv alltradphrases.tt alltradphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l121">
+<td class="vc_file_line_number">121</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l122">
+<td class="vc_file_line_number">122</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l123">
+<td class="vc_file_line_number">123</td>
+
+<td class="vc_file_line_text">tradphrases_2.t: alltradphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l124">
+<td class="vc_file_line_number">124</td>
+
+<td class="vc_file_line_text">        cat alltradphrases.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s2">"^..$$"</span> | sort | uniq &gt; tradphrases_2.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l125">
+<td class="vc_file_line_number">125</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l126">
+<td class="vc_file_line_number">126</td>
+
+<td class="vc_file_line_text">tradphrases_3.t: alltradphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l127">
+<td class="vc_file_line_number">127</td>
+
+<td class="vc_file_line_text">        cat alltradphrases.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s2">"^...$$"</span> | sort | uniq &gt; tradphrases_3.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l128">
+<td class="vc_file_line_number">128</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span>cat tradphrases_2.t<span class="pygments-sb">`</span>; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i tradphrases_3.t ; <span class="pygments-k">done</span> | sort | uniq &gt; t3 <span class="pygments-o">||</span> <span class="pygments-nb">true</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l129">
+<td class="vc_file_line_number">129</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>DIFF<span class="pygments-k">)</span> t3 tradphrases_3.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"&gt;"</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/&gt; //'</span> &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l130">
+<td class="vc_file_line_number">130</td>
+
+<td class="vc_file_line_text">        mv t tradphrases_3.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l131">
+<td class="vc_file_line_number">131</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l132">
+<td class="vc_file_line_number">132</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l133">
+<td class="vc_file_line_number">133</td>
+
+<td class="vc_file_line_text">tradphrases_4.t: alltradphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l134">
+<td class="vc_file_line_number">134</td>
+
+<td class="vc_file_line_text">        cat alltradphrases.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span>  <span class="pygments-s2">"^....$$"</span> | sort | uniq &gt; tradphrases_4.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l135">
+<td class="vc_file_line_number">135</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span>cat tradphrases_2.t<span class="pygments-sb">`</span>; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i tradphrases_4.t ; <span class="pygments-k">done</span> | sort | uniq &gt; t3 <span class="pygments-o">||</span> <span class="pygments-nb">true</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l136">
+<td class="vc_file_line_number">136</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>DIFF<span class="pygments-k">)</span> t3 tradphrases_4.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"&gt;"</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/&gt; //'</span> &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l137">
+<td class="vc_file_line_number">137</td>
+
+<td class="vc_file_line_text">        mv t tradphrases_4.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l138">
+<td class="vc_file_line_number">138</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span>cat tradphrases_3.t<span class="pygments-sb">`</span>; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i tradphrases_4.t ; <span class="pygments-k">done</span> | sort | uniq &gt; t3 <span class="pygments-o">||</span> <span class="pygments-nb">true</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l139">
+<td class="vc_file_line_number">139</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>DIFF<span class="pygments-k">)</span> t3 tradphrases_4.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"&gt;"</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/&gt; //'</span> &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l140">
+<td class="vc_file_line_number">140</td>
+
+<td class="vc_file_line_text">        mv t tradphrases_4.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l141">
+<td class="vc_file_line_number">141</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l142">
+<td class="vc_file_line_number">142</td>
+
+<td class="vc_file_line_text">tradphrases.t: tradphrases.manual tradphrases_2.t tradphrases_3.t tradphrases_4.t t2s_1tomany.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l143">
+<td class="vc_file_line_number">143</td>
+
+<td class="vc_file_line_text">        cat tradphrases.manual tradphrases_2.t tradphrases_3.t tradphrases_4.t |sort | uniq &gt; tradphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l144">
+<td class="vc_file_line_number">144</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span><span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/"\(.\).*/\1/'</span> t2s_1tomany.t <span class="pygments-sb">`</span> ; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i tradphrases.t ; <span class="pygments-k">done</span> | <span class="pygments-k">$(</span>DIFF<span class="pygments-k">)</span> tradphrases.t - | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s1">'&lt;'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/&lt; //'</span> &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l145">
+<td class="vc_file_line_number">145</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span><span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/"\(..\)..*/\1/'</span> t2s_1tomany.t <span class="pygments-sb">`</span> ; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i tradphrases.t ; <span class="pygments-k">done</span> | <span class="pygments-k">$(</span>DIFF<span class="pygments-k">)</span> tradphrases.t - | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s1">'&lt;'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/&lt; //'</span> &gt;&gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l146">
+<td class="vc_file_line_number">146</td>
+
+<td class="vc_file_line_text">        mv t tradphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l147">
+<td class="vc_file_line_number">147</td>
+
+<td class="vc_file_line_text">        cat tradphrases.t | sort | uniq &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l148">
+<td class="vc_file_line_number">148</td>
+
+<td class="vc_file_line_text">        mv t tradphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l149">
+<td class="vc_file_line_number">149</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l150">
+<td class="vc_file_line_number">150</td>
+
+<td class="vc_file_line_text">tradphrases.notsure: tradphrases_2.t tradphrases_3.t tradphrases_4.t t2s_1tomany.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l151">
+<td class="vc_file_line_number">151</td>
+
+<td class="vc_file_line_text">        cat tradphrases_2.t tradphrases_3.t tradphrases_4.t |sort | uniq &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l152">
+<td class="vc_file_line_number">152</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span><span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/"\(.\).*/\1/'</span> t2s_1tomany.t <span class="pygments-sb">`</span> ; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i t; <span class="pygments-k">done</span> | <span class="pygments-k">$(</span>DIFF<span class="pygments-k">)</span> t - | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s1">'&gt;'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/&gt; //'</span> &gt; tradphrases.notsure
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l153">
+<td class="vc_file_line_number">153</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l154">
+<td class="vc_file_line_number">154</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l155">
+<td class="vc_file_line_number">155</td>
+
+<td class="vc_file_line_text">ph.t: phrase_lib.txt
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l156">
+<td class="vc_file_line_number">156</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/[\t0-9a-zA-Z]//g'</span> phrase_lib.txt | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"^.\{2,4\}$$"</span> &gt; ph.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l157">
+<td class="vc_file_line_number">157</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l158">
+<td class="vc_file_line_number">158</td>
+
+<td class="vc_file_line_text">Wubi.t: Wubi.txt.in
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l159">
+<td class="vc_file_line_number">159</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'1,/BEGIN_TABLE/d'</span> Wubi.txt.in | colrm 1 8 | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\t.*//'</span> | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"^...*"</span> &gt; Wubi.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l160">
+<td class="vc_file_line_number">160</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l161">
+<td class="vc_file_line_number">161</td>
+
+<td class="vc_file_line_text">Ziranma.t: Ziranma.txt.in
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l162">
+<td class="vc_file_line_number">162</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'1,/BEGIN_TABLE/d'</span> Ziranma.txt.in | colrm 1 8 | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\t.*//'</span> | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"^...*"</span> &gt; Ziranma.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l163">
+<td class="vc_file_line_number">163</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l164">
+<td class="vc_file_line_number">164</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l165">
+<td class="vc_file_line_number">165</td>
+
+<td class="vc_file_line_text">allsimpphrases.t: t2s_1tomany.t ph.t Wubi.t Ziranma.t simpphrases_exclude.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l166">
+<td class="vc_file_line_number">166</td>
+
+<td class="vc_file_line_text">        rm -f allsimpphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l167">
+<td class="vc_file_line_number">167</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span>cat t2s_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/.*=&gt;".//'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/"//g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/,/\n/'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(.\)/\1\n/g'</span> | sort | uniq <span class="pygments-sb">`</span>; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i Wubi.t &gt;&gt; allsimpphrases.t; <span class="pygments-k">done</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l168">
+<td class="vc_file_line_number">168</td>
+
+<td class="vc_file_line_text"><span class="pygments-k">        for </span>i in <span class="pygments-sb">`</span>cat t2s_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/.*=&gt;".//'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/"//g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/,/\n/'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(.\)/\1\n/g'</span> | sort | uniq <span class="pygments-sb">`</span>; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i Ziranma.t &gt;&gt; allsimpphrases.t; <span class="pygments-k">done</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l169">
+<td class="vc_file_line_number">169</td>
+
+<td class="vc_file_line_text"><span class="pygments-k">        for </span>i in <span class="pygments-sb">`</span>cat t2s_1tomany.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/.*=&gt;".//'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/"//g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/,/\n/'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(.\)/\1\n/g'</span> | sort | uniq <span class="pygments-sb">`</span>; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i ph.t &gt;&gt; allsimpphrases.t; <span class="pygments-k">done</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l170">
+<td class="vc_file_line_number">170</td>
+
+<td class="vc_file_line_text"><span class="pygments-k">        </span>cat allsimpphrases.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -vf simpphrases_exclude.manual &gt; allsimpphrases.tt ; mv allsimpphrases.tt allsimpphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l171">
+<td class="vc_file_line_number">171</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l172">
+<td class="vc_file_line_number">172</td>
+
+<td class="vc_file_line_text">simpphrases_2.t: allsimpphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l173">
+<td class="vc_file_line_number">173</td>
+
+<td class="vc_file_line_text">        cat allsimpphrases.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"^..$$"</span> | sort | uniq &gt; simpphrases_2.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l174">
+<td class="vc_file_line_number">174</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l175">
+<td class="vc_file_line_number">175</td>
+
+<td class="vc_file_line_text">simpphrases_3.t: allsimpphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l176">
+<td class="vc_file_line_number">176</td>
+
+<td class="vc_file_line_text">        cat allsimpphrases.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"^...$$"</span> | sort | uniq &gt; simpphrases_3.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l177">
+<td class="vc_file_line_number">177</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span>cat simpphrases_2.t<span class="pygments-sb">`</span>; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i simpphrases_3.t ; <span class="pygments-k">done</span> | sort | uniq &gt; t3 <span class="pygments-o">||</span> <span class="pygments-nb">true</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l178">
+<td class="vc_file_line_number">178</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>DIFF<span class="pygments-k">)</span> t3 simpphrases_3.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"&gt;"</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/&gt; //'</span> &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l179">
+<td class="vc_file_line_number">179</td>
+
+<td class="vc_file_line_text">        mv t simpphrases_3.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l180">
+<td class="vc_file_line_number">180</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l181">
+<td class="vc_file_line_number">181</td>
+
+<td class="vc_file_line_text">simpphrases_4.t: allsimpphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l182">
+<td class="vc_file_line_number">182</td>
+
+<td class="vc_file_line_text">        cat allsimpphrases.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"^....$$"</span> | sort | uniq &gt; simpphrases_4.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l183">
+<td class="vc_file_line_number">183</td>
+
+<td class="vc_file_line_text">        rm -f t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l184">
+<td class="vc_file_line_number">184</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span>cat simpphrases_2.t<span class="pygments-sb">`</span>; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i simpphrases_4.t &gt;&gt; t; <span class="pygments-k">done</span> <span class="pygments-o">||</span> <span class="pygments-nb">true</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l185">
+<td class="vc_file_line_number">185</td>
+
+<td class="vc_file_line_text"><span class="pygments-nb">        </span>sort t | uniq &gt; t3
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l186">
+<td class="vc_file_line_number">186</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>DIFF<span class="pygments-k">)</span> t3 simpphrases_4.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"&gt;"</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/&gt; //'</span> &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l187">
+<td class="vc_file_line_number">187</td>
+
+<td class="vc_file_line_text">        mv t simpphrases_4.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l188">
+<td class="vc_file_line_number">188</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span>cat simpphrases_3.t<span class="pygments-sb">`</span>; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i simpphrases_4.t; <span class="pygments-k">done</span> | sort | uniq &gt; t3 <span class="pygments-o">||</span> <span class="pygments-nb">true</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l189">
+<td class="vc_file_line_number">189</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>DIFF<span class="pygments-k">)</span> t3 simpphrases_4.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s2">"&gt;"</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/&gt; //'</span> &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l190">
+<td class="vc_file_line_number">190</td>
+
+<td class="vc_file_line_text">        mv t simpphrases_4.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l191">
+<td class="vc_file_line_number">191</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l192">
+<td class="vc_file_line_number">192</td>
+
+<td class="vc_file_line_text">simpphrases.t: simpphrases.manual simpphrases_2.t simpphrases_3.t simpphrases_4.t t2s_1tomany.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l193">
+<td class="vc_file_line_number">193</td>
+
+<td class="vc_file_line_text">        cat simpphrases.manual simpphrases_2.t simpphrases_3.t simpphrases_4.t &gt; simpphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l194">
+<td class="vc_file_line_number">194</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span><span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/"\(.\).*/\1/'</span> t2s_1tomany.t <span class="pygments-sb">`</span> ; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i simpphrases.t ; <span class="pygments-k">done</span> | <span class="pygments-k">$(</span>DIFF<span class="pygments-k">)</span> simpphrases.t - | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s1">'&lt;'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/&lt; //'</span> &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l195">
+<td class="vc_file_line_number">195</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span><span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/"\(..\)..*/\1/'</span> t2s_1tomany.t <span class="pygments-sb">`</span> ; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i simpphrases.t ; <span class="pygments-k">done</span> | <span class="pygments-k">$(</span>DIFF<span class="pygments-k">)</span> simpphrases.t - | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s1">'&lt;'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/&lt; //'</span> &gt;&gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l196">
+<td class="vc_file_line_number">196</td>
+
+<td class="vc_file_line_text">        mv t simpphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l197">
+<td class="vc_file_line_number">197</td>
+
+<td class="vc_file_line_text">        cat simpphrases.t | sort | uniq &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l198">
+<td class="vc_file_line_number">198</td>
+
+<td class="vc_file_line_text">        mv t simpphrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l199">
+<td class="vc_file_line_number">199</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l200">
+<td class="vc_file_line_number">200</td>
+
+<td class="vc_file_line_text">simpphrases.notsure: simpphrases_2.t simpphrases_3.t simpphrases_4.t t2s_1tomany.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l201">
+<td class="vc_file_line_number">201</td>
+
+<td class="vc_file_line_text">        cat simpphrases_2.t simpphrases_3.t simpphrases_4.t &gt; t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l202">
+<td class="vc_file_line_number">202</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">for </span>i in <span class="pygments-sb">`</span><span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/"\(.\).*/\1/'</span> t2s_1tomany.t <span class="pygments-sb">`</span> ; <span class="pygments-k">do</span> <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-nv">$$</span>i t ; <span class="pygments-k">done</span> | <span class="pygments-k">$(</span>DIFF<span class="pygments-k">)</span> t - | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> <span class="pygments-s1">'&gt;'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/&gt; //'</span> &gt; simpphrases.notsure
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l203">
+<td class="vc_file_line_number">203</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l204">
+<td class="vc_file_line_number">204</td>
+
+<td class="vc_file_line_text">trad2simp1to1.t: t2s_1tomany.t t2s_1to1.t trad2simp_noconvert.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l205">
+<td class="vc_file_line_number">205</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/\(.......\).*/\1",/'</span> t2s_1tomany.t &gt; tt
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l206">
+<td class="vc_file_line_number">206</td>
+
+<td class="vc_file_line_text">        colrm 1 7 &lt; trad2simp.manual | colrm 3 &gt; trad2simpcharsrc.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l207">
+<td class="vc_file_line_number">207</td>
+
+<td class="vc_file_line_text">        colrm 1 17 &lt; trad2simp.manual | colrm 3 &gt; trad2simpchardest.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l208">
+<td class="vc_file_line_number">208</td>
+
+<td class="vc_file_line_text">        cat trad2simpcharsrc.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -f trad2simpchardest.t &gt; trad2simprepeatedchar.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l209">
+<td class="vc_file_line_number">209</td>
+
+<td class="vc_file_line_text">        cat tt | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -vf trad2simprepeatedchar.t &gt; trad2simp1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l210">
+<td class="vc_file_line_number">210</td>
+
+<td class="vc_file_line_text">        cat t2s_1to1.t &gt;&gt; trad2simp1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l211">
+<td class="vc_file_line_number">211</td>
+
+<td class="vc_file_line_text">        cat trad2simp1to1.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -vf trad2simp_noconvert.manual &gt; tt
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l212">
+<td class="vc_file_line_number">212</td>
+
+<td class="vc_file_line_text">        mv tt trad2simp1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l213">
+<td class="vc_file_line_number">213</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l214">
+<td class="vc_file_line_number">214</td>
+
+<td class="vc_file_line_text">simp2trad1to1.t: s2t_1tomany.t s2t_1to1.t simp2trad.manual simp2trad_noconvert.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l215">
+<td class="vc_file_line_number">215</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/\(.......\).*/\1",/'</span> s2t_1tomany.t &gt; tt
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l216">
+<td class="vc_file_line_number">216</td>
+
+<td class="vc_file_line_text">        colrm 1 7 &lt; simp2trad.manual | colrm 3 &gt; simp2tradcharsrc.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l217">
+<td class="vc_file_line_number">217</td>
+
+<td class="vc_file_line_text">        colrm 1 17 &lt; simp2trad.manual | colrm 3 &gt; simp2tradchardest.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l218">
+<td class="vc_file_line_number">218</td>
+
+<td class="vc_file_line_text">        cat simp2tradcharsrc.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -f simp2tradchardest.t &gt; simp2tradrepeatedchar.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l219">
+<td class="vc_file_line_number">219</td>
+
+<td class="vc_file_line_text">        cat tt | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -vf simp2tradrepeatedchar.t &gt; simp2trad1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l220">
+<td class="vc_file_line_number">220</td>
+
+<td class="vc_file_line_text">        cat s2t_1to1.t &gt;&gt; simp2trad1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l221">
+<td class="vc_file_line_number">221</td>
+
+<td class="vc_file_line_text">        cat simp2trad1to1.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -vf simp2trad_noconvert.manual &gt; tt
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l222">
+<td class="vc_file_line_number">222</td>
+
+<td class="vc_file_line_text">        mv tt simp2trad1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l223">
+<td class="vc_file_line_number">223</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l224">
+<td class="vc_file_line_number">224</td>
+
+<td class="vc_file_line_text">trad2simp.php: trad2simp1to1.t tradphrases.t trad2simp_supp_unset.manual trad2simp_supp_set.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l225">
+<td class="vc_file_line_number">225</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">'&lt;?php\n$$trad2simp=array('</span> &gt; trad2simp.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l226">
+<td class="vc_file_line_number">226</td>
+
+<td class="vc_file_line_text">        cat trad2simp1to1.t &gt;&gt; trad2simp.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l227">
+<td class="vc_file_line_number">227</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(.*\)\t\(.*\)/"\1" =&gt; "\2",/'</span> trad2simp_supp_set.manual &gt;&gt; trad2simp.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l228">
+<td class="vc_file_line_number">228</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">');\n$$str=\n"'</span> &gt;&gt; trad2simp.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l229">
+<td class="vc_file_line_number">229</td>
+
+<td class="vc_file_line_text">        cat tradphrases.t &gt;&gt; trad2simp.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l230">
+<td class="vc_file_line_number">230</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">'";\n$$t=strtr($$str, $$trad2simp);\necho $$t;\n?&gt;'</span> &gt;&gt; trad2simp.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l231">
+<td class="vc_file_line_number">231</td>
+
+<td class="vc_file_line_text">        cat trad2simp1to1.t | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -vf trad2simp_supp_unset.manual &gt; tt
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l232">
+<td class="vc_file_line_number">232</td>
+
+<td class="vc_file_line_text">        mv tt trad2simp1to1.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l233">
+<td class="vc_file_line_number">233</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l234">
+<td class="vc_file_line_number">234</td>
+
+<td class="vc_file_line_text">simp2trad.php: simp2trad1to1.t simpphrases.t simp2trad_supp_set.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l235">
+<td class="vc_file_line_number">235</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">'&lt;?php\n$$simp2trad=array('</span> &gt; simp2trad.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l236">
+<td class="vc_file_line_number">236</td>
+
+<td class="vc_file_line_text">        cat simp2trad1to1.t &gt;&gt; simp2trad.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l237">
+<td class="vc_file_line_number">237</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(.*\)\t\(.*\)/"\1" =&gt; "\2",/'</span> simp2trad_supp_set.manual &gt;&gt; simp2trad.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l238">
+<td class="vc_file_line_number">238</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">');\n$$str=\n"'</span> &gt;&gt; simp2trad.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l239">
+<td class="vc_file_line_number">239</td>
+
+<td class="vc_file_line_text">        cat simpphrases.t &gt;&gt; simp2trad.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l240">
+<td class="vc_file_line_number">240</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">'";\n$$t=strtr($$str, $$simp2trad);\necho $$t;\n?&gt;'</span> &gt;&gt; simp2trad.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l241">
+<td class="vc_file_line_number">241</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l242">
+<td class="vc_file_line_number">242</td>
+
+<td class="vc_file_line_text">simp2trad.phrases.t: trad2simp.php tradphrases.t simp2trad_supp_set.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l243">
+<td class="vc_file_line_number">243</td>
+
+<td class="vc_file_line_text">        php -f trad2simp.php | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/\(.*\)/"\1" =&gt; /'</span> &gt; tmp1
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l244">
+<td class="vc_file_line_number">244</td>
+
+<td class="vc_file_line_text">        cat tradphrases.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/\(.*\)/"\1",/'</span> &gt; tmp2
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l245">
+<td class="vc_file_line_number">245</td>
+
+<td class="vc_file_line_text">        paste tmp1 tmp2 &gt; simp2trad.phrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l246">
+<td class="vc_file_line_number">246</td>
+
+<td class="vc_file_line_text">        colrm 3 &lt; simp2trad_supp_set.manual &gt; simp2trad_supp_noconvert.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l247">
+<td class="vc_file_line_number">247</td>
+
+<td class="vc_file_line_text">        cat trad2simp.php | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -vf simp2trad_supp_noconvert.t &gt; trad2simp.tt
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l248">
+<td class="vc_file_line_number">248</td>
+
+<td class="vc_file_line_text">        mv trad2simp.tt trad2simp.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l249">
+<td class="vc_file_line_number">249</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l250">
+<td class="vc_file_line_number">250</td>
+
+<td class="vc_file_line_text">trad2simp.phrases.t: simp2trad.php simpphrases.t trad2simp_supp_set.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l251">
+<td class="vc_file_line_number">251</td>
+
+<td class="vc_file_line_text">        php -f simp2trad.php | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/\(.*\)/"\1" =&gt; /'</span> &gt; tmp1
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l252">
+<td class="vc_file_line_number">252</td>
+
+<td class="vc_file_line_text">        cat simpphrases.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span>  <span class="pygments-s1">'s/\(.*\)/"\1",/'</span> &gt; tmp2
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l253">
+<td class="vc_file_line_number">253</td>
+
+<td class="vc_file_line_text">        paste tmp1 tmp2 &gt; trad2simp.phrases.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l254">
+<td class="vc_file_line_number">254</td>
+
+<td class="vc_file_line_text">        colrm 3 &lt; trad2simp_supp_set.manual &gt; trad2simp_supp_noconvert.t
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l255">
+<td class="vc_file_line_number">255</td>
+
+<td class="vc_file_line_text">        cat simp2trad.php | <span class="pygments-k">$(</span>GREP<span class="pygments-k">)</span> -vf trad2simp_supp_noconvert.t &gt; simp2trad.tt
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l256">
+<td class="vc_file_line_number">256</td>
+
+<td class="vc_file_line_text">        mv simp2trad.tt simp2trad.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l257">
+<td class="vc_file_line_number">257</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l258">
+<td class="vc_file_line_number">258</td>
+
+<td class="vc_file_line_text">toHans.dict: trad2simp1to1.t trad2simp.phrases.t toSimp.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l259">
+<td class="vc_file_line_number">259</td>
+
+<td class="vc_file_line_text">        cat trad2simp1to1.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/[, \t]//g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/=&gt;/\t/'</span> &gt; toHans.dict
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l260">
+<td class="vc_file_line_number">260</td>
+
+<td class="vc_file_line_text">        cat trad2simp.phrases.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/[, \t]//g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/=&gt;/\t/'</span> &gt;&gt; toHans.dict
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l261">
+<td class="vc_file_line_number">261</td>
+
+<td class="vc_file_line_text">        cat toSimp.manual | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/ //g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(^.*\)\t\(.*\)/"\1"\t"\2"/'</span> &gt;&gt; toHans.dict
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l262">
+<td class="vc_file_line_number">262</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l263">
+<td class="vc_file_line_number">263</td>
+
+<td class="vc_file_line_text">toHant.dict: simp2trad1to1.t simp2trad.phrases.t toTrad.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l264">
+<td class="vc_file_line_number">264</td>
+
+<td class="vc_file_line_text">        cat simp2trad1to1.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/[, \t]//g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/=&gt;/\t/'</span> &gt; toHant.dict
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l265">
+<td class="vc_file_line_number">265</td>
+
+<td class="vc_file_line_text">        cat simp2trad.phrases.t | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/[, \t]//g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/=&gt;/\t/'</span> &gt;&gt; toHant.dict
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l266">
+<td class="vc_file_line_number">266</td>
+
+<td class="vc_file_line_text">        cat toTrad.manual | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/ //g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(^.*\)\t\(.*\)/"\1"\t"\2"/'</span> &gt;&gt; toHant.dict
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l267">
+<td class="vc_file_line_number">267</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l268">
+<td class="vc_file_line_number">268</td>
+
+<td class="vc_file_line_text">toTW.dict: toTW.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l269">
+<td class="vc_file_line_number">269</td>
+
+<td class="vc_file_line_text">        cat toTW.manual | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/ //g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(^.*\)\t\(.*\)/"\1"\t"\2"/'</span> &gt; toTW.dict
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l270">
+<td class="vc_file_line_number">270</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l271">
+<td class="vc_file_line_number">271</td>
+
+<td class="vc_file_line_text">toHK.dict: toHK.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l272">
+<td class="vc_file_line_number">272</td>
+
+<td class="vc_file_line_text">        cat toHK.manual | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/ //g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(^.*\)\t\(.*\)/"\1"\t"\2"/'</span> &gt; toHK.dict
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l273">
+<td class="vc_file_line_number">273</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l274">
+<td class="vc_file_line_number">274</td>
+
+<td class="vc_file_line_text">toCN.dict: toCN.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l275">
+<td class="vc_file_line_number">275</td>
+
+<td class="vc_file_line_text">        cat toCN.manual | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/ //g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(^.*\)\t\(.*\)/"\1"\t"\2"/'</span> &gt; toCN.dict
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l276">
+<td class="vc_file_line_number">276</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l277">
+<td class="vc_file_line_number">277</td>
+
+<td class="vc_file_line_text">toSG.dict: toSG.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l278">
+<td class="vc_file_line_number">278</td>
+
+<td class="vc_file_line_text">        cat toSG.manual | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/ //g'</span> | <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(^.*\)\t\(.*\)/"\1"\t"\2"/'</span> &gt; toSG.dict
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l279">
+<td class="vc_file_line_number">279</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l280">
+<td class="vc_file_line_number">280</td>
+
+<td class="vc_file_line_text">ZhConversion.php: simp2trad1to1.t simp2trad.phrases.t trad2simp1to1.t trad2simp.phrases.t toSimp.manual toTrad.manual toCN.manual toHK.manual toSG.manual toTW.manual
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l281">
+<td class="vc_file_line_number">281</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">'&lt;?php\n/**\n * Simplified / Traditional Chinese conversion tables\n'</span> &gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l282">
+<td class="vc_file_line_number">282</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">' *\n * Automatically generated using code and data in includes/zhtable/\n'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l283">
+<td class="vc_file_line_number">283</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">' * Do not modify directly!\n */\n\n'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l284">
+<td class="vc_file_line_number">284</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">'$$zh2Hant = array(\n'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l285">
+<td class="vc_file_line_number">285</td>
+
+<td class="vc_file_line_text">        cat simp2trad1to1.t &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l286">
+<td class="vc_file_line_number">286</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">echo</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l287">
+<td class="vc_file_line_number">287</td>
+
+<td class="vc_file_line_text">        cat simp2trad.phrases.t &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l288">
+<td class="vc_file_line_number">288</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(.*\)\t\(.*\)/"\1" =&gt; "\2",/'</span> toTrad.manual &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l289">
+<td class="vc_file_line_number">289</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">echo</span> <span class="pygments-s1">');'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l290">
+<td class="vc_file_line_number">290</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">echo</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l291">
+<td class="vc_file_line_number">291</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">'$$zh2Hans = array(\n'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l292">
+<td class="vc_file_line_number">292</td>
+
+<td class="vc_file_line_text">        cat trad2simp1to1.t &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l293">
+<td class="vc_file_line_number">293</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">echo</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l294">
+<td class="vc_file_line_number">294</td>
+
+<td class="vc_file_line_text">        cat trad2simp.phrases.t &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l295">
+<td class="vc_file_line_number">295</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(.*\)\t\(.*\)/"\1" =&gt; "\2",/'</span> toSimp.manual &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l296">
+<td class="vc_file_line_number">296</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">echo</span> <span class="pygments-s1">');'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l297">
+<td class="vc_file_line_number">297</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">echo</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l298">
+<td class="vc_file_line_number">298</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">'$$zh2TW = array(\n'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l299">
+<td class="vc_file_line_number">299</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(.*\)\t\(.*\)/"\1" =&gt; "\2",/'</span> toTW.manual &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l300">
+<td class="vc_file_line_number">300</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">echo</span> <span class="pygments-s1">');'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l301">
+<td class="vc_file_line_number">301</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">echo</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l302">
+<td class="vc_file_line_number">302</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">'$$zh2HK = array(\n'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l303">
+<td class="vc_file_line_number">303</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(.*\)\t\(.*\)/"\1" =&gt; "\2",/'</span> toHK.manual &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l304">
+<td class="vc_file_line_number">304</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">echo</span> <span class="pygments-s1">');'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l305">
+<td class="vc_file_line_number">305</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">echo</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l306">
+<td class="vc_file_line_number">306</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">'$$zh2CN = array(\n'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l307">
+<td class="vc_file_line_number">307</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(.*\)\t\(.*\)/"\1" =&gt; "\2",/'</span> toCN.manual &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l308">
+<td class="vc_file_line_number">308</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">echo</span> <span class="pygments-s1">');'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l309">
+<td class="vc_file_line_number">309</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">echo</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l310">
+<td class="vc_file_line_number">310</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">'$$zh2SG = array(\n'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l311">
+<td class="vc_file_line_number">311</td>
+
+<td class="vc_file_line_text">        <span class="pygments-k">$(</span>SED<span class="pygments-k">)</span> <span class="pygments-s1">'s/\(.*\)\t\(.*\)/"\1" =&gt; "\2",/'</span> toSG.manual &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l312">
+<td class="vc_file_line_number">312</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">echo</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l313">
+<td class="vc_file_line_number">313</td>
+
+<td class="vc_file_line_text">        <span class="pygments-nb">printf</span> <span class="pygments-s1">');'</span> &gt;&gt; ZhConversion.php
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l314">
+<td class="vc_file_line_number">314</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l315">
+<td class="vc_file_line_number">315</td>
+
+<td class="vc_file_line_text">clean: cleantmp cleandl
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l316">
+<td class="vc_file_line_number">316</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l317">
+<td class="vc_file_line_number">317</td>
+
+<td class="vc_file_line_text">cleantmp:
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l318">
+<td class="vc_file_line_number">318</td>
+
+<td class="vc_file_line_text"><span class="pygments-c">        # Stuff unpacked from the files fetched by wget</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l319">
+<td class="vc_file_line_number">319</td>
+
+<td class="vc_file_line_text">        rm -f <span class="pygments-se">\</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l320">
+<td class="vc_file_line_number">320</td>
+
+<td class="vc_file_line_text">                Unihan.txt <span class="pygments-se">\</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l321">
+<td class="vc_file_line_number">321</td>
+
+<td class="vc_file_line_text">                EZ.txt.in <span class="pygments-se">\</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l322">
+<td class="vc_file_line_number">322</td>
+
+<td class="vc_file_line_text">                Wubi.txt.in <span class="pygments-se">\</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l323">
+<td class="vc_file_line_number">323</td>
+
+<td class="vc_file_line_text">                Ziranma.txt.in <span class="pygments-se">\</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l324">
+<td class="vc_file_line_number">324</td>
+
+<td class="vc_file_line_text">                phrase_lib.txt <span class="pygments-se">\</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l325">
+<td class="vc_file_line_number">325</td>
+
+<td class="vc_file_line_text">                tsi.src
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l326">
+<td class="vc_file_line_number">326</td>
+
+<td class="vc_file_line_text"><span class="pygments-c">        # Temporary files and other trash</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l327">
+<td class="vc_file_line_number">327</td>
+
+<td class="vc_file_line_text">        rm -f ZhConversion.php tmp1 tmp2 tmp3 t3 *.t trad2simp.php simp2trad.php *.dict printutf8 *~ <span class="pygments-se">\</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l328">
+<td class="vc_file_line_number">328</td>
+
+<td class="vc_file_line_text">                simpphrases.notsure tradphrases.notsure wordlist
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l329">
+<td class="vc_file_line_number">329</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l330">
+<td class="vc_file_line_number">330</td>
+
+<td class="vc_file_line_text">cleandl:
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l331">
+<td class="vc_file_line_number">331</td>
+
+<td class="vc_file_line_text">        rm -f <span class="pygments-se">\</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l332">
+<td class="vc_file_line_number">332</td>
+
+<td class="vc_file_line_text">                Unihan.zip <span class="pygments-se">\</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l333">
+<td class="vc_file_line_number">333</td>
+
+<td class="vc_file_line_text">                scim-tables-<span class="pygments-k">$(</span>SCIM_TABLES_VER<span class="pygments-k">)</span>.tar.gz <span class="pygments-se">\</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l334">
+<td class="vc_file_line_number">334</td>
+
+<td class="vc_file_line_text">                scim-pinyin-<span class="pygments-k">$(</span>SCIM_PINYIN_VER<span class="pygments-k">)</span>.tar.gz <span class="pygments-se">\</span>
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l335">
+<td class="vc_file_line_number">335</td>
+
+<td class="vc_file_line_text">                libtabe-<span class="pygments-k">$(</span>LIBTABE_VER<span class="pygments-k">)</span>.tgz
+</td>
+</tr>
+
+
+
+
+<tr class="vc_row_odd" id="l336">
+<td class="vc_file_line_number">336</td>
+
+<td class="vc_file_line_text">
+</td>
+</tr>
+
+
+</tbody></table>
+</div>
+
+
+
+<hr>
+<div class="vc_properties">
+<h2>Properties</h2>
+<table class="auto" cellpadding="2" cellspacing="1">
+<thead>
+<tr>
+<th class="vc_header_sort">Name</th>
+<th class="vc_header">Value</th>
+</tr>
+</thead>
+<tbody>
+
+<tr class="vc_row_even">
+<td><strong>svn:eol-style</strong></td>
+
+<td style="white-space: pre;">native</td>
+
+</tr>
+
+<tr class="vc_row_odd">
+<td><strong>svn:keywords</strong></td>
+
+<td style="white-space: pre;">Author Date Id Revision</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+
+<hr>
+<table>
+<tbody><tr>
+<td><address><a href="mailto:%3Ca%20href=" https:="" bugzilla.wikimedia.org="" "=""><img src="%5Bmediawiki%5D%20Contents%20of%20_trunk_phase3_includes_zhtable_Makefile_files/38px-Buggie.svg.png" height="50" width="38" border="0">Bug the devs</a>"&gt;<a href="https://bugzilla.wikimedia.org/"><img src="%5Bmediawiki%5D%20Contents%20of%20_trunk_phase3_includes_zhtable_Makefile_files/38px-Buggie.svg.png" height="50" width="38" border="0">Bug the devs</a></address></td>
+<td style="text-align: right;"><strong><a href="http://svn.wikimedia.org/viewvc/*docroot*/help_rootview.html">ViewVC Help</a></strong></td>
+</tr>
+<tr>
+<td>Powered by <a href="http://viewvc.tigris.org/">ViewVC 1.1.5</a></td>
+<td style="text-align: right;"> </td>
+</tr>
+</tbody></table>
+
+
+
+</body></html>
