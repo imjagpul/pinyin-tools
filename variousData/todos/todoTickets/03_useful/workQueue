@@ -1,0 +1,3 @@
+do not depend on PHP doing the annotator live,
+but queue it instead, allow the user to download later
+ => EPUB and MOBI generation also 

@@ -1,4 +1,44 @@
 2. demo page
- *cometics - line by line
- *test notice and link to soft and online service 
- *parse http://en.wikisource.org/wiki/San_Tzu_Ching/San_Tzu_Ching , add as a mnemonic sistem
+
+duplex > demonstration.php & AnnotatorController#demo()
+
+dictionary for traditional characters does not work
+	TRADITIONAL:
+	 switch and/or autodetect
+	   need annotator settings
+	ALSO conversion options
+	ANNOTATOR REDESIGN:
+	  simple and advanced mode
+	%  
+	also USER SETTINGS: 
+	  prefered defaults   
+    % 
+    save last as before
+
+for the demo, remove compositions
+perhaps filter the dictionary as well, in order for it to be not so long
+check duplicities in system
+
+add versions:
+ simplified, traditional ;mobi, epub
+
+fix in anntoator:
+  mark untagged
+  smarter line wrapping  
+ 
+ 
+ finish text:
+***********
+The purpose of this page is to give you an idea of what you can do with the annotator.
+
+Try pointing on any of the characters.
+It will display a translation and a mnemonics.
+
+This demo page displays the Three Character Classic annotated by the comments by H. Giles.
+
+You can annotate texts of your own choosing with your own mnemonics (or those others are sharing).
+
+Which means you can see your own notes instantly. That provides a great boost to your memory.
+Thanks to this the characters won't get all mixed up in your head.
+
+Which means you 

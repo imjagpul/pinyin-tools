@@ -3,7 +3,12 @@ optimize annotator (precached for offline)
  					(a solution for kindle)
                      (old:char only kindle - hopefully faster)
 
-                     
+precache single chars for specific settings
+perhaps precache whole texts with specific settings (md5?)
+reduce HTML - remove spaces 
+reduce HTML - perhaps even use GBK to get faster
+reduce HTML - what about gzip compression (for cached files?)
+
 //FF sucks for big files b) slow  
 // 1) input output b) job queue
  
