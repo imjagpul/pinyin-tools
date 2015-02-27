@@ -11,13 +11,19 @@ abstract class DictEntry extends CActiveRecord {
 
 	/**
 	 *
-	 * @param boolean $simplified
+	 * @param Enum $characterMode
 	 * 			if the simplified version should be returned (as opposed to the traditional)
 	 */
-	public function getText($simplified) {
-		//@TODO mayble implement "leave as it is" mode
-		if($simplified) return $this->simplified;
-		else return $this->traditional;
+	public function getText($characterMode) {
+		switch($characterMode) {
+			case AnnotatorEngine::CHARMOD_SIMPLIFIED_ONLY:
+			case AnnotatorEngine::CHARMOD_CONVERT_TO_SIMPLIFIED:
+			case AnnotatorEngine::CHARMOD_ALLOW_BOTH_PREFER_SIMP:
+				return $this->simplified;
+			default:
+				return $this->traditional;
+				
+		}
 	}
 	
 }

@@ -2,12 +2,20 @@
 class AnnotatorEngine {
 	const ignoredCharsJs=" \\\",.;'!。，《》…：“”？！　0"; //withonut newlines and with escaped quote
 	const ignoredChars=" \n\t\r\",.;'!。，《》…：“”？！　0"; // @TODO complement special asian characters
-		
+
+	const CHARMOD_SIMPLIFIED_ONLY=1;
+	const CHARMOD_TRADITIONAL_ONLY=2;
+	const CHARMOD_CONVERT_TO_SIMPLIFIED=3;
+	const CHARMOD_CONVERT_TO_TRADITIONAL=4;
+	const CHARMOD_ALLOW_BOTH_PREFER_SIMP=5;
+	const CHARMOD_ALLOW_BOTH=5;
+	//const CHARMOD_ALLOW_BOTH=5;
+
 	public $parent;
 	public $input;
 	public $systemID;
 	public $dictionariesID;
-	public $simplified=true;
+	public $characterMode;
 	public $template="jsbased";
 	public $whitespaceToHTML=true; 
 	public $parallel;
@@ -105,7 +113,7 @@ class AnnotatorEngine {
 				'mnemos'=>$mnemos,
 				'phrases'=>$phrases,
 				'index'=>$index,
-				'simplified'=>$this->simplified,
+				'characterMode'=>$this->characterMode,
 				'transcriptionFormatters'=>$this->transcriptionFormatters
 		);
 		$this->parent->renderPartial($templateFull, $data) ;
@@ -117,7 +125,7 @@ class AnnotatorEngine {
 		
 		$this->parent->widget('ext.jouele.Jouele', array(
 				'file' => $this->audioURL,
-				'name' => 'ä¸‰ĺ­—ç»Ź',
+				'name' => '三字经',
 				'htmlOptions' => array(
 						'class' => 'jouele-skin-silver',
 				)
@@ -128,7 +136,18 @@ class AnnotatorEngine {
 		$templateCount=$this->detectTemplateCount($this->template);
 		
 		if($templateCount==="DUMP") { //if no templates are set, just dump the whole input as-is
-			echo $this->input;
+			//echo $this->input;
+			//echo $this->input;
+
+			//but run the processing method (now temporialily hardcoded here, to be moved to the "dumpoutput.php" file)
+// 			echo implode('</div><br><div class="x">', split("\r\n\r\n", $this->input));
+			echo implode('</div><br><div class="x">', split("(\r\n){1,}", $this->input));
+// 			echo implode('</div><div class="x">', split("(\r\n){1,}", $this->input));
+			
+			//str_split($this->input);
+			//but convert the newlines to line breaks
+// 			echo str_replace("\r\n\r\n", "<br>", $this->input);
+// 			echo str_replace("\n\n", "<p>", $this->input);
 			return;
 		}
 		
@@ -181,15 +200,22 @@ class AnnotatorEngine {
 		), false, true) ;
 	}
 	
-	public static function loadTranslationsFromDictionaries($char, $dictionariesID, $simplified) {
+	public static function loadTranslationsFromDictionaries($char, $dictionariesID, $characterMode) {
 		$criteria=new CDbCriteria();
-		$criteria->compare($simplified ? 'simplified' : 'traditional', $char);
+
+		if($characterMode!=self::CHARMOD_TRADITIONAL_ONLY)
+			$criteria->compare('simplified', $char);
+		if($characterMode!=self::CHARMOD_SIMPLIFIED_ONLY)
+			$criteria->compare('traditional', $char, false, 'OR');
+		//in other cases than CHARMOD_SIMPLIFIED_ONLY and CHARMOD_TRADITIONAL_ONLY both are searched
+		
 		$criteria->addInCondition('dictionaryId', $dictionariesID);
 		return DictEntryChar::model()->findAll($criteria);
 	}
 	
 	private function loadTranslations($char) {
-		return AnnotatorEngine::loadTranslationsFromDictionaries($char, $this->dictionariesID, $this->simplified);
+// 		return AnnotatorEngine::loadTranslationsFromDictionaries($char, $this->dictionariesID);
+ 		return AnnotatorEngine::loadTranslationsFromDictionaries($char, $this->dictionariesID, $this->characterMode);
 	}
 
 	
@@ -214,29 +240,33 @@ class AnnotatorEngine {
 		return AnnotatorEngine::loadMnemonicsForSystem($char, $this->system);
 	}
 	
-	public static function loadPhrasesFromDictionaries($char, $compounds, $dictionariesID, $simplified) {
+	public static function loadPhrasesFromDictionaries($char, $compounds, $dictionariesID, $characterMode) {
 		if(empty($compounds))
 			return null;
-		
-		$beginColumnName=$simplified ? 'simplified_begin' : 'traditional_begin';
-		$restColumnName=$simplified ? 'simplified_rest' : 'traditional_rest';
-		
+
 		$criteria=new CDbCriteria();
 		
-		foreach($compounds as $c) {
-			$criteria->compare($restColumnName, $c, false, 'OR');
+		foreach($compounds as $search) {
+			if($characterMode!=self::CHARMOD_SIMPLIFIED_ONLY) //in all other modes have to search both
+				$criteria->compare('traditional_rest', $search, false, 'OR');
+			if($characterMode!=self::CHARMOD_TRADITIONAL_ONLY)
+				$criteria->compare('simplified_rest', $search, false, 'OR');
 		}
 		
 		//note by adding the other conditions after the _rest column search makes the OR and AND in the correct brackets
 		$criteria->addInCondition('dictionaryId', $dictionariesID); //it has to be in one of the chosen dictionaries
 		
-		
 		//@TODO the condition is not escaped (so it would fail if $char would be an apostrophe)
-		$criteria->addCondition("$beginColumnName='$char'");//the first letter (because of the DB structure)
+		//the first letter (because of the DB structure)
+		if($characterMode==self::CHARMOD_SIMPLIFIED_ONLY)
+			$criteria->addCondition("simplified_begin='$char'");
+		if($characterMode==self::CHARMOD_TRADITIONAL_ONLY)
+			$criteria->addCondition("traditional_begin='$char'");
+		else
+			$criteria->addCondition("simplified_begin='$char' OR traditional_begin='$char'");
 		
 		$results=array();
 		$results=DictEntryPhrase::model()->findAll($criteria);
-
 		
 		//sort to put the longest first
 		usort($results,function($a,$b) {
@@ -247,89 +277,23 @@ class AnnotatorEngine {
 			return $results;	
 	}
 	
+	
 	/**
-	 *
-	 * @param String $char
-	 * @param int[] $dictionaries
-	 * @param boolean $simplified
-	 * @param String $input
-	 * @param int $i
-	 * @return DictEntryPhrase[]
-	 */
-	private function loadPhrasesRegex($char, $offset) {
-		//@TODO move this from this controller to them odel
-		$limit=Yii::app()->params['staticAnnotatorCompositionLengthLimit'];
-	
-		$regex=NULL;
-	
-		$j=1;
-		for(;$j<=$limit;$j++) {
-			//stop at ignored char
-			$sub=mb_substr($this->input, $offset+$j, 1, $this->encoding);
-			if(empty($sub) || $this->isIgnoredChar($sub)) {
-				$j--;
-				break;
-			}
-				
-			if(is_null($regex)) { //first char must be there
-				$regex=$sub;
-				continue;
-			}
-			//abcd
-			//a|ab|abc|abcd
-			//a(b(c(d)?)?)?
-				
-			$regex="$regex($sub";
-		}
-		if($j==0) return array();
-		$simpleSearch = $j==1;
-		for(;$j>1;$j--) {
-			$regex.=")?";
-		}
-
-		$restColumnName=$this->simplified ? 'simplified_rest' : 'traditional_rest';
-	
-		$criteria=new CDbCriteria();
-		$criteria->addInCondition('dictionaryId', $this->dictionariesID);
-		$criteria->compare($this->simplified ? 'simplified_begin' : 'traditional_begin', $char);
-		if($simpleSearch) {
-			$criteria->compare($restColumnName, $regex);
-		} else {
-			$criteria->condition.=" AND $restColumnName REGEXP '^$regex\$'"; //@TODO investigate if it's 1. supported 2. optimal
-		}
-
-		// 		return array(DictEntryPhrase::model()->find($criteria), DictEntryPhrase::model()->find($criteria));
-		var_dump($criteria);//die;
-		$result=DictEntryPhrase::model()->findAll($criteria);
-		var_dump($result);die;
-		return DictEntryPhrase::model()->findAll($criteria);
-	
-	}
-	/**
-	 *
-	 * @param String $char
-	 * @param int[] $dictionaries
-	 * @param boolean $simplified
-	 * @param String $input
-	 * @param int $i
+	 * Loads the phrases based on a point in the text.
+	 * 
+	 * @param String $char  
+	 * 					the first char of the phrase (the char being pointed at)
+	 * @param Integer $offset
+	 * 					the offset in the text 
 	 * @return DictEntryPhrase[]
 	 */
 	private function loadPhrases($char, $offset) {
-		//@TODO (maybe) move this from this controller to them odel
-		
-		//abcd
-		//a|ab|abc|abcd
-		//a(b(c(d)?)?)?
-		
 		$limit=Yii::app()->params['staticAnnotatorCompositionLengthLimit'];
-	
-		$search='';
 
-		$beginColumnName=$this->simplified ? 'simplified_begin' : 'traditional_begin';
-		$restColumnName=$this->simplified ? 'simplified_rest' : 'traditional_rest';
-		
-		$criteria=new CDbCriteria();
-		
+		//get the characters following the current one, in order to search for the phrases
+		//step through the text we are annotating to reach first boundary character or the limit length of a composition
+		$search='';
+		$compounds=array();
 		$j=1;
 		for(;$j<=$limit;$j++) {
 			//stop at ignored char
@@ -340,26 +304,12 @@ class AnnotatorEngine {
 			}
 							
 			$search.=$sub;
-			$criteria->compare($restColumnName, $search, false, 'OR');
+			$compounds[]=$search;
+// 			$criteria->compare('traditional_rest', $search, false, 'OR');
+// 			$criteria->compare('simplified_rest', $search, false, 'OR');
 // 			$criteria->addCondition("$restColumnName='$search'", 'OR');
 		}
-		if($j==0) return array();
-
-		//note by adding the other conditions after the _rest column search makes the OR and AND in the correct brackets
-
-		$criteria->addInCondition('dictionaryId', $this->dictionariesID); //it has to be in one of the chosen dictionaries
-		//@TODO the condition is not escaped (so it would fail if $char would be an apostrophe)
-		$criteria->addCondition("$beginColumnName='$char'");//the first letter (because of the DB structure)
-		
-		$results=array();
-		$results=DictEntryPhrase::model()->findAll($criteria);
-		
-		//sort to put the longest first
-		usort($results,function($a,$b) {
-			return mb_strlen($b->traditional_rest, $this->encoding)- mb_strlen($a->traditional_rest, $this->encoding);
-		} );
-		
-		return $results;
+		return self::loadPhrasesFromDictionaries($char, $compounds, $this->dictionariesID, $this->characterMode);
 	}
 	
 	/**

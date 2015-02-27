@@ -2,7 +2,9 @@
 $cs=Yii::app()->clientScript;
 $cs->registerCoreScript('jquery');
 //generated css for tones (depending on user settings)
-$cs->registerCss('tones', UserSettings::getCurrentSettings()->tonesCss);
+
+//registerCss sucks
+//$cs->registerCss('tones', UserSettings::getCurrentSettings()->tonesCss);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -79,6 +81,7 @@ table.parallel td:last-child {
 	background-position-x: -40px;
 }
 
+<?php echo UserSettings::getCurrentSettings()->tonesCss; ?>
 /* ]]> */
 </style>
 <script type="text/javascript" language="JavaScript">

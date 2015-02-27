@@ -1,36 +1,28 @@
 </div>
-		<!-- a temporary workaround to allow scrolling low-->
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		<script type="text/javascript" language="JavaScript">
-/*
-		function prepare(e) {
-	var je=$(e);
-	var words=je.text().split('');
-	je.html("");
-	$.each(words, function(i,val){
-	//wrap each word in a span tag  
-	$('<span/>').text(val+" ").appendTo(".x");
-
-	});
-	$(".x span").live("mouseover",function(){
-	//highlight a word when hovered 
-	$(this).css("background-color","yellow");
-	});
-	$(".x span").live("mouseout",function(){
-	//change bg to white if not selected 
-	if($(this).css("background-color") !="rgb(0, 0, 255)")
-	{
-	 $(this).css("background-color","white");
-	}
-	});
-	$(".x span").live("click",function(){
-	$(".x span").css("background-color","white");
-	$(this).css("background-color","blue");
-	//gets the text of clicked span tag
-	var text = $(this).text();
-	});
-}
-*/
+<!-- a temporary workaround to allow scrolling low-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<script type="text/javascript" language="JavaScript">
 var charCache=new Array();
 var compCache=new Array();
 
@@ -160,48 +152,65 @@ function showBoxFunction() { //called on hover of a char
 	}
 };
 
-function preprocess() {
-	//split in chunks of 100 
-	var chunks=$(".x").text().match(/.{1,100}/g);
-	$(".x").html("");
-	$.each(chunks, function(i,val){
-		//wrap each word in an auxiliary span tag  
-		$('<span/>').text(val+" ").appendTo(".x");
-	});
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
 
-	$(".x span").one("mouseover",function(){
-		var characters=$(this).text().split("");
+function preprocessDiv(i,val) {
+		var valJ=$(val);
 
-		var me=$(this);
-		$(this).html("");
+		var text=valJ.text();
 		
-		$.each(characters, function(i,val){
-			var nextIgnored=true;
-			if(characters.length>(i+1) && isNotIgnored(characters[i+1]))
-				nextIgnored=false;
+		if(isBlank(text))
+			return; //empty chunk - nothing do
 			
-			//wrap each word in a span tag  
-			//(unless it is an ignored char like whitespace or punctation)
-			
-			if(isNotIgnored(val)) {
-				var added=$('<span/>').text(val);
-
-				if(nextIgnored) //the characters that precede word boundaries are marked (needed for component suggestion)
-					added.toggleClass("b");
-				
-				added.appendTo(me);
-			} else {
-				me.append(val);
-			}
+		//split in chunks of 100 
+		var chunks=text.match(/.{1,100}/g);
+		if(chunks==null)
+			return;
+		
+		valJ.html(" ");
+		
+		$.each(chunks, function(i,val){
+			//wrap each word in an auxiliary span tag  
+			$('<span/>').text(val+" ").appendTo(valJ);
 		});
 
-		$(".x span span").on("mouseover",showBoxFunction);
-		
-		$(".x span span").on("mouseout",hb);		
-	});
+		valJ.children("span").one("mouseover",function(){
+			var characters=$(this).text().split("");
+
+			var me=$(this);
+			$(this).html("");
+			
+			$.each(characters, function(i,val){
+				var nextIgnored=true;
+				if(characters.length>(i+1) && isNotIgnored(characters[i+1]))
+					nextIgnored=false;
+				
+				//wrap each word in a span tag  
+				//(unless it is an ignored char like whitespace or punctation)
+				
+				if(isNotIgnored(val)) {
+					var added=$('<span/>').text(val);
+
+					if(nextIgnored) //the characters that precede word boundaries are marked (needed for component suggestion)
+						added.toggleClass("b");
+					
+					added.appendTo(me);
+					added.on("mouseover",showBoxFunction);
+					added.on("mouseout",hb);
+				} else {
+					me.append(val);
+				}
+			});
+		});
+}
+
+function preprocess() {
+	$("div.x").each(preprocessDiv);
 }
 
 preprocess();
 </script>
-	</body>
-</html>	
+</body>
+</html>

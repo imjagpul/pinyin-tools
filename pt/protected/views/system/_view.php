@@ -7,7 +7,7 @@
 
 
 	<?php echo CHtml::link(CHtml::encode($data->name), array('system/view', 'id'=>$data->id)); ?>
-	(by <?php echo $data->masterUser->login ?>)
+	(by <?php echo $data->masterUser->username ?>)
 	
 	<?php 
 	if($data->isWriteable()) {

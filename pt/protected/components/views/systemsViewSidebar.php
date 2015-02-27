@@ -2,7 +2,7 @@
 /* @var $data System */ 
 ?>
 
-<p><b>Maintained by:</b><br/> <?php echo $data->masterUser->login; ?></p>
+<p><b>Maintained by:</b><br/> <?php echo $data->masterUser->username; ?></p>
 
 <p>
 <b>Target language:</b><br/> <?php echo $data->languageData->text; ?><br/>

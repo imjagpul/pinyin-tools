@@ -12,6 +12,7 @@
  * @property integer $toneColor5
  * @property integer $lastSystemInAnnotator
  * @property integer $lastTemplateInAnnotator
+ * @property Enum  $variant
  * 
  * The followings are the available model relations:
  * @property System $lastSystemInAnnotator0
@@ -225,6 +226,26 @@ class UserSettings extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+	
+	/**
+	 * This method is to be called after the user logs in.
+	 */
+	public static function loadSettingsAfterLogin() {
+		//try to load from DB
+		$settings=UserSettings::model()->findByAttributes(array('userId'=>Yii::app()->user->getId()));
+		
+		if(is_null($settings)) {
+			//if there is nothing in DB, keep what is in session data, if anything is there
+			$settings=Yii::app()->user->getState('settings');
+			
+			//else just use new
+			if(is_null($settings)) {
+				$settings=new UserSettings();
+			}
+		}
+			
+		Yii::app()->user->setState('settings', $settings);
 	}
 	
 	/**

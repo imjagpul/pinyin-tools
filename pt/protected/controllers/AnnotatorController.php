@@ -57,21 +57,20 @@ class AnnotatorController extends Controller
 		$annotatorEngine->parent=$this;
 		$annotatorEngine->systemID=!empty($_POST['system']) ? ((int)$_POST['system']) : NULL;
 		$annotatorEngine->dictionariesID=isset($_POST['selectedDictionaries']) ? ($_POST['selectedDictionaries']) : NULL;
-		$annotatorEngine->simplified=TRUE; //@TODO load from DB
 		
 		$annotatorEngine->parallel=isset($_POST['parallel']) ? $_POST['parallel'] : NULL;
 		$annotatorEngine->audioURL=isset($_POST['audioURL']) ? $_POST['audioURL'] : NULL; //@TODO add URL validator
 		$annotatorEngine->outputType=isset($_POST['type']) ? $_POST['type'] : NULL;
 		$annotatorEngine->whitespaceToHTML=true;
-		
-		//@TODO save $simplified to DB
+		//@TODO set from settings
+// 		$annotatorEngine->characterMode=UserSettings::getCurrentSettings()->variant;
+		$annotatorEngine->characterMode=AnnotatorEngine::CHARMOD_SIMPLIFIED_ONLY;
 		
 		//check if the selected template exists
 		$templateId=isset($_POST['template']) ? ((int)$_POST['template']) : NULL;
 		$templateId=($templateId>=0 && $templateId<count($this->templatesList)) ? $templateId : 0;
 		$annotatorEngine->template=$this->templatesList[$templateId];
 		
-		//@TODO save $simplified to DB
 		UserSettings::getCurrentSettings()->lastSystemInAnnotator=$annotatorEngine->systemID;
 		UserSettings::getCurrentSettings()->lastAnnotatorDictionaries=$annotatorEngine->dictionariesID;
 		UserSettings::getCurrentSettings()->lastTemplateInAnnotator=$templateId;
@@ -79,12 +78,6 @@ class AnnotatorController extends Controller
 		
 		ini_set('max_execution_time', 60000); //@TODO not sure if this is the best way
 		$annotatorEngine->annotate();
-		//$this->annotate($input, $systemID, $dictionaries,$simplified,$template,$whitespaceToHTML, $parallel,$audioURL);
-// 		$engine=new AnnotatorEngine;
-// 		$engine->annotate($input, $system, $dictionaries);
-// 		echo 'ok';
-// 		$this->render('index', array(
-// 			'systemList'=>$systemList));
 	}	
 	
 	public function actionBox() {
@@ -93,23 +86,23 @@ class AnnotatorController extends Controller
 		$dictionariesID=$_GET['d'];
 		$char=$_GET['t'];
 		$compoundsOnly=$_GET['o'];
+ 		$characterMode=AnnotatorEngine::CHARMOD_ALLOW_BOTH; //@TODO load from request
 				
 		$transcriptionFormatters=AnnotatorEngine::createFormatters($dictionariesID);
-		$simplified=TRUE; //@TODO load from DB
 		$result=null;
 		$phrasesResult=array();
 		
 		if(!$compoundsOnly) {
 			$system=System::model()->findByPk($systemID);
-			$translations=AnnotatorEngine::loadTranslationsFromDictionaries($char, $dictionariesID, $simplified);
+			$translations=AnnotatorEngine::loadTranslationsFromDictionaries($char, $dictionariesID, $characterMode);
 			$mnemos=AnnotatorEngine::loadMnemonicsForSystem($char, $system);
-			$result=$this->boxToArray($translations, $mnemos, $transcriptionFormatters, $simplified);
+			$result=$this->boxToArray($translations, $mnemos, $transcriptionFormatters, $characterMode);
 		}
 		
 		if(!empty($_GET['c'])) {
 			$compounds=$_GET['c'];
-			$phrases=AnnotatorEngine::loadPhrasesFromDictionaries($char, $compounds, $dictionariesID, $simplified);
-			$phrasesResult=$this->phrasesToArray($phrases,$transcriptionFormatters, $simplified);
+			$phrases=AnnotatorEngine::loadPhrasesFromDictionaries($char, $compounds, $dictionariesID, $characterMode);
+			$phrasesResult=$this->phrasesToArray($phrases,$transcriptionFormatters, $characterMode);
 		}
 		if($result==null) {
 			//
@@ -153,13 +146,14 @@ class AnnotatorController extends Controller
 	}
 	
 	//shared between jsbased/perchar.php & dynamic (server-side in ajax)
-	public function boxToDisplay($translations, $mnemos, $phrases, $transcriptionFormatters, $simplified) {
+	public function boxToDisplay($translations, $mnemos, $phrases, $transcriptionFormatters, $characterMode) {
 
 		$result='';
 		//phrases
+		if($phrases!=null)
 		foreach($phrases as $phrase) {
 			$result.="'";	
-			$result.=$phrase->getText($simplified); 
+			$result.=$phrase->getText($characterMode); 
 			$result.="','";
 			$result.=$transcriptionFormatters[$phrase->dictionaryId]->format($phrase->transcription); 
 			$result.="',new Array("; 
@@ -179,7 +173,7 @@ class AnnotatorController extends Controller
 		foreach($translations as $trans) { 
 		
 				$result.="'"; 
-				$result.=$trans->getText($simplified); 
+				$result.=$trans->getText($characterMode); 
 				$result.="','"; 
 				$result.=$transcriptionFormatters[$trans->dictionaryId]->format($trans->transcription); 
 				$result.="',new Array("; 
@@ -205,21 +199,21 @@ class AnnotatorController extends Controller
 
 	/**
 	 * 
-	 * @param unknown $phrases
+	 * @param DictEntryPhrase[] $phrases
 	 * @param unknown $transcriptionFormatters
-	 * @param boolean $simplified
+	 * @param Enum $characterMode
 	 * @return Array
 	 * 		the key is the full phrase text
 	 *      the value is an array (with one item for each different transcription)
 	 *        whose first item is the transcription
 	 *        and second item is the array of translations  
 	 */
-	public function phrasesToArray($phrases,$transcriptionFormatters, $simplified) {
+	public function phrasesToArray($phrases,$transcriptionFormatters, $characterMode) {
 		$result=array();
 		
 		if(!empty($phrases))
 		foreach($phrases as $phrase) {
-			$text=$phrase->getText($simplified); //note there are sometimes multiple results with one text (with different pronunciation)
+			$text=$phrase->getText($characterMode); //note there are sometimes multiple results with one text (with different pronunciation)
 			
 			$result[$text][]=
 			array($transcriptionFormatters[$phrase->dictionaryId]->format($phrase->transcription),
@@ -229,20 +223,20 @@ class AnnotatorController extends Controller
 		return $result;
 	}
 	
-	public function boxToArray($translations, $mnemos, $transcriptionFormatters, $simplified) {
+	public function boxToArray($translations, $mnemos, $transcriptionFormatters, $characterMode) {
 		$result=array();
 		//phrases
 		/*
 		if(!empty($phrases))
 		foreach($phrases as $phrase) {
-			$result[]=$phrase->getText($simplified);
+			$result[]=$phrase->getText($characterMode);
 			$result[]=$transcriptionFormatters[$phrase->dictionaryId]->format($phrase->transcription);
 			$result[]=$phrase->translationsArray;
 		}*/
 		
 		//single character translations
 		foreach($translations as $trans) {
-			$result[]=$trans->getText($simplified);
+			$result[]=$trans->getText($characterMode);
 			$result[]=$transcriptionFormatters[$trans->dictionaryId]->format($trans->transcription);
 			$result[]=$trans->translationsArray ;
 		}

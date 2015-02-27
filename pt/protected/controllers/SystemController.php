@@ -134,6 +134,9 @@ class SystemController extends Controller
 	 */
 	public function actionIndex()
 	{
+		$this->layout='//layouts/column3';
+		$this->secondSideMenu="systemsListSidebar";
+		
 		//if the user is not logged in, all public systems are listed
 		//if the user is logged in, his systems are listed first and the public ones later second
 		//(but we have to exclude own systems of the user from the public list)
