@@ -169,3 +169,11 @@ div.wide form .errorMessage
 {
 	margin: 0 0 0 110px;
 }
+
+/** edit */
+div.section
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}	
+

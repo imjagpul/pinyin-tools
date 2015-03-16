@@ -50,8 +50,7 @@ class AnnotatorController extends Controller
 		$annotatorEngine->dictionariesID=array(1); //hardcoded ("English")
 		$annotatorEngine->parallel=$textData->getTextParallel();
 		$annotatorEngine->audioURL=$textData->getTextAudioPath();
-// 		$annotatorEngine->outputType='download';
-		$annotatorEngine->outputType='browser';
+		$annotatorEngine->outputMode=AnnotatorMode::MODE_SHOW;
 		$annotatorEngine->whitespaceToHTML=true;
 
 		//choose the correct template
@@ -72,24 +71,22 @@ class AnnotatorController extends Controller
 		$annotatorEngine->annotate();
 	}
 	
-	public function actionIndex()
-	{
+	public function actionInput($modeID)
+	{		
+		$mode=AnnotatorMode::parseMode($modeID);
+		
 		$systemList=System::getReadableSystems();
 		$allDicts=Dictionary::model()->findAll();
 		$defaultSelectedDicts=UserSettings::getCurrentSettings()->lastAnnotatorDictionaries;
 		$systemLast=UserSettings::getCurrentSettings()->lastSystemInAnnotator;
 		$lastTemplate=UserSettings::getCurrentSettings()->lastTemplateInAnnotator;
 
-		if($lastTemplate==NULL) { //@TODO move to defaults to settings
-			$lastTemplate=0;
-		}
-		
-		$this->render('index', array(
-			'systemList'=>$systemList,
-			'systemLast'=>$systemLast,
+		$this->render('input', array(
+				'systemList'=>$systemList,
+				'systemLast'=>$systemLast,
+				'mode'=>$mode,
 				'allDicts'=>$allDicts,
 				'selectedDicts'=>$defaultSelectedDicts,
-				'lastTemplate'=>$lastTemplate,
 				'templatesList'=>$this->templatesListLabels,
 				));
 	}
@@ -123,6 +120,7 @@ class AnnotatorController extends Controller
 		$templateId=isset($_POST['template']) ? ((int)$_POST['template']) : NULL;
 		$templateId=($templateId>=0 && $templateId<count($this->templatesList)) ? $templateId : 0;
 		$annotatorEngine->template=$this->templatesList[$templateId];
+// 		$annotatorEngine->template=$_POST['templateID'];
 		
 		UserSettings::getCurrentSettings()->lastSystemInAnnotator=$annotatorEngine->systemID;
 		UserSettings::getCurrentSettings()->lastAnnotatorDictionaries=$annotatorEngine->dictionariesID;
@@ -132,19 +130,25 @@ class AnnotatorController extends Controller
 		ini_set('max_execution_time', 60000); //@TODO not sure if this is the best way
 		$annotatorEngine->annotate();
 	}	
-	
+
+	/**
+	 * Called via AJAX when the user points on a character.
+	 * 
+	 * This method outputs JSON-encoded two member array 
+	 * (first item is the data for the character, the second item the data for the compositions).
+	 */
 	public function actionBox() {
-		//$s, $d, $t
 		$systemID=$_GET['s'];
 		$dictionariesID=$_GET['d'];
 		$char=$_GET['t'];
 		$compoundsOnly=$_GET['o'];
- 		$characterMode=AnnotatorEngine::CHARMOD_ALLOW_BOTH; //@TODO load from request
+ 		$characterMode=AnnotatorEngine::CHARMOD_ALLOW_BOTH; //@TODO (perhaps) load from request
 				
 		$transcriptionFormatters=AnnotatorEngine::createFormatters($dictionariesID);
 		$result=null;
 		$phrasesResult=array();
 		
+		//load the data from the dictionary (if required)
 		if(!$compoundsOnly) {
 			$system=System::model()->findByPk($systemID);
 			$translations=AnnotatorEngine::loadTranslationsFromDictionaries($char, $dictionariesID, $characterMode);
@@ -152,15 +156,13 @@ class AnnotatorController extends Controller
 			$result=$this->boxToArray($translations, $mnemos, $transcriptionFormatters, $characterMode);
 		}
 		
+		//load the data for the phrases (if any specified)
 		if(!empty($_GET['c'])) {
 			$compounds=$_GET['c'];
 			$phrases=AnnotatorEngine::loadPhrasesFromDictionaries($char, $compounds, $dictionariesID, $characterMode);
 			$phrasesResult=$this->phrasesToArray($phrases,$transcriptionFormatters, $characterMode);
 		}
-		if($result==null) {
-			//
-			$a=5;
-		}
+		
 		echo json_encode(array($result, $phrasesResult));
 	}
 	

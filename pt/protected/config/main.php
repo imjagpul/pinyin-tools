@@ -48,6 +48,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.components.annotatorModes.*',			
 		//the users plugin
 // 		'application.modules.user.*',
 		'application.modules.user.models.*',

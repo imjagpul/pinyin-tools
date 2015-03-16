@@ -20,8 +20,10 @@ class AnnotatorEngine {
 	public $whitespaceToHTML=true; 
 	public $parallel;
 	public $audioURL;
-	/** @var String If the output is intended for downloading or for viewing (affects the mimetype). */
-	public $outputType;
+// 	/** @var String If the output is intended for downloading or for viewing (affects the mimetype). */
+// 	public $outputType;
+	/** @var Integer If the output is intended for downloading or for viewing (affects the mimetype). One of AnnotatorMode constants. */
+	public $outputMode;
 	/** @var String Text to be included as is at the beginning of the output. Useful for the demo page. */
 	public $prependText=NULL;
 	
@@ -77,10 +79,13 @@ class AnnotatorEngine {
 		
 	}
 	
-	private function handleOutputType() {
-		if($this->outputType==='download') {
+	private function handleOutputMode() {
+		if($this->outputMode===AnnotatorMode::MODE_DOWNLOAD) {
 			header('Content-type: application/octet-stream');
 			header('Content-Disposition: attachment; filename="export.html"');
+		} else if($this->outputMode===AnnotatorMode::MODE_DOWNLOAD_EPUB) {
+			header('Content-type: application/epub+zip');
+			header('Content-Disposition: attachment; filename="export.epub"');
 		}
 	}
 	
@@ -90,7 +95,7 @@ class AnnotatorEngine {
 	
 		$data=array('charset'=>$this->encoding, 'colors'=>$this->colors, 'prependText'=>$this->prependText);
 
-		$this->handleOutputType();
+		$this->handleOutputMode();
 		
 		if(!empty($this->parallel)) {
 			Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/colResizable-1.3.min.js');
