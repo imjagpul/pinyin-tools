@@ -20,7 +20,10 @@ class AnnotatorEngine {
 	public $whitespaceToHTML=true; 
 	public $parallel;
 	public $audioURL;
+	/** @var String If the output is intended for downloading or for viewing (affects the mimetype). */
 	public $outputType;
+	/** @var String Text to be included as is at the beginning of the output. Useful for the demo page. */
+	public $prependText=NULL;
 	
 	private $encoding;
 	private $colors;
@@ -85,7 +88,7 @@ class AnnotatorEngine {
 		//note we cannot use render() because the output files might be large (and with render() we could run out of memory)
 		//so instead we use renderPartial several times
 	
-		$data=array('charset'=>$this->encoding, 'colors'=>$this->colors, false, true);
+		$data=array('charset'=>$this->encoding, 'colors'=>$this->colors, 'prependText'=>$this->prependText);
 
 		$this->handleOutputType();
 		
@@ -94,7 +97,7 @@ class AnnotatorEngine {
 			Yii::app()->clientScript->registerScript('resizableCol','$("table.parallel").colResizable({gripInnerHtml:"<div class=\'grip\'></div>"});');
 		}
 		
-		$this->parent->renderPartial($this->template.'/header', $data) ;
+		$this->parent->renderPartial($this->template.'/header', $data, false, true) ;
 	}
 	
 	/**
@@ -137,11 +140,14 @@ class AnnotatorEngine {
 		
 		if($templateCount==="DUMP") { //if no templates are set, just dump the whole input as-is
 			//echo $this->input;
-			//echo $this->input;
-
-			//but run the processing method (now temporialily hardcoded here, to be moved to the "dumpoutput.php" file)
+			
+			//@TODO move this processing to a method in the "dumpoutput.php"
+			if(!$this->whitespaceToHTML)
+				echo $this->input;
+			else
+				echo implode('</div><br><div class="x">', split("(\r\n){1,}", $this->input));
+			
 // 			echo implode('</div><br><div class="x">', split("\r\n\r\n", $this->input));
-			echo implode('</div><br><div class="x">', split("(\r\n){1,}", $this->input));
 // 			echo implode('</div><div class="x">', split("(\r\n){1,}", $this->input));
 			
 			//str_split($this->input);

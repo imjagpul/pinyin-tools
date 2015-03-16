@@ -22,3 +22,4 @@ $cs->registerCss('tones', UserSettings::getCurrentSettings()->tonesCss);
 		</style>		
 	</head>
 	<body>
+<?php if($prependText!==NULL) echo $prependText; ?>

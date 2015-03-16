@@ -1,31 +1,18 @@
-2. demo page
-
-duplex > demonstration.php & AnnotatorController#demo()
-
-dictionary for traditional characters does not work
-	TRADITIONAL:
-	 switch and/or autodetect
-	   need annotator settings
-	ALSO conversion options
-	ANNOTATOR REDESIGN:
-	  simple and advanced mode
-	%  
-	also USER SETTINGS: 
-	  prefered defaults   
-    % 
-    save last as before
-
+*PREPEND TEXT (as in demonstration.php
+*PREPEND AUDIO (will perhaps have to update to HTML5 :-)
+*make it nicer (see design in EPUB)
+*FINE TUNING
 for the demo, remove compositions
 perhaps filter the dictionary as well, in order for it to be not so long
 check duplicities in system
 
-add versions:
- simplified, traditional ;mobi, epub
-
 fix in anntoator:
   mark untagged
-  smarter line wrapping  
- 
+
+notes
+*****
+
+//duplex > demonstration.php & AnnotatorController#demo() 
  
  finish text:
 ***********

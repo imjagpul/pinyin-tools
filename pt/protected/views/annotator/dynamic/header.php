@@ -167,7 +167,7 @@ table.parallel td:last-child {
             for(i=0; i<boxdata.length-2; i+=3) {
               htmldata+='<div class="ch">';
               htmldata+=boxdata[i];
-              htmldata+='</div>';
+              htmldata+='</div>'; 
               
               htmldata+='<div class="pinyin">';
               htmldata+=boxdata[i+1];
@@ -222,6 +222,7 @@ table.parallel td:last-child {
 
 </head>
 <body>
+<?php if($prependText!==NULL) echo $prependText; ?>
 	<div id="box"></div>
 	<script type="text/javascript" language="JavaScript">
 	init();

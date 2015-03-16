@@ -15,8 +15,61 @@ class AnnotatorController extends Controller
 			2 => 'Dynamic'
 			);
 	 
-	public function actionDemo($id) {
-		//
+	/**
+	 * This method runs the annotator with hardcoded settings.
+	 * The purpose is to generate a typical output that can server as a good demonstration of the annotator
+	 * abilities.
+	 *  
+	 * It is intended to be run once, because the output is to be cached manually and linked directly from
+	 * the main page.
+	 *  
+	 * @param Integer $id
+	 * 		one of the hardcoded modes:
+	 *					1 - default, simplified
+	 *					2 - default, traditional
+	 *					3 - no-js, simplified
+	 *					4 - no-js, traditional
+	 *					5 - mobi/epub, simplified
+	 *					6 - mobi/epub, traditional
+	 */
+	 public function actionGenerateDemo($id) {
+		//first load the predefined input into the engine
+		$textManager=new TextManager();
+		
+		$textData=$textManager->getText('sanzijing');
+		
+		$isTraditional=($id==1 || $id==3 || $id==5);
+		$isJsBased = ($id==1 ||$id==2);
+		
+		$annotatorEngine=new AnnotatorEngine();
+		$annotatorEngine->parent=$this;
+		$annotatorEngine->input=$isTraditional ? $textData->getTextSimplified() : $textData->getTextTraditional();
+		$annotatorEngine->characterMode=$isTraditional ? AnnotatorEngine::CHARMOD_SIMPLIFIED_ONLY : AnnotatorEngine::CHARMOD_TRADITIONAL_ONLY;
+		
+		$annotatorEngine->systemID=13; //hardcoded ("Explanation of characters by Herbert A. Giles")
+		$annotatorEngine->dictionariesID=array(1); //hardcoded ("English")
+		$annotatorEngine->parallel=$textData->getTextParallel();
+		$annotatorEngine->audioURL=$textData->getTextAudioPath();
+// 		$annotatorEngine->outputType='download';
+		$annotatorEngine->outputType='browser';
+		$annotatorEngine->whitespaceToHTML=true;
+
+		//choose the correct template
+		if($isJsBased) {
+			$template=$this->templatesList[0];
+			if($template!=='jsbased')
+				throw new Exception("Assertion error : templates changed.");
+		} else {
+			$template=$this->templatesList[1];
+			if($template!=='kindle')
+				throw new Exception("Assertion error : templates changed.");
+		}
+		
+		$annotatorEngine->template=$template;
+		$annotatorEngine->prependText=$this->renderPartial('demonstrationText',null,true,false);
+		
+		//then start the annotation
+		$annotatorEngine->annotate();
 	}
 	
 	public function actionIndex()

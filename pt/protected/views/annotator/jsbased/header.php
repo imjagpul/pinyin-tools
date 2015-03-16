@@ -177,3 +177,4 @@ table.parallel td:last-child {
 <body>
 	<div id="box"></div>
 	<script type="text/javascript" language="JavaScript">init()</script>
+	<?php if($prependText!==NULL) echo $prependText; ?>
