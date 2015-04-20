@@ -10,20 +10,27 @@ define('PINYIN_FORMAT_MARKS_HTML_COLORS', 5);
 
 class FormattersFactory {
 	private static $cache=array();
-// 	private $_mode;
 
+	/**
+	 * 
+	 * @param string $transcription
+	 * @param string $mode
+	 * @return Formatter
+	 */
 	public static function getFormatterForDictionaryWidget($transcription, $mode=PINYIN_FORMAT_MARKS_HTML_COLORS) {
-		if(isset(self::$cache[$transcription]))
-				return self::$cache[$transcription];
+// 		$cacheIndex=array($transcription, $mode);
+		$cacheIndex=$transcription."MODE:".$mode;
+		if(isset(self::$cache[$cacheIndex]))
+				return self::$cache[$cacheIndex];
 
 		if($transcription=="Pinyin") {
-			self::$cache[$transcription]=new PinyinFormattingTools($mode);
+			self::$cache[$cacheIndex]=new PinyinFormattingTools($mode);
 		} else if($transcription=='meaning' || $transcription=='pronunciation' || $transcription=='both') {
-			self::$cache[$transcription]=new MatthewsFormatter();
+			self::$cache[$cacheIndex]=new MatthewsFormatter();
 		} else {
-			self::$cache[$transcription]=new DummyFormatter();
+			self::$cache[$cacheIndex]=new DummyFormatter();
 		}
 		
-		return self::$cache[$transcription];
+		return self::$cache[$cacheIndex];
 	} 
 }

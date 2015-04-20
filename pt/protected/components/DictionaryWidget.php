@@ -38,10 +38,14 @@ class DictionaryWidget extends CWidget {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param Dictionary $dict
+	 * @param FormattersFactory $factory
+	 */
 	private function outputDict($dict, $factory) {
 		if(empty($this->_dictionaryQuery)) 
 			return;
-		
 		
 		echo '<h2>' . $dict->name . '</h2>';
 		$formatter = $factory->getFormatterForDictionaryWidget ( $dict->transcriptionName ); // @TODO not fully efficiet, maybe use ID instead

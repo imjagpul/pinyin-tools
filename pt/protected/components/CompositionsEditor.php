@@ -45,49 +45,19 @@ class CompositionsEditor extends CGridView {
 	
 	private function echoSuggestionText() {
 		$charModel=$this->char;
+		$suggestion=new Suggestion();
+		$allComponents=$suggestion->suggestComposition($charModel);
 		
-		if(empty($charModel->chardef)) {
-			return;
-		}
-		
-		//@TODO add a way to exclude chosen systems (to ignore systems per user basis)
-		$criteria=new CDbCriteria();
-		$criteria->compare('chardef', $charModel->chardef);
-		if(!$charModel->isNewRecord)
-			$criteria->compare('id', "<>$charModel->id");
-		$criteria->with='components';
-		$charModelOthers=Char::model()->findAll($criteria); //@TODO fetch ids only
-
-		//filter empty suggestions (with no compositions) and prepare the list data
-		$listData=array();
-		
-		foreach($charModelOthers as $model) {
-			$components=$model->components;
-			
-			//filter empty
-			if(empty($components))
-				continue;
-			
-			//assure no duplicite suggestions are made
-			$entry=array();
-			$display='';
-			foreach($components as $comp) {
-				for($i=0;$i<$comp->count;$i++) {
-					$subcharChardef=$comp->subchar->chardef;
-					$entry[]=$subcharChardef;
-				}
-			}
-			$uniquekey=CJSON::encode($entry);
-			$display = implode(' ', $entry);
-			
-			if(!isset($listData[$uniquekey])) {				
-				$listData[$uniquekey]=$display;
-			}
-		} 
-
-		if(count($listData)<1)
+		if(count($allComponents)<1) {
 			return ''; //do not display any text if no suggestions found
-		else {
+		} else {
+			$listData=array();		
+	
+			//wformat the suggestions in the listdata format
+			foreach ($allComponents as $JSON=>$subs) {
+				$listData[$JSON]=implode(' ', CJSON::decode($JSON));
+			}
+		
 			?>
 			<div class="">
 			<?php echo CHtml::dropDownList('suggestions', '', $listData, array('prompt'=>'Suggestions')); ?>

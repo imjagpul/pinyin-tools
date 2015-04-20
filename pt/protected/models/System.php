@@ -159,6 +159,12 @@ class System extends CActiveRecord
 		return $mergeWith; 
 	}
 	
+	public function getTranscriptionName() {
+		return Lookup::model()->findByPk($this->transcription)->text;		
+// 		$trans=$this->transcriptionData;
+// 		return $trans->text;
+	}
+	
 	public function getShortenedDescription() {
 		if(!empty($this->shortdescription)) 
 			return $this->shortdescription;

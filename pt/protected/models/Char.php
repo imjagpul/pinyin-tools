@@ -9,6 +9,7 @@
  * @property integer $system
  * @property string $keyword
  * @property string $transcription
+ * @property string $transcriptionAuto
  * @property string $mnemo
  * @property string $notes
  * @property string $notes2
@@ -140,6 +141,31 @@ class Char extends CActiveRecord
 	public function getMnemonicsHTML() {
 		 return System::getMnemoFormatter($this->system)->format($this->mnemo);
 	}
+	
+	/**
+	 * Returns the transcription as set (if set)
+	 * or the transcription as loaded from dictionary. 
+	 * @return string
+	 */
+	public function getTranscriptionAuto() {
+		if(!empty($this->transcription)) {
+			return $this->transcription;
+		} else {
+			$suggestion=new Suggestion();
+			return $suggestion->loadTranscription($this->systemValue, $this->chardef);
+		}
+	}
+	
+	/**
+	 * Returns the transcription as set (if set)
+	 * or the transcription as loaded from dictionary. 
+	 * @return string
+	 */
+	public function getTranscriptionAutoNoTone() {
+		$val=$this->transcriptionAuto;
+		$factory=FormattersFactory::getFormatterForDictionaryWidget($this->systemValue->transcriptionName, PINYIN_FORMAT_NO_TONES);
+		return $factory->format($val);
+	}
 
 	public function getDiagnostics() {
 		return implode(" ",CharDiagnostics::diagnose($this));
@@ -149,8 +175,8 @@ class Char extends CActiveRecord
 	
 	
 	/**
-	 * Returns true if nothing all data in this model is empty
-	 * (excluding chardef and id - these are ignored.
+	 * Returns true if all data in this model are empty
+	 * (excluding chardef and id - these two are ignored).
 	 * 
 	 * @return boolean 
 	 */

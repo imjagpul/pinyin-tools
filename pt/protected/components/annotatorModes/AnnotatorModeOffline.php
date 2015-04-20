@@ -1,11 +1,11 @@
 <?php
 class AnnotatorModeOffline extends AnnotatorMode  {
-	function allowView() { return false; }
+	function allowView() { return true; }
 	function allowDownload() { return true; }
 	function getOutputProcessor() { return null; }
 	
 	function getDescription() {
-		return "You will get a HTML page suitable for offline usage.";
+		return "The result has the tooltip preloaded (i.e. it is suitable for offline usage but takes slightly longer to generate).";
 	}
 	
 	function getTemplateID() {
