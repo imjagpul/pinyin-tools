@@ -10,12 +10,13 @@ class CharDiagnostics {
 	 		'targetLanguageId' =>$targetLanguageId,
 	 		'transcriptionId'=>$transcriptionId));
 	 } 
+	 /*
 	 static function getTranscriptionFromDictionary($char, $targetLanguageId, $transcriptionId) {
 	 	$dicts=getTranscriptionDictionaries($targetLanguageId, $transcriptionId);
 	 	
 	 	//return all found
 	 	
-	 } 
+	 } */
 
 	 private static $hardcodedCharAliases=array(
 	 	'竹'=>16391,

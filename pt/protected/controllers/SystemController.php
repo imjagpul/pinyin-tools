@@ -182,25 +182,119 @@ class SystemController extends Controller
 		));
 	}
 	
+	private function actionDiagnosticsMiddle() {
+		$autoconvertible=array();
+		$notMatching=array();
+		$notTwoLines=array();
+		$noTone=array();
+		$noKw=array();
+		$noComp=array();
+		$manyComp=array();
+		$unmatch=array();
+		
+		$allChars=Char::model()->findAllByAttributes(array('system'=>2));
+		foreach($allChars as $char)
+		{
+			if(!empty($char->mnemo)) {
+				$result=MnemoParser::suggestMiddleToNew($char);
+				
+				if($result===-1) {
+					$notTwoLines[]=$char;
+				} else if($result===-2) {
+					$noTone[]=$char;
+				} else if($result===-3) {
+					$noKw[]=$char;
+				} else if($result===-4) {
+					$noComp[]=$char;
+				} else if($result===-5) {
+					$manyComp[]=$char;
+				} else if($result===-6) {
+					$unmatch[]=$char;
+				} else if($result!=NULL) {
+					$autoconvertible[]=$result;
+				} else {
+					$notMatching[]=$char;
+				}				
+			}
+		}
+			
+		$this->render('diagnostics',array(
+				'data'=>array(
+						'Auto-convertible'=>$autoconvertible,
+						'Not matches'=>$notMatching,
+						'Not two lines'=>$notTwoLines,
+						'No tone'=>$noTone,
+						'No keyword'=>$noKw,
+						'No components'=>$noComp,
+						'Unmatched keyword'=>$unmatch,
+						'Mutliple components'=>$manyComp
+				)
+		)
+		);
+	}
+	
 	public function actionDiagnostics($id) 
 	{
-		ini_set('max_execution_time', 60000); 
+		ini_set('max_execution_time', 60000);
+		 
+		if($id==2) {
+			$this->actionDiagnosticsMiddle();
+			return;
+		}
 		
-		$autoconvertible=array();
-		$nocomponents=array();
+		
+		
+		$notMatching=array();
+// 		$nocomponents=array();
 		$other=array();
+		$multiple=array();
+// 		$needFix=array();
+		$lessMatches=array();
+		$moreMatches=array();
+		$notFullyMatches=array();
 		
 		$allChars=Char::model()->findAllByAttributes(array('system'=>$id));
 		foreach($allChars as $char) 
 		{
+			if(!empty($char->mnemo)) {
+// 				$result=MnemoParser::parseOld($char->mnemo);
+				$result=MnemoParser::suggestOldToNew($char);
+				if($result===-1) {
+					$needFix[]=$char;
+				} else if($result===-2) {
+					$lessMatches[]=$char;
+				} else if($result===-3) {
+					$moreMatches[]=$char;
+				} else if($result===-4) {
+					$notFullyMatches[]=$char;
+				} else 				
+				if($result!=NULL) {
+					$other[]=$result;
+// 					$char->mnemo=$result;
+// 					$char->system=14;
+// 					$char->update();
+// 					$other[]="moved ".$char->chardef;
+					
+				//for first diagnosis
+// 					$other[]="$result";
+// 					$other[]=$char->chardef." ".$char->transcriptionAuto." $result";
+// 					$other[]=$char->chardef." ".$char->transcriptionAutoNoTone." $result";
+					
+					//for output
+// 					$other[]=$char->transcriptionAutoNoTone."\t$result";
+				} else
+					$notMatching[]=$char;
+				
+			}
+				
 			/*
 			if(!empty(strpos($char->mnemo, "lightning")!==false))
 				$autoconvertible[]=$char;
 				*/
 			
-			if(strpos($char->mnemo, "<br")!==false)
+			/*if(strpos($char->mnemo, "<br")!==false)
 				$autoconvertible[]=$char;
-				
+				*/
 			/*
 			if(!empty($char->notes))
 				$autoconvertible[]=$char;
@@ -221,9 +315,14 @@ class SystemController extends Controller
 		
 		$this->render('diagnostics',array(
 				'data'=>array(
-						'Auto-convertible'=>$autoconvertible,
-						'Chars that have no components'=>$nocomponents,
-						'Other chars'=>$other
+// 						'Auto-convertible'=>$autoconvertible,
+						'Other chars'=>$other,
+						'More marked as matches'=>$moreMatches,
+						'Less marked as matches'=>$lessMatches,
+						'Not matching'=>$notMatching,
+// 						'Need fix'=>$needFix,
+						'Not fully matches'=>$notFullyMatches
+// 						'All chars'=>$allChars,
 			)
 		)
 		);
