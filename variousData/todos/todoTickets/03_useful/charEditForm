@@ -1,0 +1,7 @@
+
+
+GUI:
+  button / checkbox "enable autosuggest"
+  compontens: show dropbox only if more variants available
+  
+  remove Notes3 et 2 unless set in system as needed

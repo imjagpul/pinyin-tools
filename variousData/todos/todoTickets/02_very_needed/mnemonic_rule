@@ -4,3 +4,47 @@
    generalize systems:
  (list of pinyins => keywords and archetypes) [c] to markup no link
    
+   *********
+per system:
+
+    transciption => text
+    
+    Matthews
+    
+ 1) fill the content for imj - final (parse from real data)
+  a) DONE: have keywords parsed
+  b) DONE: convert old format to new
+
+  d) fill "Imjagpul"
+		I) implement as in comments
+		  
+  c) refill unmatching in Old
+  		I) manual
+  		II) split composition
+        b) convert old format to new
+          
+  e) implement autosuggest button
+        I) fill soundword also
+        II) mark already existing text
+        
+ 2) make UI for manual fill
+ 3) let it be displayed from the system description
+ 4)   and link usage 
+ 
+ *** doing 1)
+  How to parse the black parts?
+    need to determine which are composition and which are keywords
+    *keyword value
+	*components
+  Steps:
+   
+	
+  What data needed?
+    FINAL:
+      cui4 [a4]ghostly... [s4]stats
+    SOUNDWORDS:
+      cui statistics
+    GENERATOR
+      if(u)ghostly
+      if(i)two
+      per tone

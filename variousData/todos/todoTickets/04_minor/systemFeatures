@@ -1,5 +1,8 @@
 add lookup> mark szstems as favorite, hide, pagination for lookup
 
+CREATE:
+  add dependency
+
 "favorite"
 or enabled in annotator (when more systems show up)
 

@@ -1,8 +1,17 @@
 e.g. http://localhost/pt/s/%E4%B8%AA
+inspired by book and taglich:
+e.g. localhost/taglich/index.php?c=個
+e.g. book
 
-(inspired by book and taglich)
 
 lookup char
 *make compositions nice
 #_detail.php :  make look nicer (a merge from GoldenDict#Modern look and Matthews PDF book styles)
   ##compomentns not underlined (maybe; or maybe keywords only) 
+
+and make consistens with view
+ http://localhost/pt/char/view/16091
+  (get rid of view, link to lookup - just with a highligh - (below - same char, same keyword)) 
+  
+  
+*** ***** *******
