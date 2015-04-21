@@ -2,6 +2,9 @@
 
 class SiteController extends Controller
 {
+	public $layout='//layouts/column3';
+	public $secondSideMenu='helpMenu';
+// 	public $secondSideMenuData='helpMenu';
 	public $defaultAction="page";
 	/**
 	 * Declares class-based actions.
