@@ -5,6 +5,7 @@
 	'id'=>'login-form',
 // 		'action'=>array('site/login'),
 		'action'=>array('log.Login'),
+// 	'action'=>array('user/login'),
  	'enableAjaxValidation'=>false,
  	'enableClientValidation'=>false,
 	'clientOptions'=>array(
@@ -35,7 +36,7 @@
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Login'); ?>
 		or 
-		<a href="<?php echo  Yii::app()->createUrl("/site/register"); ?>">register</a>
+		<a href="<?php echo  Yii::app()->createUrl("/user/registration"); ?>">register</a>
 	</div>
 
 <?php $this->endWidget(); ?>

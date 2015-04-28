@@ -2,7 +2,8 @@
 class LoginAction extends CAction {
 	public function run(){
 		$model=new LoginForm;		
-			// if it is ajax validation request
+		
+		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
 		{
 			echo CActiveForm::validate($model);
@@ -27,23 +28,25 @@ class LoginAction extends CAction {
 			}
 		}
 		if($redirect) {
-			
 			if($returnUrl==$this->getController()->createUrl('site/log.Login')) {
-				$returnUrl=Yii::app()->homeUrl;				
+				$returnUrl=Yii::app()->homeUrl;
 			}
 				
 			$this->getController()->redirect($returnUrl);
 		}
 		
-// 		Yii::
+		//at this point: invalid login attempt and no AJAX enabled
+		
 		// display the login form
 		//@TODO refactor (after registration); does not work fine when logging from elsewhere (than SiteController)
 		$this->getController()->loginFormModel=$model;
-		if(get_class($this->getController())=='SiteController') {
-			$this->getController()->render('login');		
-		} else {
-			$this->getController()->redirect($this->getController()->createUrl("site/login"));
-		}
+		$this->getController()->redirect($this->getController()->createUrl("user/login"));
+		
+// 		if(get_class($this->getController())=='SiteController') {
+// 			$this->getController()->render('login');		
+// 		} else {
+// 			$this->getController()->redirect($this->getController()->createUrl("user/login"));
+// 		}
 // 		$this->getController()->render();		
 	}	
 }
