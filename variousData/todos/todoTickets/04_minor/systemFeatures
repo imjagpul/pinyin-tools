@@ -1,15 +1,39 @@
-add lookup> mark szstems as favorite, hide, pagination for lookup
+STEP:
+  implement primary
+STEP:
+  make icon work
+STEP:
+  implement favorite
+STEP:
+  make favorite icon work
+STEP:
+  implement browse
 
-CREATE:
-  add dependency
+STEP:
+   add charcount to desc
+   
+SUBTASKs:
+  user with no systems: (on http://localhost/pt/system/index) No results found. => "You have not any system created yet. "    
+  add inheritance GUI support in adding / editing systems
+  pagination for Char lookup
+  create yet another user, make him the author of HESIG 
 
-"favorite"
-or enabled in annotator (when more systems show up)
-
+********** analysis *********************
+"favorite" or enabled in annotator (when more systems show up)
 
 PROBABLY:
 
   PRIMARY (can be changed anytime; always shows up in searches, default in annotator)
   FAVORITE 
-  (UNSELECTED) (not listed in annotator, perhaps not even in searches)
+  ANNOTATOR (not listed in annotator) (a chechlist)
   HIDE
+  
+things to set up:
+  *keywords, when to show "add" - PRIMARY
+  *default when adding          - PRIMARY
+  *show in lookup               - all but HIDDEN, FAVORITE first 
+  *show in annotator            - all your + specially selected  | all but HIDDEN, FAVORITE first
+  
+defualt choices:
+  primary system
+  all your because it is assumed you are creating them for this purpose
