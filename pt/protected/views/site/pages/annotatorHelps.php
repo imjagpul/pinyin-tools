@@ -2,7 +2,7 @@
 
 <p>At the time I started combining the extensive reading method with using visual mnemonics, 
 when I encountered a character I learned before but forgot, I just checked my Anki database manually (where I have been storing the mnemonics). Until I realized it would be much faster if you could access the mnemonics directly from the text you are reading. 
-And that is what the <?php echo CHtml::link("Annotator", '/annotator/input/modeID/0')?> is for. 
+And that is what the <?php echo CHtml::link("Annotator", array('/annotator/input/modeID/0'))?> is for. 
 
 <p>Note there are many tools that allow you to annotate text with pinyin and the translation, but I could not find any that would let you add your own notes to the result. So I made my own.
 I found it very practical, so I assume it will be of use for you as well.
