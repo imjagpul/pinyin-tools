@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'user_settings_systems':
  * @property integer $userId
  * @property integer $systemId
- * @property integer $keywords
+ * @property integer $favorite
  * @property integer $hide
  *
  * The followings are the available model relations:
@@ -32,10 +32,10 @@ class UserSettingsSystems extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('userId, systemId', 'required'),
-			array('userId, systemId, keywords, hide', 'numerical', 'integerOnly'=>true),
+			array('userId, systemId, favorite, hide', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('userId, systemId, keywords, hide', 'safe', 'on'=>'search'),
+			array('userId, systemId, favorite, hide', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,7 +60,7 @@ class UserSettingsSystems extends CActiveRecord
 		return array(
 			'userId' => 'User',
 			'systemId' => 'System',
-			'keywords' => 'Keywords',
+			'favorite' => 'Favorite',
 			'hide' => 'Hide',
 		);
 	}
@@ -85,7 +85,7 @@ class UserSettingsSystems extends CActiveRecord
 
 		$criteria->compare('userId',$this->userId);
 		$criteria->compare('systemId',$this->systemId);
-		$criteria->compare('keywords',$this->keywords);
+		$criteria->compare('favorite',$this->favorite);
 		$criteria->compare('hide',$this->hide);
 
 		return new CActiveDataProvider($this, array(

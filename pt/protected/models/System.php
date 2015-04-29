@@ -211,6 +211,44 @@ class System extends CActiveRecord
 	}
 	
 	/**
+	 * Returns true if the system is marked as favorite for the current user.
+	 * 
+	 * For the guest false is always returned.
+	 */
+	public function isFavorite() {
+		$userId=Yii::app()->user->id;
+		
+		if(!(is_null($userId))) {
+			$model=UserSettingsSystems::model()->findByAttributes(array('userId'=>$userId, 'systemId'=>$this->id));
+			
+			if(!(is_null($model))) {
+				return $model->favorite;
+			}
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * Returns true if the system is marked as hidden for the current user.
+	 * 
+	 * For the guest false is always returned.
+	 */
+	public function isHidden() {
+		$userId=Yii::app()->user->id;
+		
+		if(!(is_null($userId))) {
+			$model=UserSettingsSystems::model()->findByAttributes(array('userId'=>$userId, 'systemId'=>$this->id));
+			
+			if(!(is_null($model))) {
+				return $model->hide;
+			}
+		}
+		
+		return false;
+	}
+	
+	/**
 	 * Gets a list of systems the current user has permissions to write to.
 	 * @return array
 	 */

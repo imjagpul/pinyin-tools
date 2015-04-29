@@ -28,7 +28,7 @@ class CharController extends Controller
 	{
 		return CMap::mergeArray(parent::accessRules(), array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'lookup', 'suggest', 'suggestComposition', 'suggestCompositions', 'suggestSystemChanged', 'heisig', 'matthews', 'radicals'),
+				'actions'=>array('index','view', 'lookup', 'suggest', 'suggestComposition', 'suggestCompositions', 'suggestSystemChanged', 'heisig', 'matthews', 'radicals', 'bySystem'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -37,8 +37,8 @@ class CharController extends Controller
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete', 'autocorrect'),
-// 				'roles'=>array('admin'),
-				'users'=>array('@'),
+				'roles'=>array('admin'),
+// 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -259,11 +259,32 @@ class CharController extends Controller
 		$dataProvider=new CActiveDataProvider('Char');
 		
 		$this->render('index',array(
-			'criteria'=>$criteria, //TODO : HERE
+			'criteria'=>$criteria,
 			'dataProvider'=>$dataProvider,
 		));
 	}
 
+	public function actionBySystem($id) {
+		$dataProvider=new CActiveDataProvider('Char', array(
+	    'criteria'=>array(
+	        'condition'=>'system='.$id,
+// 	        'order'=>'create_time DESC',
+// 	        'with'=>array('author'),
+	    ),
+// 	    'countCriteria'=>array(
+// 	        'condition'=>'status=1',
+// 	    ),
+	    'pagination'=>array(
+	        'pageSize'=>20,
+	    ),
+		));
+		
+		$this->render('bySystem',array(
+				'systemName'=>System::model()->findByPk($id)->name,
+				'dataProvider'=>$dataProvider,
+		));
+	}
+	
 	/**
 	 * Lists all models.
 	 */

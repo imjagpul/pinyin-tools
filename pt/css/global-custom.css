@@ -192,6 +192,10 @@ legend {
 	vertical-align: text-top;
 	font-size: 13px;
 }
+
+.editlink img {
+	padding-right: 2px;
+}
 	
 .cn { /* chinese characters */
 	color: black;
@@ -308,6 +312,28 @@ td {
 
 #audioURL {
 	width: 99%; 
+}
+
+div.charview {
+	position: relative;
+}
+
+div.charview td{
+	padding: 0px;    
+  }
+div.charview .charbox { /* Used in char listing for single views */
+	color: black;
+	font-size: 72px;
+	line-height: 72px;
+} 
+div.charview .components { /* Used in char listing for single views */
+	/*position: absolute; top: 10px; right: 40px;*/
+}
+div.charview .keyword { /* Used in char listing for single views */
+}
+div.charview .mnemo { /* Used in char listing for single views */
+}
+div.charview .mnemo blockquote {
 }
 
 /***** GLOBAL CLASSES *****/

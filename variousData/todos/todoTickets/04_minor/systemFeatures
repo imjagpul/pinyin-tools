@@ -1,16 +1,17 @@
+PART: make it useful
 STEP:
-  implement primary
+  on char search, add "Add this character" when missing in primary
+  in annotator, exclude hidden systes
+  in annotator, favorite system on the top
+  in lookup, exclude hidden systems
+  in lookup, favorite system on the top
+PART: FINE TUNING:
 STEP:
-  make icon work
-STEP:
-  implement favorite
-STEP:
-  make favorite icon work
-STEP:
-  implement browse
-
+  on create new, if it is the first one, set it as primary
 STEP:
    add charcount to desc
+STEP:
+  submenu in edit and in view
    
 SUBTASKs:
   user with no systems: (on http://localhost/pt/system/index) No results found. => "You have not any system created yet. "    

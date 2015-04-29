@@ -32,13 +32,13 @@ class SystemController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'changeOwn', 'changeForeign'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete', 'diagnostics'),
-// 				'roles'=>array('admin'),
-					'users'=>array('*'),
+				'roles'=>array('admin'),
+// 					'users'=>array('*'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -180,6 +180,60 @@ class SystemController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	}
+	
+	public function actionChangeForeign($id, $prop, $newValue) {
+		settype($id, 'integer');
+		
+		$system=System::model()->findByPk($id);
+		$userID=Yii::app()->user->getId();
+		
+		$userSettingsSystems=UserSettingsSystems::model()->findByPk(array('userId'=>$userID, 'systemId'=>$id));
+		if($userSettingsSystems==NULL) {
+			$userSettingsSystems=new UserSettingsSystems();
+			$userSettingsSystems->userId=$userID;
+			$userSettingsSystems->systemId=$id;
+		}
+		
+		if($prop==="hidden") {
+			if($newValue=="true")
+				$userSettingsSystems->hide=1;
+			else
+				$userSettingsSystems->hide=0;
+		} else if($prop==="favorite") {
+			if($newValue=="true")
+				$userSettingsSystems->favorite=1;
+			else
+				$userSettingsSystems->favorite=0;
+		} else {
+			throw new CHttpException(403,'Invalid property.');
+		}
+		 
+		$userSettingsSystems->save();
+		$this->redirect(array('system/index'));
+	}
+	
+	public function actionChangeOwn($id, $prop, $newValue) {
+		settype($id, 'integer');
+		
+		$system=System::model()->findByPk($id);
+		$userID=Yii::app()->user->getId();
+		
+		//verify user access
+		if($system->master!==$userID) {
+			throw new CHttpException(403,'Invalid user.');
+			Yii::app()->exit(); //@TODO implemnt full user permissons
+		}
+		
+		if($prop!=="primary") {
+			throw new CHttpException(403,'Invalid property.');
+		}
+		
+		if($newValue=="true") {
+			UserSettings::getCurrentSettings()->defaultSystem=$id;
+			UserSettings::getCurrentSettings()->saveSettings();
+			$this->redirect(array('system/index'));
+		}
 	}
 	
 	private function actionDiagnosticsMiddle() {

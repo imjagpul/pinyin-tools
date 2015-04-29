@@ -12,20 +12,35 @@
 	<span style="float: right">
 	
 	<?php 
-		echo '<span class="editlink">';
+	echo '<span class="editlink">';
 	$iconsPath=Yii::app()->request->baseUrl.'/images/icons/';
+	$primary=UserSettings::getCurrentSettings()->defaultSystem;
+	
 	if($data->isWriteable()) {
-		echo CHtml::link(CHtml::image($iconsPath.'primary.png', "").'Primary', array('system/update', 'id'=>$data->id));
+		if($primary==$data->id) {
+			echo CHtml::image($iconsPath.'primary.png', "").'Primary';
+		} else {
+			echo CHtml::link(CHtml::image($iconsPath.'primary_grey.png', "").'Set primary', array('system/changeOwn', 'id'=>$data->id, 'prop'=>'primary', 'newValue'=>'true'));
+		}
+		
 		echo "&nbsp;";
 		echo CHtml::link(CHtml::image($iconsPath.'edit.png', "").'Edit', array('system/update', 'id'=>$data->id));
 	} else {
 		echo "&nbsp;";
-		echo CHtml::link(CHtml::image($iconsPath.'favorite.png', "").'Favorite', array('system/update', 'id'=>$data->id));
+		
+		if($data->isFavorite())
+			echo CHtml::link(CHtml::image($iconsPath.'favorite.png', "").'Favorite', array('system/changeForeign', 'id'=>$data->id, 'prop'=>'favorite', 'newValue'=>'false'));
+		else
+			echo CHtml::link(CHtml::image($iconsPath.'favorite_grey.png', "").'Favorite', array('system/changeForeign', 'id'=>$data->id, 'prop'=>'favorite', 'newValue'=>'true'));
+		
 		echo "&nbsp;";
-		echo CHtml::link(CHtml::image($iconsPath.'hide.png', "").'Hide', array('system/update', 'id'=>$data->id));
+		if($data->isHidden())
+			echo CHtml::link(CHtml::image($iconsPath.'hide_grey.png', "").'Unhide', array('system/changeForeign', 'id'=>$data->id, 'prop'=>'hidden', 'newValue'=>'false'));
+		else
+			echo CHtml::link(CHtml::image($iconsPath.'hide.png', "").'Hide', array('system/changeForeign', 'id'=>$data->id, 'prop'=>'hidden', 'newValue'=>'true'));
 	}
 		echo "&nbsp;";
-		echo CHtml::link(CHtml::image($iconsPath.'browse.png', "").'Browse', array('system/update', 'id'=>$data->id));
+		echo CHtml::link(CHtml::image($iconsPath.'browse.png', "").'Browse', array('char/bySystem', 'id'=>$data->id));
 	echo '</span>';		
 	?>
 	</span>

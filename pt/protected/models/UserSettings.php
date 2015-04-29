@@ -12,6 +12,7 @@
  * @property integer $toneColor5
  * @property integer $lastSystemInAnnotator
  * @property integer $lastTemplateInAnnotator
+ * @property integer $defaultSystem
  * @property Enum  $variant
  * 
  * The followings are the available model relations:
