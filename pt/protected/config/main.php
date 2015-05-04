@@ -114,6 +114,7 @@ return array(
 			'rules'=>array(
 				's/<s:.+>'=>'char/lookup',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+				's/'=>'char/index',
 			),
 		),
 		

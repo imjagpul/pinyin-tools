@@ -1,20 +1,25 @@
 <?php 
 /**
-* @var Char $model 
+* @var Char $model
+* @var int $systemFlag
+*     one of the SYSTEM_STATUS_* values as defined in CharController
 */
-
-if($lastchardef!==$model->chardef) { /*do not output this header several times if equal entries are displayed*/ 
-	?><div class="char"><?php echo $model->chardef; ?></div><?php 
-} 
-
  
 ?>
 <h2><?php echo $model->systemName; 
 
 //output edit button (if this system is editable for the logged in user)
-if(System::isSystemWriteable($model->system)) {//@TODO refactor auth using business rules
+// if(/* System::isSystemWriteable($model->system) */) {//@TODO refactor auth using business rules
+if($systemFlag==SYSTEM_STATUS_PRIMARY || $systemFlag==SYSTEM_STATUS_OWN) {
 	?><span class="editlink">[<a href="<?php echo $this->createUrl('char/update', array('id'=>$model->id)); ?>">Edit</a>]</span><?php
 }
+
+if($systemFlag==SYSTEM_STATUS_PRIMARY) {
+		//@TODO ... add icon
+} else if($systemFlag==SYSTEM_STATUS_FAVORITE) {
+		//@TODO ... add icon
+}
+
 ?></h2>
 				
 <?php if(!empty($model->keyword)) { ?>

@@ -1,5 +1,10 @@
 <?php
 
+define('SYSTEM_STATUS_PRIMARY', 0);
+define('SYSTEM_STATUS_FAVORITE', 1);
+define('SYSTEM_STATUS_OWN', 2);
+define('SYSTEM_STATUS_NOT_HIDDEN', 3);
+
 class CharController extends Controller
 {
 	/**
@@ -73,32 +78,74 @@ class CharController extends Controller
 	}
 
 	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
+	 * Looks up entries by either keyword or chardef.
+	 * @param string $s
+	 *   			keyword or chardef of the entries to be displayed
 	 */
-// 	public function actionLookup($id)
 	public function actionLookup($s)
 	{
+		//$s can be either keyword or chardef
 		$s=trim($s); //trim silently
 		
 		if(empty($s)) {
 			$this->actionIndex();
 			return;
 		}
+		//we need results from this users own systems and from all public (except those hidden by this user) 
+		
+		$lookupSystems=System::getLookupSystems();
 		
 		$criteria=new CDbCriteria(); 
 		$criteria->compare('chardef',"=$s", false, "OR"); 
-		$criteria->compare('keyword',"=$s", false, "OR"); 
-		
+		$criteria->compare('keyword',"=$s", false, "OR");
+		//@TODO add (and test) "with systems" clause
+		$criteria->addInCondition('system', CHtml::listData($lookupSystems, 'id', 'id'));
 		$models=Char::model()->findAll($criteria);
 
-		if(count($models)>0)
-			$this->dictionaryQuery=$models[0]->chardef; //@TODO consider if it is enough to choose the first only
-		else
+
+		if(count($models)==0) {
+			//set the dictionary query
 			$this->dictionaryQuery=$s; //nothing found - so maybe it is an unknown character, try searching it
+			//render the notice
+			$this->render('lookup',array('empty'=>true, 'search'=>$s));
+			return;
+		}
+		
+		//group by chardef, then by system
+		//in this order:
+		//primary, favorite, own, public and unlisted (except those hidden by this user)
+
+		//$modelsSorted:
+		//three dimensional array: first array is indexed by chardef, 
+		//index in second array: 0 - primary, 1 - favorite, 2 - own, 3 - not hidden
+		//(as defined in respective constants)   
+		$modelsSorted=array();
+		
+		$primarySystemID=UserSettings::getCurrentSettings()->defaultSystem;
+		
+		foreach($models as $model) {
+			$key=$model->chardef;
+			$system=$model->systemValue;
+			
+			if(!array_key_exists($key, $modelsSorted)) $modelsSorted[$key]=array();
+			
+			if($system->id==$primarySystemID) { //primary
+				$modelsSorted[$key][SYSTEM_STATUS_PRIMARY][]=$model;
+			} else if($system::isFavorite()) { //favorite
+				$modelsSorted[$key][SYSTEM_STATUS_FAVORITE][]=$model;
+			} else if($system->master==Yii::app()->user->getId()) { //own
+				$modelsSorted[$key][SYSTEM_STATUS_OWN][]=$model;
+			} else if($system::isHidden()) { //public or unlisted
+				//note the visibility is checked in the sql query already
+				$modelsSorted[$key][SYSTEM_STATUS_NOT_HIDDEN][]=$model;
+			}
+		}
+		
+		//set the dictionary query
+		$this->dictionaryQuery=$s; //nothing found - so maybe it is an unknown character, try searching it
 		
 		$this->render('lookup',array(
-				'models'=>$models, 'search'=>$s
+				'empty'=>false, 'modelsSorted'=>$modelsSorted, 'search'=>$s, 'primarySystemID'=>$primarySystemID
 		));
 	}
 	
@@ -175,11 +222,16 @@ class CharController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($charDef=NULL, $system=NULL)
 	{
 		$model=new Char;
 		
 		$this->handleChar($model);
+		
+		if($charDef!=null)
+			$model->chardef=$charDef;
+		if($system!=null)
+			$model->system=(int) $system;
 		
 		$systemList=System::getWriteableSystems();
 		

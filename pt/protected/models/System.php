@@ -275,6 +275,14 @@ class System extends CActiveRecord
 		
 		return $result;
 	}
+	
+	public static function getLookupSystems() {
+		$id=Yii::app()->user->id;
+		$criteria=new CDbCriteria();
+		$result=System::model()->findAll("master=$id OR visibility='visible' OR 'visible' OR visibility='nolisting'");		
+		return $result;		
+	}
+	
 	static $mnemoFormatterCache=array();
 	public static function getMnemoFormatter($systemId) {
 		if(isset(self::$mnemoFormatterCache[$systemId])) {

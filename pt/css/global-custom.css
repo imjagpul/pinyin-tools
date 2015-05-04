@@ -205,8 +205,9 @@ legend {
 .char { /* chinese char as heading */
 	color: black;
 	font-size: 72px;
+	line-height: 72px;
 	/*margin: 10px 0 10px 0;*/
-	padding-top: 20px;
+	/* padding-top: 20px;*/
 	/*height: 72px;*/
 }
 
