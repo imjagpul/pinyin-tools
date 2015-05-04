@@ -71,6 +71,10 @@ class AnnotatorController extends Controller
 		$annotatorEngine->annotate();
 	}
 	
+	public function actionIndex() {
+		$this->actionInput(0);
+	}
+	
 	public function actionInput($modeID)
 	{		
 		$mode=AnnotatorMode::parseMode($modeID);
