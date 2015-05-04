@@ -1,7 +1,59 @@
+STEP:
+ resolve bug:  摊 not visible from anonymous 
+STEP:
+ make groups look cool
+STEP:
+  trancription always there, in yellow
+  - for multiple allow ; for autosuggest
+STEP:
+  alternate compositions
+  get rid of the buggy listbox, just a clickable list
+  when alternate are really there
+  and test if no funny behavior when no subkeywords are defined
+STEP:
+ fix add primary link: need autosugesst (and make it switchable by a button or so) 
+STEP: 
+ _detail.php :  make look nicer 
+  make compositions nice 
+  (a merge from GoldenDict#Modern look and Matthews PDF book styles)
+  compomentns not underlined#_detail.php :  make look nicer  (maybe; or maybe keywords only) 
+STEP:
+  after made compositions nice, apply in system listing (_view.php ; http://localhost/pt/char/bySystem/10) as well
+STEP:
+make consistent with view
+ http://localhost/pt/char/view/16091
+  (get rid of view, link to lookup - just with a highligh - (below - same char, same keyword)) 
+
+----------------------------------------
 e.g. http://localhost/pt/s/%E4%B8%AA
 inspired by book and taglich:
 e.g. localhost/taglich/index.php?c=個
 e.g. book
+
+-----------
+          |
+-----------
+
+_______________________
+no entry in primary P  |
+_______________________
+
+
+_______________________
+favorite              |
+                      |
+_______________________
+
+_______________________
+favorite              |
+                      |
+_______________________
+
+_______________________
+other not hidden      |
+                      |
+_______________________
+
 
 
 lookup char

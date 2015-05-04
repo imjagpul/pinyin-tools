@@ -1,8 +1,11 @@
 PART: make it useful
 STEP:
-  on char search, add "Add this character" when missing in primary
+  implement link "Add this character" when missing in primary
+     Add this character to your primary system.
+	 + Add to (primary name )key
+     
   in annotator, exclude hidden systes
-  in annotator, favorite system on the top
+  in annotator, favorite system on the top (icons for primary and favorite)
   in lookup, exclude hidden systems
   in lookup, favorite system on the top
 PART: FINE TUNING:
