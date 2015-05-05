@@ -221,6 +221,11 @@ legend {
 	text-align: center;
   }
   
+.lookupSystem {
+    text-decoration: none !important;
+    color:black !important;
+  }
+  
 .login {
 	background: #5190b2 url(../images/button_current.png) repeat-x;
 	/* background-color: #5190b2;*/

@@ -26,6 +26,6 @@ if($systemFlag==SYSTEM_STATUS_PRIMARY) {
 
 
 ?>
-<h2><?php echo $model->systemName; ?><?php echo $icons; ?></h2><?php echo $editLink; ?>
+<h2><?php echo CHtml::link($model->systemName, array('system/view', 'id'=>$model->system), array('class'=>'lookupSystem')); ?><?php echo $icons; ?></h2><?php echo $editLink; ?>
 				
 <?php $this->renderPartial('_view', array('data'=>$model)); ?>
