@@ -8,25 +8,43 @@
 	<table>
 	<tr>
 	<td>
-	<span class="charbox"><?php echo CHtml::encode($data->chardef); ?></span>
-	</td>
-	<td style="width:100%">
-	<span class="mnemo"><?php if(strlen($data->mnemonicsHTML)>0) { ?><blockquote> <?php echo $data->mnemonicsHTML; ?></blockquote><?php } ?></span>
-	</tr>
-	<tr>
-	<td>
+	<?php echo CHtml::link(CHtml::encode($data->chardef), array('char/view', 'id'=>$data->id), array('class'=>'charbox')); ?>
 	<div class="keyword"><?php echo CHtml::encode($data->keyword); ?></div>
 	</td>
-	<td>
+	<td style="width:100%">
+	<?php if(!empty($data->components)) { ?>
 	<div class="components"><?php
 		$componentsText=array(); 
 		foreach ($data->components as $comp) {
-			$componentsText[]=$comp->subchar->keyword.' '.$comp->subchar->chardef;
+			for($i=0; $i<$comp->count; $i++) {
+// 				$componentsText[]=$comp->subchar->keyword.' '.$comp->subchar->chardef;
+				$linkText=CHtml::encode($comp->subchar->keyword);
+				$linkText.=' <span class="cn">'.CHtml::encode($comp->subchar->chardef).'</span> ';
+// 				$linkText=CHtml::encode($comp->subchar->keyword.' '.$comp->subchar->chardef);
+				$componentsText[]=CHtml::link($linkText, array("char/lookup", 's'=>$comp->subchar->chardef));
+// 				$componentsText[]=$comp->subchar->keyword.' '.$comp->subchar->chardef;
 // 			$componentsText[]=$comp->subchar->chardef;
+			}
 		}
-	echo CHtml::encode(implode(' + ',$componentsText)); 
+	echo implode(' + ',$componentsText); 
+// 	echo CHtml::encode(implode(' + ',$componentsText)); 
 	?></div>
-	</td>
+	<?php } ?>
+	
+	<span class="mnemo"><?php if(strlen($data->mnemonicsHTML)>0) { ?><blockquote> <?php echo $data->mnemonicsHTML; ?></blockquote><?php } ?></span>
+	
+	<?php if(!empty($data->notes)) { ?>
+<div class="notes"><?php echo $data->notes; ?></div>
+<?php } ?>
+
+<?php if(!empty($data->notes2)) { ?>
+<div class="notes2"><?php echo $data->notes2; ?></div>
+<?php } ?>
+
+<?php if(!empty($data->notes3)) { ?>
+<div class="notes"><?php echo $data->notes3; ?></div>
+<?php } ?>
+	
 	</tr>
 	</table>
 </div>

@@ -18,7 +18,11 @@ No results found for '<?php echo $search; ?>'.
 
 foreach($modelsSorted as $chardef=>$modelsSortedSub) {
 	//output header for this char
-	$this->renderPartial('_detailHeader',array('chardef'=>$chardef, 'noticePrimary'=>empty($modelsSortedSub[SYSTEM_STATUS_PRIMARY]), 'primarySystemID'=>$primarySystemID));
+	$this->renderPartial('_detailHeader',
+			array(	'chardef'=>$chardef, 
+					'noticePrimary'=>empty($modelsSortedSub[SYSTEM_STATUS_PRIMARY]), 
+					'primarySystemID'=>$primarySystemID, 
+					'totalCharCount'=>count($modelsSorted)));
 	
 	foreach($modelsSortedSub as $systemFlag=>$models)
 		foreach($models as $model) {

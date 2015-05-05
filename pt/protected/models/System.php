@@ -217,6 +217,9 @@ class System extends CActiveRecord
 	 */
 	public function isFavorite() {
 		$userId=Yii::app()->user->id;
+
+		if(get_class($this)!="System")
+			throw new Exception("Calling in a non-object context. ");
 		
 		if(!(is_null($userId))) {
 			$model=UserSettingsSystems::model()->findByAttributes(array('userId'=>$userId, 'systemId'=>$this->id));

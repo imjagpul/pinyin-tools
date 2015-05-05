@@ -1,7 +1,5 @@
 STEP:
- resolve bug:  摊 not visible from anonymous 
-STEP:
- make groups look cool
+ add link to system description
 STEP:
   trancription always there, in yellow
   - for multiple allow ; for autosuggest

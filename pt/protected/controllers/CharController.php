@@ -99,9 +99,9 @@ class CharController extends Controller
 		$criteria->compare('chardef',"=$s", false, "OR"); 
 		$criteria->compare('keyword',"=$s", false, "OR");
 		//@TODO add (and test) "with systems" clause
+		
 		$criteria->addInCondition('system', CHtml::listData($lookupSystems, 'id', 'id'));
 		$models=Char::model()->findAll($criteria);
-
 
 		if(count($models)==0) {
 			//set the dictionary query
@@ -129,14 +129,19 @@ class CharController extends Controller
 			
 			if(!array_key_exists($key, $modelsSorted)) $modelsSorted[$key]=array();
 			
+			if($system->isHidden()) {
+				continue;
+			}
+			
 			if($system->id==$primarySystemID) { //primary
 				$modelsSorted[$key][SYSTEM_STATUS_PRIMARY][]=$model;
-			} else if($system::isFavorite()) { //favorite
+			} else if($system->isFavorite()) { //favorite
 				$modelsSorted[$key][SYSTEM_STATUS_FAVORITE][]=$model;
 			} else if($system->master==Yii::app()->user->getId()) { //own
 				$modelsSorted[$key][SYSTEM_STATUS_OWN][]=$model;
-			} else if($system::isHidden()) { //public or unlisted
+			} else { //public or unlisted
 				//note the visibility is checked in the sql query already
+				//and the hidden status is checked above
 				$modelsSorted[$key][SYSTEM_STATUS_NOT_HIDDEN][]=$model;
 			}
 		}
