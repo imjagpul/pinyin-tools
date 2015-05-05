@@ -10,7 +10,7 @@ class SearchBoxWidget extends CWidget
 		<div class="search">
     		<form action="<?php echo Yii::app()->createUrl("//char/lookup"); ?>" method="get">
     		<input type="text" name="s" value="" class="full" />
-    		<input type="submit" value="Search character" />
+    		<input type="submit" value="Lookup character" />
     	    </form>
     	</div>		 
 		
