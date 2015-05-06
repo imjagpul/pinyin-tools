@@ -2,9 +2,7 @@
 $cs=Yii::app()->clientScript;
 //generated css for tones (depending on user settings)
 $cs->registerCss('tones', UserSettings::getCurrentSettings()->tonesCss);
-?>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+?><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=<?php echo $charset; ?>">

@@ -31,7 +31,7 @@ abstract class AnnotatorMode {
 				array("AnnotatorModeQuick", "Quick"),
 				array("AnnotatorModeOffline", "Offline"),
 				array("AnnotatorModeParallel", "Parallel"),
-				array("AnnotatorModeEpub", "EPUB"),
+				array("AnnotatorModeEpub", "Portable"),
 // 				array("AnnotatorModeMobi", "MOBI"),
 // 				array("AnnotatorModeUntagged", "Only list untagged")
 	);

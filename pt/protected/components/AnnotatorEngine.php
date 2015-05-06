@@ -1,7 +1,7 @@
 <?php
 class AnnotatorEngine {
-	const ignoredCharsJs=" \\\",.;'!。，《》…：“”？！　0"; //withonut newlines and with escaped quote
-	const ignoredChars=" \n\t\r\",.;'!。，《》…：“”？！　0"; // @TODO complement special asian characters
+	const ignoredCharsJs=" \\\"</>,.;'!。，《》…：“”？！　0"; //withonut newlines and with escaped quote
+	const ignoredChars=" \n\t\r\"</>,.;'!。，《》…：“”？！　0"; // @TODO complement special asian characters
 
 	const CHARMOD_SIMPLIFIED_ONLY=1;
 	const CHARMOD_TRADITIONAL_ONLY=2;
@@ -17,7 +17,7 @@ class AnnotatorEngine {
 	public $dictionariesID;
 	public $characterMode;
 	public $template="jsbased";
-	public $whitespaceToHTML=true; 
+	public $whitespaceToHTML=false; 
 	public $parallel;
 	public $audioURL;
 // 	/** @var String If the output is intended for downloading or for viewing (affects the mimetype). */
@@ -46,6 +46,7 @@ class AnnotatorEngine {
 		$this->outputHeader();
 		$this->outputAudioPlayer();
 		$this->outputParallelBeforeChars();
+		$this->preprocessInput();
 		$this->goTemplates();
 		$this->outputParallelAfterChars();
 		$this->outputFooter();
@@ -140,25 +141,74 @@ class AnnotatorEngine {
 		));
 	}
 	
+	private function preprocessInput() {
+		//An attempt to guess correct places for paragraph endings based on whitespace
+		/**
+		For each line, two variables are determined:
+		@var $len - how long is this line?
+		@var $currentIndent how many empty spaces before the current line?
+		@var $nextIndent how many empty spaces before the following line?
+		
+		rules:
+		len <12 => newline after //poems, heading, indent based articles
+		len >30 => newline after //newline after a long line is probably to be kept
+		len >12<30 & next line indent not bigger as current line =>no newline after //probably aligned text
+		len >12<30 & next line indent bigger as current line     =>newline after //end of paragraph, because next line is more aligned
+		*/
+		
+		$output='';
+		
+		$lines=split("(\r\n)|\r|\n", $this->input);
+// 		$lines=split("(\r\n){1,}", $this->input);
+		$count=count($lines);
+		$lastWrap=false;
+		$wrapText='</div><div class="x">';
+		for($i=0;$i<$count-1;$i++) {
+			
+			$l=$lines[$i]; //current line
+			
+			if(empty($l)) { //empty line(s) means wrap (but not more than once)
+				if(!$lastWrap) {
+					$output.=$wrapText;
+					$lastWrap=true;
+				}
+				continue;
+			}
+			
+			$n=$lines[$i+1]; //next line
+			
+			$len=strlen($l); //length of current line
+			$nlen=strlen($n);//length of next line
+			
+			$currentIndent=0; //how many whitespace characters are at the beginning of current line
+			$nextIndent=0; //how many whitespace characters are at the beginning of next line
+			
+			for(; $currentIndent<$len && ($l[$currentIndent]==' ' || $l[$currentIndent]=="\t"); $currentIndent++);
+			for(; $nextIndent<$nlen && ($n[$nextIndent]==' ' || $n[$nextIndent]=="\t"); $nextIndent++);
+			
+			$output.=CHtml::encode($l); //append line to output - and HTML encode as well (in case of < >)
+			//implement rules as described in the comment above
+			if($len>30 && $len<200 && $nextIndent<=$currentIndent) {
+				//no newline
+				$lastWrap=false;
+			} else {
+				$lastWrap=true;
+				$output.=$wrapText;
+			}
+		}
+		$output.=$lines[$count-1]; //last line
+		
+		//save the preprocessed input (this should perhaps be in a different variable)
+		$this->input=$output;
+		$this->len=mb_strlen($this->input,$this->encoding);
+// 		implode('</div><br><div class="x">', split("(\r\n){1,}", $this->input));
+	}
+	
 	private function goTemplates() {
 		$templateCount=$this->detectTemplateCount($this->template);
 		
 		if($templateCount==="DUMP") { //if no templates are set, just dump the whole input as-is
-			//echo $this->input;
-			
-			//@TODO move this processing to a method in the "dumpoutput.php"
-			if(!$this->whitespaceToHTML)
-				echo $this->input;
-			else
-				echo implode('</div><br><div class="x">', split("(\r\n){1,}", $this->input));
-			
-// 			echo implode('</div><br><div class="x">', split("\r\n\r\n", $this->input));
-// 			echo implode('</div><div class="x">', split("(\r\n){1,}", $this->input));
-			
-			//str_split($this->input);
-			//but convert the newlines to line breaks
-// 			echo str_replace("\r\n\r\n", "<br>", $this->input);
-// 			echo str_replace("\n\n", "<p>", $this->input);
+			echo $this->input;
 			return;
 		}
 		
@@ -221,6 +271,7 @@ class AnnotatorEngine {
 		//in other cases than CHARMOD_SIMPLIFIED_ONLY and CHARMOD_TRADITIONAL_ONLY both are searched
 		
 		$criteria->addInCondition('dictionaryId', $dictionariesID);
+		$criteria->limit=20;
 		return DictEntryChar::model()->findAll($criteria);
 	}
 	
@@ -237,6 +288,7 @@ class AnnotatorEngine {
 		$criteria=new CDbCriteria();
 		$criteria->compare('chardef', $char);
 		$criteria->addInCondition('system', $system->allInheritedIds);
+		$criteria->limit=20;
 		// 		$criteria->order='id'; //@TODO prefer the topmost system (this is only a hack, not very robust)
 		return Char::model()->find($criteria);
 	}
@@ -425,7 +477,9 @@ class AnnotatorEngine {
 	 */
 	private function isIgnoredChar($char) {
 		// (maybe should be replaced by testing unicode ranges for hanzi - to ignore alphanumeric chars
-		return strpos ( self::ignoredChars, $char ) !== FALSE;
+		//this is a dirty hack - unicode characters outside ascii range (like hanzi) - have more bytes in length (contrast with mb_strlen)
+		return strlen($char)<2;
+// 		return  strpos ( self::ignoredChars, $char ) !== FALSE;
 	}
 	
 }

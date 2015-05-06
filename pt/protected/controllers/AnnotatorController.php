@@ -106,8 +106,7 @@ class AnnotatorController extends Controller
 		} else {
 			$this->redirect(array('index'));
 		}
-		
-		
+				
 		$annotatorEngine->parent=$this;
 		$annotatorEngine->systemID=!empty($_POST['system']) ? ((int)$_POST['system']) : NULL;
 		$annotatorEngine->dictionariesID=isset($_POST['selectedDictionaries']) ? ($_POST['selectedDictionaries']) : NULL;
@@ -125,6 +124,13 @@ class AnnotatorController extends Controller
 		$templateId=($templateId>=0 && $templateId<count($this->templatesList)) ? $templateId : 0;
 		$annotatorEngine->template=$this->templatesList[$templateId];
 // 		$annotatorEngine->template=$_POST['templateID'];
+
+		//see which action the user has chosen
+		if(array_key_exists('submit-download', $_POST)) {
+			$annotatorEngine->outputMode=AnnotatorMode::MODE_DOWNLOAD;
+		}  else {
+			$annotatorEngine->outputMode=AnnotatorMode::MODE_SHOW;
+		}
 		
 		UserSettings::getCurrentSettings()->lastSystemInAnnotator=$annotatorEngine->systemID;
 		UserSettings::getCurrentSettings()->lastAnnotatorDictionaries=$annotatorEngine->dictionariesID;
