@@ -10,7 +10,7 @@ if($totalCharCount>1) { ?>
 <div class="charsection"><span class="char"><?php echo $chardef; ?></span></div>
 <?php } 
 
-if($noticePrimary) {
+if($noticePrimary && $primarySystemName!==null) {
 	$iconsPath=Yii::app()->request->baseUrl.'/images/icons/';
 	$linkText=CHtml::image($iconsPath.'add.png');
 	$linkText.="add ";

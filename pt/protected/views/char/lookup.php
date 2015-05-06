@@ -21,7 +21,7 @@ foreach($modelsSorted as $chardef=>$modelsSortedSub) {
 	//output header for this char
 	$this->renderPartial('_detailHeader',
 			array(	'chardef'=>$chardef, 
-					'noticePrimary'=>empty($modelsSortedSub[SYSTEM_STATUS_PRIMARY]), 
+					'noticePrimary'=>empty($modelsSortedSub[SYSTEM_STATUS_PRIMARY])&&$primarySystemID!==NULL, 
 					'primarySystemID'=>$primarySystemID, 
 					'primarySystemName'=>$primarySystemName,
 					'totalCharCount'=>count($modelsSorted)));

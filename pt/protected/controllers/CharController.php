@@ -122,7 +122,10 @@ class CharController extends Controller
 		$modelsSorted=array();
 		
 		$primarySystemID=UserSettings::getCurrentSettings()->defaultSystem;
-		$primarySystemName=System::model()->findByPk($primarySystemID)->name;
+		if($primarySystemID!==NULL) {
+			$primarySystem=System::model()->findByPk($primarySystemID);
+		}
+		$primarySystemName=isset($primarySystem)?$primarySystem->name:NULL;
 		
 		foreach($models as $model) {
 			$key=$model->chardef;
