@@ -6,6 +6,7 @@
  * @var Char[][][] $modelsSorted
  * @var string $search
  * @var int $primarySystemID
+ * @var string $primarySystemName
  */
 
 
@@ -22,6 +23,7 @@ foreach($modelsSorted as $chardef=>$modelsSortedSub) {
 			array(	'chardef'=>$chardef, 
 					'noticePrimary'=>empty($modelsSortedSub[SYSTEM_STATUS_PRIMARY]), 
 					'primarySystemID'=>$primarySystemID, 
+					'primarySystemName'=>$primarySystemName,
 					'totalCharCount'=>count($modelsSorted)));
 	
 	foreach($modelsSortedSub as $systemFlag=>$models)

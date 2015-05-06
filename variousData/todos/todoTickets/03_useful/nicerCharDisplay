@@ -1,5 +1,16 @@
+TASK:
+  refactor autosuggest
+   *to enable mnemo rules
+   *to enable both local js and in controller
+TASK:
+ fix add primary link: need autosugesst (and make it switchable by a button or so)
 STEP:
- add link to system description
+  make autosuggest switchable
+   {1} a clickable link / button in the char form : enable / disable autosuggest - will remember and will be applied on adding primary 
+   {2} add to user settings
+   {3} by default on 
+STEP:
+  add tooltip for "auto" mnemonics
 STEP:
   trancription always there, in yellow
   - for multiple allow ; for autosuggest
@@ -8,15 +19,11 @@ STEP:
   get rid of the buggy listbox, just a clickable list
   when alternate are really there
   and test if no funny behavior when no subkeywords are defined
-STEP:
- fix add primary link: need autosugesst (and make it switchable by a button or so) 
 STEP: 
  _detail.php :  make look nicer 
   make compositions nice 
   (a merge from GoldenDict#Modern look and Matthews PDF book styles)
   compomentns not underlined#_detail.php :  make look nicer  (maybe; or maybe keywords only) 
-STEP:
-  after made compositions nice, apply in system listing (_view.php ; http://localhost/pt/char/bySystem/10) as well
 STEP:
 make consistent with view
  http://localhost/pt/char/view/16091

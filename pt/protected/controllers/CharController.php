@@ -122,6 +122,7 @@ class CharController extends Controller
 		$modelsSorted=array();
 		
 		$primarySystemID=UserSettings::getCurrentSettings()->defaultSystem;
+		$primarySystemName=System::model()->findByPk($primarySystemID)->name;
 		
 		foreach($models as $model) {
 			$key=$model->chardef;
@@ -150,7 +151,7 @@ class CharController extends Controller
 		$this->dictionaryQuery=$s; //nothing found - so maybe it is an unknown character, try searching it
 		
 		$this->render('lookup',array(
-				'empty'=>false, 'modelsSorted'=>$modelsSorted, 'search'=>$s, 'primarySystemID'=>$primarySystemID
+				'empty'=>false, 'modelsSorted'=>$modelsSorted, 'search'=>$s, 'primarySystemID'=>$primarySystemID, 'primarySystemName'=>$primarySystemName
 		));
 	}
 	

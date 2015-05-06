@@ -266,6 +266,10 @@ legend {
     color: #999999;
     font-size: 75%;
 }
+.addToPrimary {
+	text-align: right;
+	float:right;
+}
 
 .challenge a {
     /* color: #206fbc !important; */

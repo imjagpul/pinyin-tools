@@ -185,7 +185,7 @@ function addSingleComponent(obj) {
 	if(obj.length==1) {
 		$("body").data("componentsNames")[obj[0][3]]=obj[0][1];
 		html+='<td>'+obj[0][0]+'</td><td>'+obj[0][1]+'</td><td>'+obj[0][2]+'</td>'
-			//*@TODO remore hard-coded urls!
+
 		var viewUrl=newCompositionsURL['view'].replace(newCompositionsURLHolder,obj[0][3]);
 		var updateUrl=newCompositionsURL['update'].replace(newCompositionsURLHolder,obj[0][3]);
 		html+='<td><a class="view" title="View" href="'+viewUrl+'"><img src="'+picURL['view']+'" alt="View" /></a> <a class="update" title="Update" href="'+updateUrl+'"><img src="'+picURL['update']+'" alt="Update" /></a> <a class="delete" title="Delete" href="#"><img src="'+picURL['del']+'" alt="Delete" /></a><input type="hidden" value="'+obj[0][3]+'" name="components[]" id="components" /></td>';
