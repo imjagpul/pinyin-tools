@@ -324,6 +324,7 @@ class SystemController extends Controller
 				} else 				
 				if($result!=NULL) {
 					$other[]=$result;
+
 // 					$char->mnemo=$result;
 // 					$char->system=14;
 // 					$char->update();
@@ -336,8 +337,9 @@ class SystemController extends Controller
 					
 					//for output
 // 					$other[]=$char->transcriptionAutoNoTone."\t$result";
-				} else
+				} else { //$result == NULL
 					$notMatching[]=$char;
+				}
 				
 			}
 				

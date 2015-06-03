@@ -72,7 +72,7 @@ $systemChangedURL=$this->createUrl("char/suggestSystemChanged");
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'transcription', array('id'=>'transcriptionLabel')); ?>
-		<?php echo $form->textField($model,'transcription',array('size'=>10,'maxlength'=>10, 'class'=>'with-tooltip')); ?>
+		<?php echo $form->textField($model,'transcription',array('size'=>10,'maxlength'=>25, 'class'=>'with-tooltip')); ?>
 		<?php echo $form->error($model,'transcription'); ?>
 		<div class="tooltip">If nothing is entered the transcription will be
 			taken from the dictionary.</div>
@@ -95,6 +95,9 @@ $systemChangedURL=$this->createUrl("char/suggestSystemChanged");
         <?php echo MnemonicsEditor::create($model->systemValue, $this)->createEditable($model->mnemo); 
 	?>
 		<?php echo $form->error($model,'mnemo'); ?>
+		<?php 
+		echo CHtml::encode(MnemoParser::suggestOldToNew($model, true));
+		?>
 	</div>
 
 	<div class="row">

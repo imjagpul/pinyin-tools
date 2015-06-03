@@ -41,7 +41,7 @@ class Char extends CActiveRecord
 			array('chardef, system, keyword', 'required'),
 			array('system', 'numerical', 'integerOnly'=>true),
 			array('keyword', 'length', 'max'=>256),
-			array('transcription', 'length', 'max'=>10),
+			array('transcription', 'length', 'max'=>25),
 			array('mnemo, notes, notes2, notes3', 'length', 'max'=>2048),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

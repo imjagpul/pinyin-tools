@@ -110,12 +110,157 @@ class MnemoParser {
 		return $result;
 	}
 	
+
+	static function colorToTone($color) {
+		$toneColor=NULL;
+		switch($color) {
+			case "0000ff":
+				$toneColor=4; break;
+			case "ffaa00":
+				$toneColor=2; break;
+			case "00aa00":
+				$toneColor=3; break;
+			case "ff0000":
+				$toneColor=1; break;
+			default:
+				throw new Exception();
+		}
+		
+		return $toneColor;
+	}
+		
+	static function archetypePos($word, $toneColor=NULL) {
+		if($toneColor==null) 
+			foreach(self::$archeTypesSorted as $toneColor => $archetype) {
+				$val=self::archetypePos($word, $toneColor);
+				if($val!==false) return $val;
+			}
+
+		//check if any of the archetypes are present
+		foreach(self::$archeTypesSorted[$toneColor] as $archetype) {
+			$archetypePos=stripos($word, $archetype);
+			if($archetypePos!==false) {
+				//found archetype
+				return array($archetypePos, $archetype);
+			}
+		}
+		
+		//nothing found
+		return false;
+	}
+	
+	static function archetypeToToneColor($archetype) {
+		foreach(self::$archeTypesSorted as $toneColor => $archetypeArray) {
+			foreach($archetypeArray as $archetypeVal) {
+				if($archetype==$archetypeVal) {
+					return $toneColor;
+				}
+			}
+		}
+
+		throw new Exception("archetype '$archetype' not recognized");
+	}
+	
+	static function checkLeftover($original, $match, $candidates) {
+		$leftover=trim(str_ireplace($match, "", $original));
+		
+		if(strlen($leftover)==0) return NULL;
+		
+		foreach ( $candidates as $c) {
+			if (stripos ($leftover, $c ) !== FALSE) { // found another within the string
+				return $c;
+			}
+		}
+		
+		return NULL;
+	}
+	
+	static function doubleMatch($original, $firstID, $firstKw, $secondID, $secondKw) {
+// 		var_dump($original);die;
+		
+		$firstNew="[c$firstID]".$firstKw."[/c]";
+		$secondNew="[c$secondID]$secondKw"."[/c]";
+		
+		$result=str_replace($firstKw, $firstNew, $original);
+		$result=str_replace($secondKw, $secondNew, $result);
+		
+		return $result;
+	}
+	
+	static function archetypeDoReplace($archetypePos, $archetype, $whole, $word, $whitespace, $newMnemo, $toneColor=null) {
+		if(empty($archetype)) {
+			throw new Exception("empty archetype");
+		}
+		
+		//both soundwords are sometimes connected in one markup
+		//let's check if it is the case
+		$leftover=trim(str_ireplace($archetype, "", $word));
+		$extra=0; //how many matches found minus one
+		
+		if($toneColor==NULL) $toneColor=self::archetypeToToneColor($archetype);
+		
+		if(strlen($leftover)>0) {
+		//there is both archetype and soundword in this tag
+			// 						$newMnemo.="BOTH_JOINED ($word; #$leftover#)";
+			//before or after?
+			$extra++;
+			$archetypeNew="[a$toneColor]".substr($word, $archetypePos, strlen($archetype))."[/a]";
+			$leftoverNew="[s$toneColor]$leftover"."[/s]";
+		
+			if($archetypePos===0) {
+			$wholeNew=$archetypeNew.' '.$leftoverNew.$whitespace;
+			} else {
+			$wholeNew=$leftoverNew.' '.$archetypeNew.$whitespace;
+			}
+			$newMnemo=str_replace($whole, $wholeNew, $newMnemo);
+		
+			} else {
+			//there is only archetype in this tag
+			//$newMnemo.="ONLY";
+			$newMnemo=str_replace($whole, "[a$toneColor]$word"."[/a]$whitespace", $newMnemo);
+			}
+			
+		return array($newMnemo,$extra,$toneColor);
+	}
+	
+	static function preprocess($newMnemo) {
+		$newMnemo=str_replace("<i>", "", $newMnemo);
+		$newMnemo=str_replace("</i>", "", $newMnemo);
+		$newMnemo=str_replace("<br>", "", $newMnemo);
+		$newMnemo=str_replace("<br />", "", $newMnemo);
+		$newMnemo=str_replace('<span style="font-weight:600; font-style:italic;">', "", $newMnemo);
+		$newMnemo=str_replace("<b>.</b>", ".", $newMnemo);
+		$newMnemo=str_replace("<b>wheel</b>", "[m]wheel[/m]", $newMnemo);
+		$newMnemo=str_replace("<b>wheel </b>", "[m]wheel[/m] ", $newMnemo);
+		$newMnemo=str_replace("<b>wheels</b>", "[m]wheels[/m]", $newMnemo);
+		$newMnemo=str_replace("<b>wheels </b>", "[m]wheels[/m] ", $newMnemo);
+		
+		//hardcoded synonyms
+		$kw=array(
+				'Harry'=>15961,
+			'octopus'=>15971,
+			'biplane'=>15949,
+			'shake hands'=>16020,
+			'shakes hands'=>16020,
+		);
+		
+		$totalCount=0;
+		foreach($kw as $keyword=>$id) {
+			$count=0;
+			$newMnemo=str_replace("<b>$keyword </b>", "[c$id]$keyword"."[/c] ", $newMnemo, $count);
+			if($count>0) $totalCount+=$count;
+			$newMnemo=str_replace("<b>$keyword</b>", "[c$id]$keyword"."[/c]", $newMnemo, $count);
+			if($count>0) $totalCount+=$count;
+		}
+		return array($newMnemo, $totalCount);
+	}
+	
 	/**
 	 * 
 	 * @param Char $char
 	 * @return string
 	 */
-	static function suggestOldToNew($char) {
+	static function suggestOldToNew($char, $force=false) {
 		$str=$char->mnemo; 
 		$newMnemo=$char->mnemo;
 		
@@ -124,18 +269,28 @@ class MnemoParser {
 		
 		$matchCount=0;
 		$matchCount=preg_match_all($reg, $str, $matches);
-		if($matchCount==0) return null;
+
+		if($matchCount==0 && 0==preg_match_all($regB, $newMnemo)) return null;
 		
 		$archetypeFound=false;
+		$soundwordFound=false;
+// 		$toneColor=NULL;
 
 		$blackAlternative=array(array(), array(), array(), array());
 
-		//**************  first parse the parts marked with font color *************** 
+
+		$result=self::preprocess($newMnemo);
+		$newMnemo=$result[0];
+		$replacedInPreprocess=$result[1];
+		$realCountOfMarked=0;
+		
+		//**************  first parse the parts marked with font color ***************
 		for($i=0; $i<$matchCount; $i++) {
 			$whole=$matches[0][$i];
 			$color=$matches[1][$i];
 			$word=trim($matches[2][$i]);
 			$whitespace=$matches[3][$i];
+			 
 			$toneColor=0;
 			$thisIsArchetype=false;
 			
@@ -159,59 +314,32 @@ class MnemoParser {
 				continue;
 			}
 			
-			switch($color) {
-				case "0000ff":
-					$toneColor=4; break;
-				case "ffaa00":
-					$toneColor=2; break;
-				case "00aa00":
-					$toneColor=3; break;
-				case "ff0000":
-					$toneColor=1; break;
-				default:
-					throw new Exception();
-			}
+			$toneColor=self::colorToTone($color);
 			
 			//check if it is a (corresponding) archetype
 // 			self::$archeTypesSorted
-			if(!$archetypeFound)
-			foreach(self::$archeTypesSorted[$toneColor] as $archetype) {
-				$word=trim($word);
-				$archetypePos=stripos($word, $archetype);
+			if(!$archetypeFound) {
+				$archetypePos=self::archetypePos($word, $toneColor);
 				if($archetypePos!==false) {
 					//found archetype
+					$archetype=$archetypePos[1];
+					$archetypePos=$archetypePos[0];
+					
 					$archetypeFound=true;
 					$thisIsArchetype=true;
 					
-					//both soundwords are sometimes connected in one markup
-					//let's check if it is the case
-					$leftover=trim(str_ireplace($archetype, "", $word));
-					if(strlen($leftover)>0) {
-						//there is both archetype and soundword in this tag
-// 						$newMnemo.="BOTH_JOINED ($word; #$leftover#)";
-						//before or after?
-						$archetypeNew="[a$toneColor]".substr($word, $archetypePos, strlen($archetype))."[/a]";
-						$leftoverNew="[s$toneColor]$leftover"."[/s]";
-						
-						if($archetypePos===0) {
-							$wholeNew=$archetypeNew.' '.$leftoverNew.$whitespace;
-						} else {
-							$wholeNew=$leftoverNew.' '.$archetypeNew.$whitespace;
-						}
-						$newMnemo=str_replace($whole, $wholeNew, $newMnemo);
-						
-					} else {
-						//there is only archetype in this tag
-						//$newMnemo.="ONLY";
-						$newMnemo=str_replace($whole, "[a$toneColor]$word"."[/a]$whitespace", $newMnemo); 
-					}
-					break;
+					$result=self::archetypeDoReplace($archetypePos, $archetype, $whole, $word, $whitespace, $newMnemo, $toneColor);
+					$newMnemo=$result[0];
+					$realCountOfMarked+=$result[1];
+					
+					continue;
 				}
 			}
 			
 			if(!$thisIsArchetype) {
 				//this is the soundword
 				$newMnemo=str_replace($whole, "[s$toneColor]$word"."[/s]$whitespace", $newMnemo);
+				$soundwordFound=true;
 			}
 		}
 		
@@ -259,52 +387,100 @@ class MnemoParser {
 
 		//check if component count (as set) matches the number of marked words (+1 because of keyword),
 		//otherwise return as error
-		if(count($char->components)+1 > $countOfMarked) {
-				return -2;
-		}		
-		if(count($char->components)+1 < $countOfMarked) {
-				return -3;
-		}		
+		$expectedComponentsCount=1-$replacedInPreprocess;
+		if(!$archetypeFound) $expectedComponentsCount++; 
+		if(!$soundwordFound) $expectedComponentsCount++;
 		
+		foreach($char->components as $comp) {
+			$expectedComponentsCount+=$comp->count;
+		}
+		
+		$realCountOfMarked+=$countOfMarked;
 		for($i=0; $i<$countOfMarked; $i++) {
 			$whole=$black[0][$i];
 // 			$color=$black[1][$i]; //not used
 			$word=trim($black[2][$i]);
+// 			$word=$black[2][$i];
 			$whitespace=$black[3][$i];
 			
 			//now we need to guess what is it what is marked
 
 			//see if it could be a component
+			//first preload all keywords
+			$subcharKeywords=array();
+			foreach($char->components as $c) {
+				$subcharKeywords[$c->subchar->id]=$c->subchar->keyword;
+			} 
+			
 			for($j=0; $j<count($char->components); $j++) {
 				$subchar=$char->components[$j]->subchar;
+				$subKw=$subchar->keyword;
 				
-				if(!$componentMatches[$j] && stripos($word, $subchar->keyword)!==FALSE) {
+				if(!$componentMatches[$j] && stripos($word, $subKw)!==FALSE) {
 					$componentMatches[$j]=true;
 					$subID=$subchar->id;
+					unset($subcharKeywords[$subID]);
 					
-					$newMnemo=str_replace($whole, "[c$subID]$word"."[/c]$whitespace", $newMnemo);
+					$other=self::checkLeftover($word, $subKw, $subcharKeywords);
+
+					if($other===NULL)
+						$newMnemo=str_replace($whole, "[c$subID]$word"."[/c]$whitespace", $newMnemo);
+					else { //two compoments in one markum
+						$otherId=array_search($other, $subcharKeywords);
+// 						self::archetypeDoReplace($archetypePos, $archetype, $whole, $word, $whitespace, $newMnemo)
+						$newMnemo=str_replace($whole, self::doubleMatch($word, $subID, $subKw, $otherId, $other), $newMnemo);
+						$realCountOfMarked++;
+						
+						//perhaps mark componentd matched
+						
+// 						$newMnemo=str_replace($whole, "[c$otherId]$other"."[/c]### [c$subID]$word"."[/c]$whitespace", $newMnemo);
+					}
 					continue 2;
 				}
 			}
 			
 			//see if it could be keyword
+// 			var_dump($word);var_dump($char->keyword);
 			if(!$keywordMatches && stripos($word, $char->keyword)!==FALSE) {
 				//seems to be keyword
 				$newMnemo=str_replace($whole, "[k]$word"."[/k]$whitespace", $newMnemo);
 				$keywordMatches=true;
 				continue;
 			}
+			
+			//see if it could be archetype
+			$archetypePos=self::archetypePos($word);
+			if($archetypePos!==false) {
+				$archetype=$archetypePos[1];
+				$archetypePos=$archetypePos[0];
+				
+				$result=self::archetypeDoReplace($archetypePos, $archetype, $whole, $word, $whitespace, $newMnemo);
+				$newMnemo=$result[0];
+				$realCountOfMarked+=$result[1];
+				$toneColor=$result[2];
+				continue;
+			}
+			
 			$unmatchedMarkups[]=$i;
 		}
 		
+		$finished=false;
+		if(count($unmatchedMarkups)==0) {
+			$finished=true;
+		}
+			
 		//if there is only one missing, we can guess it easily
+		
 		if(count($unmatchedMarkups)==1) {
 			$whole=$black[0][$unmatchedMarkups[0]];
 			$word=trim($black[2][$unmatchedMarkups[0]]);
 			$whitespace=$black[3][$unmatchedMarkups[0]];
 			
+			$finished=false;
+			
 			if(!$keywordMatches && array_search(false, $componentMatches)===FALSE) {
 				$newMnemo=str_replace($whole, "[k]$word"."[/k]$whitespace", $newMnemo);
+				$finished=true;
 			}
 			
 			for($j=0; $j<count($char->components); $j++) {
@@ -314,24 +490,43 @@ class MnemoParser {
 					$subID=$subchar->id;
 						
 					$newMnemo=str_replace($whole, "[c$subID]$word"."[/c]$whitespace", $newMnemo);
+					$finished=true;
 					break;
+				}
+			}
+			
+			if(!$finished) {
+				if(!isset($toneColor)) {
+					$finished=false;
+				} else {
+					//it is soundword
+					$newMnemo=str_replace($whole, "[s$toneColor]$word"."[/s]$whitespace", $newMnemo);
+					$finished=true;
 				}
 			}
 		}
 		
+		if($expectedComponentsCount > $realCountOfMarked && !$force) { //too many marked
+				return -2;
+		}
+		if($expectedComponentsCount < $realCountOfMarked && !$force) {
+				return -3;
+		}
+		
+// 		var_dump($expectedComponentsCount);
+// 		var_dump($realCountOfMarked);
 		//remove all markup also
 		//all italics
-		$newMnemo=str_replace("<i>", "", $newMnemo);
-		$newMnemo=str_replace("</i>", "", $newMnemo);
-		$newMnemo=str_replace("<br>", "", $newMnemo);
-		$newMnemo=str_replace("<br />", "", $newMnemo);
-		$newMnemo=str_replace('<span style="font-weight:600; font-style:italic;">', "", $newMnemo); //leftover spans
-		$newMnemo=str_replace("</span>", "", $newMnemo);
 		
+		//leftover spans
+		//$newMnemo=str_replace("</span>", "", $newMnemo);
 		
-		if(count($unmatchedMarkups)>1) {
+		if($finished==false && !$force) {
 			return -4;
 		}
+		
+		//quick hack (because of a trim that swallows whitespace) 
+		$newMnemo=str_replace("][", "] [", $newMnemo);
 		
 // 		return "".$changes;
 		return $newMnemo;
