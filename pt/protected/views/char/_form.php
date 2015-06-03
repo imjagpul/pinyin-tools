@@ -9,6 +9,7 @@ $cs=Yii::app()->clientScript;
 $cs->registerCoreScript('jquery');
 $cs->registerScriptFile($baseUrl.'/js/main.js');
 $cs->registerScriptFile($baseUrl.'/js/tooltip.js');
+$cs->registerScriptFile($baseUrl.'/js/charEditorGUI.js');
 $cs->registerCssFile($baseUrl.'/js/fancybox/jquery.fancybox-1.3.1.css');
 $cs->registerCssFile($baseUrl.'/css/main-gi.css');
 
@@ -67,7 +68,7 @@ $systemChangedURL=$this->createUrl("char/suggestSystemChanged");
 	<div class="row">
 		<?php echo $form->labelEx($model,'keyword'); ?>
 		<?php echo $form->textField($model,'keyword',array('size'=>10,'maxlength'=>256)); ?>
-		<?php echo $form->error($model,'keyword'); ?>
+		<?php echo $form->error($model,'keyword'); ?>		
 	</div>
 
 	<div class="row">
