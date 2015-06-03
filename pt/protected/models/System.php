@@ -71,7 +71,7 @@ class System extends CActiveRecord
 			'userSettingsSystems' => array(self::HAS_MANY, 'UserSettingsSystems', 'systemId'),
 			'languageData' => array(self::BELONGS_TO, 'Lookup', 'language'),				
 			'targetLanguageData' => array(self::BELONGS_TO, 'Lookup', 'targetLanguage'),				
-			'transcriptionData' => array(self::BELONGS_TO, 'Lookup', 'transcriptionData'),				
+			'transcriptionData' => array(self::BELONGS_TO, 'Lookup', 'transcription'),				
 		);
 	}
 

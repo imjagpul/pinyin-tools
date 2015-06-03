@@ -90,7 +90,7 @@ class Suggestion {
 		));
 		
 		if(count($relevantDicts)==0) {
-			return "{no dict}";
+			return "";
 		}
 		$relevantDicts=CHtml::listData($relevantDicts, 'id', 'id');
 		

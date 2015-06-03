@@ -1,6 +1,10 @@
 <?php
 /* @var $this CharController */
 /* @var $data Char */
+
+$system=$data->systemValue;
+if(!is_null($system->transcriptionData)) 
+	$formatter=FormattersFactory::getFormatterForDictionaryWidget($system->transcriptionData->text);
 ?>
 
 <div class="view charview">
@@ -9,6 +13,7 @@
 	<tr>
 	<td>
 	<?php echo CHtml::link(CHtml::encode($data->chardef), array('char/view', 'id'=>$data->id), array('class'=>'charbox')); ?>
+	<?php if(isset($formatter)) { echo $formatter->format($data->transcriptionAuto); } ?>
 	<div class="keyword"><?php echo CHtml::encode($data->keyword); ?></div>
 	</td>
 	<td style="width:100%">
