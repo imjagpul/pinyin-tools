@@ -3,6 +3,10 @@ optimize annotator (precached for offline)
  					(a solution for kindle)
                      (old:char only kindle - hopefully faster)
 
+allow files of almost arbitrary size - implement an upload, perhaps convert long (or all?) texts to files
+
+files annotated before
+
 precache single chars for specific settings
 perhaps precache whole texts with specific settings (md5?)
 reduce HTML - remove spaces 

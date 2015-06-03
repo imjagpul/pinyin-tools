@@ -1,4 +1,18 @@
+[v]
 
-*notes more user friendly (some kind of gui editor)
-^^ list untagged
-^^ tag editing support
+in each component
+[v]
+
+above the form
+[fill all] [archetype] [soundword] [mark]
+
+
+js:
+
+clicked(pre,post)
+marked
+around marked
+
+if (!marked) append pre-post
+if (around marked []) replace whole with pre-marked-post
+else replace marked with pre-marked-post

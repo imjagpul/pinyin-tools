@@ -1,7 +1,15 @@
 TASK:
+  ------- 
   refactor autosuggest
    *to enable mnemo rules
    *to enable both local js and in controller
+  ---
+  @requires mnemoRules
+  include template in a hidden input
+  autosuggest by php on adding primary
+  js fill according to current input
+  dictionary has to be filled on adding primary
+  
 TASK:
  fix add primary link: need autosugesst (and make it switchable by a button or so)
 STEP:
