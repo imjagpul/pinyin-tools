@@ -1,5 +1,61 @@
 GOAL: Propagate this as soon as possible.
 
+ACTION STEPS:
+1 Create a home page
+  a) Make title page link work. 
+  b) Design nice homepage (#homepage)
+  c) Link home page to demopage
+  
+2 Create a good demo page   
+  d) Find out why demopage behaves funny on http://localhost/pt/annotator/generateDemo/0
+  e) Fix xing2 mnemo - is broken
+  f) Add audio
+  g) Add synoptic text
+  h) Make the demo page aestetically appealing
+  i) Generate MOBI and EPUBs for downloads
+  j) test the eBook files on the devices
+  
+3 Write the full manual description //takes hours but is a lot of fun
+  a) add next / previous links on the bottm
+  b) find the old focuswriter document
+  c) review the four articles already written
+  d) write the rest of the texts (see #manual)
+
+3 User registration, login, logout
+  a) fix - find out why Remember me doesnot work
+  b) test registration
+  c) User Settings - now says it is invalid, make it work
+   I) design a form
+  
+4 Browse page - cosmetics
+  a) underline make thinner
+  
+5 Char view
+  a) paint / realign links (the add, the edit links are somewhat funny - when logged in) http://localhost/pt/s/%E6%89%AE
+  *) paint char edit flow (suggestions JS/noJS/ajax/noAjax)  
+  b) make the add link work
+  c) #charEditForm - suggestions
+  d) make it behave intelligently when typing nonsense (/ a nonexisting compositions - show a message and a link to create a new one)
+
+6 Texts 
+  a) add a few wuxia and classics and normal books examples
+  b) make it look appealing (paint / hide links)
+
+7 Systems
+  a) PLAN LATER : either dleete old or reimport / merge my own
+  
+8 Annotator
+  a) set a text limit
+  b) (maybe later) make EPUB generation work
+  
+9 Publicate
+  a) put online
+  b) test user registration, create mnemonic
+10 Propagate
+  a) post betatest request on a forum
+  b) talk about it via italki
+  
+-----
 Obstacles:
 #users - No user registration.
 #homepage Unfinished home page.
