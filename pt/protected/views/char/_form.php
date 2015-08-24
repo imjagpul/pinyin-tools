@@ -97,8 +97,16 @@ $systemChangedURL=$this->createUrl("char/suggestSystemChanged");
 	?>
 		<?php echo $form->error($model,'mnemo'); ?>
 		<?php 
-		echo CHtml::encode(MnemoParser::suggestOldToNew($model, true));
+		$text=CHtml::encode(MnemoParser::suggestOldToNew($model, true));
+		
+		//$text=str_replace("t's", "O", $text);
+		echo $text;
+		
+		//somewhat sly, since an apostrophe gets converted to entities, but the echo converts it back to apostrophe
+		$text=str_replace("&#039;", "\\&#039;", $text);
 		?>
+		<input type="button" value="copy" onclick="$('#Char_mnemo').val('<?php echo $text;?>')">
+		<input type="button" value="remove tags" onclick="$('#Char_mnemo').val($('#Char_mnemo').val().replace(/<(?:.|\n)*?>/gm, ''))">
 	</div>
 
 	<div class="row">
@@ -290,6 +298,7 @@ jQuery(function($) {
 	
 });
 
+
 jQuery(function($) {
 	$('body').on('click', '#matbut-auto', function () {
 		var toAdd=[];
@@ -311,13 +320,9 @@ jQuery(function($) {
 		toAdd[addingIndex++]= "[k]"+$('#Char_keyword').val()+"[/k]";
 		
 		//transcription
-		var trans=$("#Char_transcription").val();
-		if(trans.length==0)
-			trans=$("#transcriptionOriginal").val(); //the first value from the dictionary
-
-		if(trans!=null && trans.length>0) {
-			var num=trans[trans.length-1];
-			//@TODO check if it is a number
+		var num=getToneFromTranscription();
+		//@TODO check if it is a number
+		if(num!="") {
 			
 			//archetypes
 			toAdd[addingIndex++]= "[a"+num+"][/a]";

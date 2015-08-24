@@ -36,7 +36,7 @@ class SystemController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete', 'diagnostics'),
+				'actions'=>array('admin','delete', 'diagnostics', 'duplicates'),
 				'roles'=>array('admin'),
 // 					'users'=>array('*'),
 			),
@@ -285,6 +285,39 @@ class SystemController extends Controller
 				)
 		)
 		);
+	}
+	
+	public function actionDuplicates() {
+		
+		$compare=array(10, 6, 2, 14);
+		$chardefLog=array();
+		foreach($compare as $id) { 
+			$allChars=Char::model()->findAllByAttributes(array('system'=>$id));
+			
+			foreach($allChars as $char) 
+			{
+				if(!empty($char->chardef)) {
+					if(empty($chardefLog[$char->chardef]))
+						$chardefLog[$char->chardef]=array($id);
+					else
+						$chardefLog[$char->chardef][]=$id;
+				}
+			}
+		}
+		
+		$result=array();
+		foreach($chardefLog as $chardef => $ids) {
+			if(count($ids)>1) {
+				$result[$chardef]=$chardef.implode("; ", $ids);
+			}
+		}
+		
+		$this->render('diagnostics',array(
+				'data'=>array(
+						'Duplicates'=>$result,
+				)
+		)
+		);		
 	}
 	
 	public function actionDiagnostics($id) 
