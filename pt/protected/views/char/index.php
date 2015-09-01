@@ -36,5 +36,9 @@ $simplified=true; //@TODO remove hardcoded preference
 <?php $this->echoCharLinksList($simplified ? $hsk3_simp : $hsk3_trad); ?> 
 <h3>HSK level 4</h3> 
 <?php $this->echoCharLinksList($simplified ? $hsk4_simp : $hsk4_trad); ?> 
+<h3>HSK level 5</h3> 
+<?php $this->echoCharLinksList($simplified ? $hsk5_simp : $hsk5_trad); ?> 
+<h3>HSK level 6</h3> 
+<?php $this->echoCharLinksList($simplified ? $hsk6_simp : $hsk6_trad); ?> 
 <?php  } ?>
 
