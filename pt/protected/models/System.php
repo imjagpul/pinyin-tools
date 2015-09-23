@@ -47,7 +47,7 @@ class System extends CActiveRecord
 			array('name', 'required'),
 			array('language, targetLanguage', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>50),
-// 			array('description', 'length', 'max'=>2048),
+			array('description', 'length', 'max'=>6000),
 // 			array('visibility', 'length', 'max'=>9),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
