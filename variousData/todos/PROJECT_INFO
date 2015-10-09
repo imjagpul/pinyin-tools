@@ -2,10 +2,27 @@ GOAL: Propagate this as soon as possible.
 
 ACTION STEPS:
 1 Create a home page
-  a) Make title page link work. 
+  DONE a) Make title page link work. 
   b) Design nice homepage (#homepage)
+    DONE I)   get access to the HTML: a create and use a new template in PY
+    II)  design silos
+     $ *) add four links
+     $ *) link to manual
+     $ *) link to browse (landing page)
+       *) create register to add landing page (with some explanation)
+        ## see USER
+         **) make char / add lead to: 1) landing registrating (at unregistered) 2) system creation (if no user registered)
+         **) user profile add some meaningful data
+         **) 
+       *) link to annotator       
+    III) design quote
+    IV)  design message triplet
+    V)   add CTA
+    VI)  duplicate TOC
+    VII) add footer 
   c) Link home page to demopage
-  
+  d) test homepage on mobile devices
+   
 2 Create a good demo page   
   d) Find out why demopage behaves funny on http://localhost/pt/annotator/generateDemo/0
   e) Fix xing2 mnemo - is broken
@@ -20,7 +37,9 @@ ACTION STEPS:
   b) find the old focuswriter document
   c) review the four articles already written
   d) write the rest of the texts (see #manual)
-
+  e) add a link to "the story behind it" ( http://localhost/pt/site/page - but change the url) to the homepage
+  f) make sure the creepy page is gone
+  g) review Systems (add links) if not yet done
 3 User registration, login, logout
   a) fix - find out why Remember me doesnot work
   b) test registration
@@ -29,6 +48,7 @@ ACTION STEPS:
   
 4 Browse page - cosmetics
   a) underline make thinner
+  b) create a landing page and link from homepage
   
 5 Char view
   a) paint / realign links (the add, the edit links are somewhat funny - when logged in) http://localhost/pt/s/%E6%89%AE
@@ -43,6 +63,8 @@ ACTION STEPS:
 
 7 Systems
   a) PLAN LATER : either dleete old or reimport / merge my own
+  b) make existings chardefs one char only
+    *create a fonts test page  
   
 8 Annotator
   a) set a text limit
@@ -51,6 +73,7 @@ ACTION STEPS:
 9 Publicate
   a) put online
   b) test user registration, create mnemonic
+    (try unauth access, register, creat, add, remove, delete, recover password, remember me login - home page should not be displayed)
 10 Propagate
   a) post betatest request on a forum
   b) talk about it via italki

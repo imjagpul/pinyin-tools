@@ -1,56 +1,76 @@
-<?php $this->pageTitle=Yii::app()->name . ' - '.UserModule::t("Profile");
+<?php 
+/* @var $this ProfileController */
+
+
+//HEAVILY MODIFIED for PT
+
+$this->pageTitle=Yii::app()->name . ' - '.UserModule::t("Profile");
 $this->breadcrumbs=array(
 	UserModule::t("Profile"),
 );
-$this->menu=array(
-	((UserModule::isAdmin())
-		?array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin'))
-		:array()),
-    array('label'=>UserModule::t('List User'), 'url'=>array('/user')),
-    array('label'=>UserModule::t('Edit'), 'url'=>array('edit')),
+
+$this->sideMenu="standardMenu";
+$this->sideMenuData=array('menuTitle'=>'Options', 'data'=>array(
     array('label'=>UserModule::t('Change password'), 'url'=>array('changepassword')),
-    array('label'=>UserModule::t('Logout'), 'url'=>array('/user/logout')),
-);
-?><h1><?php echo UserModule::t('Your profile'); ?></h1>
+));
+?>
+
+<h1><?php echo UserModule::t('Your profile'); ?></h1>
 
 <?php if(Yii::app()->user->hasFlash('profileMessage')): ?>
 <div class="success">
 	<?php echo Yii::app()->user->getFlash('profileMessage'); ?>
 </div>
 <?php endif; ?>
-<table class="dataGrid">
-	<tr>
-		<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('username')); ?></th>
-	    <td><?php echo CHtml::encode($model->username); ?></td>
-	</tr>
-	<?php 
-		$profileFields=ProfileField::model()->forOwner()->sort()->findAll();
-		if ($profileFields) {
-			foreach($profileFields as $field) {
-				//echo "<pre>"; print_r($profile); die();
-			?>
-	<tr>
-		<th class="label"><?php echo CHtml::encode(UserModule::t($field->title)); ?></th>
-    	<td><?php echo (($field->widgetView($profile))?$field->widgetView($profile):CHtml::encode((($field->range)?Profile::range($field->range,$profile->getAttribute($field->varname)):$profile->getAttribute($field->varname)))); ?></td>
-	</tr>
-			<?php
-			}//$profile->getAttribute($field->varname)
+
+<?php 
+//Display a message in correspondence to how many entries the user has made yet.
+//1. No own systems created.
+//2. Only an empty system created.
+//3. Non empty system created.
+
+$userId=Yii::app()->user->id;
+$systems=System::model()->findAll("master='$userId'");
+
+//$firstSystem=System::model()->find("master='$userId'");
+
+if(is_null($systems) || empty($systems)) {?>
+<p>
+	You have not added any mnemonics yet. You can <a
+		href="<?php echo $this->createUrl('/char/create'); ?>">add an entry
+		now</a>, or you can just <a
+		href="<?php echo $this->createUrl('/char/index'); ?>">browse</a>
+	existing entries or take a look at the <a
+		href="<?php echo $this->createUrl('/annotator'); ?>">annotator</a>.
+	You might want to take a look at the Learning Chinese Characters
+	system. You can add an entry now</a>.
+
+<?php /* or read about mnemonics. - link to manual */?>
+
+</p>
+<?php } else {
+	$allEmpty=true;
+	
+	foreach ($systems as $s) {
+		if ($s->ownEntriesCount > 0) {
+			$allEmpty = false;
+			break;
 		}
-	?>
-	<tr>
-		<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('email')); ?></th>
-    	<td><?php echo CHtml::encode($model->email); ?></td>
-	</tr>
-	<tr>
-		<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('create_at')); ?></th>
-    	<td><?php echo $model->create_at; ?></td>
-	</tr>
-	<tr>
-		<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('lastvisit_at')); ?></th>
-    	<td><?php echo $model->lastvisit_at; ?></td>
-	</tr>
-	<tr>
-		<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('status')); ?></th>
-    	<td><?php echo CHtml::encode(User::itemAlias("UserStatus",$model->status)); ?></td>
-	</tr>
-</table>
+	}
+	
+	if($allEmpty) {
+?> 
+You have created a system, now you can start <a href="<?php echo $this->createUrl('/char/create'); ?>">adding notes</a>.
+<?php 
+	} else {
+?> 
+ You can <a href="<?php echo $this->createUrl('/system/index'); ?>">browse your systems</a> or use the <a
+		href="<?php echo $this->createUrl('/annotator'); ?>">annotator</a> to read any text with your mnemonics.
+<?php 
+	}
+}
+
+
+?>
+
+

@@ -1,5 +1,47 @@
-Edit UserProfile to link to systems.
+NOW: making userprofile look nice -. menu
+ NOW: Three options.
+   NOW Create system - explanation
+     THEN heisig system
+
+HOT: User has no system created and clicks add char -> creates a system -> should be directed to character addition right away
+HOT: After this users want to use the annotator -> his system should be the first one selected (and make a more sensible order of the systems in the annotator (own systems first)) 
 
 Make login / logout links work (prune site/login /logout).
 
 Make user settings coherent.
+
+---------------------------------------------- 
+-     http://localhost/pt/user/profile       -    
+----------------------------------------------
+  
+  What should it look like?
+  
+  Recent (activity / views / edits) / Marked entries
+  
+  Your entries
+  
+   |-  Not added any mnemonics now.
+   |-  Created a system, now you can start adding notes.
+   |-  Your notes
+  
+  ******** Texts
+      
+      
+  
+  ********
+  example: Lang-8
+    
+    tabs: ~userHome / Friends / Journal / Notebook / Photo album
+    
+    STATS
+    
+    Latest entries
+    
+    
+  
+  
+-------------------------------------
+Edit UserProfile to link to systems.
+
+http://localhost/pt/userSettings/view
+ is invalid

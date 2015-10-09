@@ -245,7 +245,7 @@ class CharController extends Controller
 		$systemList=System::getWriteableSystems();
 		
 		if(empty($systemList)) {
-			$this->redirect(array('system/create','msg'=>'Before you can add mnemonics, create a system.'));
+			$this->redirect(array('system/create','msg'=>'Before adding an entry, give a name to your system.'));
 		}
 		
 		$this->render('create',array(

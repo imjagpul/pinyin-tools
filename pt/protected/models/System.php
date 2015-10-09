@@ -171,6 +171,10 @@ class System extends CActiveRecord
 		else  {
 			return strip_tags($this->description); //@TODO truncate
 		}
+	} 
+	
+	public function getOwnEntriesCount() {
+		return Char::model()->countByAttributes(array('system'=>$this->id));
 	}
 	
 	private static $systemNames=array(); //cache 

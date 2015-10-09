@@ -78,9 +78,10 @@ class LoginFormWidget extends CWidget
 			<div class="login">
 		
 				Logged in as <b><?php
-			 echo Yii::app()->user->name;
+				echo CHtml::link(CHtml::encode(Yii::app()->user->name), array("/user/profile"), array('class'=>'profilelink'));
+			 //echo Yii::app()->user->name;
 			 ?>
-				</b> (<a href="<?php echo Yii::app()->createUrl("/site/logout"); ?>">logout</a>).
+				</b> (<a href="<?php echo $this->owner->createUrl("/site/logout"); ?>">logout</a>).
 			</div>
 	
 	<?php 
