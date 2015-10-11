@@ -5,6 +5,7 @@ define('SYSTEM_STATUS_FAVORITE', 1);
 define('SYSTEM_STATUS_OWN', 2);
 define('SYSTEM_STATUS_NOT_HIDDEN', 3);
 
+
 class CharController extends Controller
 {
 	/**
@@ -245,7 +246,9 @@ class CharController extends Controller
 		$systemList=System::getWriteableSystems();
 		
 		if(empty($systemList)) {
-			$this->redirect(array('system/create','msg'=>'Before adding an entry, give a name to your system.'));
+			//TODO improve constants handling
+			$this->redirect(array('system/create','status'=>1));
+			//$this->redirect(array('system/create','status'=>CREATE_SYSTEM_ADD_CHAR));
 		}
 		
 		$this->render('create',array(

@@ -1,5 +1,8 @@
 <?php
 
+define('CREATE_SYSTEM_NORMAL', 0);
+define('CREATE_SYSTEM_ADD_CHAR', 1);
+
 class SystemController extends Controller
 {
 	/**
@@ -69,7 +72,7 @@ class SystemController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate($msg=null)
+	public function actionCreate($status=CREATE_SYSTEM_NORMAL)
 	{
 		$model=new System;
 
@@ -81,13 +84,22 @@ class SystemController extends Controller
 			$model->attributes=$_POST['System'];
 			$model['master']=Yii::app()->user->id;
 					
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if(isset($_POST['Status']) && $_POST['Status']==CREATE_SYSTEM_ADD_CHAR) {
+				$status=CREATE_SYSTEM_ADD_CHAR;
+			}
+			
+			if($model->save()) {
+				if($status==CREATE_SYSTEM_ADD_CHAR) //go to char addition right away					
+					$this->redirect(array('/char/create','system'=>$model->id));
+				else
+					$this->redirect(array('view','id'=>$model->id));
+				
+			}
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
-			'msg'=>$msg,
+			'status'=>$status,
 			'languagesList'=>Lookup::getAllLanguages(),
 			'targetLanguagesList'=>Lookup::getTargetLanguages()
 		));

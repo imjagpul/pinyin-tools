@@ -1,6 +1,7 @@
 <?php
 /* @var $this SystemController */
 /* @var $model System */
+/* @var $status Integer */
 /* @var $form CActiveForm */
 /* @var $languagesList Lookup[] */
 /* @var $targetLanguagesList Lookup[] */
@@ -101,6 +102,7 @@ $cs->registerCssFile($baseUrl.'/css/main-gi.css');
 	
 	
 	<div class="row buttons">
+	<?php echo CHtml::hiddenField('status', $status); ?>
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
