@@ -7,8 +7,8 @@
 
 
 	<?php echo CHtml::link(CHtml::encode($data->name), array('system/view', 'id'=>$data->id)); ?>
-	(by <?php echo $data->masterUser->username ?>)
-	
+	(by <?php echo $data->masterUser->username ?>) -
+	<?php echo $data->ownEntriesCount . ' entries'; ?>
 	<span style="float: right">
 	
 	<?php 
@@ -41,6 +41,10 @@
 	}
 		echo "&nbsp;";
 		echo CHtml::link(CHtml::image($iconsPath.'browse.png', "").'Browse', array('char/bySystem', 'id'=>$data->id));
+	if($data->isWriteable()) {
+		echo "&nbsp;";
+		echo CHtml::link(CHtml::image($iconsPath.'delete.png', "").'Delete', array('system/deleteDialog', 'id'=>$data->id));
+	}	
 	echo '</span>';		
 	?>
 	</span>

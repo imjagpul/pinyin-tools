@@ -32,11 +32,11 @@ class SystemController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'changeOwn', 'changeForeign'),
+				'actions'=>array('create','update', 'changeOwn', 'changeForeign', 'deleteDialog'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete', 'diagnostics', 'duplicates'),
+				'actions'=>array('admin','delete', 'diagnostics', 'duplicates', 'deleteDialog'),
 				'roles'=>array('admin'),
 // 					'users'=>array('*'),
 			),
@@ -69,7 +69,7 @@ class SystemController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($msg=null)
 	{
 		$model=new System;
 
@@ -87,6 +87,7 @@ class SystemController extends Controller
 
 		$this->render('create',array(
 			'model'=>$model,
+			'msg'=>$msg,
 			'languagesList'=>Lookup::getAllLanguages(),
 			'targetLanguagesList'=>Lookup::getTargetLanguages()
 		));
@@ -180,6 +181,38 @@ class SystemController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	}
+	
+	public function actionDeleteDialog($id=NULL) {
+		if($id==NULL) {
+			if(isset($_POST['doIt']) && isset($_POST['id'])) {
+				$id=(integer) $_POST['id'];
+				$model=System::model()->findByPk($id);
+				if(is_null($model) || !$model->isWriteable()) {
+					throw new CHttpException(403,'You are not authorized to delete this system.');
+				}
+				
+				//remove inheritance from other systems... (this might lead to changes in systems of other users...)
+				SystemKeywordInheritance::model()->deleteAllByAttributes(array('inheritsFrom'=>$id));
+				
+				//remove all entries of this system
+				Char::model()->deleteAllByAttributes(array('system'=>$id));
+				
+				//remove system itself
+				$model->delete();
+				//System::model()->deleteAllByAttributes($attributes)
+			}
+			$this->redirect(array('system/index'));
+		}
+		
+		$model=System::model()->findByPk($id);
+
+		if($model==NULL) {
+			throw new CHttpException(404,'The requested system does not exist.');
+		}
+		$this->render('deleteDialog',array(
+				'model'=>$model,
+		));		
 	}
 	
 	public function actionChangeForeign($id, $prop, $newValue) {
