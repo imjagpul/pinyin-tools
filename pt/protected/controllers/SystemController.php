@@ -82,13 +82,25 @@ class SystemController extends Controller
 		if(isset($_POST['System']))
 		{
 			$model->attributes=$_POST['System'];
-			$model['master']=Yii::app()->user->id;
+			$userId=Yii::app()->user->id;
+			$model['master']=$userId;
 					
 			if(isset($_POST['Status']) && $_POST['Status']==CREATE_SYSTEM_ADD_CHAR) {
 				$status=CREATE_SYSTEM_ADD_CHAR;
 			}
 			
+			//if this is the only system the user has
+			$onlySystem=false;
+			if(System::model()->count("master='$userId'")==0) {
+				$onlySystem=true;
+			}
+			
 			if($model->save()) {
+				
+				//if this is the only system the user has, set it as primary
+				if($onlySystem)
+					UserSettings::getCurrentSettings()->defaultSystem=$model->id;
+				
 				if($status==CREATE_SYSTEM_ADD_CHAR) //go to char addition right away					
 					$this->redirect(array('/char/create','system'=>$model->id));
 				else
