@@ -79,13 +79,16 @@ class AnnotatorController extends Controller
 	{		
 		$mode=AnnotatorMode::parseMode($modeID);
 		
-		$systemList=System::getReadableSystems();
+		$systemList=System::getListedSystems();
+		$systemListOwn=System::getWriteableSystems();
+		
 		$allDicts=Dictionary::model()->findAll();
 		$defaultSelectedDicts=UserSettings::getCurrentSettings()->lastAnnotatorDictionaries;
 		$systemLast=UserSettings::getCurrentSettings()->lastSystemInAnnotator;
 		$lastTemplate=UserSettings::getCurrentSettings()->lastTemplateInAnnotator;
 
 		$this->render('input', array(
+				'systemListOwn'=>$systemListOwn,
 				'systemList'=>$systemList,
 				'systemLast'=>$systemLast,
 				'mode'=>$mode,

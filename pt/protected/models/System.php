@@ -271,14 +271,15 @@ class System extends CActiveRecord
 	}	
 
 	/**
-	 * Gets a list of systems the current user has permissions to read from.
+	 * Gets a list of systems that are not created by the curret user
+	 * and that are visible.
 	 * @return array
 	 */
-	public static function getReadableSystems() {
+	public static function getListedSystems() {
 		$id=Yii::app()->user->id;
 		
-		//@TODO system hidding
-		$result=System::model()->findAll();
+		$userId=Yii::app()->user->id;
+		$result=System::model()->findAll("visibility='visible' AND master!='$userId'");
 		
 		return $result;
 	}

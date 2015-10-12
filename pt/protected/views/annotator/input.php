@@ -1,6 +1,8 @@
 <?php
 /* @var $this AnnotatorController */
 /* @var $mode AnnotatorMode */
+/* @var $systemListOwn System[] */
+/* @var $systemList System[] */
 
 $baseUrl=Yii::app()->baseUrl;
 $cs=Yii::app()->clientScript;
@@ -80,7 +82,11 @@ if(!is_null($mode->getDescription())) echo $mode->getDescription();
 </div>
 <div class="row">
 	<?php
-	echo CHtml::dropDownList('system', $systemLast, CHtml::listData($systemList, 'id', 'name'), array('prompt'=>'(no mnemonics)')); 
+	$data=array('Your systems'=>CHtml::listData($systemListOwn, 'id', 'name'),
+	'Public systems'=>CHtml::listData($systemList, 'id', 'name'));
+	
+	
+	echo CHtml::dropDownList('system', $systemLast, $data, array('prompt'=>'(no mnemonics)')); 
 	?>
 <?php } ?>
 </div>
