@@ -48,7 +48,9 @@ class System extends CActiveRecord
 			array('language, targetLanguage', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>50),
 			array('description', 'length', 'max'=>6000),
-// 			array('visibility', 'length', 'max'=>9),
+			array('shortdescription', 'length', 'max'=>100),				
+			array('mnemosystem', 'length', 'max'=>13),
+			array('visibility', 'length', 'max'=>9),			
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, description, mnemosystem, visibility, language, targetLanguage', 'safe', 'on'=>'search'),

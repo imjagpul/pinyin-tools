@@ -135,6 +135,7 @@ class SystemController extends Controller
 
 		$this->render('update',array(
 			'model'=>$model,
+			'status'=>CREATE_SYSTEM_NORMAL,
 			'languagesList'=>Lookup::getAllLanguages(),
 			'targetLanguagesList'=>Lookup::getTargetLanguages(),
 		));
