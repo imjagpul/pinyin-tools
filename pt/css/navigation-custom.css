@@ -158,3 +158,51 @@
 {
 	color: #ccc;
 }
+
+/** custom edits **/
+/** homepage **/
+.silo {
+	padding: 0;
+	width: 100%;
+	background: transparent;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+}
+
+.silo ul {
+	font: bold 13px arial;
+	margin: 0;
+	margin-left: 20%;
+	margin-top: 10px;
+	padding: 0;
+	list-style: none;
+}
+
+.silo li {
+	display: inline;
+	margin: 0 2px 0 0;
+	padding: 0;
+	
+}
+
+.silo a, .silo a:link, .silo a:visited {
+	float: left;
+	display: block;
+	color: #fff;
+/*	margin: 0 1px 0 0; */
+	margin: 0 10px 0 0;
+	padding: 5px 10px;
+	text-decoration: none;
+	letter-spacing: 1px;
+	background: #333 url(../images/button.png) repeat-x;
+	border-bottom: 1px solid #fff;
+}
+
+.silo a:hover{
+	background: #999;
+}
+
+.silo .current a {
+	background: #5190b2 url(../images/button_current.png) repeat-x; 
+	border-color: #5190b2;
+}

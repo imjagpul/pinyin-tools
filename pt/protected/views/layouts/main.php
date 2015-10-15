@@ -33,7 +33,7 @@ $cs->registerCss('tones', UserSettings::getCurrentSettings()->tonesCss);
 <div id="maincontainer">
 
 <div id="headline1">
-<div class="title">Pinyin <em>tools</em></div>
+<div class="title"><a href="<?php echo $this->createUrl('site/index');?>">Pinyin <em>tools</em></a></div>
 <span class="subtitle">Chinese mnemonics and annotator</span>
 </div>
 
@@ -42,16 +42,13 @@ $cs->registerCss('tones', UserSettings::getCurrentSettings()->tonesCss);
 				'activeCssClass'=>'current',
 				
 				'items'=>array(
-				array('label'=>'What\'s this all about?', 'url'=>array('/site/page')), //"whatsthis" is default view
-// 				array('label'=>'What\'s this all about?', 'url'=>array('/site/page', 'view'=>'whatsthis')),
+				array('label'=>'What\'s this all about?', 'url'=>array('/site/page')),
 				array('label'=>'Browse', 'url'=>array('/char/index')),
 				array('label'=>'Add', 'url'=>array('/char/create')),
-// 				array('label'=>'Import', 'url'=>array('/site/contact')),
-// 				array('label'=>'Export', 'url'=>array('/site/login')),
 				array('label'=>'Texts', 'url'=>array('/text/index')),
 				array('label'=>'Systems', 'url'=>array('/system/index')),
 				array('label'=>'Settings', 'url'=>array('/userSettings/view')),
-				array('label'=>'Annotator', 'url'=>array('/annotator/input/modeID/0'))
+				array('label'=>'Annotator', 'url'=>array('/annotator'))
 			),
 		)); 
 		?>

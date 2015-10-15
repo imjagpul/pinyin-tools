@@ -8,6 +8,7 @@
 
 <?php $this->renderPartial('_form', array('model'=>$model,
 		'languagesList'=>$languagesList,
-		'targetLanguagesList'=>$targetLanguagesList
+		'targetLanguagesList'=>$targetLanguagesList,
+		'status'=>0
 		
 )); ?>
