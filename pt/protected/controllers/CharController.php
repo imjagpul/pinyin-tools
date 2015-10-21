@@ -238,18 +238,29 @@ class CharController extends Controller
 		
 		$this->handleChar($model);
 		
-		if($charDef!=null)
+		if(!is_null($charDef))
 			$model->chardef=$charDef;
-		if($system!=null)
-			$model->system=(int) $system;
 		
 		$systemList=System::getWriteableSystems();
 		
+		//check if the user has any systems created
 		if(empty($systemList)) {
 			//TODO improve constants handling
 			$this->redirect(array('system/create','status'=>1));
 			//$this->redirect(array('system/create','status'=>CREATE_SYSTEM_ADD_CHAR));
 		}
+		
+		//decide which system are we adding to (the default choice in the listbox)
+		if(is_null($system)) {
+			//if no system given explicitly, choose the primary system
+			$primarySystemID=UserSettings::getCurrentSettings()->defaultSystem;
+			if(!is_null($primarySystemID))
+				$system=$primarySystemID;
+			else // no primary system - just pick the first one
+				$system=$systemList[0]->id;
+		}
+		$model->system=(int) $system;
+		
 		
 		$this->render('create',array(
 			'model'=>$model, 'systemList'=>$systemList
