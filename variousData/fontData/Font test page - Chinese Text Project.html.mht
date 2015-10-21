@@ -1,0 +1,2268 @@
+From: <Saved by Mozilla 5.0 (X11)>
+Subject: Font test page - Chinese Text Project
+Date: Fri, 16 Oct 2015 17:05:44 +0200
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_757FF220.0F009951"
+X-MAF-Information: Produced By MAF V3.1.0.1-signed
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: text/html;
+	charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://ctext.org/font-test-page
+
+<!--?xml version=3D"1.0" encoding=3D"utf-8"?--><!DOCTYPE html PUBLIC "-//W3=
+C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-=
+transitional.dtd"><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:og=3D"=
+http://ogp.me/ns#" xmlns:fb=3D"http://www.facebook.com/2008/fbml" xml:lang=
+=3D"zh-TW" lang=3D"zh-TW"><head profile=3D"http://a9.com/-/spec/opensearch/=
+1.1/">
+<meta http-equiv=3D"content-type" content=3D"text/html; charset=3DUTF-8">
+ <base href=3D"">
+ <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+ <meta http-equiv=3D"Content-Language" content=3D"zh-TW">
+ <meta name=3D"Author" content=3D"Donald J. Sturgeon">
+ <meta name=3D"viewport" content=3D"width=3D1024, initial-scale=3D0.5, maxi=
+mum-scale=3D1.0, user-scalable=3Dyes">
+ <meta name=3D"created" content=3D"Fri, 16 Oct 2015 15:05:25 GMT">
+ <link rel=3D"pingback" href=3D"http://ctext.org/xml-rpc.pl">
+ <meta name=3D"robots" content=3D"noarchive">
+ <meta name=3D"keywords" content=3D"Font test page, =E5=AD=97=E9=AB=94=E8=
+=A9=A6=E9=A9=97=E9=A0=81">
+ <title>Font test page - Chinese Text Project</title>
+ <link href=3D"urn:snapshot-B462D2BC:http://ctext.org/static/text9.css" rel=
+=3D"stylesheet" title=3D"" type=3D"text/css">
+ <!--[if IE 7]><style type=3D"text/css">#content { height: auto; left: 0;=
+ top: 0; bottom: 0; right: 0; margin-bottom: 0px; position: absolute; }</st=
+yle><![endif]-->
+ <link href=3D"urn:snapshot-8030AFBB:http://ctext.org/static/compact3.css"=
+ rel=3D"alternate stylesheet" title=3D"Compact" type=3D"text/css">
+ <link href=3D"#" rel=3D"canonical">
+ <link href=3D"urn:not-loaded:http://ctext.org/static/apple-touch-icon.png"=
+ rel=3D"apple-touch-icon">
+ <link href=3D"urn:not-loaded:http://ctext.org/static/apple-touch-icon-72.p=
+ng" rel=3D"apple-touch-icon" sizes=3D"72x72">
+ <link href=3D"urn:not-loaded:http://ctext.org/static/apple-touch-icon-114.=
+png" rel=3D"apple-touch-icon" sizes=3D"114x114">
+ <link href=3D"http://ctext.org/font-test-page/zhs" rel=3D"alternate" hrefl=
+ang=3D"zh-Hans">
+ <link href=3D"http://ctext.org/font-test-page/zh" rel=3D"alternate" hrefla=
+ng=3D"zh-Hant">
+ <link href=3D"#" rel=3D"alternate" hreflang=3D"en">
+ <link href=3D"http://ctext.org/font-test-page/ens" rel=3D"alternate" hrefl=
+ang=3D"en-Hans">
+ <script src=3D"urn:snapshot-A33DFE20:http://ctext.org/static/ga.js" async=
+=3D"" type=3D"text/javascript"></script><script language=3D"javascript" typ=
+e=3D"text/javascript" src=3D"urn:snapshot-1ED02471:http://ctext.org/static/=
+text11.js"></script>
+ <script type=3D"text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+<script type=3D"text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+ <link href=3D"http://ctext.org/searchxml.pl?type=3Dtext&amp;if=3Den&amp;re=
+map=3D" rel=3D"search" type=3D"application/opensearchdescription+xml" title=
+=3D"Chinese Text Project (texts)">
+ <link href=3D"http://ctext.org/searchxml.pl?type=3Ddic&amp;if=3Den&amp;rem=
+ap=3D" rel=3D"search" type=3D"application/opensearchdescription+xml" title=
+=3D"Chinese Text Project (dictionary)">
+</head>
+<body alink=3D"#FF0000" bgcolor=3D"#FFFFFF" link=3D"#0000EE" text=3D"#00000=
+0" vlink=3D"#551A8B">
+<div id=3D"menubar">
+<div id=3D"language" style=3D"zoom: 1;">
+<a href=3D"http://ctext.org/#" onclick=3D""><img id=3D"mobimg" src=3D"http:=
+//ctext.org/static/mobile.png" style=3D"vertical-align: bottom;" alt=3D"Swi=
+tch to compact display" title=3D"Switch to compact display" border=3D"0"><i=
+mg id=3D"deskimg" src=3D"http://ctext.org/static/mobile.png" style=3D"verti=
+cal-align: bottom;" alt=3D"Switch to full desktop display" title=3D"Switch=
+ to full desktop display" border=3D"0"></a> <span style=3D"float: right"><a=
+ href=3D"http://ctext.org/font-test-page/ens" rel=3D"nofollow">=E7=AE=80=E4=
+=BD=93</a></span><a href=3D"http://ctext.org/font-test-page/zh" rel=3D"nofo=
+llow"><b>=E4=B8=AD=E6=96=87=E7=89=88</b></a></div><div id=3D"home"><a href=
+=3D"http://ctext.org/"><img id=3D"homeimg" src=3D"http://ctext.org/static/h=
+ome.png" style=3D"vertical-align: bottom;" alt=3D"Home" title=3D"Home" bord=
+er=3D"0"></a></div><div id=3D"menu">
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div classname=3D"sprite-unexpand" class=3D"sprit=
+e-unexpand" title=3D"+" id=3D"x4463"><div></div></div></div><a class=3D"ete=
+xt" style=3D"font-weight: bold;" id=3D"m4463" href=3D"http://ctext.org/">Ab=
+out the site</a><br>
+<span style=3D"display: inline;" class=3D"subcontents">=E3=80=80<a class=3D=
+"etext" style=3D"font-weight: bold;" id=3D"m4464" href=3D"http://ctext.org/=
+introduction">Introduction</a><br>
+=E3=80=80<a class=3D"menuselected" style=3D"font-weight: bold;" id=3D"m5848=
+3" href=3D"#">Font test page</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/help-us" class=3D"sprite-expand" title=3D"+">+<=
+div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"=
+font-weight: bold;" href=3D"http://ctext.org/help-us">Help us</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/faq" class=3D"sprite-expand" title=3D"+">+<div=
+ style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fon=
+t-weight: bold;" href=3D"http://ctext.org/faq">Frequently Asked Questions</=
+a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/instructions" class=3D"sprite-expand" title=3D"=
++">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" styl=
+e=3D"font-weight: bold;" href=3D"http://ctext.org/instructions">Instruction=
+s</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/tools" class=3D"sprite-expand" title=3D"+">+<di=
+v style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fo=
+nt-weight: bold;" href=3D"http://ctext.org/tools">Tools</a><br>
+=E3=80=80<a class=3D"etext" style=3D"font-weight: bold;" id=3D"m60987" href=
+=3D"http://ctext.org/system-statistics">System Statistics</a><br>
+</span></span>
+<div class=3D"menuitem listhead"><a class=3D"etext" style=3D"font-weight:=
+ bold;" id=3D"m3925" href=3D"http://ctext.org/pre-qin-and-han">Pre-Qin and=
+ Han</a><br>
+</div><span class=3D"menuitem container"><div style=3D"display: inline-bloc=
+k; zoom: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=
+=3D"x47084"><div></div></div></div><a class=3D"etext" style=3D"font-weight:=
+ bold;" id=3D"m47084" href=3D"http://ctext.org/confucianism">Confucianism</=
+a><br>
+<span class=3D"subcontents"><span style=3D"float: right; display: block; ">=
+<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a href=
+=3D"http://ctext.org/#" class=3D"sprite-info" title=3D"Show source informat=
+ion" onclick=3D"">Show source information<div style=3D"display: inline;"></=
+div></a></div></span>=E3=80=80<div style=3D"display: inline-block; zoom: 1;=
+ *display: inline;'"><a href=3D"http://ctext.org/analects" class=3D"sprite-=
+expand" title=3D"+">+<div style=3D"display: inline;"></div></a></div><a cla=
+ss=3D"etext" style=3D"font-weight: bold;" href=3D"http://ctext.org/analects=
+">The Analects</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/mengzi" class=3D"sprite-expand" title=3D"+">+<div sty=
+le=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"font-we=
+ight: bold;" href=3D"http://ctext.org/mengzi">Mengzi</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/liji" class=3D"sprite-expand" title=3D"+">+<div style=
+=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"font-weig=
+ht: bold;" href=3D"http://ctext.org/liji">Liji</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/xunzi" class=3D"sprite-expand" title=3D"+">+<di=
+v style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fo=
+nt-weight: bold;" href=3D"http://ctext.org/xunzi">Xunzi</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/xiao-jing" class=3D"sprite-expand" title=3D"+">+<div=
+ style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fon=
+t-weight: bold;" href=3D"http://ctext.org/xiao-jing">Xiao Jing</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/shuo-yuan" class=3D"sprite-expand" title=3D"+">=
++<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/shuo-yuan">Shuo Yuan</a><b=
+r>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/chun-qiu-fan-lu" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/chun-qiu-fan-lu">Chu=
+n Qiu Fan Lu</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/han-shi-wai-zhuan" class=3D"sprite-expand" titl=
+e=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/han-shi-wai-zhuan">H=
+an Shi Wai Zhuan</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/da-dai-li-ji" class=3D"sprite-expand" title=3D"=
++">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" styl=
+e=3D"font-weight: bold;" href=3D"http://ctext.org/da-dai-li-ji">Da Dai Li=
+ Ji</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/bai-hu-tong" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/bai-hu-tong">Bai Hu Tong</=
+a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/xin-shu" class=3D"sprite-expand" title=3D"+">+<=
+div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"=
+font-weight: bold;" href=3D"http://ctext.org/xin-shu">Xin Shu</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/xin-xu" class=3D"sprite-expand" title=3D"+">+<d=
+iv style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"f=
+ont-weight: bold;" href=3D"http://ctext.org/xin-xu">Xin Xu</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/yangzi-fayan" class=3D"sprite-expand" title=3D"+">+<d=
+iv style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"f=
+ont-weight: bold;" href=3D"http://ctext.org/yangzi-fayan">Yangzi Fayan</a><=
+br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/zhong-lun" class=3D"sprite-expand" title=3D"+">=
++<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/zhong-lun">Zhong Lun</a><b=
+r>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/kongzi-jiayu" class=3D"sprite-expand" title=3D"=
++">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" styl=
+e=3D"font-weight: bold;" href=3D"http://ctext.org/kongzi-jiayu">Kongzi Jiay=
+u</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/qian-fu-lun" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/qian-fu-lun">Qian Fu Lun</=
+a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/lunheng" class=3D"sprite-expand" title=3D"+">+<=
+div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"=
+font-weight: bold;" href=3D"http://ctext.org/lunheng">Lunheng</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/taixuanjing" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/taixuanjing">Tai Xuan Jing=
+</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/fengsutongyi" class=3D"sprite-expand" title=3D"=
++">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" styl=
+e=3D"font-weight: bold;" href=3D"http://ctext.org/fengsutongyi">Fengsu Tong=
+yi</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/kongcongzi" class=3D"sprite-expand" title=3D"+"=
+>+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/kongcongzi">Kongcongzi</a>=
+<br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/shenjian" class=3D"sprite-expand" title=3D"+">+=
+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D=
+"font-weight: bold;" href=3D"http://ctext.org/shenjian">Shen Jian</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/zhong-jing" class=3D"sprite-expand" title=3D"+"=
+>+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/zhong-jing">Zhong Jing</a>=
+<br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/su-shu" class=3D"sprite-expand" title=3D"+">+<d=
+iv style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"f=
+ont-weight: bold;" href=3D"http://ctext.org/su-shu">Su Shu</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/xinyu" class=3D"sprite-expand" title=3D"+">+<di=
+v style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fo=
+nt-weight: bold;" href=3D"http://ctext.org/xinyu">Xin Yu</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/duduan" class=3D"sprite-expand" title=3D"+">+<d=
+iv style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"f=
+ont-weight: bold;" href=3D"http://ctext.org/duduan">Du Duan</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/caizhong-langji" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/caizhong-langji">Cai=
+ Zhong Lang Ji</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x4=
+7085"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m47085" href=3D"http://ctext.org/mohism">Mohism</a><br>
+<span class=3D"subcontents"><span style=3D"float: right; display: block; ">=
+<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a href=
+=3D"http://ctext.org/#" class=3D"sprite-info" title=3D"Show source informat=
+ion" onclick=3D"">Show source information<div style=3D"display: inline;"></=
+div></a></div></span>=E3=80=80<div style=3D"display: inline-block; zoom: 1;=
+ *display: inline;'"><a href=3D"http://ctext.org/mozi" class=3D"sprite-expa=
+nd" title=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=
+=3D"etext" style=3D"font-weight: bold;" href=3D"http://ctext.org/mozi">Mozi=
+</a><br>
+=E3=80=80<a class=3D"etext" style=3D"font-weight: bold;" id=3D"m37562" href=
+=3D"http://ctext.org/mo-bian-zhu-xu">Mo Bian Zhu Xu</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x4=
+7086"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m47086" href=3D"http://ctext.org/daoism">Daoism</a><br>
+<span class=3D"subcontents"><span style=3D"float: right; display: block; ">=
+<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a href=
+=3D"http://ctext.org/#" class=3D"sprite-info" title=3D"Show source informat=
+ion" onclick=3D"">Show source information<div style=3D"display: inline;"></=
+div></a></div></span>=E3=80=80<div style=3D"display: inline-block; zoom: 1;=
+ *display: inline;'"><a href=3D"http://ctext.org/zhuangzi" class=3D"sprite-=
+expand" title=3D"+">+<div style=3D"display: inline;"></div></a></div><a cla=
+ss=3D"etext" style=3D"font-weight: bold;" href=3D"http://ctext.org/zhuangzi=
+">Zhuangzi</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<a class=3D"etext" style=3D"font-weight: bold;" id=3D"m11591" href=3D"ht=
+tp://ctext.org/dao-de-jing">Dao De Jing</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/liezi" class=3D"sprite-expand" title=3D"+">+<div styl=
+e=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"font-wei=
+ght: bold;" href=3D"http://ctext.org/liezi">Liezi</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/he-guan-zi" class=3D"sprite-expand" title=3D"+"=
+>+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/he-guan-zi">He Guan Zi</a>=
+<br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/wenzi" class=3D"sprite-expand" title=3D"+">+<di=
+v style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fo=
+nt-weight: bold;" href=3D"http://ctext.org/wenzi">Wenzi</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/wenshi-zhenjing" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/wenshi-zhenjing">Wen=
+ Shi Zhen Jing</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/lie-xian-zhuan" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/lie-xian-zhuan">Lie=
+ Xian Zhuan</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/yuzi" class=3D"sprite-expand" title=3D"+">+<div=
+ style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fon=
+t-weight: bold;" href=3D"http://ctext.org/yuzi">Yuzi</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/heshanggong" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/heshanggong">Heshanggong=
+ Laozi</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x4=
+7087"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m47087" href=3D"http://ctext.org/legalism">Legalism</a><br>
+<span class=3D"subcontents"><span style=3D"float: right; display: block; ">=
+<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a href=
+=3D"http://ctext.org/#" class=3D"sprite-info" title=3D"Show source informat=
+ion" onclick=3D"">Show source information<div style=3D"display: inline;"></=
+div></a></div></span>=E3=80=80<div style=3D"display: inline-block; zoom: 1;=
+ *display: inline;'"><a href=3D"http://ctext.org/hanfeizi" class=3D"sprite-=
+expand" title=3D"+">+<div style=3D"display: inline;"></div></a></div><a cla=
+ss=3D"etext" style=3D"font-weight: bold;" href=3D"http://ctext.org/hanfeizi=
+">Hanfeizi</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/shang-jun-shu" class=3D"sprite-expand" title=3D"+">+<=
+div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"=
+font-weight: bold;" href=3D"http://ctext.org/shang-jun-shu">Shang Jun Shu</=
+a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/shen-bu-hai" class=3D"sprite-expand" title=3D"+">+<di=
+v style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fo=
+nt-weight: bold;" href=3D"http://ctext.org/shen-bu-hai">Shen Bu Hai</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/shenzi" class=3D"sprite-expand" title=3D"+">+<d=
+iv style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"f=
+ont-weight: bold;" href=3D"http://ctext.org/shenzi">Shenzi</a><br>
+=E3=80=80<a class=3D"etext" style=3D"font-weight: bold;" id=3D"m47384" href=
+=3D"http://ctext.org/jian-zhu-ke-shu">Jian Zhu Ke Shu</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/guanzi" class=3D"sprite-expand" title=3D"+">+<d=
+iv style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"f=
+ont-weight: bold;" href=3D"http://ctext.org/guanzi">Guanzi</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x4=
+7088"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m47088" href=3D"http://ctext.org/school-of-names">School of Names</=
+a><br>
+<span class=3D"subcontents"><span style=3D"float: right; display: block; ">=
+<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a href=
+=3D"http://ctext.org/#" class=3D"sprite-info" title=3D"Show source informat=
+ion" onclick=3D"">Show source information<div style=3D"display: inline;"></=
+div></a></div></span>=E3=80=80<div style=3D"display: inline-block; zoom: 1;=
+ *display: inline;'"><a href=3D"http://ctext.org/gongsunlongzi" class=3D"sp=
+rite-expand" title=3D"+">+<div style=3D"display: inline;"></div></a></div><=
+a class=3D"etext" style=3D"font-weight: bold;" href=3D"http://ctext.org/gon=
+gsunlongzi">Gongsunlongzi</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x4=
+7089"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m47089" href=3D"http://ctext.org/school-of-the-military">School of=
+ the Military</a><br>
+<span class=3D"subcontents"><span style=3D"float: right; display: block; ">=
+<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a href=
+=3D"http://ctext.org/#" class=3D"sprite-info" title=3D"Show source informat=
+ion" onclick=3D"">Show source information<div style=3D"display: inline;"></=
+div></a></div></span>=E3=80=80<div style=3D"display: inline-block; zoom: 1;=
+ *display: inline;'"><a href=3D"http://ctext.org/art-of-war" class=3D"sprit=
+e-expand" title=3D"+">+<div style=3D"display: inline;"></div></a></div><a=
+ class=3D"etext" style=3D"font-weight: bold;" href=3D"http://ctext.org/art-=
+of-war">The Art of War</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/wu-zi" class=3D"sprite-expand" title=3D"+">+<div styl=
+e=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"font-wei=
+ght: bold;" href=3D"http://ctext.org/wu-zi">Wu Zi</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/liu-tao" class=3D"sprite-expand" title=3D"+">+<div st=
+yle=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"font-w=
+eight: bold;" href=3D"http://ctext.org/liu-tao">Liu Tao</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/si-ma-fa" class=3D"sprite-expand" title=3D"+">+=
+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D=
+"font-weight: bold;" href=3D"http://ctext.org/si-ma-fa">Si Ma Fa</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/wei-liao-zi" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/wei-liao-zi">Wei Liao Zi</=
+a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/three-strategies" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/three-strategies">Th=
+ree Strategies</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x4=
+7090"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m47090" href=3D"http://ctext.org/mathematics">Mathematics</a><br>
+<span class=3D"subcontents">=E3=80=80<a class=3D"etext" style=3D"font-weigh=
+t: bold;" id=3D"m45173" href=3D"http://ctext.org/hai-dao-suan-jing">Hai Dao=
+ Suan Jing</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/nine-chapters" class=3D"sprite-expand" title=3D=
+"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" sty=
+le=3D"font-weight: bold;" href=3D"http://ctext.org/nine-chapters">The Nine=
+ Chapters</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/sunzi-suan-jing" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/sunzi-suan-jing">Sun=
+zi Suan Jing</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/zhou-bi-suan-jing" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/zhou-bi-suan-jing">Zhou Bi=
+ Suan Jing</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x4=
+7091"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m47091" href=3D"http://ctext.org/miscellaneous-schools">Miscellaneo=
+us Schools</a><br>
+<span class=3D"subcontents"><span style=3D"float: right; display: block; ">=
+<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a href=
+=3D"http://ctext.org/#" class=3D"sprite-info" title=3D"Show source informat=
+ion" onclick=3D"">Show source information<div style=3D"display: inline;"></=
+div></a></div></span>=E3=80=80<div style=3D"display: inline-block; zoom: 1;=
+ *display: inline;'"><a href=3D"http://ctext.org/huainanzi" class=3D"sprite=
+-expand" title=3D"+">+<div style=3D"display: inline;"></div></a></div><a cl=
+ass=3D"etext" style=3D"font-weight: bold;" href=3D"http://ctext.org/huainan=
+zi">Huainanzi</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/lv-shi-chun-qiu" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/lv-shi-chun-qiu">L=
+=C3=BC Shi Chun Qiu</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/gui-gu-zi" class=3D"sprite-expand" title=3D"+">=
++<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/gui-gu-zi">Gui Gu Zi</a><b=
+r>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/yin-wen-zi" class=3D"sprite-expand" title=3D"+">+<div=
+ style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fon=
+t-weight: bold;" href=3D"http://ctext.org/yin-wen-zi">Yin Wen Zi</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/deng-xi-zi" class=3D"sprite-expand" title=3D"+">+<div=
+ style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fon=
+t-weight: bold;" href=3D"http://ctext.org/deng-xi-zi">Deng Xi Zi</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x4=
+7092"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m47092" href=3D"http://ctext.org/histories">Histories</a><br>
+<span class=3D"subcontents"><span style=3D"float: right; display: block; ">=
+<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a href=
+=3D"http://ctext.org/#" class=3D"sprite-info" title=3D"Show source informat=
+ion" onclick=3D"">Show source information<div style=3D"display: inline;"></=
+div></a></div></span>=E3=80=80<div style=3D"display: inline-block; zoom: 1;=
+ *display: inline;'"><a href=3D"http://ctext.org/shiji" class=3D"sprite-exp=
+and" title=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=
+=3D"etext" style=3D"font-weight: bold;" href=3D"http://ctext.org/shiji">Shi=
+ji</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/chun-qiu-zuo-zhuan" class=3D"sprite-expand" tit=
+le=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext=
+" style=3D"font-weight: bold;" href=3D"http://ctext.org/chun-qiu-zuo-zhuan"=
+>Chun Qiu Zuo Zhuan</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/lost-book-of-zhou" class=3D"sprite-expand" titl=
+e=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/lost-book-of-zhou">L=
+ost Book of Zhou</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/guo-yu" class=3D"sprite-expand" title=3D"+">+<d=
+iv style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"f=
+ont-weight: bold;" href=3D"http://ctext.org/guo-yu">Guo Yu</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/yanzi-chun-qiu" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/yanzi-chun-qiu">Yanz=
+i Chun Qiu</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/wu-yue-chun-qiu" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/wu-yue-chun-qiu">Wu=
+ Yue Chun Qiu</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/yue-jue-shu" class=3D"sprite-expand" title=3D"+">+<di=
+v style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fo=
+nt-weight: bold;" href=3D"http://ctext.org/yue-jue-shu">Yue Jue Shu</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/zhan-guo-ce" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/zhan-guo-ce">Zhan Guo Ce</=
+a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/yan-tie-lun" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/yan-tie-lun">Yan Tie Lun</=
+a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/lie-nv-zhuan" class=3D"sprite-expand" title=3D"=
++">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" styl=
+e=3D"font-weight: bold;" href=3D"http://ctext.org/lie-nv-zhuan">Lie N=C3=BC=
+ Zhuan</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/guliang-zhuan" class=3D"sprite-expand" title=3D=
+"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" sty=
+le=3D"font-weight: bold;" href=3D"http://ctext.org/guliang-zhuan">Guliang=
+ Zhuan</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/gongyang-zhuan" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/gongyang-zhuan">Gong=
+yang Zhuan</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/han-shu" class=3D"sprite-expand" title=3D"+">+<=
+div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"=
+font-weight: bold;" href=3D"http://ctext.org/han-shu">Han Shu</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/qian-han-ji" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/qian-han-ji">Qian Han Ji</=
+a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/dong-guan-han-ji" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/dong-guan-han-ji">Do=
+ng Guan Han Ji</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/hou-han-shu" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/hou-han-shu">Hou Han Shu</=
+a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/zhushu-jinian" class=3D"sprite-expand" title=3D=
+"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" sty=
+le=3D"font-weight: bold;" href=3D"http://ctext.org/zhushu-jinian">Zhushu Ji=
+nian</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/mutianzi-zhuan" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/mutianzi-zhuan">Muti=
+anzi Zhuan</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/gu-san-fen" class=3D"sprite-expand" title=3D"+"=
+>+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/gu-san-fen">Gu San Fen</a>=
+<br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/yandanzi" class=3D"sprite-expand" title=3D"+">+=
+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D=
+"font-weight: bold;" href=3D"http://ctext.org/yandanzi">Yandanzi</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/xijing-zaji" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/xijing-zaji">Xijing Zaji</=
+a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x4=
+7093"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m47093" href=3D"http://ctext.org/ancient-classics">Ancient Classics=
+</a><br>
+<span class=3D"subcontents"><span style=3D"float: right; display: block; ">=
+<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a href=
+=3D"http://ctext.org/#" class=3D"sprite-info" title=3D"Show source informat=
+ion" onclick=3D"">Show source information<div style=3D"display: inline;"></=
+div></a></div></span>=E3=80=80<div style=3D"display: inline-block; zoom: 1;=
+ *display: inline;'"><a href=3D"http://ctext.org/book-of-poetry" class=3D"s=
+prite-expand" title=3D"+">+<div style=3D"display: inline;"></div></a></div>=
+<a class=3D"etext" style=3D"font-weight: bold;" href=3D"http://ctext.org/bo=
+ok-of-poetry">Book of Poetry</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/shang-shu" class=3D"sprite-expand" title=3D"+">+<div=
+ style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fon=
+t-weight: bold;" href=3D"http://ctext.org/shang-shu">Shang Shu</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/book-of-changes" class=3D"sprite-expand" title=3D"+">=
++<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/book-of-changes">Book of=
+ Changes</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/rites-of-zhou" class=3D"sprite-expand" title=3D=
+"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" sty=
+le=3D"font-weight: bold;" href=3D"http://ctext.org/rites-of-zhou">The Rites=
+ of Zhou</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/chu-ci" class=3D"sprite-expand" title=3D"+">+<d=
+iv style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"f=
+ont-weight: bold;" href=3D"http://ctext.org/chu-ci">Chu Ci</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/yili" class=3D"sprite-expand" title=3D"+">+<div=
+ style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fon=
+t-weight: bold;" href=3D"http://ctext.org/yili">Yili</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/shan-hai-jing" class=3D"sprite-expand" title=3D=
+"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" sty=
+le=3D"font-weight: bold;" href=3D"http://ctext.org/shan-hai-jing">Shan Hai=
+ Jing</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/jiaoshi-yilin" class=3D"sprite-expand" title=3D=
+"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" sty=
+le=3D"font-weight: bold;" href=3D"http://ctext.org/jiaoshi-yilin">Jiaoshi=
+ Yilin</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/jingshi-yizhuan" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext"=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/jingshi-yizhuan">Jin=
+gshi Yizhuan</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/shishuo" class=3D"sprite-expand" title=3D"+">+<=
+div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"=
+font-weight: bold;" href=3D"http://ctext.org/shishuo">Shi Shuo</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x4=
+7104"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m47104" href=3D"http://ctext.org/etymology">Etymology</a><br>
+<span class=3D"subcontents">=E3=80=80<div style=3D"display: inline-block;=
+ zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/shuo-wen-jie-zi"=
+ class=3D"sprite-expand" title=3D"+">+<div style=3D"display: inline;"></div=
+></a></div><a class=3D"etext" style=3D"font-weight: bold;" href=3D"http://c=
+text.org/shuo-wen-jie-zi">Shuo Wen Jie Zi</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/er-ya" class=3D"sprite-expand" title=3D"+">+<di=
+v style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fo=
+nt-weight: bold;" href=3D"http://ctext.org/er-ya">Er Ya</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/shi-ming" class=3D"sprite-expand" title=3D"+">+<div=
+ style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fon=
+t-weight: bold;" href=3D"http://ctext.org/shi-ming">Shi Ming</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a hre=
+f=3D"http://ctext.org/fang-yan" class=3D"sprite-expand" title=3D"+">+<div=
+ style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D"fon=
+t-weight: bold;" href=3D"http://ctext.org/fang-yan">Fang Yan</a><br>
+=E3=80=80<a class=3D"etext" style=3D"font-weight: bold;" id=3D"m279526" hre=
+f=3D"http://ctext.org/jijiupian">Ji Jiu Pian</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x8=
+0226"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m80226" href=3D"http://ctext.org/chinese-medicine">Chinese Medicine=
+</a><br>
+<span class=3D"subcontents">=E3=80=80<div style=3D"display: inline-block;=
+ zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/huangdi-neijing"=
+ class=3D"sprite-expand" title=3D"+">+<div style=3D"display: inline;"></div=
+></a></div><a class=3D"etext" style=3D"font-weight: bold;" href=3D"http://c=
+text.org/huangdi-neijing">Huangdi Neijing</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/nan-jing" class=3D"sprite-expand" title=3D"+">+=
+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=3D=
+"font-weight: bold;" href=3D"http://ctext.org/nan-jing">Nan Jing</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/shang-han-lun" class=3D"sprite-expand" title=3D=
+"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" sty=
+le=3D"font-weight: bold;" href=3D"http://ctext.org/shang-han-lun">Shang Han=
+ Lun</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/jinkui-yaolue" class=3D"sprite-expand" title=3D=
+"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" sty=
+le=3D"font-weight: bold;" href=3D"http://ctext.org/jinkui-yaolue">Jinkui Ya=
+olue</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x8=
+2944"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m82944" href=3D"http://ctext.org/excavated-texts">Excavated texts</=
+a><br>
+<span class=3D"subcontents">=E3=80=80<div style=3D"display: inline-block;=
+ zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/guodian" class=3D=
+"sprite-expand" title=3D"+">+<div style=3D"display: inline;"></div></a></di=
+v><a class=3D"etext" style=3D"font-weight: bold;" href=3D"http://ctext.org/=
+guodian">Guodian</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/mawangdui" class=3D"sprite-expand" title=3D"+">=
++<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/mawangdui">Mawangdui</a><b=
+r>
+</span></span>
+<br>
+<div class=3D"menuitem listhead"><a class=3D"etext" style=3D"font-weight:=
+ bold;" id=3D"m89488" href=3D"http://ctext.org/post-han">Post-Han</a><br>
+</div><span class=3D"menuitem container"><div style=3D"display: inline-bloc=
+k; zoom: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=
+=3D"x90478"><div></div></div></div><a class=3D"etext" style=3D"font-weight:=
+ bold;" id=3D"m90478" href=3D"http://ctext.org/wei-jin-and-north-south">Wei=
+, Jin, and North-South</a><br>
+<span class=3D"subcontents"><span style=3D"float: right; display: block; ">=
+<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a href=
+=3D"http://ctext.org/#" class=3D"sprite-info" title=3D"Show source informat=
+ion" onclick=3D"">Show source information<div style=3D"display: inline;"></=
+div></a></div></span>=E3=80=80<a class=3D"menuitem" id=3D"m90479" href=3D"h=
+ttp://ctext.org/dao-de-zhen-jing-zhu">=E9=81=93=E5=BE=B7=E7=9C=9F=E7=B6=93=
+=E8=A8=BB</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/shi-shuo-xin-yu" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuite=
+m" href=3D"http://ctext.org/shi-shuo-xin-yu">=E4=B8=96=E8=AA=AA=E6=96=B0=E8=
+=AA=9E</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/yan-shi-jia-xun" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuite=
+m" href=3D"http://ctext.org/yan-shi-jia-xun">=E9=A1=8F=E6=B0=8F=E5=AE=B6=E8=
+=A8=93</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/wenxin-diaolong" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuite=
+m" href=3D"http://ctext.org/wenxin-diaolong">=E6=96=87=E5=BF=83=E9=9B=95=E9=
+=BE=8D</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/baopuzi" class=3D"sprite-expand" title=3D"+">+<=
+div style=3D"display: inline;"></div></a></div><a class=3D"menuitem" href=
+=3D"http://ctext.org/baopuzi">=E6=8A=B1=E6=9C=B4=E5=AD=90</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/renwuzhi" class=3D"sprite-expand" title=3D"+">+=
+<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem" href=
+=3D"http://ctext.org/renwuzhi">=E4=BA=BA=E7=89=A9=E5=BF=97</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/jinlouzi" class=3D"sprite-expand" title=3D"+">+=
+<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem" href=
+=3D"http://ctext.org/jinlouzi">=E9=87=91=E6=A8=93=E5=AD=90</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/shui-jing-zhu" class=3D"sprite-expand" title=3D=
+"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem"=
+ href=3D"http://ctext.org/shui-jing-zhu">=E6=B0=B4=E7=B6=93=E6=B3=A8</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/shen-xian-zhuan" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuite=
+m" href=3D"http://ctext.org/shen-xian-zhuan">=E7=A5=9E=E4=BB=99=E5=82=B3</a=
+><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/sanguozhi" class=3D"sprite-expand" title=3D"+">=
++<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem" href=
+=3D"http://ctext.org/sanguozhi">=E4=B8=89=E5=9C=8B=E5=BF=97</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/gaoshizhuan" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem" hr=
+ef=3D"http://ctext.org/gaoshizhuan">=E9=AB=98=E5=A3=AB=E5=82=B3</a><br>
+=E3=80=80<a class=3D"menuitem" id=3D"m649377" href=3D"http://ctext.org/shen=
+yijing">=E7=A5=9E=E7=95=B0=E7=B6=93</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/dongmingji" class=3D"sprite-expand" title=3D"+"=
+>+<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem" hre=
+f=3D"http://ctext.org/dongmingji">=E6=B4=9E=E5=86=A5=E8=A8=98</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x2=
+78826"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold=
+;" id=3D"m278826" href=3D"http://ctext.org/sui-tang">Sui-Tang</a><br>
+<span class=3D"subcontents">=E3=80=80<div style=3D"display: inline-block;=
+ zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/qunshu-zhiyao" cl=
+ass=3D"sprite-expand" title=3D"+">+<div style=3D"display: inline;"></div></=
+a></div><a class=3D"menuitem" href=3D"http://ctext.org/qunshu-zhiyao">=E7=
+=BE=A4=E6=9B=B8=E6=B2=BB=E8=A6=81</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/yiwen-leiju" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem" hr=
+ef=3D"http://ctext.org/yiwen-leiju">=E8=97=9D=E6=96=87=E9=A1=9E=E8=81=9A</a=
+><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/tongdian" class=3D"sprite-expand" title=3D"+">+=
+<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem" href=
+=3D"http://ctext.org/tongdian">=E9=80=9A=E5=85=B8</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/yilin" class=3D"sprite-expand" title=3D"+">+<di=
+v style=3D"display: inline;"></div></a></div><a class=3D"menuitem" href=3D"=
+http://ctext.org/yilin">=E6=84=8F=E6=9E=97</a><br>
+=E3=80=80<a class=3D"menuitem" id=3D"m649043" href=3D"http://ctext.org/yinf=
+ujing">=E9=BB=83=E5=B8=9D=E9=99=B0=E7=AC=A6=E7=B6=93</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x9=
+0471"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m90471" href=3D"http://ctext.org/song-ming">Song-Ming</a><br>
+<span class=3D"subcontents"><span style=3D"float: right; display: block; ">=
+<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a href=
+=3D"http://ctext.org/#" class=3D"sprite-info" title=3D"Show source informat=
+ion" onclick=3D"">Show source information<div style=3D"display: inline;"></=
+div></a></div></span>=E3=80=80<div style=3D"display: inline-block; zoom: 1;=
+ *display: inline;'"><a href=3D"http://ctext.org/si-shu-zhang-ju-ji-zhu" cl=
+ass=3D"sprite-expand" title=3D"+">+<div style=3D"display: inline;"></div></=
+a></div><a class=3D"menuitem" href=3D"http://ctext.org/si-shu-zhang-ju-ji-z=
+hu">=E5=9B=9B=E6=9B=B8=E7=AB=A0=E5=8F=A5=E9=9B=86=E6=B3=A8</a><br>
+<span style=3D"float: right; display: block; "><div style=3D"display: inlin=
+e-block; zoom: 1; *display: inline;'"><a href=3D"http://ctext.org/#" class=
+=3D"sprite-info" title=3D"Show source information" onclick=3D"">Show source=
+ information<div style=3D"display: inline;"></div></a></div></span>=E3=80=
+=80<a class=3D"etext" style=3D"font-weight: bold;" id=3D"m90563" href=3D"ht=
+tp://ctext.org/three-character-classic">Three Character Classic</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/lunyu-zhushu" class=3D"sprite-expand" title=3D"=
++">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem"=
+ href=3D"http://ctext.org/lunyu-zhushu">=E8=AB=96=E8=AA=9E=E6=B3=A8=E7=96=
+=8F</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/xiyouji" class=3D"sprite-expand" title=3D"+">+<=
+div style=3D"display: inline;"></div></a></div><a class=3D"menuitem" href=
+=3D"http://ctext.org/xiyouji">=E8=A5=BF=E9=81=8A=E8=A8=98</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/sanguo-yanyi" class=3D"sprite-expand" title=3D"=
++">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" styl=
+e=3D"font-weight: bold;" href=3D"http://ctext.org/sanguo-yanyi">Romance of=
+ the Three Kingdoms</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/jinpingmei" class=3D"sprite-expand" title=3D"+"=
+>+<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem" hre=
+f=3D"http://ctext.org/jinpingmei">=E9=87=91=E7=93=B6=E6=A2=85</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/fengshen-yanyi" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuite=
+m" href=3D"http://ctext.org/fengshen-yanyi">=E5=B0=81=E7=A5=9E=E6=BC=94=E7=
+=BE=A9</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/guangyun" class=3D"sprite-expand" title=3D"+">+=
+<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem" href=
+=3D"http://ctext.org/guangyun">=E5=BB=A3=E9=9F=BB</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/xiaojing-zhushu" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuite=
+m" href=3D"http://ctext.org/xiaojing-zhushu">=E5=AD=9D=E7=B6=93=E6=B3=A8=E7=
+=96=8F</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/taiping-yulan" class=3D"sprite-expand" title=3D=
+"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem"=
+ href=3D"http://ctext.org/taiping-yulan">=E5=A4=AA=E5=B9=B3=E5=BE=A1=E8=A6=
+=BD</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/taiping-guangji" class=3D"sprite-expand" title=
+=3D"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuite=
+m" href=3D"http://ctext.org/taiping-guangji">=E5=A4=AA=E5=B9=B3=E5=BB=A3=E8=
+=A8=98</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/zhuzi-yulei" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem" hr=
+ef=3D"http://ctext.org/zhuzi-yulei">=E6=9C=B1=E5=AD=90=E8=AA=9E=E9=A1=9E</a=
+><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/yingwengong" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"menuitem" hr=
+ef=3D"http://ctext.org/yingwengong">=E5=AE=8B=E6=99=AF=E6=96=87=E5=85=AC=E7=
+=AD=86=E8=A8=98</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/qijing" class=3D"sprite-expand" title=3D"+">+<d=
+iv style=3D"display: inline;"></div></a></div><a class=3D"menuitem" href=3D=
+"http://ctext.org/qijing">=E6=A3=8B=E7=B6=93</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/yulizi" class=3D"sprite-expand" title=3D"+">+<d=
+iv style=3D"display: inline;"></div></a></div><a class=3D"menuitem" href=3D=
+"http://ctext.org/yulizi">=E9=83=81=E9=9B=A2=E5=AD=90</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x9=
+0472"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m90472" href=3D"http://ctext.org/qing">Qing</a><br>
+<span class=3D"subcontents"><span style=3D"float: right; display: block; ">=
+<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a href=
+=3D"http://ctext.org/#" class=3D"sprite-info" title=3D"Show source informat=
+ion" onclick=3D"">Show source information<div style=3D"display: inline;"></=
+div></a></div></span>=E3=80=80<div style=3D"display: inline-block; zoom: 1;=
+ *display: inline;'"><a href=3D"http://ctext.org/mozi-jiangu" class=3D"spri=
+te-expand" title=3D"+">+<div style=3D"display: inline;"></div></a></div><a=
+ class=3D"etext" style=3D"font-weight: bold;" href=3D"http://ctext.org/mozi=
+-jiangu">Mozi Jiangu</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/hongloumeng" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/hongloumeng">Hong Lou Meng=
+</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/quantangshi" class=3D"sprite-expand" title=3D"+=
+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" style=
+=3D"font-weight: bold;" href=3D"http://ctext.org/quantangshi">Quan Tang Shi=
+</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/kangxi-zidian" class=3D"sprite-expand" title=3D=
+"+">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" sty=
+le=3D"font-weight: bold;" href=3D"http://ctext.org/kangxi-zidian">Kangxi Zi=
+dian</a><br>
+=E3=80=80<div style=3D"display: inline-block; zoom: 1; *display: inline;'">=
+<a href=3D"http://ctext.org/rulin-waishi" class=3D"sprite-expand" title=3D"=
++">+<div style=3D"display: inline;"></div></a></div><a class=3D"etext" styl=
+e=3D"font-weight: bold;" href=3D"http://ctext.org/rulin-waishi">The Scholar=
+s</a><br>
+</span></span>
+<span class=3D"menuitem container"><div style=3D"display: inline-block; zoo=
+m: 1; *display: inline;'"><div class=3D"sprite-expand" title=3D"+" id=3D"x9=
+0473"><div></div></div></div><a class=3D"etext" style=3D"font-weight: bold;=
+" id=3D"m90473" href=3D"http://ctext.org/republican-era">Republican era</a>=
+<br>
+<span class=3D"subcontents"><span style=3D"float: right; display: block; ">=
+<div style=3D"display: inline-block; zoom: 1; *display: inline;'"><a href=
+=3D"http://ctext.org/#" class=3D"sprite-info" title=3D"Show source informat=
+ion" onclick=3D"">Show source information<div style=3D"display: inline;"></=
+div></a></div></span>=E3=80=80<div style=3D"display: inline-block; zoom: 1;=
+ *display: inline;'"><a href=3D"http://ctext.org/mo-jing-jiao-shi" class=3D=
+"sprite-expand" title=3D"+">+<div style=3D"display: inline;"></div></a></di=
+v><a class=3D"menuitem" href=3D"http://ctext.org/mo-jing-jiao-shi">=E5=A2=
+=A8=E7=B6=93=E6=A0=A1=E9=87=8B</a><br>
+</span></span>
+<div class=3D"menuitem listhead opt"><a style=3D"font-weight: bold;" href=
+=3D"http://ctext.org/notes">Notes</a></div><div class=3D"menuitem listhead"=
+><a style=3D"font-weight: bold;" href=3D"http://ctext.org/resource.pl?node=
+=3D3925&amp;if=3Den">Resources</a></div><div class=3D"menuitem listhead"><a=
+ style=3D"font-weight: bold;" href=3D"http://ctext.org/dictionary.pl?if=3De=
+n">Dictionary</a></div><div class=3D"menuitem listhead"><a style=3D"font-we=
+ight: bold;" href=3D"http://ctext.org/discuss.pl?if=3Den">Discussion</a></d=
+iv><div class=3D"menuitem listhead"><a style=3D"font-weight: bold;" href=3D=
+"http://ctext.org/library.pl?if=3Den">Library</a></div><div class=3D"menuit=
+em listhead"><a style=3D"font-weight: bold;" href=3D"http://ctext.org/wiki.=
+pl?if=3Den">Wiki</a></div></div>
+<div id=3D"search">
+<form id=3D"searchform" method=3D"get" action=3D"http://ctext.org/text.pl">
+Search <select name=3D"node" class=3D"booklistbox"><option selected=3D"sele=
+cted" value=3D"3925">Pre-Qin and Han</option>
+<option value=3D"47084">Confucianism</option>
+<option value=3D"1081">=C2=A0The Analects</option>
+<option value=3D"1602">=C2=A0Mengzi</option>
+<option value=3D"9479">=C2=A0Liji</option>
+<option value=3D"12245">=C2=A0Xunzi</option>
+<option value=3D"20992">=C2=A0Xiao Jing</option>
+<option value=3D"21511">=C2=A0Shuo Yuan</option>
+<option value=3D"22853">=C2=A0Chun Qiu Fan Lu</option>
+<option value=3D"39642">=C2=A0Han Shi Wai Zhuan</option>
+<option value=3D"44430">=C2=A0Da Dai Li Ji</option>
+<option value=3D"52839">=C2=A0Bai Hu Tong</option>
+<option value=3D"53345">=C2=A0Xin Shu</option>
+<option value=3D"53728">=C2=A0Xin Xu</option>
+<option value=3D"60991">=C2=A0Yangzi Fayan</option>
+<option value=3D"83378">=C2=A0Zhong Lun</option>
+<option value=3D"84338">=C2=A0Kongzi Jiayu</option>
+<option value=3D"84867">=C2=A0Qian Fu Lun</option>
+<option value=3D"280221">=C2=A0Lunheng</option>
+<option value=3D"283871">=C2=A0Tai Xuan Jing</option>
+<option value=3D"284846">=C2=A0Fengsu Tongyi</option>
+<option value=3D"285366">=C2=A0Kongcongzi</option>
+<option value=3D"601774">=C2=A0Shen Jian</option>
+<option value=3D"646727">=C2=A0Zhong Jing</option>
+<option value=3D"646765">=C2=A0Su Shu</option>
+<option value=3D"646861">=C2=A0Xin Yu</option>
+<option value=3D"646956">=C2=A0Du Duan</option>
+<option value=3D"648405">=C2=A0Cai Zhong Lang Ji</option>
+<option value=3D"47085">Mohism</option>
+<option value=3D"101">=C2=A0Mozi</option>
+<option value=3D"37562">=C2=A0Mo Bian Zhu Xu</option>
+<option value=3D"47086">Daoism</option>
+<option value=3D"2712">=C2=A0Zhuangzi</option>
+<option value=3D"11591">=C2=A0Dao De Jing</option>
+<option value=3D"37397">=C2=A0Liezi</option>
+<option value=3D"50769">=C2=A0He Guan Zi</option>
+<option value=3D"58487">=C2=A0Wenzi</option>
+<option value=3D"279897">=C2=A0Wen Shi Zhen Jing</option>
+<option value=3D"285604">=C2=A0Lie Xian Zhuan</option>
+<option value=3D"647075">=C2=A0Yuzi</option>
+<option value=3D"648877">=C2=A0Heshanggong Laozi</option>
+<option value=3D"47087">Legalism</option>
+<option value=3D"1879">=C2=A0Hanfeizi</option>
+<option value=3D"47107">=C2=A0Shang Jun Shu</option>
+<option value=3D"47108">=C2=A0Shen Bu Hai</option>
+<option value=3D"47109">=C2=A0Shenzi</option>
+<option value=3D"47384">=C2=A0Jian Zhu Ke Shu</option>
+<option value=3D"48150">=C2=A0Guanzi</option>
+<option value=3D"47088">School of Names</option>
+<option value=3D"11553">=C2=A0Gongsunlongzi</option>
+<option value=3D"47089">School of the Military</option>
+<option value=3D"20908">=C2=A0The Art of War</option>
+<option value=3D"41678">=C2=A0Wu Zi</option>
+<option value=3D"41730">=C2=A0Liu Tao</option>
+<option value=3D"43273">=C2=A0Si Ma Fa</option>
+<option value=3D"43348">=C2=A0Wei Liao Zi</option>
+<option value=3D"50828">=C2=A0Three Strategies</option>
+<option value=3D"47090">Mathematics</option>
+<option value=3D"45173">=C2=A0Hai Dao Suan Jing</option>
+<option value=3D"51058">=C2=A0The Nine Chapters</option>
+<option value=3D"52053">=C2=A0Sunzi Suan Jing</option>
+<option value=3D"59424">=C2=A0Zhou Bi Suan Jing</option>
+<option value=3D"47091">Miscellaneous Schools</option>
+<option value=3D"3022">=C2=A0Huainanzi</option>
+<option value=3D"23107">=C2=A0L=C3=BC Shi Chun Qiu</option>
+<option value=3D"39963">=C2=A0Gui Gu Zi</option>
+<option value=3D"41543">=C2=A0Yin Wen Zi</option>
+<option value=3D"41632">=C2=A0Deng Xi Zi</option>
+<option value=3D"47092">Histories</option>
+<option value=3D"4474">=C2=A0Shiji</option>
+<option value=3D"16949">=C2=A0Chun Qiu Zuo Zhuan</option>
+<option value=3D"24161">=C2=A0Lost Book of Zhou</option>
+<option value=3D"24449">=C2=A0Guo Yu</option>
+<option value=3D"43540">=C2=A0Yanzi Chun Qiu</option>
+<option value=3D"47648">=C2=A0Wu Yue Chun Qiu</option>
+<option value=3D"49118">=C2=A0Yue Jue Shu</option>
+<option value=3D"49462">=C2=A0Zhan Guo Ce</option>
+<option value=3D"52405">=C2=A0Yan Tie Lun</option>
+<option value=3D"53989">=C2=A0Lie N=C3=BC Zhuan</option>
+<option value=3D"55039">=C2=A0Guliang Zhuan</option>
+<option value=3D"56444">=C2=A0Gongyang Zhuan</option>
+<option value=3D"61664">=C2=A0Han Shu</option>
+<option value=3D"68780">=C2=A0Qian Han Ji</option>
+<option value=3D"69121">=C2=A0Dong Guan Han Ji</option>
+<option value=3D"71480">=C2=A0Hou Han Shu</option>
+<option value=3D"282742">=C2=A0Zhushu Jinian</option>
+<option value=3D"283502">=C2=A0Mutianzi Zhuan</option>
+<option value=3D"646779">=C2=A0Gu San Fen</option>
+<option value=3D"647105">=C2=A0Yandanzi</option>
+<option value=3D"647120">=C2=A0Xijing Zaji</option>
+<option value=3D"47093">Ancient Classics</option>
+<option value=3D"13985">=C2=A0Book of Poetry</option>
+<option value=3D"21030">=C2=A0Shang Shu</option>
+<option value=3D"25002">=C2=A0Book of Changes</option>
+<option value=3D"36554">=C2=A0The Rites of Zhou</option>
+<option value=3D"51791">=C2=A0Chu Ci</option>
+<option value=3D"54566">=C2=A0Yili</option>
+<option value=3D"83479">=C2=A0Shan Hai Jing</option>
+<option value=3D"85326">=C2=A0Jiaoshi Yilin</option>
+<option value=3D"280082">=C2=A0Jingshi Yizhuan</option>
+<option value=3D"283542">=C2=A0Shi Shuo</option>
+<option value=3D"47104">Etymology</option>
+<option value=3D"26160">=C2=A0Shuo Wen Jie Zi</option>
+<option value=3D"37567">=C2=A0Er Ya</option>
+<option value=3D"40087">=C2=A0Shi Ming</option>
+<option value=3D"45207">=C2=A0Fang Yan</option>
+<option value=3D"279526">=C2=A0Ji Jiu Pian</option>
+<option value=3D"80226">Chinese Medicine</option>
+<option value=3D"80228">=C2=A0Huangdi Neijing</option>
+<option value=3D"81934">=C2=A0Nan Jing</option>
+<option value=3D"281911">=C2=A0Shang Han Lun</option>
+<option value=3D"647268">=C2=A0Jinkui Yaolue</option>
+<option value=3D"82944">Excavated texts</option>
+<option value=3D"82945">=C2=A0Guodian</option>
+<option value=3D"82987">=C2=A0Mawangdui</option>
+<option value=3D"89488">Post-Han</option>
+<option value=3D"90478">Wei, Jin, and North-South</option>
+<option value=3D"90479">=C2=A0=E9=81=93=E5=BE=B7=E7=9C=9F=E7=B6=93=E8=A8=BB=
+</option>
+<option value=3D"90746">=C2=A0=E4=B8=96=E8=AA=AA=E6=96=B0=E8=AA=9E</option>
+<option value=3D"91913">=C2=A0=E9=A1=8F=E6=B0=8F=E5=AE=B6=E8=A8=93</option>
+<option value=3D"108160">=C2=A0=E6=96=87=E5=BF=83=E9=9B=95=E9=BE=8D</option>
+<option value=3D"277835">=C2=A0=E6=8A=B1=E6=9C=B4=E5=AD=90</option>
+<option value=3D"279273">=C2=A0=E4=BA=BA=E7=89=A9=E5=BF=97</option>
+<option value=3D"287513">=C2=A0=E9=87=91=E6=A8=93=E5=AD=90</option>
+<option value=3D"568082">=C2=A0=E6=B0=B4=E7=B6=93=E6=B3=A8</option>
+<option value=3D"585926">=C2=A0=E7=A5=9E=E4=BB=99=E5=82=B3</option>
+<option value=3D"601873">=C2=A0=E4=B8=89=E5=9C=8B=E5=BF=97</option>
+<option value=3D"604745">=C2=A0=E9=AB=98=E5=A3=AB=E5=82=B3</option>
+<option value=3D"649377">=C2=A0=E7=A5=9E=E7=95=B0=E7=B6=93</option>
+<option value=3D"649426">=C2=A0=E6=B4=9E=E5=86=A5=E8=A8=98</option>
+<option value=3D"278826">Sui-Tang</option>
+<option value=3D"278827">=C2=A0=E7=BE=A4=E6=9B=B8=E6=B2=BB=E8=A6=81</option>
+<option value=3D"539864">=C2=A0=E8=97=9D=E6=96=87=E9=A1=9E=E8=81=9A</option>
+<option value=3D"552245">=C2=A0=E9=80=9A=E5=85=B8</option>
+<option value=3D"566532">=C2=A0=E6=84=8F=E6=9E=97</option>
+<option value=3D"649043">=C2=A0=E9=BB=83=E5=B8=9D=E9=99=B0=E7=AC=A6=E7=B6=
+=93</option>
+<option value=3D"90471">Song-Ming</option>
+<option value=3D"89489">=C2=A0=E5=9B=9B=E6=9B=B8=E7=AB=A0=E5=8F=A5=E9=9B=86=
+=E6=B3=A8</option>
+<option value=3D"90563">=C2=A0Three Character Classic</option>
+<option value=3D"92202">=C2=A0=E8=AB=96=E8=AA=9E=E6=B3=A8=E7=96=8F</option>
+<option value=3D"93274">=C2=A0=E8=A5=BF=E9=81=8A=E8=A8=98</option>
+<option value=3D"97135">=C2=A0Romance of the Three Kingdoms</option>
+<option value=3D"100830">=C2=A0=E9=87=91=E7=93=B6=E6=A2=85</option>
+<option value=3D"285817">=C2=A0=E5=B0=81=E7=A5=9E=E6=BC=94=E7=BE=A9</option>
+<option value=3D"288029">=C2=A0=E5=BB=A3=E9=9F=BB</option>
+<option value=3D"361551">=C2=A0=E5=AD=9D=E7=B6=93=E6=B3=A8=E7=96=8F</option>
+<option value=3D"361857">=C2=A0=E5=A4=AA=E5=B9=B3=E5=BE=A1=E8=A6=BD</option>
+<option value=3D"570777">=C2=A0=E5=A4=AA=E5=B9=B3=E5=BB=A3=E8=A8=98</option>
+<option value=3D"586142">=C2=A0=E6=9C=B1=E5=AD=90=E8=AA=9E=E9=A1=9E</option>
+<option value=3D"649226">=C2=A0=E5=AE=8B=E6=99=AF=E6=96=87=E5=85=AC=E7=AD=
+=86=E8=A8=98</option>
+<option value=3D"649494">=C2=A0=E6=A3=8B=E7=B6=93</option>
+<option value=3D"649521">=C2=A0=E9=83=81=E9=9B=A2=E5=AD=90</option>
+<option value=3D"90472">Qing</option>
+<option value=3D"10473">=C2=A0Mozi Jiangu</option>
+<option value=3D"103345">=C2=A0Hong Lou Meng</option>
+<option value=3D"108540">=C2=A0Quan Tang Shi</option>
+<option value=3D"317453">=C2=A0Kangxi Zidian</option>
+<option value=3D"565462">=C2=A0The Scholars</option>
+<option value=3D"90473">Republican era</option>
+<option value=3D"52326">=C2=A0=E5=A2=A8=E7=B6=93=E6=A0=A1=E9=87=8B</option>
+</select> for:<br>
+<input name=3D"if" id=3D"if" value=3D"en" type=3D"hidden">
+<input name=3D"searchu" size=3D"20" class=3D"searchbox" type=3D"text"><br>
+<input value=3D"Search" type=3D"submit">
+<span class=3D"etext"><a href=3D"http://ctext.org/search.pl?if=3Den">Advanc=
+ed</a></span></form>
+</div>
+<div id=3D"searchbooks">
+Title search:<br>
+<form id=3D"searchform" method=3D"get" action=3D"http://ctext.org/searchboo=
+ks.pl">
+<input name=3D"if" value=3D"en" type=3D"hidden">
+<input name=3D"searchu" size=3D"20" class=3D"searchbox" type=3D"text"><br>
+<input value=3D"Search" type=3D"submit">
+</form>
+</div>
+<script type=3D"text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+<div id=3D"logininfo">
+<a href=3D"http://ctext.org/account.pl?if=3Den&amp;return=3D%2Ffont%2Dtest%=
+2Dpage" rel=3D"nofollow">Log in</a></div>
+</div>
+<div id=3D"content"><div class=3D"noprint opt" style=3D"height: 47px; margi=
+n: 5px; float: right; text-align: right;"><a href=3D"http://www.facebook.co=
+m/pages/Chinese-Text-Project/112118272147647" rel=3D"nofollow"><img src=3D"=
+http://ctext.org/icons/facebook.gif" alt=3D"Follow us on Facebook to receiv=
+e important updates - thanks for your support!" title=3D"Follow us on Faceb=
+ook to receive important updates - thanks for your support!" border=3D"0"=
+ height=3D"44" width=3D"44"></a> <a href=3D"http://www.twitter.com/chineset=
+extproj" rel=3D"nofollow"><img src=3D"http://ctext.org/icons/twitter.gif"=
+ alt=3D"Follow us on Twitter to receive important updates - thanks for your=
+ support!" title=3D"Follow us on Twitter to receive important updates - tha=
+nks for your support!" border=3D"0" height=3D"44" width=3D"45"></a> <a href=
+=3D"http://weibo.com/ctext" rel=3D"nofollow"><img src=3D"http://ctext.org/i=
+cons/xinlang.gif" alt=3D"Follow us on sina.com's microblogging site to rece=
+ive important updates - thanks for your support!" title=3D"Follow us on sin=
+a.com's microblogging site to receive important updates - thanks for your=
+ support!" border=3D"0" height=3D"44" width=3D"44"></a> <a href=3D"http://s=
+ite.douban.com/137325/" rel=3D"nofollow"><img src=3D"http://ctext.org/icons=
+/douban.png" alt=3D"Follow us on Douban to receive important updates - than=
+ks for your support!" title=3D"Follow us on Douban to receive important upd=
+ates - thanks for your support!" border=3D"0" height=3D"44" width=3D"44"></=
+a></div>
+<table id=3D"titleline" border=3D"0">
+<tbody><tr><td valign=3D"top"><div style=3D"display: inline-block; zoom: 1;=
+ *display: inline;'"><a href=3D"http://ctext.org/" class=3D"sprite-logo" ti=
+tle=3D"Chinese Text Project">Chinese Text Project<div style=3D"display: inl=
+ine;"></div></a></div></td>
+<td valign=3D"middle"><font size=3D"+3">Chinese Text Project</font></td>
+</tr>
+</tbody></table>
+<div id=3D"ad2">
+<table border=3D"0" width=3D"100%"><tbody><tr><td></td><td align=3D"right">=
+</td></tr></tbody></table></div>
+<script type=3D"text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+<div id=3D"content3"><h2>Font test page</h2>
+<table class=3D"info">
+<tbody><tr><th>Character type</th><th>Reference</th><th>Your browser</th></=
+tr>=20
+<tr><th>Traditional Chinese</th><td><img src=3D"http://ctext.org/tc.gif"></=
+td><td><span style=3D"font-size: 22px;">=E7=BE=A9=E3=80=81=E7=A6=AE=E3=80=
+=81=E8=AA=AA=E3=80=81=E9=81=B8</span></td></tr>
+<tr><th>Simplified Chinese</th><td><img src=3D"http://ctext.org/sc.gif"></t=
+d><td><span style=3D"font-size: 22px;">=E4=B9=89=E3=80=81=E7=A4=BC=E3=80=81=
+=E8=AF=B4=E3=80=81=E9=80=89</span></td></tr>
+<tr><th>CJK Extension A</th><td><img src=3D"http://ctext.org/exta.gif"></td=
+><td><span style=3D"font-size: 22px;">=E3=A1=9B=E3=80=81=E3=AC=90=E3=80=81=
+=E3=96=A7=E3=80=81=E4=B5=8D</span></td></tr>
+<tr><th>CJK Extension B</th><td><img src=3D"http://ctext.org/extb.gif"></td=
+><td><span style=3D"font-size: 22px;">=F0=A3=9A=A3=E3=80=81=E4=B6=85=E3=80=
+=81=F0=AA=98=86=E3=80=81=F0=A6=9E=95</span></td></tr>
+<tr><th>CJK Extension C</th><td><img src=3D"http://ctext.org/extc.gif"></td=
+><td><span style=3D"font-size: 22px;">=F0=AA=A2=A8=E3=80=81=F0=AA=AA=96=E3=
+=80=81=F0=AB=94=BA=E3=80=81=F0=AB=9C=B4</span></td></tr>
+<tr><th>CJK Extension D</th><td><img src=3D"http://ctext.org/extd.gif"></td=
+><td><span style=3D"font-size: 22px;">=F0=AB=9D=80=E3=80=81=F0=AB=9E=82=E3=
+=80=81=F0=AB=9D=BB=E3=80=81=F0=AB=A0=9D</span></td></tr>
+<tr><th>CJK Extension E</th><td><img src=3D"http://ctext.org/static/exte.pn=
+g"></td><td><span style=3D"font-size: 22px;">=F0=AB=A0=AB=E3=80=81=F0=AC=9A=
+=9A=E3=80=81=F0=AC=B3=95=E3=80=81=F0=AC=BA=A1</span></td></tr>
+</tbody></table>
+
+<p>The above table gives two representations of 24 different Chinese charac=
+ters: the 'Reference' column contains a bitmap image of the=20
+characters, while the 'Your browser' column shows how your system renders=
+ the same characters when they appear in Chinese text.=20
+Hence on a properly configured system with appropriate fonts, these two col=
+umns should contain the same characters. If you see=20
+squares or blank spaces in the 'Your browser' column, your system does not=
+ support these characters; you will need to download and=20
+install a suitable font such as "<a href=3D"http://fonts.jp/hanazono/" rel=
+=3D"nofollow">Hanazono</a>" for these to display.</p>
+
+<h2 id=3D"setup">Font setup</h2>
+<h3>Windows</h3>
+<ol>
+<li>Download and save the file <tt><a href=3D"http://sourceforge.jp/project=
+s/hanazono-font/downloads/62072/hanazono-20141012.zip/" rel=3D"nofollow" ta=
+rget=3D"_blank">hanazono-20141012.zip</a></tt></li>
+<li>Open the <tt>hanazono-20141012.zip</tt> file and copy the two files <tt=
+>HanaMinA.ttf</tt> and <tt>HanaMinB.ttf</tt> to a folder on your disk</li>
+<li>Click Start, and then click Run.</li>
+<li>Type <tt>%windir%\fonts</tt>, and then click OK.</li>
+<li>On the File menu, click Install New Font.</li>
+<li>Double-click on the folder in which you saved the two .ttf files.</li>
+<li>Select the two fonts <tt>HanaMinA</tt> and <tt>HanaMinB</tt>.</li>
+<li>Click to select the "Copy Fonts To Fonts Folder" check box.</li>
+<li>Click OK.</li>
+</ol>
+
+<h3>Mac OS X</h3>
+<ol>
+<li>Download and save the file <tt><a href=3D"http://sourceforge.jp/project=
+s/hanazono-font/downloads/62072/hanazono-20141012.zip/" rel=3D"nofollow" ta=
+rget=3D"_blank">hanazono-20141012.zip</a></tt></li>
+<li>Open the <tt>hanazono-20141012.zip</tt> archive folder</li>
+<li>Double-click on the <tt>HanaMinA.ttf</tt> file</li>
+<li>Click "Install font"</li>
+<li>Double-click on the <tt>HanaMinB.ttf</tt> file</li>
+<li>Click "Install font"</li>
+</ol>
+
+<h2>Browser setup</h2>
+
+<p>Font display has been tested successfully on Windows XP with Firefox, IE=
+ <sup>(1)</sup>, and Opera <sup>(2)</sup>, and on Mac OS X version 10.6 wit=
+h Safari and Firefox.</p>
+
+<table class=3D"info"><tbody><tr><th> </th><th>Basic CJK</th><th>Extension=
+ B</th></tr>
+<tr><th>Firefox 2.0</th><td style=3D"text-align: center;"><img src=3D"http:=
+//ctext.org/yes.gif" alt=3D"yes"></td><td style=3D"padding: 0 0 0 30px;"><i=
+mg src=3D"http://ctext.org/yes.gif" alt=3D"yes"></td></tr>
+<tr><th>Internet Explorer 6.0</th><td style=3D"text-align: center;"><img sr=
+c=3D"http://ctext.org/yes.gif" alt=3D"yes"></td><td style=3D"padding: 0 0=
+ 0 30px;"><img src=3D"http://ctext.org/yes.gif" alt=3D"yes"> <sup>(1)</sup>=
+</td></tr>
+<tr><th>Opera 9.24</th><td style=3D"text-align: center;"><img src=3D"http:/=
+/ctext.org/yes.gif" alt=3D"yes"></td><td style=3D"padding: 0 0 0 30px;"><im=
+g src=3D"http://ctext.org/yes.gif" alt=3D"yes"> <sup>(2)</sup></td></tr>
+</tbody></table>
+
+<h3>Firefox</h3>
+
+<p>Firefox fully supports Unicode and Chinese fonts and does not require an=
+y modifications or updates to use them.</p>
+
+<h3>Internet Explorer 6</h3>
+
+<p>1. Internet Explorer 6 requires the following registry update to display=
+ Extension B characters:</p>
+<p>
+<tt>  [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\International=
+\Scripts\42]</tt><br>
+<tt>  IEFixedFontName=3D</tt><i>[Surrogate Font Face Name]</i><br>
+<tt>  IEPropFontName=3D</tt><i>[Surrogate Font Face Name]</i>
+</p>
+<p>You can add this manually using the Windows Regedit program, or by downl=
+oading and double-clicking on <a href=3D"http://ctext.org/cjkup.reg">cjkup.=
+reg</a>. (You will need to edit the file if using a font other than Han Nom=
+.)
+</p>
+
+<h3>Opera</h3>
+
+<p>2. Opera requires the following registry update to display Extension B=
+ characters:</p>
+<p><tt>  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\La=
+nguagePack\SurrogateFallback]</tt><br>
+<tt>  Plane2=3D</tt><i>[Surrogate Font Face name]</i>
+
+</p>
+<p>You can add this manually using the Windows Regedit program, or by downl=
+oading and double-clicking on <a href=3D"http://ctext.org/cjkup.reg">cjkup.=
+reg</a>. (You will need to edit the file if using a font other than Han Nom=
+.)
+</p>
+<h3>Other platforms</h3>
+<p>Other operating systems such as Linux, and other web browsers will work=
+ provided that they fully support Unicode (and UTF-8). Please <a href=3D"ht=
+tp://ctext.org/discuss.pl?if=3Den">post a message on the forums</a> if you=
+ know of any useful setup advice for people using these platforms.</p>
+</div>
+<div id=3D"footer"><hr>
+<table width=3D"100%">
+<tbody><tr>
+<td valign=3D"top">
+<table border=3D"0"><tbody><tr><td class=3D"etext"><b>Enjoy<span class=3D"o=
+pt"> this site</span>? <a href=3D"http://ctext.org/help-us">Please help</a>=
+.</b></td><td class=3D"etext"><i>Site design and content <a href=3D"http://=
+ctext.org/faq#copyright">copyright 2006-2015</a>.<span class=3D"opt"> When=
+ quoting or citing information from this site, please link to the correspon=
+ding page or to <a href=3D"http://ctext.org/">http://ctext.org</a>. Please=
+ note that the use of automatic download software on this site is <u>strict=
+ly prohibited</u>, and that users of such software are automatically banned=
+ without warning to save bandwidth. <a href=3D"http://www.miibeian.gov.cn/"=
+ rel=3D"nofollow">=E6=B2=AAICP=E5=A4=8709015720=E5=8F=B7-3</a></span></i></=
+td><td class=3D"etext"><b>Comments? <span class=3D"opt">Suggestions? </span=
+>Please <a href=3D"http://ctext.org/discuss.pl?if=3Den&amp;board=3D7">raise=
+ them here</a>.</b></td></tr></tbody></table></td><td align=3D"right">
+</td></tr>
+</tbody></table>
+</div></div>
+</body></html>
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/static/mobile.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAkAAAAQCAMAAADzlqVxAAABRFBMVEX////j4+Pg4ODd3d3b29vY
+2NjW1tbV1dXT09PFxcXAwMC/v7++vr6dnZ2ZmZnY2dvLzM7l6Ovd4OOBgoPf4OHFxsfY3uPX3eLJ
+5Pl/g4aKjpGIjI+Dh4rY3N/g5OfF4/hfuvFku/JZuvRZuO5gwPZduO5lwPJmwPJrvu9iwPBkvexy
+x/R2yfPJ6PZgw+3D5/bF6fbD6PLs9PawtLXX3t/j7e3s7e2zuLazt7PX2Ne8vbykzqC7v7qwsq+z
+z6HZ1NXr6Onf39/e3t7y7PHj4uPa2trZ2dnAusHt7O7v7vLu7fLS0tLR0dHQ0NDGxsbs7PDDw8Po
+6OzV1de8vL21tbWzs7OsrKygoKC1trqcnJybm5uQkZOYmJiXl5eUlJSTk5N4eHh2dna2t6+ysa/X
+1tS6trXt5eXc3Nzc2dnm5ubk5OTXhIqZHipNAAAAAXRSTlMAQObYZgAAAJhJREFUeF49xsO2AwEQ
+ANEee2Lbtm3b1jP+f58sclK1ufBstX7pBh+qxec28ya9QqLZTfcaM5kCSnGHx2X3mnXw3rdatNGA
+xgjLiT8WCQXVBsimbG6fM2zSQ76alPzkKvIDdL4K5eL8X3kG7pcgaHJQE4FFWIqneXQHDEJS5GhY
+F4D5m7YeoxsYYziGf2P4BdrCUdyL+xN3B4oRGKv6Nj6aAAAAAElFTkSuQmCC
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/static/home.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAwAAAAOCAMAAAAsYw3eAAABSlBMVEX///+00+G20+Gz0+CXvs2t
+mmnjzJKgh1ChhlCXv8+kx9a109+lxtalx9bg6/O10+Hi7fS10t+20t/i7fKvmWalx9ekx9Wszdqm
+x9e209/e7PKWwNC20+Ory9e01OC009+z0t7h7vOz1eCz1N/h7e/08Nz079r179j28Nv07tnRvoXP
+vYbPvobz69L07NTx6tXdw33dxH/dxYDhzI7izZHhzJHRvYfhzJLQvYjz69T279zew3+tmWTi7fPk
+zJHkzZLiy5CYvtHjzZPj0KHi0KLhz6T06tD06tLz6dH2796gh07h7fOumGWwmWeWv9KvmWmumWnj
+ypHRu4eVvtChhlKgh1PjypWKai3exYP06tSJaiyhhk6ummey0+G01OHh7POWv9CVvs+Tv9KtmWiW
+vs6kxtWtmWWJaS6hhVKLaS+LajL47t2LaDLj7PTvSnL4AAAAAXRSTlMAQObYZgAAAJ9JREFUeF49
+ytNuRVEUQNF1rEvbtm3bRm39/2t3TnM730YyQUzKw38GhYm8gnfKsTvzH3RqwU7c/jTFZ6x047jq
+xrMG4GQu3CHYCMxYfYB7i1X/ItE+zzjyEYDqhCO5UGHVnQDAJdjeZfP1mu8dYRqgM5SmcYgzCAvv
+ktaw5UTsjPD01Uqz21Sy/4ZQGfpL0eKgd9wjzF9ZZjP6OH1/wi85dBfk9QCVOwAAAABJRU5ErkJg
+gg==
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/icons/facebook.gif
+
+R0lGODlhLAAsAPcAAO3t7f///8zMzAAAAOzs7N7e3jtZl5lwcu+cpcB7hKmZn87F3s7G3s3F3Xtr
+pWdWmLWtzoR3saWcxZWOuezq9mtjnBAA/01LkZaW5dbW5rq6yNnZ41RYnMfI3sjJ3mVrqzE9gVJj
+pWp6tZSt/9zg6zVOjmN7tTJYqk93zUhgmGF5rGh+rW2Ds3OHsqq1zTVhvjxamDxal09yuEZinFFs
+ol11p36Rt4mavJSjwp6syai207W/087W5svR3eLk6JCu4pOjwcDI11qFxXKVym6n6KW1xTE6QpCy
+y8be79br+QB7xXPF91p1hq7U7Q+GxxCHyCuPySyQynOw00paY+z1+gCU3giU3hWc3iqm5jpKUgly
+oQlxoQpyokqz5leqz5TR7BuFshuFsRyFshuCrB2ItB6JtR1+piGLtyCGsCSPuSaRu4/F23Ocrez2
++iWHrSmUvS2awi6awjGexTajyT2mz3LI6I/g/Zvl/7ro+DLL/z3O/zakyj6t0VDS/kOz1kOy1WPX
+/mTA3pzm/0a22Eq63Eu73E6/4FDB4ef3+vf//2a3jQCUQnjFmonPqAiURBCcShmcUiGlWjmsar3m
+zrXcxuj27gCUOszr2KrduU6yaACMAAiMCBmUGTSlNHvFe5bVlmNpWv//APf3APDtALGxA3R0Cf//
+nK2ta4SEe6ennM7OxcXFvb29tdbWzvb27/r6+Pb29ZOQA0VEL1hQE97d1v/bADMuE//OAIx3Ia+M
+CnNxauqzDP/WhDAsJHl4dnh3dS8rJJyZlJWRjEQ4K2pnZK2ppVlXVYmIh/OGLfbm2e93I/VsFPZ1
+JffezutnI/GWZe6xk/bGrIqIh4mHht5jK95KGd1XKeFtRTc0M/9FGPNSKthKKlBLStY6If+OhGdU
+U/82MdONi//Hxf8AAP8ICP8XF/86Ov9ZWf95ef+YluWWlv62tSEZGf/Ozv/n57atrcW9vUlGRvb2
+9ubm5t3d3dbW1s3NzcXFxb29vbW1ta2traWlpZycnJSUlJOTk////ywAAAAALAAsAAAI/gAF2BNA
+UKDBgwUPDiS4MOHChgXtSQxAsaLFixgzasQokACAjyBDihxJsmRIAgJHejTJUiVJlAJaypw5kiDN
+lwBWgtRZEuZHjwRczDBAtKjRo0iTznAhkiDPoUmjSj06o2nMnVOzZs0J0mZIrWCTWv35MWxUFjZy
+sGABlahVnQTMHs0B6yILoyIlcs0ptyiljHeLjv3al4XGwG5DegXZ10CHw3gVX2Xcl4dFFVEHUzYb
+wzJFElI1l61ckUfokANFNvYcwHRmyWQBmM1Bm0JFCrRpIzYgWnbYjRV3j9VpFjhF4XudEgZrPADy
+lco3a22OnGtqsqtLn4ZuTzVpiq7FvJLVu9ws6/BIe2cHf7pr9/Jhz2//uNjj+tbt6cckXhQGWPmv
+gXQdZSqsZeCBCLJAQkUkJIgZb6hNNlqBCVaoIIMOJtaVhL5RaCGCC36WIYQrkceVATB4+KGBIQbQ
+IIIPqhdDDSrUaOONOO7Aw4474KhCDRp+lBpQALTVmFRV6bTYR0IdiSRTsN0kEk83ETCglFP2dNKG
+WXaJJUtLumQST1SydF2ZWFKJJn3+tOlmP/24KeecdLYJ55t1uhkQADs=
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/icons/twitter.gif
+
+R0lGODlhLQAsAPcAAP////f//+/////39+b///f3997//+/39+b3/9b///fv9+b39/fv7973/+/v
+99739+/v79b3/9b39873/87398X3/+/m5tbv9733/+bm5s7v997m78Xv/7X3/8Xv973v/633/9bm
+5r3v987m9+be3rXv/97e5rXv997e3sXm763v/73m96Xv/97W3rXm997W1sXe75zv/9bW3q3m99bW
+1q3m76Xm/6Xm97Xe76Xm75zm95Tm/6Xe96Xe787Ozozm/5ze94zm95ze74Tm/5Te94Tm95Te77XO
+3qXW3oze987FxZzW74ze75zW5oTe98XFxZTW75TW5nve/3ve94zW74zW5nPe/3Pe94TW75zO1sW9
+vWve/2ve93vW7729vXvW5r29tXPW94TO73PW74TO5mvW93vO72vW75TF1qW9zmPW93PO72PW73PO
+5lrW95y9xWvO71rW72vO5q21tVLW93vF3mPO72PO5oy9znPF5nPF3lrO74S91q2ttVrO5oS9zmvF
+5lLO962trWvF3lLO72PF75S1vWPF5nu9zkrO71rF5mu9zlLF5lLF3krF70rF5krF3pylpVq91kLF
+5mu1xVK93lK91kq95nuttYylrUq93nOtvUK95lq1zoSlrUK93lq1xVK11jq95nultTq93nulrUq1
+1nOltTG93kK1zjq13jq11jG13jG11im13im11gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAALQAsAAAI/gABCBwo
+MECBAgESKlzIsOFCghAhBhjRhIxFMmIyirmosaPGiyCr4FgQkaCDKIDMUIFiRIjLlzBjynwJBUub
+PClKAoBABhCUHjXNCB1KtKjRoWKouBQDCEbEAk0AtTQD6JDVQ1ULaYUDp5Adrly1iq1a9VAbKELM
+5NkAMcQgpW2uWi3bpo0cq2DzcpUjB5Dfsj6FAEJSYGCBI4CEYJF7NYqGAwIWrBBzSA4cy2D5ambc
+Jm2dDAMZZOl8l3GNiAKgVL5TuTRjxlSo6EExEAKas697DBRAQEBBMlhfC7eqUo+M2repcD4AIECD
+CM8RCNQwvHrx4wJtt1F+SFH3KAIR/kQggEC87wNxqzNWtN048u2K4sfXDeB5hPsRpAf44l1u//Xs
+UTEIDe9RId98AuF33wTSAXCBBxpEqIEHNZDxX3fxbTdggQcqQl8EFUwgYgUN6FTQCt1hmKGABGb3
+hyJYHMjIhxXUWGMDDiU0UAodskdGKC3uhIgmg7TyiSaMzCjQBDbaKKKCETAZQQACQRFfJZ+sUgkg
+qWAnpCaAtCKmmOABMAEGTTopIpM1YjABlSmsMmYrlcjRZW1DhjnmK1UIVEEJgAYKaAeCCirdA3KO
+WWcqQTLwB5hzttInAByoYOmlmGZqqXQLfDJnJW2YEiQEj7YR6aQisKDpqiqwcAKV/xqoosoqcoIq
+amh/gDqmnKiy4OuvwP56gw0nNFgFK6TI2kojoY6aaxuryKoKK2WeEMO114pQ3rbcUumgJqSEOy2z
+t7oIarSqkEKtQCfo4K4OO2hg4nSNhGuvKswCWduz0Ya7LgAq7CCwwByYeEEV4H7yib2k5OssswyT
+UuYMPwwcRME6LVCDIqQovHC47OnrIsQMl3lDECij7MG8ACzQRscek8KeJQ+/HO7CRgh0QxEpO3GD
+Bx5wIDTQQJPUsiKcxDyzs4zY3DEpk84whRNUUz3F1Vhj7YS8APTwCSdJy/wFzfs27bHCclDpQdZs
+tz21dBc8MknYioztLHtnc/LIA/4ACJDEFW67fYUEACDAyCSTKKxIF2S7WLfHnMydMwAaXGH55Zhn
+fkWJDxz+SNKHMH63GQpHPskjjFww3RRltO76667rINAKj9Q+d+iN7/Qi6V/XXrscRgvggQ5JFG/8
+8S5Qud/ptX9yh+j7wvhI774/IofqLEOUQ/XTy9FG7hDgAUmMnzBfvR9CPODtvAsIwX3tWMghyahp
+fNJFF3Jzzwghj+zRhRE3COAMBhjAG+SACXZ4BCEY4btJ3IEKjFjECwzzhE4oggptyJ/vCMHBDnrw
+gx9kYO0e2IVPvAE0A3mBIZxHBSzcgYFJ2h8h9kDDPcQhDm5www1rSEMOJskPY6dgAv4o8QQIEAQC
+T8CEJvzQBSZg4YlPZMLxpkjFJFAtikw4wyNAMQfaQCQDXsgEKJDkh6/A4QxoPMMYwhAGy13tcmxM
+Ixrt4AdGWGITgqBBYSKSgScIIhOlOIUgR0HIQhISE4hMJCYMyUhPRAIML9hjSSCAAh9owQtgwKQW
+tACGTHrhk6AMJSY7uUkvaOEJNMiAJE1UAAi48pWwjKUsZ3mQ7NnylrYMCAA7
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/icons/xinlang.gif
+
+R0lGODlhLAAsAPcAAP//////9/f////39//37/f39/f35vf33vfv7/fv5u/v9+/v7/fv1ubv7/fm
+5vfm3vfm1vfmzu/m3ubm7/fe5u/mzubm5vfe3u/mxffe1t7m5u/e3u/e1u/exe/eve/ete/W3t7e
+3u/W1tbe3u/Wve/Wte/Wre/Ozu/OxdbW1ubOzubOxebOrebOpebFxebFvc7OzubFnOa9vd69vcXF
+xea9lOa9jN69lN61vd69jN61td69hOa1jL29xb29vd6trd61e96lpd6lnLW1tdate9alpd6lY9ac
+pdacnNala62trdaclNaUnNaUlNacWqWlrdacUqWlpd6UUtaMjNaUUs6MjNaUSpycnM6EhM6MSs6M
+QpSUnNaEOpSUlM57e9aEMc6EOsV7e9Z7KYyMlNZ7IYyMjMVzc8Vza4SMjMVra4SEjISEhHuEhMVj
+a8VjY71jY4R7e3t7hMVaY3t7e8VaWr1aWr1aUsVSUnNzc71SUr1SSr1KUr1KSmtrc71KQmtra2tr
+Y71CQr1COrVCQmNjY8U6Mb06Qr06OrU6OsUxMcUxKb0xMVpaY70xKVpaWrUxOrUxMcUpKb0pMb0p
+KVJSWlJSUkpKSkJCSkJCQjo6Qjo6OjExOjExMTEpMSkpMSkpKSkhKSEhIRkZGRAQEAgIEAgICAAA
+CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAALAAsAAAI/gBhCBxI
+sKDBgwgTAljIsKHDhxAjPhS4oKLFixgzatyYkSLHjyBBCpRIsqTJkSZTBijBokKAkihTlkygRQyX
+JCRIxpQpMUCHHE7EfMnxEuJOnhADkCBxoIQVMTciHk1ZoMBDmmKodGBg5YsHozCQOmhSp44IhwE8
+AOECpkMJMUmKNpwqcUaeRYkmVXGYIEmMElycGKDCBcLEsCmLIEqUqFAiL2hvgGkBREwFHmJYHE68
+uJDnRHsRyECCRAWAHURIZKngQUtOh3Qd6jjU2HOhRVV+3F3UCJEKAgkAGHiZQC7D2AxVBKr9OVEg
+vIxv65CJHAACObUZL9rOnXGiQ2dT/lZHsujzIj1mlvxY3yTN80NusMywqhMxRAR5tKeZgQDihiq0
+LQJJGsFJhJwOeA3yA0M+rLGGDw7NYEhjkjBRn0RhRBKICwtZUMkoII4Sh0NNlLdIGBdCNAAdkyCx
+UAGVlAKiKDTaB4AKATaR4kMF3HHIBgsNQconlDiiCYhRNITjdyfsiBYdgTiw0BqkQNgFjaNAyBB5
+J8Jko0NVTCLDQleMkkIBlICICX0AiMDHJHVI6aRDHAwSJwAWbALKkaRwYp8KeUzyBpBekqQDInlw
+qMEfmVzChgUL/YcIJFj0d9KXD7lQByRvIOGCCBxc4AISaSCCiBkr8FTdizOYwccg/7AOgsggbSDB
+AVIAxAQpSQU8IMIJImxgqVULELtrASEwtIAFkI5kQQqW0PDsFWX0EUUBcMBQwLNohGABfVGsYcEc
+0nahpQ94LGvBGmPgUYZABeAByB+VrPHHHE/4kOwVf6zhyB//YpLkEHh0ccUcBleiBA0AdBEFv39w
+wkgfhIwUxRYWEBICIQ3RUBUlSqQgsiM0wPCHyY5c4sgcgGDyoCVlRPEHHpzg8YcSAl1BCCWW1GvJ
+EEMoEcK/C1iyRhllzKFJRTQQMkQUSuDhickLXMHJFf/iockaluAMgwUh4DGEBVE4soYmXViwQBQ9
+REuDD2UDUDQNXeDRh85RzAHAxvQAGE0IzJikIFAZEROyBh4++KA3nilcwcjfdc9RACFLD/EEw1yH
+pUQZFljSRSV4zFFJATmX3cXQC6zxxEIF4wFDCJWEMMccFlyBB7R/aIwHxwCsccUWamyO9RqCw+D0
+HDavAQAhKeyNiQWOMEvIJ1oqccUVUHPSBSZlLEQIDVdkUoYSawhcPL84W6L26AAAckUInBDyx9A/
+996FI1V3QUgUgS/AfswpQNpCBteFAtCAYSHoAgAKsAYDzgExBcAZAK5Ag+YBYAgQEloIurcQGvRr
+AQPEFK5GmCsYhOSEKLSIR1LIQo7AoAswjKEMZ0jDGtrQhgEBADs=
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/icons/douban.png
+
+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
+XcFMsEUAAAAASUVORK5CYII=
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/tc.gif
+
+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
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/sc.gif
+
+R0lGODlhnwAXAMQAAP////f39+/v7+bm5t7e3tbW1s7OzsXFxb29vbW1ta2traWlpZycnJSUlIyM
+jISEhHt7e3Nzc2tra2NjY1paWlJSUkpKSkJCQjo6OjExMSkpKSEhIRkZGRAQEAgICAAAACH5BAkA
+AAAALAAAAACfABcAAAj+AAEIHEiwoMGDCBMSHGDgoIEBCiNKNCgggEECBSZqjBjA4kaBARQk+Eiy
+4AAIETISlGBBQcmJAR4SRBDhAMEAEC6MfHlQAESHEiT83Mggw04AAiA48Mgz4QANFlQKnNDhaFOE
+Ci4sGCggggabAg1kuDD0qkACFC40DJsgZgYNTBEGaKCAaYYMawFg8DChrFmCCj5EYDphA9i/BxV0
+eOBxwIUNGQNEgIyYoIAMHFwCaOAhAwIMFyYmiDrwwYelAApo0ECg8kUKDQQMLHzYNUENGCIDgMBh
+5IEMDPwiTrC4I4QPCQqAPtsaYQELDgYm+DBBtgMPEmwLOJCge4IFCiT+pARA27bBBg4GBHgw4UKH
+ChMwbKhQgYH5kBkJXPhAoQIHDhO0ZwECck0mGwAGeDDYABR8kBdiAzSglAMUTuBBZgGUZ95NFgXQ
+YAVBhZgBdRsOhIAHFkhQgQfYBQXBgwWpJkFcAChmQYk3SdDBVuQZhiNIIBUGYwM74hhABRHIplxo
+GkXQ200UeMDjjwpwQMFsPppHAANcQlBXhhsMWWSJBoyX2nID0VgQARxYMFQBHVzQHI4EYIDBnBra
+ZsADDFhYQUVCFkTklJVhNMACDHjXwAYbeBcBBQyoORAEHkQ3VQcN/FijBo0SlKdrHdW4GABgiklo
+UwJIcJcGGUiAgQb//3HQwQcfxOrBB38mREAFHxCYAAe54jgArx1swMCBn5qnWHQZcrCAAdBCC8GY
+fxUAEQWdCgTnBAh+8MBGCGygQVYdEChsfLg6sMEErSVr27KkUvDeBxtc0NlemdpGgQZ5KQZBt99u
+tIAHHWD347AVHMCfAA94AIEA7roGr4cUDOBBfRw8kAAFtSG2b14NcGCfAd4KJMCcCUlGK4wUHSCc
+RAZU8ABEHlBwMgd3RmzyAQe+BC8ABAxAAF9VMibcADw39fFAFHDQEMkBFxBbRAdc2EEHB0hKUAMU
+KNAzRwQwVXNFBxgAZscF4TQBAlortGwA1gKQgIK/BkxqXAMEJdVH/ksDcIAGVwJMKgNJppwAqws4
+UOzMCgWgOAQvSzS2p1meVUBcXXVwLEn+MiBBa04uUPdABLS1UNN1kbT0sHiF9cG/ON2ZUAMaXADW
+AhqgaC5CA1igYNsJTY5lbQl4vaYGmAJvkGJQETjAqwOMLtABENBYwIWabfSxABVcsPsAHGQQ4Goo
+DzQsB58TZIAF9GLQgNYLFGuVRsJPVbncxhfkwAetb6TAhQuwCJG+Jb0aBYsgDbrA1ziSgQ0sAAIQ
+KN8BHCAeBuxNWw5gFcsEooAMzGoDAzrIY041kfoBoGFHkYwFykcqcaEtZYWxlAKgYpEDoK9DD+CA
+cAogrsgV5AAVpujAXTjQgIcMYAAVSdMRkdiYBWCgAlNLiAAcMIEXagsBCyyhzWZiJS4xgHZOc0jW
+PoK0kzFAA+wy2WMg0IAHiItlASibRiSwgeoJoAEYiBN9KOAAL0KAPhVYwIEOJUhNReQyqEmTAiIA
+SCTlDzEhkcADHokgL3Jpd02J3psYQEFAuodWH+gABS5oSIkEgABZRMoSkbihAVyulArxyREJEC0D
+FKBnAQEAOw==
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/exta.gif
+
+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
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/extb.gif
+
+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
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/extc.gif
+
+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
+
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/extd.gif
+
+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
+jahEPxIQADs=
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/static/exte.png
+
+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
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/yes.gif
+
+R0lGODlhEAAMAMQAAP////f///f/9+b379bv3s7v3s7v1sXm1r3mzqXevZTWtYzOrYTOpXvOnHvF
+nGu9jGO9jFK1hFK1e0q1e0q1c0KtczqtazGlYyGlWiGlUhmcUhCcSgiUSgiUQgCUQgCUOiH5BAkA
+AAAALAAAAAAQAAwAAAhjAAEIHEhw4IENEQoqBICAgwcPCwkm6PDwAYADFRYueOiBAYABGjw4KOjg
+YYcEAgtQ9HBgIISHGxAQVPAQgwABEx5qIKAwwkMJFh5eGLBQAAaOHigIiAhA5UMITAfS9BjVYNSA
+ADs=
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: urn:snapshot-B462D2BC:http://ctext.org/static/text9.css
+
+/* Effective stylesheet produced by snapshot save */
+.sprite-expand { display: block; overflow: hidden; width: 11px; height: 11p=
+x; position: relative; text-indent: -100em; float: left; }
+.sprite-expand div { background: transparent url("http://ctext.org/static/s=
+prite.png") no-repeat scroll 0px -76px; height: 100%; left: 0px; position:=
+ absolute; top: 0px; width: 100%; }
+.sprite-info { display: block; overflow: hidden; width: 15px; height: 15px;=
+ position: relative; text-indent: -100em; float: left; }
+.sprite-info div { background: transparent url("http://ctext.org/static/spr=
+ite.png") no-repeat scroll 0px -161px; height: 100%; left: 0px; position:=
+ absolute; top: 0px; width: 100%; }
+.sprite-logo { display: block; overflow: hidden; width: 45px; height: 50px;=
+ position: relative; text-indent: -100em; float: left; }
+.sprite-logo div { background: transparent url("http://ctext.org/static/spr=
+ite.png") no-repeat scroll 0px -193px; height: 100%; left: 0px; position:=
+ absolute; top: 0px; width: 100%; }
+.sprite-unexpand { display: block; overflow: hidden; width: 11px; height:=
+ 11px; position: relative; text-indent: -100em; float: left; }
+.sprite-unexpand div { background: transparent url("http://ctext.org/static=
+/sprite.png") no-repeat scroll 0px -476px; height: 100%; left: 0px; positio=
+n: absolute; top: 0px; width: 100%; }
+h2 { font-size: 16pt; margin: 0px 0px 10pt; }
+h3 { font-size: 12pt; }
+h2:target { border-bottom: 2px solid rgb(255, 0, 0); display: inline; }
+h3:target { border-bottom: 2px solid rgb(255, 0, 0); display: inline; }
+html { height: 100%; width: 100%; overflow: hidden; }
+body { height: 100%; width: 100%; overflow: visible; font-family: Verdana,A=
+rial,Helvetica,sans-serif,times,Heiti TC,PMingLiU,PMingLiu-ExtB,SimSun,SimS=
+un-ExtB,HanaMinA,HanaMinB; font-size: 0.8em; margin: 0px; padding: 0px; }
+#content { height: 100%; margin-left: 200px; padding-left: 10px; overflow-x=
+: visible; overflow-y: auto; background-color: rgb(255, 255, 255); }
+#content a:link { color: rgb(0, 0, 255); }
+#content a:visited { color: rgb(0, 0, 255); }
+#content a:hover { color: rgb(245, 76, 0); }
+#content a:active { color: rgb(245, 76, 0); }
+b:target { border-bottom: 2px solid rgb(255, 0, 0); }
+#menubar { overflow-y: auto; overflow-x: visible; position: absolute; left:=
+ 0px; background-color: rgb(204, 204, 204); width: 200px; height: 100%; }
+#language { background-color: rgb(187, 187, 187); margin: 10px; padding: 5p=
+x; border: 1px solid; }
+#search { background-color: rgb(187, 187, 187); margin: 10px; padding: 5px;=
+ border: 1px solid; }
+#searchbooks { background-color: rgb(187, 187, 187); margin: 10px; padding:=
+ 5px; border: 1px solid; }
+#logininfo { background-color: rgb(187, 187, 187); margin: 10px; padding:=
+ 5px; border: 1px solid; }
+#menu { background-color: rgb(187, 187, 187); margin: 10px; padding: 5px;=
+ border: 1px solid; }
+.menuitem { font-size: 11pt; font-weight: bold; }
+a:link { color: rgb(0, 0, 255); }
+a:visited { color: rgb(0, 0, 255); }
+a:hover { color: rgb(245, 76, 0); }
+a:active { color: rgb(245, 76, 0); }
+#ad2 { width: 100%; height: 15px; }
+#footer { display: block; width: 100%; }
+.etext { font-size: 10pt; font-weight: normal; font-family: Arial,Helvetica=
+; }
+.listhead { width: 150px; background: rgb(170, 170, 170) none repeat scroll=
+ 0% 0%; padding: 1px; border: 0px none; margin: 5px 0px 0px; font-weight:=
+ normal; }
+.listhead a:link { color: rgb(0, 0, 0); }
+.listhead a:visited { color: rgb(0, 0, 0); }
+.listhead a:hover { color: rgb(245, 76, 0); }
+.listhead a:active { color: rgb(0, 0, 0); }
+.subcontents { display: none; }
+.menuselected { font-size: 11pt; font-weight: bold; }
+.menuselected::before { content: "["; }
+.menuselected::after { content: "]"; }
+a.menuselected:link { color: rgb(17, 17, 255); }
+a.menuselected:visited { color: rgb(0, 0, 153); }
+a.menuselected:hover { color: rgb(245, 76, 0); }
+a.menuselected:active { color: rgb(0, 0, 0); }
+.booklistbox { width: 145px; }
+.searchbox { width: 145px; }
+#mobimg { display: inline; }
+#deskimg { display: none; }
+#home { display: none; }
+tr:target { background-color: rgb(238, 238, 238); }
+td:target { background-color: rgb(192, 192, 255); }
+table.info {  }
+table.info td { background-color: rgb(238, 238, 238); color: rgb(0, 0, 0);=
+ padding: 4px; text-align: left; }
+table.info th { background-color: rgb(204, 204, 204); color: rgb(0, 0, 0);=
+ padding: 4px; text-align: left; }
+@media print {
+  #menubar { display: none; }
+  html { overflow: auto; }
+  body { width: auto; background: rgb(255, 255, 255) none repeat scroll 0%=
+ 0%; border: 0px none; margin: 0px; overflow: visible; }
+  #content { width: auto; background: rgb(255, 255, 255) none repeat scroll=
+ 0% 0%; border: 0px none; margin: 0px; overflow: visible; }
+  #ad2 { display: none; }
+  .noprint { display: none; }
+}
+
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://ctext.org/static/sprite.png
+
+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
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: urn:snapshot-8030AFBB:http://ctext.org/static/compact3.css
+
+/* Effective stylesheet produced by snapshot save */
+@import url("urn:snapshot-B2068C27:http://ctext.org/static/text9.css");
+#menubar { overflow: auto; padding: 0px; margin: 0px; position: relative;=
+ background-color: rgb(204, 204, 204); width: 100%; height: auto; }
+.container { display: none; }
+#search { display: none; }
+#searchbooks { display: none; }
+#m4463 {  }
+#language { display: inline-block; margin: 5px; width: 95px; }
+#home { display: inline-block; margin: 5px 0px 5px 5px; }
+#menu { margin: 5px; display: inline; background: transparent none repeat=
+ scroll 0% 0%; border: medium none; }
+.listhead { display: inline-block; background: transparent none repeat scro=
+ll 0% 0%; font-size: 10pt; font-weight: normal; }
+.menuitem .etext { font-size: 10pt; font-weight: normal; }
+.menuitem { font-size: 10pt; font-weight: normal; }
+#menu br { display: none; }
+.opt { display: none; }
+#logininfo { display: inline-block; margin: 5px; width: auto; }
+.listhead { width: auto; margin: 0px 5px; }
+#titleline { display: none; }
+#searchform { display: none; }
+#mobimg { display: none; }
+#deskimg { display: inline; }
+html { overflow: auto; }
+body { width: 100%; background: rgb(255, 255, 255) none repeat scroll 0% 0%=
+; border: 0px none; margin: 0px; overflow: visible; }
+html { overflow: auto; }
+body { width: 100%; background: rgb(255, 255, 255) none repeat scroll 0% 0%=
+; border: 0px none; margin: 0px; overflow: visible; }
+body { margin: 5px; overflow: visible; height: auto; width: auto; }
+html { height: auto; width: auto; overflow: auto; }
+#content { margin: 0px; height: auto; overflow: auto; position: relative;=
+ }
+
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: urn:snapshot-B2068C27:http://ctext.org/static/text9.css
+
+/* Effective stylesheet produced by snapshot save */
+.sprite-expand { display: block; overflow: hidden; width: 11px; height: 11p=
+x; position: relative; text-indent: -100em; float: left; }
+.sprite-expand div { background: transparent url("http://ctext.org/static/s=
+prite.png") no-repeat scroll 0px -76px; height: 100%; left: 0px; position:=
+ absolute; top: 0px; width: 100%; }
+.sprite-info { display: block; overflow: hidden; width: 15px; height: 15px;=
+ position: relative; text-indent: -100em; float: left; }
+.sprite-info div { background: transparent url("http://ctext.org/static/spr=
+ite.png") no-repeat scroll 0px -161px; height: 100%; left: 0px; position:=
+ absolute; top: 0px; width: 100%; }
+.sprite-logo { display: block; overflow: hidden; width: 45px; height: 50px;=
+ position: relative; text-indent: -100em; float: left; }
+.sprite-logo div { background: transparent url("http://ctext.org/static/spr=
+ite.png") no-repeat scroll 0px -193px; height: 100%; left: 0px; position:=
+ absolute; top: 0px; width: 100%; }
+.sprite-unexpand { display: block; overflow: hidden; width: 11px; height:=
+ 11px; position: relative; text-indent: -100em; float: left; }
+.sprite-unexpand div { background: transparent url("http://ctext.org/static=
+/sprite.png") no-repeat scroll 0px -476px; height: 100%; left: 0px; positio=
+n: absolute; top: 0px; width: 100%; }
+h2 { font-size: 16pt; margin: 0px 0px 10pt; }
+h3 { font-size: 12pt; }
+h2:target { border-bottom: 2px solid rgb(255, 0, 0); display: inline; }
+h3:target { border-bottom: 2px solid rgb(255, 0, 0); display: inline; }
+html { height: 100%; width: 100%; overflow: hidden; }
+body { height: 100%; width: 100%; overflow: visible; font-family: Verdana,A=
+rial,Helvetica,sans-serif,times,Heiti TC,PMingLiU,PMingLiu-ExtB,SimSun,SimS=
+un-ExtB,HanaMinA,HanaMinB; font-size: 0.8em; margin: 0px; padding: 0px; }
+#content { height: 100%; margin-left: 200px; padding-left: 10px; overflow-x=
+: visible; overflow-y: auto; background-color: rgb(255, 255, 255); }
+#content a:link { color: rgb(0, 0, 255); }
+#content a:visited { color: rgb(0, 0, 255); }
+#content a:hover { color: rgb(245, 76, 0); }
+#content a:active { color: rgb(245, 76, 0); }
+b:target { border-bottom: 2px solid rgb(255, 0, 0); }
+#menubar { overflow-y: auto; overflow-x: visible; position: absolute; left:=
+ 0px; background-color: rgb(204, 204, 204); width: 200px; height: 100%; }
+#language { background-color: rgb(187, 187, 187); margin: 10px; padding: 5p=
+x; border: 1px solid; }
+#search { background-color: rgb(187, 187, 187); margin: 10px; padding: 5px;=
+ border: 1px solid; }
+#searchbooks { background-color: rgb(187, 187, 187); margin: 10px; padding:=
+ 5px; border: 1px solid; }
+#logininfo { background-color: rgb(187, 187, 187); margin: 10px; padding:=
+ 5px; border: 1px solid; }
+#menu { background-color: rgb(187, 187, 187); margin: 10px; padding: 5px;=
+ border: 1px solid; }
+.menuitem { font-size: 11pt; font-weight: bold; }
+a:link { color: rgb(0, 0, 255); }
+a:visited { color: rgb(0, 0, 255); }
+a:hover { color: rgb(245, 76, 0); }
+a:active { color: rgb(245, 76, 0); }
+#ad2 { width: 100%; height: 15px; }
+#footer { display: block; width: 100%; }
+.etext { font-size: 10pt; font-weight: normal; font-family: Arial,Helvetica=
+; }
+.listhead { width: 150px; background: rgb(170, 170, 170) none repeat scroll=
+ 0% 0%; padding: 1px; border: 0px none; margin: 5px 0px 0px; font-weight:=
+ normal; }
+.listhead a:link { color: rgb(0, 0, 0); }
+.listhead a:visited { color: rgb(0, 0, 0); }
+.listhead a:hover { color: rgb(245, 76, 0); }
+.listhead a:active { color: rgb(0, 0, 0); }
+.subcontents { display: none; }
+.menuselected { font-size: 11pt; font-weight: bold; }
+.menuselected::before { content: "["; }
+.menuselected::after { content: "]"; }
+a.menuselected:link { color: rgb(17, 17, 255); }
+a.menuselected:visited { color: rgb(0, 0, 153); }
+a.menuselected:hover { color: rgb(245, 76, 0); }
+a.menuselected:active { color: rgb(0, 0, 0); }
+.booklistbox { width: 145px; }
+.searchbox { width: 145px; }
+#mobimg { display: inline; }
+#deskimg { display: none; }
+#home { display: none; }
+tr:target { background-color: rgb(238, 238, 238); }
+td:target { background-color: rgb(192, 192, 255); }
+table.info {  }
+table.info td { background-color: rgb(238, 238, 238); color: rgb(0, 0, 0);=
+ padding: 4px; text-align: left; }
+table.info th { background-color: rgb(204, 204, 204); color: rgb(0, 0, 0);=
+ padding: 4px; text-align: left; }
+@media print {
+  #menubar { display: none; }
+  html { overflow: auto; }
+  body { width: auto; background: rgb(255, 255, 255) none repeat scroll 0%=
+ 0%; border: 0px none; margin: 0px; overflow: visible; }
+  #content { width: auto; background: rgb(255, 255, 255) none repeat scroll=
+ 0% 0%; border: 0px none; margin: 0px; overflow: visible; }
+  #ad2 { display: none; }
+  .noprint { display: none; }
+}
+
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: text/javascript
+Content-Transfer-Encoding: quoted-printable
+Content-Location: urn:snapshot-A33DFE20:http://ctext.org/static/ga.js
+
+/* Script removed by snapshot save */
+
+------=_NextPart_000_0000_757FF220.0F009951
+Content-Type: text/javascript
+Content-Transfer-Encoding: quoted-printable
+Content-Location: urn:snapshot-1ED02471:http://ctext.org/static/text11.js
+
+/* Script removed by snapshot save */
+
+------=_NextPart_000_0000_757FF220.0F009951--
