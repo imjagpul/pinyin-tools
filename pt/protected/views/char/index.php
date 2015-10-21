@@ -12,7 +12,10 @@ require(Yii::getPathOfAlias('application.data.hsk-matthews').".php");
 $simplified=true; //@TODO remove hardcoded preference
 
 if($msg) {
-	echo 'Search for a concrete character by using the search box on the right, or use one of the lists on the left.';
+?>
+<h1>Browse existing entries</h1>
+Search for a concrete character by using the search box on the right, or use one of the lists on the left.
+<?php 
 }
 
 ?>
