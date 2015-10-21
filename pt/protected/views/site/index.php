@@ -2,7 +2,6 @@
 /* @var $this SiteController */
 ?>
 
-<div>
 <div id="silo" class="silo">
 		<?php $obj=$this->widget('zii.widgets.CMenu',array(
 				'activeCssClass'=>'current',
@@ -17,13 +16,9 @@
 		?>
 </div>
 
-
-
-
-
-<p>Serious Chinese learners might find it difficult to memorize Chinese characters.
+<h3 class="quote">Serious Chinese learners might find it difficult to memorize Chinese characters.
 Here is the solution.
-</p>
+</h3>
 
 <p>(1） (2） (3）</p>
 

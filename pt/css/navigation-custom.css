@@ -206,3 +206,7 @@
 	background: #5190b2 url(../images/button_current.png) repeat-x; 
 	border-color: #5190b2;
 }
+
+h3.quote {
+	text-align: center;
+}
