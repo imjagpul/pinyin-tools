@@ -5,3 +5,6 @@ GUI:
   compontens: show dropbox only if more variants available
   
   remove Notes3 et 2 unless set in system as needed
+
+The GUI editor:
+  buttons displayed only when the component is missing in the text.

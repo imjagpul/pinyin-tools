@@ -1,11 +1,3 @@
-NOW: making userprofile look nice -. menu
- NOW: Three options.
-   NOW Create system - explanation
-     THEN heisig system
-
-HOT: User has no system created and clicks add char -> creates a system -> should be directed to character addition right away
-HOT: After this users want to use the annotator -> his system should be the first one selected (and make a more sensible order of the systems in the annotator (own systems first)) 
-
 Make login / logout links work (prune site/login /logout).
 
 Make user settings coherent.
