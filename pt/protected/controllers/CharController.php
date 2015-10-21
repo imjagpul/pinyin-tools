@@ -34,7 +34,7 @@ class CharController extends Controller
 	{
 		return CMap::mergeArray(parent::accessRules(), array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'lookup', 'suggest', 'suggestComposition', 'suggestCompositions', 'suggestSystemChanged', 'heisig', 'matthews', 'radicals', 'bySystem'),
+				'actions'=>array('index','view', 'lookup', 'suggest', 'suggestComposition', 'suggestCompositions', 'suggestSystemChanged', 'heisig', 'matthews', 'radicals', 'bySystem', 'browse'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -321,22 +321,29 @@ class CharController extends Controller
 	public function actionMatthews() { $this->actionIndex('matthews'); }
 	
 	/**
-	 * Lists all models.
+	 * Lists all entries in a systematic way.
 	 */
-	public function actionIndex($criteria='hsk')
+	public function actionIndex($criteria='hsk', $msg=null)
 	{
 		$this->layout='//layouts/column3';
-		
-		//$this->sideMenu="sideMenuCharIndex";
 		$this->secondSideMenu="browseCharsSidebar";
 		
-		//@TODO replace this with a nice HSK based (or whatever) start table with explanations
 		$dataProvider=new CActiveDataProvider('Char');
 		
 		$this->render('index',array(
 			'criteria'=>$criteria,
+			'msg'=>$msg,
 			'dataProvider'=>$dataProvider,
 		));
+	}
+	
+	/**
+	 * The landing page for browsing of the characters.
+	 * 
+	 * Explain how to find entries for other characters.
+	 */
+	public function actionBrowse() {
+		$this->actionIndex('hsk', true);
 	}
 
 	public function actionBySystem($id) {

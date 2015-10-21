@@ -1,24 +1,20 @@
 <?php
 /* @var $this CharController */
 /* @var $dataProvider CActiveDataProvider */
-
-// $this->breadcrumbs=array(
-// 	'Chars',
-// );
-
-// $this->menu=array(
-// 	array('label'=>'Create Char', 'url'=>array('create')),
-// 	array('label'=>'Manage Char', 'url'=>array('admin')),
-// );
+/* @var $msg null|boolean */
 
 //@TODO find a better way to get variables from a php data file (see CPhpAuth)
 //@TODO data should be loaded in Controller
+
 require(Yii::getPathOfAlias('application.data.hskdata').".php"); 
 require(Yii::getPathOfAlias('application.data.hsk-matthews').".php"); 
-// Yii::import("application.data.hskdata"); //this doesnt export global varialbes
-// global $hsk1_simp;
+
 $simplified=true; //@TODO remove hardcoded preference
-// echo count($hsk1_simp);
+
+if($msg) {
+	echo 'Search for a concrete character by using the search box on the right, or use one of the lists on the left.';
+}
+
 ?>
 
 <?php if($criteria=='matthews') { ?>

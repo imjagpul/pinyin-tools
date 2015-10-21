@@ -10,7 +10,7 @@
 				'items'=>array(
 				array('label'=>'What\'s this all about?', 'url'=>array('/site/page')), //"whatsthis" is default view
 // 				array('label'=>'What\'s this all about?', 'url'=>array('/site/page', 'view'=>'whatsthis')),
-				array('label'=>'Browse mnemonics', 'url'=>array('/char/index')),
+				array('label'=>'Browse mnemonics', 'url'=>array('/char/browse')),
 				array('label'=>'Add your own mnemonics', 'url'=>array('/char/create')),
 // 				array('label'=>'Import', 'url'=>array('/site/contact')),
 // 				array('label'=>'Export', 'url'=>array('/site/login')),
