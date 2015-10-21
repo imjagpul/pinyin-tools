@@ -259,7 +259,7 @@ class System extends CActiveRecord
 	
 	/**
 	 * Gets a list of systems the current user has permissions to write to.
-	 * @return array
+	 * @return System[]
 	 */
 	public static function getWriteableSystems() {
 		$id=Yii::app()->user->id;
