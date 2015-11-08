@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="894.76227" height="851.89941" id="svg3269" sodipodi:version="0.32" inkscape:version="0.45.1" sodipodi:docbase="/home/mart/Documents/artwork" sodipodi:docname="personal_information_en.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape" version="1.0">
+  <defs id="defs3271">
+    <linearGradient id="linearGradient5105">
+      <stop id="stop5107" offset="0" style="stop-color:#cbcbcb;stop-opacity:1;"/>
+      <stop style="stop-color:#dddddd;stop-opacity:1;" offset="0.81" id="stop5113"/>
+      <stop id="stop5109" offset="1" style="stop-color:#c5c5c5;stop-opacity:1;"/>
+    </linearGradient>
+    <filter inkscape:collect="always" id="filter3387">
+      <feGaussianBlur inkscape:collect="always" stdDeviation="1.877244" id="feGaussianBlur3389"/>
+    </filter>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient5105" id="linearGradient4298" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.8882685,0,0,13.235725,10.372529,188.86048)" spreadMethod="pad" x1="179.85097" y1="101.62583" x2="179.85097" y2="41.51614"/>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient5105" id="linearGradient4336" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.8882685,0,0,13.235725,10.372529,188.86048)" spreadMethod="pad" x1="179.85097" y1="101.62583" x2="179.85097" y2="41.51614"/>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient5105" id="linearGradient2210" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.8882685,0,0,13.235725,-36.788249,-479.85571)" spreadMethod="pad" x1="179.85097" y1="101.62583" x2="179.85097" y2="41.51614"/>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient5105" id="linearGradient2241" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.8882685,0,0,13.235725,-87.927825,-454.35022)" spreadMethod="pad" x1="179.85097" y1="101.62583" x2="179.85097" y2="41.51614"/>
+  </defs>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" gridtolerance="10000" guidetolerance="10" objecttolerance="10" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.40204442" inkscape:cx="385.61703" inkscape:cy="411.27649" inkscape:document-units="px" inkscape:current-layer="layer1" inkscape:window-width="1680" inkscape:window-height="1005" inkscape:window-x="1280" inkscape:window-y="21"/>
+  <metadata id="metadata3274">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(51.139576,-25.505489)">
+    <g id="g2216">
+      <rect inkscape:export-filename="/home/mart/Desktop/lockcal.png" inkscape:export-ydpi="650" inkscape:export-xdpi="650" ry="0" y="25.505489" x="-51.139576" height="851.89941" width="894.76227" id="rect7461" style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.27599999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+      <rect transform="matrix(11.054951,0,0,11.054951,-3445.9019,-2245.387)" style="fill:#666666;fill-opacity:1;stroke:none;stroke-opacity:1;filter:url(#filter3387)" id="rect7463" width="73.545013" height="63.118347" x="311.23401" y="214.25754" inkscape:export-filename="/var/www/callorganizer/templates/BellenTell/img/tableheader2.png" inkscape:export-xdpi="90" inkscape:export-ydpi="90"/>
+      <rect inkscape:export-ydpi="90" inkscape:export-xdpi="90" inkscape:export-filename="/var/www/callorganizer/templates/BellenTell/img/tableheader2.png" y="69.640991" x="-5.2251625" height="751.34875" width="813.0365" id="rect7465" style="fill:url(#linearGradient2241);fill-opacity:1;stroke:none;stroke-opacity:1"/>
+      <rect ry="8.215416" y="132.53864" x="35.426617" height="627.50525" width="731.73279" id="rect7467" style="fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:0.27599999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" rx="8.215416"/>
+      <rect style="opacity:0.47252748;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:1.30000019;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="rect7491" width="484.65964" height="52.718269" x="225.5891" y="200.79419"/>
+      <rect y="200.79419" x="226.89934" height="52.718269" width="484.65964" id="rect7530" style="opacity:0.47252748;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1.30000019;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+      <rect y="276.66302" x="401.21417" height="52.718269" width="310.34482" id="rect7534" style="opacity:0.47252748;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1.30000019;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+      <rect style="opacity:0.47252748;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1.30000019;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="rect7536" width="456.20233" height="52.718269" x="255.35664" y="364.59717"/>
+      <rect y="452.53174" x="265.10861" height="52.718269" width="446.45035" id="rect7538" style="opacity:0.47252748;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1.30000019;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+      <rect style="opacity:0.47252748;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1.30000019;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="rect7540" width="550.26031" height="52.718269" x="161.29866" y="540.46631"/>
+      <text id="text7542" y="240.77612" x="63.95937" style="font-size:44.21980286px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans" xml:space="preserve"><tspan y="240.77612" x="63.95937" id="tspan7544" sodipodi:role="line">Name</tspan></text>
+      <text xml:space="preserve" style="font-size:44.21980286px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans" x="65.384422" y="320.03333" id="text7546"><tspan sodipodi:role="line" id="tspan7548" x="65.384422" y="320.03333">Second name</tspan></text>
+      <text xml:space="preserve" style="font-size:44.21980286px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans" x="63.95937" y="406.36707" id="text7554"><tspan sodipodi:role="line" id="tspan7556" x="63.95937" y="406.36707">Initials</tspan></text>
+      <text sodipodi:linespacing="125%" id="text7558" y="494.67029" x="67.953842" style="font-size:44.21980286px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans" xml:space="preserve"><tspan y="494.67029" x="67.953842" id="tspan2214" sodipodi:role="line">Address</tspan></text>
+      <text sodipodi:linespacing="125%" xml:space="preserve" style="font-size:44.21980286px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans" x="68.428856" y="582.974" id="text7562"><tspan y="582.974" x="68.428856" id="tspan7572" sodipodi:role="line">Tel</tspan></text>
+      <rect y="639.83398" x="255.35664" height="52.718269" width="456.20233" id="rect4302" style="opacity:0.47252748;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1.30000019;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+      <text id="text4304" y="681.60388" x="63.95937" style="font-size:44.21980286px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans" xml:space="preserve"><tspan y="681.60388" x="63.95937" id="tspan4306" sodipodi:role="line">Email</tspan></text>
+    </g>
+  </g>
+</svg>
