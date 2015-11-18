@@ -24,7 +24,7 @@ ACTION STEPS:
    
 2 Create a good demo page   
   d) Find out why demopage behaves funny on http://localhost/pt/annotator/generateDemo/0
-  e) Fix xing2 mnemo - is broken
+  $ e) Fix xing2 mnemo - is broken
   f) Add audio
   g) Add synoptic text
   h) Make the demo page aestetically appealing
@@ -66,10 +66,12 @@ ACTION STEPS:
   b) make existings chardefs one char only
     *create a fonts test page  
   c) heisig system
-  
+  d) reimport compositions
+
 8 Annotator
   a) set a text limit
   b) (maybe later) make EPUB generation work
+  c) parallel make work (then add MuLan to examples)
   
 9 Publicate
   a) put online

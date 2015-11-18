@@ -39,7 +39,7 @@ class SystemController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete', 'diagnostics', 'duplicates', 'deleteDialog'),
+				'actions'=>array('admin','delete', 'diagnostics', 'duplicates', 'deleteDialog', 'sanitize'),
 				'roles'=>array('admin'),
 // 					'users'=>array('*'),
 			),
@@ -375,6 +375,43 @@ class SystemController extends Controller
 				)
 		)
 		);		
+	}
+	
+	/**
+	 * This method can be used to manually run the mnemonics through the sanitizer.
+	 * @param Integer $id  the ID of the system to sanitize.
+	 */
+	public function actionSanitize($id) {
+		//before usage: if you want the results to be savved, uncomment the $char->save below
+		ini_set('max_execution_time', 60000);
+		$allChars=Char::model()->findAllByAttributes(array('system'=>$id));
+		
+		$sanitizer=new HtmlSanitizer(); 
+		
+		$other=array();
+		
+		foreach($allChars as $char)
+		{
+			if(!empty($char->mnemo)) {
+				$originalMnemo=$char->mnemo;
+				$sanitizedMnemo=$sanitizer->sanitize($originalMnemo);
+				
+				if($originalMnemo!=$sanitizedMnemo) {
+					$other[]=$char;
+					$char->mnemo=$sanitizedMnemo;
+// 					if(!$char->save()) {
+// 						throw new Exception("Saving $char->chardef failed.");
+// 					}
+				}
+			}
+		}
+		
+		$this->render('diagnostics',array(
+				'data'=>array(
+						'Affected chars'=>$other,
+				)
+		)
+		);
 	}
 	
 	public function actionDiagnostics($id) 

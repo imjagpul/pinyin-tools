@@ -221,6 +221,10 @@ class CharController extends Controller
 		} else if(isset($_POST['Char'])) {
 			$model->attributes=$_POST['Char'];
 			
+			//sanitize the mnemo
+			$sanitizer=new HtmlSanitizer(); 
+			$model->mnemo=$sanitizer->sanitize($model->mnemo);
+			
 			if($model->save()) {
 				$this->handleComponents($model);
 				$this->redirect(array('view','id'=>$model->id));

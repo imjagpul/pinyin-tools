@@ -39,6 +39,7 @@ if(isset($special)&& $special=="autocorrect") {
 		'transcription',
 		'mnemo',
 		'mnemonicsHTML',
+		'mnemonicsResanitized',
 		'diagnostics',
 		'notes',
 		'notes2',

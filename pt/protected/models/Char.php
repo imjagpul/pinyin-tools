@@ -38,7 +38,8 @@ class Char extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('chardef, system, keyword', 'required'),
+			array('chardef, system', 'required'),
+// 			array('chardef, system, keyword', 'required'),
 			array('system', 'numerical', 'integerOnly'=>true),
 			array('keyword', 'length', 'max'=>256),
 			array('transcription', 'length', 'max'=>25),
@@ -140,6 +141,11 @@ class Char extends CActiveRecord
 
 	public function getMnemonicsHTML() {
 		 return System::getMnemoFormatter($this->system)->format($this->mnemo);
+	}
+	
+	public function getMnemonicsResanitized() {
+		$sanitizer=new HtmlSanitizer();
+		return $sanitizer->sanitize($this->mnemo);
 	}
 	
 	/**
