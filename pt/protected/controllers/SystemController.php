@@ -58,9 +58,9 @@ class SystemController extends Controller
 		$model=$this->loadModel($id);
 		
 		$this->layout='//layouts/column3';
-		$this->sideMenu="systemsViewRightSidebar";
+		$this->sideMenu="systemsViewSidebar";
 		$this->sideMenuData=$model;
-		$this->secondSideMenu="systemsViewSidebar";
+		$this->secondSideMenu="systemsViewRightSidebar";
 		$this->secondSideMenuData=$model;
 		
 		$this->render('view',array(

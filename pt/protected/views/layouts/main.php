@@ -47,7 +47,7 @@ $cs->registerCss('tones', UserSettings::getCurrentSettings()->tonesCss);
 				array('label'=>'Add', 'url'=>array('/char/create')),
 				array('label'=>'Texts', 'url'=>array('/text/index')),
 				array('label'=>'Systems', 'url'=>array('/system/index')),
-				array('label'=>'Settings', 'url'=>array('/userSettings/view')),
+				array('label'=>'Settings', 'url'=>array('/userSettings/update')),
 				array('label'=>'Annotator', 'url'=>array('/annotator'))
 			),
 		)); 

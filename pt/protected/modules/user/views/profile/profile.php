@@ -9,8 +9,10 @@ $this->breadcrumbs=array(
 	UserModule::t("Profile"),
 );
 
-$this->sideMenu="standardMenu";
-$this->sideMenuData=array('menuTitle'=>'Options', 'data'=>array(
+$this->layout='//layouts/column3';
+$this->secondSideMenu="standardMenu";
+$this->secondSideMenuData=array('menuTitle'=>'Options', 'data'=>array(
+    array('label'=>"Customize settings", 'url'=>array('/userSettings/update')),
     array('label'=>UserModule::t('Change password'), 'url'=>array('changepassword')),
 ));
 ?>
@@ -40,10 +42,13 @@ if(is_null($systems) || empty($systems)) {?>
 		href="<?php echo $this->createUrl('/char/create'); ?>">add an entry
 		now</a>, or you can just <a
 		href="<?php echo $this->createUrl('/char/index'); ?>">browse</a>
-	existing entries or take a look at the <a
+	existing entries, for example take a look at the <a
+		href="<?php echo $this->createUrl('/system/view', array('id'=>1)); ?>">Learning Chinese Characters</a>
+	system. 
+	
+	Or take a look at the <a
 		href="<?php echo $this->createUrl('/annotator'); ?>">annotator</a>.
-	You might want to take a look at the Learning Chinese Characters
-	system. You can add an entry now</a>.
+	
 
 <?php /* or read about mnemonics. - link to manual */?>
 
