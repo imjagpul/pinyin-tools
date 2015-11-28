@@ -31,12 +31,10 @@ Here is the solution.
 &nbsp;
 </div>
 
-<p>
 <ul>
 	<li>If you do not know why mnemonics should be of any use for learning Chinese characters, read [About mnemonics].</li>
 	<li>If you are using mnemonics already, or plan to - take a look at the [Demo page] to see how this site might help you.</li>
 </ul>
-</p>
 
 <p>TOC (Manual)
 </p>
