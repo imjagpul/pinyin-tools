@@ -20,37 +20,31 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'userId'); ?>
-		<?php echo $form->textField($model,'userId'); ?>
-		<?php echo $form->error($model,'userId'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'toneColor1'); ?>
+		<?php echo $form->label($model,'toneColor1'); ?>
 		<?php echo $form->textField($model,'toneColor1'); ?>
 		<?php echo $form->error($model,'toneColor1'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'toneColor2'); ?>
+		<?php echo $form->label($model,'toneColor2'); ?>
 		<?php echo $form->textField($model,'toneColor2'); ?>
 		<?php echo $form->error($model,'toneColor2'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'toneColor3'); ?>
+		<?php echo $form->label($model,'toneColor3'); ?>
 		<?php echo $form->textField($model,'toneColor3'); ?>
 		<?php echo $form->error($model,'toneColor3'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'toneColor4'); ?>
+		<?php echo $form->label($model,'toneColor4'); ?>
 		<?php echo $form->textField($model,'toneColor4'); ?>
 		<?php echo $form->error($model,'toneColor4'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'toneColor5'); ?>
+		<?php echo $form->label($model,'toneColor5'); ?>
 		<?php echo $form->textField($model,'toneColor5'); ?>
 		<?php echo $form->error($model,'toneColor5'); ?>
 	</div>
