@@ -2,6 +2,21 @@
 /* @var $this UserSettingsController */
 /* @var $model UserSettings */
 /* @var $form CActiveForm */
+function output($controller, $form, $model, $attribute) {
+	echo $form->label($model,$attribute);
+
+	$controller->widget('application.extensions.colorpicker.EColorPicker',
+			array(
+					'name'=>$attribute,
+					'mode'=>'textfield',
+					'value'=>sprintf("%06x", $model->$attribute),
+					'curtain' => true,
+					'timeCurtain' => 250));
+	
+	echo $form->error($model,$attribute);
+		
+}
+
 ?>
 
 <div class="form">
@@ -15,40 +30,19 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Click on a field to display or change the color.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+<?php
 
-	<div class="row">
-		<?php echo $form->label($model,'toneColor1'); ?>
-		<?php echo $form->textField($model,'toneColor1'); ?>
-		<?php echo $form->error($model,'toneColor1'); ?>
-	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'toneColor2'); ?>
-		<?php echo $form->textField($model,'toneColor2'); ?>
-		<?php echo $form->error($model,'toneColor2'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'toneColor3'); ?>
-		<?php echo $form->textField($model,'toneColor3'); ?>
-		<?php echo $form->error($model,'toneColor3'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'toneColor4'); ?>
-		<?php echo $form->textField($model,'toneColor4'); ?>
-		<?php echo $form->error($model,'toneColor4'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'toneColor5'); ?>
-		<?php echo $form->textField($model,'toneColor5'); ?>
-		<?php echo $form->error($model,'toneColor5'); ?>
-	</div>
-
+	?>
+	<div class="row"><?php output($this, $form, $model, 'toneColor1'); ?></div>
+	<div class="row"><?php output($this, $form, $model, 'toneColor2'); ?></div>
+	<div class="row"><?php output($this, $form, $model, 'toneColor3'); ?></div>
+	<div class="row"><?php output($this, $form, $model, 'toneColor4'); ?></div>
+	<div class="row"><?php output($this, $form, $model, 'toneColor5'); ?></div>
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

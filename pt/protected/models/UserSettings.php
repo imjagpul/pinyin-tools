@@ -46,10 +46,8 @@ class UserSettings extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('userId', 'required'),
-			array('userId, toneColor1, toneColor2, toneColor3, toneColor4, toneColor5', 'lastSystemInAnnotator', 'numerical', 'integerOnly'=>true),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-			array('userId, toneColor1, toneColor2, toneColor3, toneColor4, toneColor5', 'lastSystemInAnnotator', 'safe', 'on'=>'search'),		);
+			array('userId, toneColor1, toneColor2, toneColor3, toneColor4, toneColor5, lastSystemInAnnotator', 'numerical', 'integerOnly'=>true)
+		);
 	}
 
 	/**
@@ -72,42 +70,13 @@ class UserSettings extends CActiveRecord
 	{
 		return array(
 			'userId' => 'User',
-			'toneColor1' => 'Tone Color1',
-			'toneColor2' => 'Tone Color2',
-			'toneColor3' => 'Tone Color3',
-			'toneColor4' => 'Tone Color4',
-			'toneColor5' => 'Tone Color5',
+			'toneColor1' => 'Tone 1',
+			'toneColor2' => 'Tone 2',
+			'toneColor3' => 'Tone 3',
+			'toneColor4' => 'Tone 4',
+			'toneColor5' => 'Tone 5',
+			'toneColor6' => 'Tone 6'
 		);
-	}
-
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
-
-		$criteria=new CDbCriteria;
-
-		$criteria->compare('userId',$this->userId);
-		$criteria->compare('toneColor1',$this->toneColor1);
-		$criteria->compare('toneColor2',$this->toneColor2);
-		$criteria->compare('toneColor3',$this->toneColor3);
-		$criteria->compare('toneColor4',$this->toneColor4);
-		$criteria->compare('toneColor5',$this->toneColor5);
-
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
 	}
 
 	public function getToneColors() {

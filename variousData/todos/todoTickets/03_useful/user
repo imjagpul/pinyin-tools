@@ -1,39 +1,27 @@
-Make login / logout links work (prune site/login /logout).
-
-Make user settings coherent.
-
 ---------------------------------------------- 
 -     http://localhost/pt/user/profile       -    
 ----------------------------------------------
-  
-  What should it look like?
-  
-  Recent (activity / views / edits) / Marked entries
-  
-  Your entries
-  
-   |-  Not added any mnemonics now.
-   |-  Created a system, now you can start adding notes.
-   |-  Your notes
-  
-  ******** Texts
-      
-      
-  
-  ********
-  example: Lang-8
-    
-    tabs: ~userHome / Friends / Journal / Notebook / Photo album
-    
-    STATS
-    
-    Latest entries
-    
-    
-  
-  
--------------------------------------
-Edit UserProfile to link to systems.
 
-http://localhost/pt/userSettings/view
- is invalid
+*) allow saving the form
+ **) parse each value 
+ **) validate each value
+*) add the rest of the tones
+*) design the form
+
+  http://localhost/pt/userSettings/view
+
+
+Need to setup:
+
+ language preference:
+   traditional / simplified / both prefer
+   来     來     来     來
+                 來     来
+   
+  colors:
+   tones
+   unknown character
+   FG
+   BG
+   
+  dictionaries:
