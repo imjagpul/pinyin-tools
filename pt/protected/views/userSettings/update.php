@@ -16,6 +16,4 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update UserSettings <?php echo $model->userId; ?></h1>
-
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

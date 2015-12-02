@@ -2,11 +2,11 @@
 /* @var $this UserSettingsController */
 /* @var $model UserSettings */
 /* @var $form CActiveForm */
-function output($controller, $form, $model, $attribute) {
-	echo $form->label($model,$attribute);
+function output($controller, $form, $model, $attribute, $label="") {
+/* 	echo $form->label($model,$attribute);*/
 
 	$colorHex=Utilities::colorAsHex($model->$attribute);
-	
+	$label='<span>'.$label.'</span>';
 	$controller->widget('application.extensions.colorpicker.EColorPicker',
 			array(
 					'name'=>$attribute,
@@ -16,8 +16,8 @@ function output($controller, $form, $model, $attribute) {
 					'curtain' => true,
 					'timeCurtain' => 250));
 
-	echo '<div><div id="'.$attribute.'selector" class="colorSelector"><div style="background-color: #'.$colorHex.'"></div></div><input id="'.$attribute.'" type="text" class="colorSelectorInput" value="'.$colorHex.'"></div>';	
-	echo $form->error($model,$attribute);
+	echo '<div id="'.$attribute.'selector" class="colorSelector"><div style="background-color: #'.$colorHex.'"></div>'.$label.'</div><input id="'.$attribute.'" type="text" class="colorSelectorInput" value="'.$colorHex.'">';	
+// 	echo $form->error($model,$attribute);
 		
 }
 
@@ -34,21 +34,36 @@ function output($controller, $form, $model, $attribute) {
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Click on a field to display or change the color.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-<?php
 
- foreach($model->colorNames as $col) {
+<?php 
+if(Yii::app()->user->isGuest) {
+echo '<p>Note you are not logged in. Your settings will not be saved between sessions.</p>';
+}?>
+<h1>Tone colors</h1>
+<p>Customize the tone colors. This applies to both dictionary results and the annotator output.</p>
+<?php output($this, $form, $model, 'toneColor1', 'First'); ?>
+<?php output($this, $form, $model, 'toneColor2', 'Second'); ?>
+<?php output($this, $form, $model, 'toneColor3', 'Third'); ?>
+<?php output($this, $form, $model, 'toneColor4', 'Fourth'); ?>
+<?php output($this, $form, $model, 'toneColor5', 'Neutral&nbsp;(or&nbsp;fifth)'); ?>
+<?php output($this, $form, $model, 'toneColor6', 'Sixth&nbsp;(for&nbsp;Cantonese)'); ?>
 
-//echo '<div class="row">';
-output($this, $form, $model, $col);
-//echo '</div>';
+<h1>Annotator colors</h1>
+<?php output($this, $form, $model, 'background', 'Background'); ?>
+<?php output($this, $form, $model, 'foreground', 'Foreground'); ?>
+<h2>Characters having no mnemonic</h2> <?php echo CHtml::link("(more info)", array('/site/page', 'view'=>'untaggedCharacters'))?>
+<?php output($this, $form, $model, 'foregroundUnknown', 'Foreground&nbsp;-&nbsp;no&nbsp;mnemonics'); ?>
+
+<?php /* output($this, $form, $model, 'backgroundParallel'); */ ?>
+<h2>Results box</h2> 
+<?php output($this, $form, $model, 'backgroundBoxTag', 'Mnemo'); ?>
+<?php output($this, $form, $model, 'backgroundBoxChinese', 'Characters'); ?>
+<?php output($this, $form, $model, 'backgroundBoxTranscription', 'Pronunciation'); ?>
+<?php output($this, $form, $model, 'backgroundBox', 'Translations'); ?>
 
 
- }
-
-	?>
 	<script type="text/javascript">$(".colorSelectorInput").hide();</script>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

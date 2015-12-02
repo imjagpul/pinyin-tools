@@ -4,9 +4,13 @@
     height: 36px;
     position: relative;
     width: 36px;
-    display:inline-block;
 }
 
+.colorSelector span {
+	position: absolute;
+	left: 40px;
+	top: 6px;
+}
 .colorSelector div {
 	position: absolute;
 	top: 3px;
@@ -19,8 +23,6 @@
 input.colorSelectorInput {
 	position: relative;
 	top: -13px;
-	/* top: 33px;
-	left: 33px;*/
 }
 
 

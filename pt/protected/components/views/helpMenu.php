@@ -26,6 +26,7 @@ echoList("What's this about", array(
 
 echoList("Usage", array(
 		array('Systems', 'systemsExplanation'),
+		array('Untagged characters', 'untaggedCharacters'),
 ));
 
 //Appendix - memory tips
