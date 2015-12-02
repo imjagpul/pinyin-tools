@@ -64,7 +64,7 @@ class AnnotatorEngine {
 	
 	private function prepare() {
 		$this->encoding=Yii::app()->params['annotatorEncoding'];
-		$this->colors=UserSettings::getCurrentSettings()->annotatorColors; //@TODO load from GUI instead
+		$this->colors=UserSettings::getCurrentSettings()->annotatorColors;
 		$this->len=mb_strlen($this->input,$this->encoding);
 		
 		if($this->len==0) {

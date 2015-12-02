@@ -16,7 +16,7 @@ function output($controller, $form, $model, $attribute, $label="") {
 					'curtain' => true,
 					'timeCurtain' => 250));
 
-	echo '<div id="'.$attribute.'selector" class="colorSelector"><div style="background-color: #'.$colorHex.'"></div>'.$label.'</div><input id="'.$attribute.'" type="text" class="colorSelectorInput" value="'.$colorHex.'">';	
+	echo '<div id="'.$attribute.'selector" class="colorSelector"><div style="background-color: #'.$colorHex.'"></div>'.$label.'</div><input id="'.$attribute.'" name="'.$attribute.'" type="text" class="colorSelectorInput" value="'.$colorHex.'">';	
 // 	echo $form->error($model,$attribute);
 		
 }
@@ -39,7 +39,7 @@ function output($controller, $form, $model, $attribute, $label="") {
 
 <?php 
 if(Yii::app()->user->isGuest) {
-echo '<p>Note you are not logged in. Your settings will not be saved between sessions.</p>';
+echo '<p>You are not logged in. Your settings will not be saved between sessions.</p>';
 }?>
 <h1>Tone colors</h1>
 <p>Customize the tone colors. This applies to both dictionary results and the annotator output.</p>

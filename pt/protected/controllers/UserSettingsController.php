@@ -59,9 +59,24 @@ class UserSettingsController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['UserSettings']))
+		if(isset($_POST['toneColor1'])) //note this is no the Yii standard input parsing
 		{
-			$model->attributes=$_POST['UserSettings'];
+			//$model->attributes=$_POST['UserSettings'];
+			
+				//throw new Exception("$name = $val");
+			foreach($model->colorNames as $name) {
+				
+				if(!isset($_POST[$name])) continue;
+				
+				$val=Utilities::parseColorAsHex($_POST[$name]);
+				
+				//ignore invalid values
+				if(is_null($val)) continue;
+				
+				
+				$model->$name=$val;
+			}
+			
 			$model->save();
 		}
 

@@ -137,14 +137,14 @@ class UserSettings extends CActiveRecord
 	
 	public function getAnnotatorColors() { //@TODO save to and load from DB
 		$colors=new CAttributeCollection();
-		$colors['FG']= "000000";
-		$colors['FG_UNTAGGED'] = "000000";
-		$colors['BG_BOX']= "F6F0E8";
-		$colors['BG_TAGBOX']= "77EE77";
-		$colors['BG_BOX_CH']= "FFF777";
-		$colors['BG_TRANSCRIPTION']= "FFFAAA";
-		$colors['BG']= "F6F0E8";
-		$colors['BG_PARALLEL']= "E6E0D8";
+		$colors['FG']= Utilities::colorAsHex($this->foreground);
+		$colors['FG_UNTAGGED'] = Utilities::colorAsHex($this->foregroundUnknown);
+		//the BG_PARALLEL is deprecated 
+		$colors['BG_PARALLEL']= $colors['BG']= Utilities::colorAsHex($this->background);
+		$colors['BG_BOX']= Utilities::colorAsHex($this->backgroundBox);
+		$colors['BG_TAGBOX']= Utilities::colorAsHex($this->backgroundBoxTag);
+		$colors['BG_BOX_CH']= Utilities::colorAsHex($this->backgroundBoxChinese);
+		$colors['BG_TRANSCRIPTION']= Utilities::colorAsHex($this->backgroundBoxTranscription);
 		return $colors; 		
 	}
 	

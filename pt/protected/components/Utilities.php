@@ -26,4 +26,11 @@ class Utilities {
 	public static function colorAsHex($col) {
 		return sprintf("%'06x", $col);
 	}	
+	
+	public static function parseColorAsHex($value) {
+		if (!preg_match('/^[0-9A-F]{6}$/i', $value))
+			return null;
+		
+		return 0+"0x$value";
+	}	
 }
