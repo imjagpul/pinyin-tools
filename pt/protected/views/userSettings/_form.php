@@ -5,14 +5,18 @@
 function output($controller, $form, $model, $attribute) {
 	echo $form->label($model,$attribute);
 
+	$colorHex=Utilities::colorAsHex($model->$attribute);
+	
 	$controller->widget('application.extensions.colorpicker.EColorPicker',
 			array(
 					'name'=>$attribute,
-					'mode'=>'textfield',
-					'value'=>sprintf("%06x", $model->$attribute),
+					'selector'=>$attribute,
+					'mode'=>'selector',
+					'value'=>$colorHex,
 					'curtain' => true,
 					'timeCurtain' => 250));
-	
+
+	echo '<div><div id="'.$attribute.'selector" class="colorSelector"><div style="background-color: #'.$colorHex.'"></div></div><input id="'.$attribute.'" type="text" class="colorSelectorInput" value="'.$colorHex.'"></div>';	
 	echo $form->error($model,$attribute);
 		
 }
@@ -35,14 +39,17 @@ function output($controller, $form, $model, $attribute) {
 	<?php echo $form->errorSummary($model); ?>
 <?php
 
+ foreach($model->colorNames as $col) {
+
+//echo '<div class="row">';
+output($this, $form, $model, $col);
+//echo '</div>';
+
+
+ }
 
 	?>
-	<div class="row"><?php output($this, $form, $model, 'toneColor1'); ?></div>
-	<div class="row"><?php output($this, $form, $model, 'toneColor2'); ?></div>
-	<div class="row"><?php output($this, $form, $model, 'toneColor3'); ?></div>
-	<div class="row"><?php output($this, $form, $model, 'toneColor4'); ?></div>
-	<div class="row"><?php output($this, $form, $model, 'toneColor5'); ?></div>
-	
+	<script type="text/javascript">$(".colorSelectorInput").hide();</script>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

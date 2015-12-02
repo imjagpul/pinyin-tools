@@ -34,11 +34,7 @@ class UserSettingsController extends Controller
 	{
 		return CMap::mergeArray(parent::accessRules(), array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('update', 'index','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -48,30 +44,6 @@ class UserSettingsController extends Controller
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
-		));
-	}
-
-
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
-	{
-		$model=new UserSettings;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['UserSettings']))
-		{
-			$model->attributes=$_POST['UserSettings'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->userId));
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
 		));
 	}
 

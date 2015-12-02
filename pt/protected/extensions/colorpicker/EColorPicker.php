@@ -420,12 +420,19 @@ EOP;
             else {
                $selector = $this->selector;
             }
+            //CUSTOM MODIFIED
             $js =<<<EOP
-$('#{$selector}').ColorPicker({
+$('#{$selector}selector').ColorPicker({
    {$js_effects}
 	onChange: function (hsb, hex, rgb) {
-		$('#{$selector}').css('backgroundColor', '#' + hex);
-	}
+		$('#{$selector}selector div').css('backgroundColor', '#' + hex);
+		$('#{$selector}').val(hex);
+				
+	},
+	onBeforeShow: function() {
+		$(this).ColorPickerSetColor($('#{$selector}').val());
+	},
+				
 });
 EOP;
             $cs->registerScript(get_class($this).'_'.$id, $js);

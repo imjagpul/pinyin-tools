@@ -10,11 +10,20 @@
  * @property integer $toneColor3
  * @property integer $toneColor4
  * @property integer $toneColor5
+ * @property integer $toneColor6
+ * @property integer $background
+ * @property integer $foreground
+ * @property integer $foregroundUnknown
+ * @property integer $backgroundParallel
+ * @property integer $backgroundBox
+ * @property integer $backgroundBoxTag
+ * @property integer $backgroundBoxChinese
+ * @property integer $backgroundBoxTranscription
  * @property integer $lastSystemInAnnotator
  * @property integer $lastTemplateInAnnotator
  * @property integer $defaultSystem
- * @property integer $autosuggestCharform
  * @property Enum  $variant
+ * @property integer $autosuggestCharform
  * 
  * The followings are the available model relations:
  * @property System $lastSystemInAnnotator0
@@ -75,7 +84,20 @@ class UserSettings extends CActiveRecord
 			'toneColor3' => 'Tone 3',
 			'toneColor4' => 'Tone 4',
 			'toneColor5' => 'Tone 5',
-			'toneColor6' => 'Tone 6'
+			'toneColor6' => 'Tone 6',
+			'background' => 'Background',
+			'foreground' => 'Foreground',
+			'foregroundUnknown' => 'Foreground Unknown',
+			'backgroundParallel' => 'Background Parallel',
+			'backgroundBox' => 'Background Box',
+			'backgroundBoxTag' => 'Background Box Tag',
+			'backgroundBoxChinese' => 'Background Box Chinese',
+			'backgroundBoxTranscription' => 'Background Box Transcription',
+			'defaultSystem' => 'Default System',
+			'lastSystemInAnnotator' => 'Last System In Annotator',
+			'lastTemplateInAnnotator' => 'Last Template In Annotator',
+			'variant' => 'Variant',
+			'autosuggestCharform' => 'Autosuggest Charform' 
 		);
 	}
 
@@ -87,6 +109,30 @@ class UserSettings extends CActiveRecord
 				$this->toneColor4,
 				$this->toneColor5,
 				);
+	}
+	
+	public function getColorNames() {
+		return array(
+				'toneColor1',
+				'toneColor2',
+				'toneColor3',
+				'toneColor4',
+				'toneColor5',
+				
+				'toneColor6',			
+				
+				'background',
+				'foreground',
+				
+				'foregroundUnknown',
+				
+				'backgroundParallel',
+				
+				'backgroundBox',
+				'backgroundBoxTag',
+				'backgroundBoxChinese',
+				'backgroundBoxTranscription'
+		);
 	}
 	
 	public function getAnnotatorColors() { //@TODO save to and load from DB
