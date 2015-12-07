@@ -1,3 +1,11 @@
+<?php
+/*
+Anki
+get plugins (save keystrokes)
+put context as well
+*/
+
+/*
 ﻿(stories, structure on paper)
 
 As I've visited a friend of mine recently, her son was just unwrapping 
@@ -9,8 +17,13 @@ These were flashcards meant to learn German.
 MADE ME THINK
 
 Q&A EFFECT
+----
+.... (Q&A) experiment
+
+Why is that? 
 It's called the Questions and Answers Effect. If you are asked a question, 
 you will remember the answer you give significantly better than if you just read it somewhere.
+
 
 MY LEVEL RISEN TO A
 
@@ -39,3 +52,7 @@ Juice the books for flashcards when you are fresh, and cram it when you are slee
 --
 
 By the way, that is the number one thing I do with #VNC on my kindle (with raspberry pi)#.
+ */
+
+?>
+

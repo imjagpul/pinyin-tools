@@ -2,7 +2,8 @@
 <p>The extensive reading method described above works for any language of your choosing. Before you can commence the vast reading, however, there is a small prerequisite: you have to be able to recognize the letters of the text you want to read. This is trivial for European languages - even if you are going for Greek or Russian, you can master their alphabet in one afternoon. But Chinese characters turn out to be quite a challenge.
 
 <p>Learning by rote?<br />
-Forget it. <br />
+Forget it. <br /></p>
+<p>
 Let me give you an example: The characters <span style="font-size: 125%">模</span> and <span style="font-size: 125%">摸</span>:
 One is pronounced <b>mó</b> the other <b>mō</b> - the same, just a different tone.
 Both are quite similar, and this is no unique exception.

@@ -2,11 +2,7 @@
 -     http://localhost/pt/user/profile       -    
 ----------------------------------------------
 
-*) allow saving the form
- **) parse each value 
- **) validate each value
-*) add the rest of the tones
-*) design the form
+*) add language preference choice
 
   http://localhost/pt/userSettings/view
 

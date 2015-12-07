@@ -23,7 +23,7 @@ ACTION STEPS:
   d) test homepage on mobile devices
    
 2 Create a good demo page   
-  d) Find out why demopage behaves funny on http://localhost/pt/annotator/generateDemo/0
+  $ d) Find out why demopage behaves funny on http://localhost/pt/annotator/generateDemo/0
   $ e) Fix xing2 mnemo - is broken
   f) Add audio
   g) Add synoptic text
@@ -39,11 +39,12 @@ ACTION STEPS:
   e) add a link to "the story behind it" ( http://localhost/pt/site/page - but change the url) to the homepage
   f) make sure the creepy page is gone
   g) review Systems (add links) if not yet done
+
 3 User registration, login, logout
-  a) fix - find out why Remember me doesnot work
-  b) test registration
-  c) User Settings - now says it is invalid, make it work
-   I) design a form
+ $ a) fix - find out why Remember me doesnot work
+ $ b) test registration
+ $ c) User Settings - now says it is invalid, make it work
+   d) #user
   
 4 Browse page - cosmetics
   a) underline make thinner
@@ -67,6 +68,7 @@ ACTION STEPS:
     *create a fonts test page  
   c) heisig system
   d) reimport compositions
+  e) description - add into the systemsViewRightSidebar.php (see also systemsViewSidebar.php) 
 
 8 Annotator
   a) set a text limit
@@ -86,7 +88,6 @@ ACTION STEPS:
   a) use the script as in data  
 -----
 Obstacles:
-#users - No user registration.
 #homepage Unfinished home page.
 #annotatorPerformace - Annotator needs tuning to be usable.
 

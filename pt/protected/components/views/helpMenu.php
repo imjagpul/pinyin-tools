@@ -17,6 +17,7 @@ function echoList($title, $entries) {
 	}
 }
 
+//@TODO main page
 echoList("What's this about", array(
 		array('Extensive reading method', 'extensiveReading'),
 		array('Practical tips', 'practicalTips'),
@@ -24,10 +25,32 @@ echoList("What's this about", array(
 		array('Annotator helps', 'annotatorHelps')
 ));
 
+echoList("Further tips", array(
+		array('Use your devices', 'useYourReader'),
+		array('Get the best out of Anki', 'bestOutOfAnki'),
+		array('Practice writing', ''),
+));
+
 echoList("Usage", array(
+		array('How to start', ''), //workflow
 		array('Systems', 'systemsExplanation'),
 		array('Untagged characters', 'untaggedCharacters'),
+		array('Colors', ''),
+		array('Export', ''),
+		array('Transcription systems', ''),
+		array('Soundwords index', ''),
 ));
 
 //Appendix - memory tips
+/*
+Why mnemonics are powerful 
+ -add link to matthews system description and to homepage
+Link
+Linked list
+Peg
+Pegged list
+Trachtenberg
+
+ */
+
 ?>

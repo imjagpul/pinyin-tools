@@ -1,91 +1,38 @@
+SUCKS:
+whatsthis (linked from the menu)
+useYourReader (need to finish writing)
+
+UNPUBED (unfinished):
+dictinoryForKindle (1. add images 2.resolve conflict with annotatorText)
+practicalTips (1. voc section - two irrelevant paragraphs; 2. music; 3. change link to internal)
+
+WAITING:
+demonstration
+INTEGRATE:
+//readTodayUnderstandTommorow
+
+GOOD, JUST REREAD (and REFORMAT) (and SPELLCHECK):
+ *also make sure German references do not allienate the readers
+extensiveReading #readTodayUnderstandTommorow
+chineseCharacters
+annotatorHelps
+systemsExplanation
+
+OLD:
+annotatorText
+whatthisold
+
 TEXT TUNING:
 as antiexample: 候侯猴喉
 
+BETA-TEST:
+<img=beta>The site is recently launched.
+Comments, corrections, suggestions and &donations are very welcome.
 **
-Another advantage... fast enough to notice the progress
-It will still feel quite slow 
-.. but the remember it was green .... now it is black
-**
-so will your memory get reinforeced with every character you read
-**
-The idea is you can keep a good track of every character learned.
-With .untagged.. you are able to recognized unknown immediately
-in lookup, the link
- even if in an parent system
-**
-
-
-
-PARTIALLY DONE, need to 
-*finish appendix
 
 SMALL STUFF:
   If you get ideas how to improve it even more, just let me know (, or post a suggestion on the forum)
 annotatorHelps.php
 
-
-
-Osnova:
-
-
-
-1)
-Extensive reading method
-Practical tips 
-Books are your friend // Lecture // Reading // Books // 
-
-2)
-Chinese characters
-Annotator
-Use your reader
-
-3) Manual
-How to start
-Untaged only
-//Transcription
-//Colors
-//Export
-//Practice writing
-//Soundwords index
-System full description
-
-4) Appendix:
-Why mnemonics are powerful 
- -add link to matthews system description and to homepage
-Link
-Linked list
-Peg
-Pegged list
-Trachtenberg
-
-
-Subsections:
-
-Practical tips
- time planning
-  reading
-  anki
-  relaxation (movies, music, (movies experience),)
-  (how much time it might take)
-
-Books are your friend
- any level
- get them for free
-   (more contemporary/popular, easy level) 
- use a reader
-   (I don't like staring into a LCD screen too much)
- dictionary
-   (medieval)
-   (no pressure to learn)
- translation
-   (if you note you don't understand a word)
- audio
-   (makes more interesting)
- you'll keep getting better
-    (it takes slightly longer than you expect, but then you cross a threshold) 
-    
-Anki
- get plugins (save keystrokes)
- put context as well
- 
+Osnova: see helpMenu.php
      

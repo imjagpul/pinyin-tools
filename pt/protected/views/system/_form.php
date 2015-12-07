@@ -64,7 +64,7 @@ $cs->registerCssFile($baseUrl.'/css/main-gi.css');
 		<?php echo $form->labelEx($model,'shortdescription'); ?>
 		<?php echo $form->textArea($model,'shortdescription',array('rows'=>1,'class'=>'with-tooltip')); ?>
 		<?php echo $form->error($model,'shortdescription'); ?>
-		<div class="tooltip">A short (optional) description for the system list.</div>
+		<div class="tooltip">A short (optional) description. Displayed in list of all systems.</div>
 		
 	</div>
 	
