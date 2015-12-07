@@ -1,17 +1,20 @@
 $(document).ready(function() {
-	if($('div.form.login').length) {  // in login page
-		$('input#LoginForm_password').focus();
-	}
+//	if($('div.form.login').length) {  // in login page
+//		$('input#LoginForm_password').focus();
+//	}
 
-	$('table.preview input[name="checkAll"]').click(function() {
-		$('table.preview .confirm input').prop('checked', this.checked);
-	});
+//	$('table.preview input[name="checkAll"]').click(function() {
+//		$('table.preview .confirm input').prop('checked', this.checked);
+//	});
+//
+//	$('table.preview td.confirm input').click(function() {
+//		$('table.preview input[name="checkAll"]').prop('checked', !$('table.preview td.confirm input:not(:checked)').length);
+//	});
+//	$('table.preview input[name="checkAll"]').prop('checked', !$('table.preview td.confirm input:not(:checked)').length);
 
-	$('table.preview td.confirm input').click(function() {
-		$('table.preview input[name="checkAll"]').prop('checked', !$('table.preview td.confirm input:not(:checked)').length);
-	});
-	$('table.preview input[name="checkAll"]').prop('checked', !$('table.preview td.confirm input:not(:checked)').length);
-
+	/**
+	* Make sticky rows work.
+	**/
 	$('.form .row.sticky input:not(.error), .form .row.sticky select:not(.error), .form .row.sticky textarea:not(.error)').each(function(){
 		var value;
 		if(this.tagName=='SELECT')
@@ -27,6 +30,9 @@ $(document).ready(function() {
 			$(this).before('<div class="value">'+value+'</div>').hide();
 	});
 
+	/**
+	* Make sticky rows work.
+	**/	
 //	$(document).on('click', '.form.gii .row.sticky .value', function(){
 	$(document).on('click', '.row.sticky .value', function(){
 		$(this).hide();
@@ -34,12 +40,15 @@ $(document).ready(function() {
 	});
 
 
+	/**
+	* Make tooltips work.
+	**/	
 //	$('.row input, .row textarea').not('.no-tooltip, .no-tooltip *').tooltip2({
 	$('.with-tooltip').tooltip2({
 		position: "center right",
 		offset: [-2, 10]
 	});
-
+/*
 	$('.form.gii .row input').change(function(){
 		$('.form.gii .feedback').hide();
 		$('.form.gii input[name="generate"]').hide();
@@ -80,4 +89,5 @@ $(document).ready(function() {
 		$.fancybox.close();
 		return false;
 	});
+	*/
 });
