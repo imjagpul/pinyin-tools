@@ -24,6 +24,18 @@ Why is that?
 It's called the Questions and Answers Effect. If you are asked a question, 
 you will remember the answer you give significantly better than if you just read it somewhere.
 
+//
+So what about having a piece of software that would keep asking you questions
+again and again? Would that help your memory?
+
+This is what Anki is about.
+
+SPACED REPETITION
+Imagine you would make a list of ten words you want to learn, and then 
+review this list every morning for five days in a row. Would you remember
+all the words for a very long time? 
+
+In fact, NO! Contrary to what it might seem, ...
 
 MY LEVEL RISEN TO A
 
@@ -54,5 +66,9 @@ Juice the books for flashcards when you are fresh, and cram it when you are slee
 By the way, that is the number one thing I do with #VNC on my kindle (with raspberry pi)#.
  */
 
+//(make all links to anki point to this page first)
+
 ?>
+
+<h1>Get the best out of Anki</h1>
 

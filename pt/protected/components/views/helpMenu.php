@@ -27,7 +27,7 @@ echoList("What's this about", array(
 
 echoList("Further tips", array(
 		array('Use your devices', 'useYourReader'),
-		array('Get the best out of Anki', 'bestOutOfAnki'),
+		array('Efficent memorization', 'anki'),
 		array('Practice writing', ''),
 ));
 
