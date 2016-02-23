@@ -14,7 +14,7 @@ if($noticePrimary && $primarySystemName!==null) {
 	$iconsPath=Yii::app()->request->baseUrl.'/images/icons/';
 	$linkText=CHtml::image($iconsPath.'add.png');
 	$linkText.="add ";
-	$linkText.=$chardef;
+	$linkText.=htmlspecialchars($chardef);
 	$linkText.=" to ";
 	$linkText.=$primarySystemName;
   echo '<p>'.CHtml::link($linkText, array('char/create', 'charDef'=>$chardef, 'system'=>$primarySystemID), array('class'=>'addToPrimary')).'</p>';		
