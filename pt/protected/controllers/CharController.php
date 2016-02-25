@@ -447,6 +447,7 @@ class CharController extends Controller
 	private function querySingleComposition($allInheritedIds, $newcomp, $exact=FALSE) {
 		//query the systems, find all possibilities
 		$criteria=new CDbCriteria();
+		$criteria->limit=Yii::app()->params['maxCompositions'];
 		$criteria->addInCondition('system', $allInheritedIds);
 		$criteria->compare('chardef', $newcomp, !$exact, "AND");//partial match - @TODO check if not too slow
 		if(!$exact)

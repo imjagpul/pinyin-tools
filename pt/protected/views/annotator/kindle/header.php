@@ -1,7 +1,7 @@
 <?php
 $cs=Yii::app()->clientScript;
-//generated css for tones (depending on user settings)
-$cs->registerCss('tones', UserSettings::getCurrentSettings()->tonesCss);
+//generated css for tones (depending on user settings) //now included manually
+//$cs->registerCss('tones', UserSettings::getCurrentSettings()->tonesCss);
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -15,7 +15,8 @@ $cs->registerCss('tones', UserSettings::getCurrentSettings()->tonesCss);
 			.tags {background-color: #<?php echo $colors['BG_TAGBOX'] ?>; font-size: large; }
 			.ch {background-color: #<?php echo $colors['BG_BOX_CH'] ?>; font-size: x-large; }
             .pinyin {background-color: #<?php echo $colors['BG_TRANSCRIPTION'] ?>; font-size: large; }
-            body {font-size: x-large; background-color: #<?php echo $colors['BG'] ?>;} 
+            body {font-size: x-large; background-color: #<?php echo $colors['BG'] ?>;}
+            <?php echo UserSettings::getCurrentSettings()->tonesCss; ?> 
 			/* ]]> */
 		</style>		
 	</head>

@@ -1,16 +1,6 @@
-sanitize all user input
- (allow HTML in notes, but not in keywords/trans)
-----
-in compositions - when clicking add empty sticks  - add a limit 
---
-("offline" annotator - adds CSS twice)
-----
 unknown characters are not marked in quick annotator
 ---
 in chars browse http://localhost/pt/s - underline less strong
-
-
-when ADDING compositon, e.g. in - too many results  
 
 need to be able to delete entries
 
