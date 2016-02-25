@@ -12,11 +12,15 @@ But there are thousands of such characters. You would start confusing them after
 (Was it <b>suí</b> or <b>suī</b>?)	 
 How are you supposed to remember this all?
 
-<p>There is a secret that can boost your memory. The trick is to use a different part of your brain. How many lyrics do you remember? How many places have you seen? If you came to some place again, would you remember being there already? Of course. And you did not have to spend time memorizing, it just sticks to your head.
+<p>There is a secret that can boost your memory. The trick is to use a different part of your brain than 
+people usually use for memorizing. Just think about it, how many places have you seen? 
+If you came to some place again, would you remember being there already? Of course. 
+And you did not have to spend time memorizing, it just sticks to your head.
 
 <p>Why is it not the same with the Chinese characters? Well, it can be. Learning Chinese characters can be (almost) so effortless as remembering the storyline of a movie you are watching (and even so much fun).
 
-<p>Just imagine a video clip would teach you the meaning, pronunciation (including tone) and even how to write each character! But you don't watch a video clip, you imagine it. The story is built so that it allows deducing the translation and sound of the character.
+<p>Just imagine a video clip would teach you the meaning, pronunciation (including tone) and even how to write each character! 
+You don't even have to watch a video clip, you just imagine it. The story is built so that it allows deducing the translation and sound of the character.
 
 <p>What I am talking about is the learning system as described in <a target="_blank" href="http://www.amazon.com/Tuttle-Learning-Chinese-Characters-Vol/dp/080483816X/?_encoding=UTF8&camp=1789&creative=9325&linkCode=ur2&tag=pinyintools-20">Learning Chinese Characters</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=pinyintools-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> 
 . (You can read the full explanation of the system for free in the online preview.) I learned all the characters that were available in the preview - after that I ordered the book without hesitation.

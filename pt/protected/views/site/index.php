@@ -23,26 +23,27 @@ Here is the solution.
 <div class="figblock">
 &nbsp;
 <div class="figure"><p><img src="../images/homepage/01.png"  /> 
-</p><p>(1）</p></div>
+</p><p>One mnemonic per char</p></div>
 <div class="figure"><p><img src="../images/homepage/02.png"  /> 
-</p><p>(2）</p></div>
+</p><p>Visualize and remember</p></div>
 <div class="figure"><p><img src="../images/homepage/03.png"  /> 
-</p><p>(3）</p></div>
+</p><p>Recall when reading</p></div>
 &nbsp;
 </div>
 
-<ul>
-	<li>If you do not know why mnemonics should be of any use for learning Chinese characters, read [About mnemonics].</li>
-	<li>If you are using mnemonics already, or plan to - take a look at the [Demo page] to see how this site might help you.</li>
-</ul>
-
-<p>TOC (Manual)
-</p>
-
-
-<p>(Beta-test image)
-Note this site has just launched, so in case you encounter any errors, have suggestions how this site could be more useful, 
-please let me know. (Also thanks for correcting my English, I am not a native speaker.)
-</p>
-
-<p>Footer</p>
+<div>
+<p>
+	Welcome! First, read 
+	 
+	<?php echo CHtml::link("Why are mnemonics useful?", array('/site/page', 'view'=>'chineseCharacters')); 
+	/*
+	 If you do not know why mnemonics should be of any use for learning Chinese characters, take a look at
+	 */
+	?>
+	
+	</p><p>
+	
+	Then, take a look at the 
+	<?php echo CHtml::link("Demo page", array('/site/page', 'view'=>'demonstration')); ?>
+	to see how this site might help you.
+</p></div>
