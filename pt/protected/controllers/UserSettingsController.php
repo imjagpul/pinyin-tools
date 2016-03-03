@@ -59,7 +59,7 @@ class UserSettingsController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['toneColor1'])) //note this is no the Yii standard input parsing
+		if(isset($_POST['toneColor1'])) //note this is not the Yii standard input parsing
 		{
 			//$model->attributes=$_POST['UserSettings'];
 			
@@ -75,6 +75,14 @@ class UserSettingsController extends Controller
 				
 				
 				$model->$name=$val;
+			}
+			
+			//parse variant (allow only permitted values)
+			if(isset($_POST['variant'])) {
+				if($_POST['variant']=='simplified_only') $model->variant='simplified_only';
+				else if($_POST['variant']=='traditional_only') $model->variant='traditional_only';
+				else if($_POST['variant']=='simplified_prefer') $model->variant='simplified_prefer';
+				else if($_POST['variant']=='traditional_prefer') $model->variant='traditional_prefer';
 			}
 			
 			$model->save();

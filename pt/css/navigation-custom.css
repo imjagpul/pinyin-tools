@@ -160,6 +160,12 @@
 }
 
 /** custom edits **/
+/** settings **/
+div.charvariant label {
+	font-weight: normal;
+	display: block;
+}
+
 /** homepage **/
 .silo {
 	padding: 0;
@@ -207,8 +213,13 @@
 	border-color: #5190b2;
 }
 
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+
 h3.quote {
 	text-align: center;
+	font-family: 'Lobster';
+	margin: 0.5em;
+	line-height: 150%; 
 }
 
 .figure {

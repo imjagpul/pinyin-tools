@@ -1,23 +1,22 @@
 ---------------------------------------------- 
 -     http://localhost/pt/user/profile       -    
 ----------------------------------------------
-
+ 
 *) add language preference choice
-
-  http://localhost/pt/userSettings/view
-
-
+http://localhost/pt/userSettings/update
+  _form
 Need to setup:
 
- language preference:
-   traditional / simplified / both prefer
-   来     來     来     來
-                 來     来
+**) language preference reformat:
+   [css nice bg;
+   similar style as in dict]
+**) make sure it applies in annotator results
    
-  colors:
+   
+$$) colors:
    tones
    unknown character
    FG
    BG
    
-  dictionaries:
+**) dictionaries:

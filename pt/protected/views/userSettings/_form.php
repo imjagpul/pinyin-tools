@@ -3,8 +3,6 @@
 /* @var $model UserSettings */
 /* @var $form CActiveForm */
 function output($controller, $form, $model, $attribute, $label="") {
-/* 	echo $form->label($model,$attribute);*/
-
 	$colorHex=Utilities::colorAsHex($model->$attribute);
 	$label='<span>'.$label.'</span>';
 	$controller->widget('application.extensions.colorpicker.EColorPicker',
@@ -17,8 +15,27 @@ function output($controller, $form, $model, $attribute, $label="") {
 					'timeCurtain' => 250));
 
 	echo '<div id="'.$attribute.'selector" class="colorSelector"><div style="background-color: #'.$colorHex.'"></div>'.$label.'</div><input id="'.$attribute.'" name="'.$attribute.'" type="text" class="colorSelectorInput" value="'.$colorHex.'">';	
-// 	echo $form->error($model,$attribute);
-		
+}
+
+/**
+ * 
+ * @param String $name
+ * @param String $charPrimary
+ * @param String $charSecondary
+ * @param String $enumVal
+ * @param UserSettings $model
+ */
+function outputChoice($name, $charPrimary, $charSecondary, $enumVal, $model) {
+	$secondary=empty($charSecondary) ? '' : '<span class="alternate">'.$charSecondary.'</span>';
+	$selected=($model->variant==$enumVal) ? 'checked="checked"' : "";
+	
+	echo <<<EOT
+<label for="mode_$enumVal">
+  <input type="radio" name="variant" value="$enumVal" $selected id="mode_$enumVal">   
+  $name <span class="cn">$charPrimary</span> $secondary
+</label>
+EOT;
+	
 }
 
 ?>
@@ -34,13 +51,21 @@ function output($controller, $form, $model, $attribute, $label="") {
 	'enableAjaxValidation'=>false,
 )); ?>
 
-
 	<?php echo $form->errorSummary($model); ?>
 
 <?php 
 if(Yii::app()->user->isGuest) {
 echo '<p>You are not logged in. Your settings will not be saved between sessions.</p>';
 }?>
+<h1>Language preferences</h1>
+<div class="charvariant">
+<p>This applies to dictionary results only.</p>
+<?php outputChoice('Simplified', '寿', null, 'simplified_only', $model); ?>
+<?php outputChoice('Traditional', '壽', null, 'traditional_only', $model); ?>
+<?php outputChoice('Both (prefer simplified)', '寿', '壽', 'simplified_prefer', $model); ?>
+<?php outputChoice('Both (prefer traditional)', '壽', '寿', 'traditional_prefer', $model); ?>
+</div>
+
 <h1>Tone colors</h1>
 <p>Customize the tone colors. This applies to both dictionary results and the annotator output.</p>
 <?php output($this, $form, $model, 'toneColor1', 'First'); ?>

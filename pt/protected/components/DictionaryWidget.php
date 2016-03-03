@@ -19,17 +19,19 @@ class DictionaryWidget extends CWidget {
 	}
 	public function outputEntries($r, $formatter) {
 		foreach ( $r as $entry ) {
-			$first = $entry->simplified;
-			$alt = $entry->traditional;
+			//display depends on the user settings
+			$userVariant=UserSettings::getCurrentSettings()->variant;
 			
-			// @TODO make confugrable (simplified / traditional)
+			if($userVariant=='simplified_only') {$first = $entry->simplified; $alt=NULL;}
+			else if($userVariant=='traditional_only') {$first = $entry->traditional; $alt=NULL;}
+			else if($userVariant=='simplified_prefer') {$first = $entry->simplified; $alt = $entry->traditional;}
+			else if($userVariant=='traditional_prefer') {$first = $entry->traditional; $alt = $entry->simplified;}
+				
 			?>
 <p>
-	<span class="cn"> <?php echo $first; ?> 
-			<?php if($first!==$alt) { ?>
-			<br /> <span class="alternate"> <?php echo $alt; ?></span>
-			<?php } ?> 
-			</span> <br />
+	<span class="cn"> <?php echo $first; ?> </span> 
+	<?php if(!is_null($alt) && $first!==$alt) { ?> <br /> <span class="alternate"> <?php echo $alt; ?></span> <?php } ?> 
+			 <br />
 			<?php echo $formatter->format($entry->transcription); ?>
 			<?php echo CHtml::hiddenField('transcriptionOriginal', $entry->transcription); ?>
 			<br /> <?php echo $entry->translation; ?>

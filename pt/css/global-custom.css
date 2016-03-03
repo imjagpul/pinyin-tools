@@ -24,7 +24,7 @@ body {
 	margin-bottom: 4px; 
 }
 
-#headline1 .title a { // CUSTOM EDIT 
+#headline1 .title a { /* CUSTOM EDIT */ 
 	font: normal 35px/35px georgia, "times new roman", times, serif; 
 	border-bottom: 1px solid #999; 
 	color: #cc0000; 
@@ -260,6 +260,10 @@ legend {
 
 .alternate {
 	color:#545454;
+	font-size: 200%;
+	margin-left: 0.1em; 
+}
+	
 }
 .full {
 	width: 95%;
