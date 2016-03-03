@@ -216,10 +216,16 @@ div.charvariant label {
 @import url(https://fonts.googleapis.com/css?family=Lobster);
 
 h3.quote {
+	clear: both;
 	text-align: center;
 	font-family: 'Lobster';
-	margin: 0.5em;
+	font-size: 160%;
+	margin-top: 2em;
+	margin-bottom: 1em;
 	line-height: 150%; 
+}
+.introtext {
+	text-align: center;
 }
 
 .figure {

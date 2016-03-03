@@ -31,7 +31,7 @@ Here is the solution.
 &nbsp;
 </div>
 
-<div>
+<div class="introtext">
 <p>
 	Welcome! First, read 
 	 

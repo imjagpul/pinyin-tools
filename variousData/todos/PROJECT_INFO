@@ -21,6 +21,8 @@ ACTION STEPS:
     VII) add footer 
   c) Link home page to demopage
   d) test homepage on mobile devices
+  e) test on opera, FF on win
+  f) test on qupzilla
    
 2 Create a good demo page   
   $ d) Find out why demopage behaves funny on http://localhost/pt/annotator/generateDemo/0
