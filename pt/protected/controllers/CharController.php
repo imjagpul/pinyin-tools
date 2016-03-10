@@ -306,12 +306,32 @@ class CharController extends Controller
 	}
 	
 	function echoCharLinksListMatthews($list) {
-		echo "<ul>";
-		foreach($list as $num => $char) {
-			?><li><?php echo $num; ?>: <a href="<?php echo $this->createUrl('char/lookup', array('s'=>$char))?>"><?php echo $char; 
-			?></a></li><?php
+// 		echo '<ul class="list3">';
+// 		foreach($list as $num => $results) {
+// 			$char=$results[0];
+// 			$word=$results[1];
+			/*
+			?><li>
+			<div> <?php echo $num; ?> </div>
+			<a href="<?php echo $this->createUrl('char/lookup', array('s'=>$word))?>"><?php 
+			echo $char;
+			?></a>
+			<div><?php echo $word;?></div>
+			</li><?php
+			*/
+			
+// 		}
+// 		echo "</ul>";
+		echo '<table class="list3">';
+		echo "<tr><th>Matthews number</th><th>Keyword</th><th>Character</th></tr>";
+		foreach ( $list as $num => $results ) {
+			$char = $results [0];
+			$word = $results [1];
+			$url=$this->createUrl('char/lookup', array('s'=>$word));
+			
+			echo "<tr><td>$num</td><td><a href=\"$url\">$char</a></td><td>$word</td></tr>";
 		}
-		echo "</ul>";
+		echo '</table>';
 	}
 	function echoCharLinksList($list) {
 		foreach($list as $char) {

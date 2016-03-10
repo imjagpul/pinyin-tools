@@ -6,8 +6,6 @@
 //@TODO find a better way to get variables from a php data file (see CPhpAuth)
 //@TODO data should be loaded in Controller
 
-require(Yii::getPathOfAlias('application.data.hskdata').".php"); 
-require(Yii::getPathOfAlias('application.data.hsk-matthews').".php"); 
 
 $simplified=true; //@TODO remove hardcoded preference
 
@@ -22,9 +20,13 @@ Search for a concrete character by using the search box on the right, or use one
 
 <?php if($criteria=='matthews') { ?>
 <h1>Learning Chinese Characters </h1>
-<?php $this->echoCharLinksListMatthews($hsk_matthews); ?>
+<?php 
+require(Yii::getPathOfAlias('application.data.hsk-matthews').".php"); 
+$this->echoCharLinksListMatthews($hsk_matthews); 
 
-<?php } else if($criteria=='hsk') { ?>
+} else if($criteria=='hsk') { 
+require(Yii::getPathOfAlias('application.data.hskdata').".php"); 
+?>
 <h2>Browse characters by HSK</h2>
 
 <h3>HSK level 1</h3> 

@@ -236,6 +236,15 @@ legend {
 	text-align: center;
   }
   
+  .transcription {
+    word-spacing: -5px;
+  }
+  .dicttone1, .dicttone2, .dicttone3, .dicttone4, .dicttone5, .dicttone6 {
+	display: inline-block;
+    min-width: 29px;
+    text-align: center;
+  }
+  
 .lookupSystem {
     text-decoration: none !important;
     color:black !important;
@@ -264,7 +273,6 @@ legend {
 	margin-left: 0.1em; 
 }
 	
-}
 .full {
 	width: 95%;
 }
@@ -396,6 +404,14 @@ div.charview .keyword { /* Used in char listing for single views */
 div.charview .mnemo { /* Used in char listing for single views */
 }
 div.charview .mnemo blockquote {
+}
+
+table.list3 {
+	border-collapse: collapse;
+	margin-top: 2em;
+}
+table.list3 tr td, table.list3 tr th {
+	border: .5px solid black;
 }
 
 /***** GLOBAL CLASSES *****/
