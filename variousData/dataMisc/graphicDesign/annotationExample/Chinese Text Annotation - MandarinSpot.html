@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8">  <meta name="description" content="Adds inline and pop-up annotations with pronunciation in Pinyin or Zhuyin and English definitions to Chinese text or web pages."> <meta name="keywords" content="mandarin, chinese, english annotations, annotate, pinyin, pinyin annotations, zhuyin annotations, bopomofo, read chinese, study chinese, web annotations, chinese text annotation">  <meta name="viewport" content="width=device-width"><link rel="icon" href="Chinese%20Text%20Annotation%20-%20MandarinSpot_soubory/mspot-fav.png" type="image/png"> <title>Chinese Text Annotation - MandarinSpot</title> <style type="text/css"><!--
+/* Effective stylesheet produced by snapshot save */
+body { font-family: sans-serif,arial; margin-top: 3ex; margin-left: 0px; text-align: center; margin-right: 0px; background-color: rgb(255, 255, 255); }
+label { white-space: nowrap; }
+fieldset { border: 1px solid rgb(187, 136, 0); background-color: rgb(238, 238, 204); margin: 2ex 0px; }
+fieldset legend { color: rgb(0, 0, 0); font-weight: bold; background-color: rgb(238, 238, 204); border: 1px solid rgb(187, 136, 0); padding: 0.2ex 1ex; }
+input[type="submit"], input[type="button"] { background-color: rgb(255, 255, 255); border: 1px solid rgb(187, 136, 0); margin-top: 6px; margin-right: 6px; padding: 2px; }
+select { background-color: rgb(255, 255, 255); border: 1px solid rgb(187, 136, 0); }
+.mid { margin: 0px auto; max-width: 980px; text-align: left; }
+.content { min-height: 25em; margin-bottom: 3em; }
+.tab { padding: 0px 1ex; float: left; position: relative; top: 1px; margin: 0px 0px 0px 3px; display: block; }
+.atab { border-width: 1px; border-style: solid; border-color: rgb(187, 136, 0) rgb(187, 136, 0) rgb(255, 255, 255); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; background-color: rgb(255, 255, 255); }
+.ntab { border: 1px solid rgb(187, 136, 0); background-color: rgb(238, 238, 204); }
+.ntab:hover { background-color: rgb(255, 255, 255); }
+.tab a, .atab a, .tab a:hover, .atab a:hover { text-decoration: none; color: rgb(0, 0, 0); }
+.tabs { width: 100%; border-bottom: 1px solid rgb(187, 136, 0); padding: 0px; margin: 0px; position: relative; white-space: nowrap; min-width: 40ex; }
+.tabs ul { list-style-type: none; margin-bottom: 0px; margin-top: 0px; padding: 0px; }
+a { text-decoration: none; color: rgb(153, 119, 0); }
+a:hover { text-decoration: underline; color: rgb(204, 0, 0); }
+#foo { font-size: 80%; margin-top: 8ex; margin-bottom: 2ex; text-align: center; }
+#cr { font-size: 70%; text-align: center; }
+body { position: relative; }
+#tip { border: 1px solid rgb(51, 51, 51); background-color: rgb(255, 255, 221); padding: 5px; font: 1em sans-serif,arial; z-index: 10001; visibility: hidden; position: absolute; }
+.ann { cursor: default; z-index: 99; }
+.iann { text-align: center; white-space: nowrap; display: inline-block; vertical-align: bottom; }
+.sann { margin: 0px 0.3ex; }
+.nann { vertical-align: bottom; }
+.form { border: 1px solid rgb(187, 136, 0); background-color: rgb(238, 238, 204); margin: 2ex 0px; }
+.textinput { border: 1px solid rgb(187, 136, 0); }
+.form textarea { width: 99%; }
+.pushbutton { background-color: rgb(255, 255, 255); border: 1px solid rgb(187, 136, 0); margin-top: 6px; margin-right: 6px; padding: 2px; }
+.form legend { color: rgb(0, 0, 0); font-weight: bold; background-color: rgb(238, 238, 204); border: 1px solid rgb(187, 136, 0); padding: 0.2ex 1ex; }
+#annotated { border: 1px solid rgb(187, 136, 0); padding: 2ex; margin: 0px; }
+.py { font-size: 80%; color: rgb(204, 0, 0); display: table-row; }
+.zh { display: table-row; }
+select { background-color: rgb(255, 255, 255); border: 1px solid rgb(187, 136, 0); }
+--></style><!--[if lt IE 8]><style type="text/css">.content{_height:30em}</style><![endif]--><script src="Chinese%20Text%20Annotation%20-%20MandarinSpot_soubory/dc.js" async="" type="text/javascript"></script><script async="" type="text/javascript" src="Chinese%20Text%20Annotation%20-%20MandarinSpot_soubory/jquery.min.js"></script><script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script> <!--[if lt IE 8]> <style type="text/css"> /* IE hacks */ .iann {display:inline;_height:0;} fieldset.form { position: relative; margin: 2em 0; padding: .5em; padding-top: 1.25em; } fieldset.form legend { margin: 0; position: absolute; top: -.75em; left: .5em; } .pushbutton { border: none; } .pb_ie { border: 1px solid #b80; } </style> <![endif]--> <script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script></head><body><div class="mid"><a href="https://mandarinspot.com/" style="text-decoration: none"><img src="Chinese%20Text%20Annotation%20-%20MandarinSpot_soubory/mandarinspot-rcme.png"></a></div><div class="tabs"><ul class="mid"><li class="tab ntab"><a href="https://mandarinspot.com/">Home</a></li><li class="tab ntab"><a href="https://mandarinspot.com/dict">Dictionary</a></li><li class="tab atab"><a href="#">Annotation</a></li><li class="tab ntab"><a href="https://mandarinspot.com/links">Links</a></li><div style="clear:both"></div></ul></div>  <div class="mid" style=""><script async="" src="Chinese%20Text%20Annotation%20-%20MandarinSpot_soubory/adsbygoogle.js"></script>
+<!-- 468x15-links -->
+<ins class="adsbygoogle" style="display:inline-block;width:468px;height:15px" data-ad-client="ca-pub-2327333144022839" data-ad-slot="7199931639"></ins>
+<script><!--
+/* Script removed by snapshot save */
+--></script></div>  <div id="content" class="content mid">  <div id="tip" style="text-align: center; left: -1000px; top: -1000px; visibility: hidden;"><div style="font-size:150%;">翻譯 [-译]</div><div style="font-weight:bold">fānyì</div><div style="text-align:left;font-size:90%">• to translate<br>• to interpret<br>• translator<br>• interpreter<br>• translation<br>• interpretation<br>• CL:個|个[gè],位[wèi],名[míng]</div></div>       <form enctype="multipart/form-data" method="post" action="#" onsubmit=""> <fieldset class="form"> <legend>Text annotation</legend> <input name="e" value="utf-8" type="hidden"> <textarea class="textinput" cols="80" rows="6" name="text" id="text">subscript 的中文翻譯| 英漢字典</textarea><br> <div> <label for="ph_ls" style="white-space:normal"> Phonetic system <select name="phs" id="ph_ls" style="margin-top:.7ex"> <option value="pinyin" selected="selected">Hanyu Pinyin</option> <option value="zhuyin">Zhuyin Fuhao (Bopomofo)</option> <option value="wadegiles">Wade-Giles</option> <option value="tongyong">Tongyong Pinyin</option> <option value="palladius">Palladius</option> </select> </label> <label for="show_ls"> Show <select name="show" id="show_ls" style="margin-top:.7ex"> <option value="hanzi">Chinese</option> <option value="reading">Pronunciation</option> <option value="both" selected="selected">Both</option> </select> </label> <br> <label for="spaces_cb"> <input name="spaces" id="spaces_cb" checked="checked" type="checkbox"> Add spaces between words </label>  <label for="print_cb"> <input name="pr" id="print_cb" onclick="" type="checkbox"> For printing </label>  </div>  <div id="vocab_rg" style="display:none"> <label for="vocab"> Add vocabulary for <select name="vocab" id="vocab_ls" style="margin-top:.7ex"> <option value="1">all words</option> <option value="2">HSK 2 and up</option> <option value="3" selected="selected">HSK 3 and up</option> <option value="4">HSK 4 and up</option> <option value="5">not in HSK</option> <option value="6">none at all</option> </select> </label> <label for="sort"> Sort by <select name="sort" id="sort_ls" style="margin-top:.7ex"> <option value="ord" selected="selected">first appearance</option> <option value="py">pronunciation</option> <option value="rad">radical</option> <option value="fr">frequency</option> </select> </label> </div>  <div> <span class="pb_ie"><input class="pushbutton" value="Annotate" type="submit"></span> <span class="pb_ie"><input class="pushbutton" value="Clear" onmouseup="" type="button"></span> </div> </fieldset> </form>  <div style="text-align:right">Move mouse over characters to see pop-up annotations.</div> <div id="annotated">       <span class="nann">
+<br>subscript </span><div class="ann sann iann sann" onmouseover=""><div class="py">de</div><div class="zh">的</div></div><div class="ann sann iann sann" onmouseover=""><div class="py">Zhōngwén</div><div class="zh">中文</div></div><div style="" class="ann sann iann sann" onmouseover=""><div class="py">fānyì</div><div class="zh">翻譯</div></div><span class="nann">| </span><div class="ann sann iann sann" onmouseover=""><div class="py">Yīng Hàn</div><div class="zh">英漢</div></div><div class="ann sann iann sann" onmouseover=""><div class="py">zìdiǎn</div><div class="zh">字典</div></div> <div style="clear:both"></div> </div>    </div>  <div class="mid"><script async="" src="Chinese%20Text%20Annotation%20-%20MandarinSpot_soubory/adsbygoogle-1.js"></script>
+<!-- resp -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2327333144022839" data-ad-slot="1153398035" data-ad-format="auto"></ins>
+<script><!--
+/* Script removed by snapshot save */
+--></script></div>  <div id="foo" class="mid" style="clear:both"><a href="https://mandarinspot.com/">Home</a> - <a href="https://mandarinspot.com/privacy">Privacy Policy</a> - <a href="https://mandarinspot.com/api">API</a> - <a href="http://m.mandarinspot.com/">Mobile Version</a></div><div id="cr" class="mid">©2015 MandarinSpot.com</div> </body><!-- 302 --></html>
