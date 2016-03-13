@@ -1,11 +1,7 @@
 #!/bin/sh
-./filterChars.py hsk1-simp.csv
-./filterChars.py hsk1-simp.csv
-./filterChars.py hsk1-simp.csv
-./filterChars.py hsk2-simp.csv
-./filterChars.py hsk3-simp.csv
-./filterChars.py hsk4-simp.csv
-./filterChars.py hsk4-trad.csv
-./filterChars.py hsk3-trad.csv
-./filterChars.py hsk2-trad.csv
-./filterChars.py hsk1-trad.csv
+./filterCharsNew.py "HSK Official With Definitions 2012 L1.txt"
+./filterCharsNew.py "HSK Official With Definitions 2012 L2.txt"
+./filterCharsNew.py "HSK Official With Definitions 2012 L3.txt"
+./filterCharsNew.py "HSK Official With Definitions 2012 L4.txt"
+./filterCharsNew.py "HSK Official With Definitions 2012 L5.txt"
+./filterCharsNew.py "HSK Official With Definitions 2012 L6.txt"
