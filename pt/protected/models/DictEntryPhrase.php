@@ -54,6 +54,11 @@ class DictEntryPhrase extends DictEntry
 		$this->traditional_rest=$split[1];
 	}
 
+	public function getLength() {
+		return mb_strlen($this->traditional_rest, Yii::app()->params['annotatorEncoding'])+1;
+	}
+	
+	
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

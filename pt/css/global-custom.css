@@ -216,7 +216,34 @@ legend {
 	color: black;
 	font-size: 200%; 
 }
+.alternate {
+	color:#545454;
+	font-size: 200%;
+	margin-left: 0.1em; 
+}
 
+/* character with transcription aligned - one block */ 
+.d {
+	display: inline-block;
+}
+.p { /* parts of the dictionary results - when aligned */
+	display: table-row;
+}
+
+.trc { /* transcription */
+	font-size: 72%;
+	width: 100%;	
+}
+
+.p span { /* single syllables insisde the transcription, when aligen with chars */
+	display: inline-block; 
+	width: 100%;
+	text-align: center;
+}
+
+.tr { /* translation */
+	margin-bottom: 1em;
+}
 .char { /* chinese char as heading */
 	color: black;
 	font-size: 72px;
@@ -235,16 +262,6 @@ legend {
 	margin: 0px 10px 0px 0px;
 	text-align: center;
   }
-  
-  .transcription {
-    word-spacing: -5px;
-  }
-  .dicttone1, .dicttone2, .dicttone3, .dicttone4, .dicttone5, .dicttone6 {
-	display: inline-block;
-    min-width: 29px;
-    text-align: center;
-  }
-  
 .lookupSystem {
     text-decoration: none !important;
     color:black !important;
@@ -267,11 +284,6 @@ legend {
 	color: #cc6600;
 }
 
-.alternate {
-	color:#545454;
-	font-size: 200%;
-	margin-left: 0.1em; 
-}
 	
 .full {
 	width: 95%;

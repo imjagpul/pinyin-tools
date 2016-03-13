@@ -9,6 +9,8 @@ abstract class DictEntry extends CActiveRecord {
 		return preg_split('#/#', $this->translation, null, PREG_SPLIT_NO_EMPTY);
 	}
 
+	public abstract function getLength();
+	
 	/**
 	 *
 	 * @param Enum $characterMode

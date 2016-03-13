@@ -26,17 +26,55 @@ class DictionaryWidget extends CWidget {
 			else if($userVariant=='traditional_only') {$first = $entry->traditional; $alt=NULL;}
 			else if($userVariant=='simplified_prefer') {$first = $entry->simplified; $alt = $entry->traditional;}
 			else if($userVariant=='traditional_prefer') {$first = $entry->traditional; $alt = $entry->simplified;}
-				
+	/*			
 			?>
 <p>
 	<span class="cn"> <?php echo $first; ?> </span> 
 	<?php if(!is_null($alt) && $first!==$alt) { ?> <br /> <span class="alternate"> <?php echo $alt; ?></span> <?php } ?> 
 			 <br />
+			 <span class="transcription">
 			<?php echo $formatter->format($entry->transcription); ?>
 			<?php echo CHtml::hiddenField('transcriptionOriginal', $entry->transcription); ?>
+			</span>
 			<br /> <?php echo $entry->translation; ?>
 			</p>
 <?php
+*/
+			$len=$entry->length;
+			$outputAlt=(!is_null($alt) && $first!==$alt);
+			
+			if($len!=1) {
+				$encoding=Yii::app()->params['annotatorEncoding'];
+				$transSplit=explode(' ', $entry->transcription);
+				
+				if(count($transSplit)==$len) {
+					for($i=0; $i<$len; $i++) {
+						echo '<div class="d">';
+						echo '<span class="p cn">'.mb_substr($first, $i, 1, $encoding).'</span>';
+						if($outputAlt)
+						  echo '<span class="p alternate">'.mb_substr($alt, $i, 1, $encoding).'</span>';				
+						echo '<span class="trc p">'.$formatter->format($transSplit[$i]).'</span>';
+						echo '</div>';
+					}
+					echo '<div class="tr">';
+					echo $entry->translation;
+					echo '</div>';
+					continue;
+				}
+			}
+			
+			?>
+<p>
+	<span class="cn"> <?php echo $first; ?> </span> 
+	<?php if(!is_null($alt) && $first!==$alt) { ?> <br /> <span class="alternate"> <?php echo $alt; ?></span> <?php } ?> 
+			 <br />
+			 <span class="trc">
+			<?php echo $formatter->format($entry->transcription); ?>
+			<?php echo CHtml::hiddenField('transcriptionOriginal', $entry->transcription); ?>
+			</span>
+			<br /> <?php echo $entry->translation; ?>
+			</p>
+<?php 
 		}
 	}
 	

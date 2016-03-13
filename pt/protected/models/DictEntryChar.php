@@ -100,4 +100,8 @@ class DictEntryChar extends DictEntry
 		return parent::model($className);
 	}
 	
+	public function getLength() {
+		return 1;
+	}
+	
 }
