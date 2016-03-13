@@ -6,8 +6,9 @@
 //@TODO find a better way to get variables from a php data file (see CPhpAuth)
 //@TODO data should be loaded in Controller
 
-
-$simplified=true; //@TODO remove hardcoded preference
+$userVariant=UserSettings::getCurrentSettings()->variant;
+	
+$simplified=($userVariant=='simplified_only' || $userVariant=='simplified_prefer');
 
 if($msg) {
 ?>
@@ -25,7 +26,10 @@ require(Yii::getPathOfAlias('application.data.hsk-matthews').".php");
 $this->echoCharLinksListMatthews($hsk_matthews); 
 
 } else if($criteria=='hsk') { 
-require(Yii::getPathOfAlias('application.data.hskdata').".php"); 
+	if($simplified)
+		require(Yii::getPathOfAlias('application.data.hskdata').".php");
+	else
+		require(Yii::getPathOfAlias('application.data.hskdata-trad').".php");
 ?>
 <h2>Browse characters by HSK</h2>
 
@@ -41,5 +45,7 @@ require(Yii::getPathOfAlias('application.data.hskdata').".php");
 <?php $this->echoCharLinksList($simplified ? $hsk5_simp : $hsk5_trad); ?> 
 <h3>HSK level 6</h3> 
 <?php $this->echoCharLinksList($simplified ? $hsk6_simp : $hsk6_trad); ?> 
-<?php  } ?>
+<?php  
+echo "Total count: ".(count($hsk1_trad)+count($hsk2_trad)+count($hsk3_trad)+count($hsk4_trad)+count($hsk5_trad)+count($hsk6_trad));
+} ?>
 
