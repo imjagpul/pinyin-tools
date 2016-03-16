@@ -146,7 +146,7 @@ class CompositionsEditor extends CGridView {
 		for($row=0; $row<count($allRows); $row++) {
 			$data=$allRows[$row];
 			?>
-			$("body").data("componentsNames")[<?php echo $data->subcharId; ?>]='<?php echo $data->subchar->keyword; ?>';
+			$("body").data("componentsNames")[<?php echo $data->subcharId; ?>]='<?php echo Utilities::escapeStringSingleQuoteJS($data->subchar->keyword); ?>';
 			<?php
 			echo "\n";
 		}
