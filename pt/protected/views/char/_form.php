@@ -101,7 +101,6 @@ $systemChangedURL=$this->createUrl("char/suggestSystemChanged");
 		
 		//$text=str_replace("t's", "O", $text);
 		echo $text;
-		
 		//somewhat sly, since an apostrophe gets converted to entities, but the echo converts it back to apostrophe
 		$text=str_replace("&#039;", "\\&#039;", $text);
 		?>

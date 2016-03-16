@@ -23,6 +23,10 @@ class Utilities {
 				self::return_bytes(ini_get('post_max_size')));
 	}
 	
+	public static function escapeStringSingleQuoteJS($str) {
+		return str_ireplace("'", "\\'", $str);
+	}
+	
 	public static function colorAsHex($col) {
 		return sprintf("%'06x", $col);
 	}	

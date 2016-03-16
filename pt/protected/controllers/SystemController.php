@@ -35,7 +35,7 @@ class SystemController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'changeOwn', 'changeForeign', 'deleteDialog'),
+				'actions'=>array('create','update', 'changeOwn', 'changeForeign', 'deleteDialog', 'harvestKeywords'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -302,6 +302,7 @@ class SystemController extends Controller
 		$noComp=array();
 		$manyComp=array();
 		$unmatch=array();
+		$ambiguos=array();
 		
 		$allChars=Char::model()->findAllByAttributes(array('system'=>2));
 		foreach($allChars as $char)
@@ -321,6 +322,8 @@ class SystemController extends Controller
 					$manyComp[]=$char;
 				} else if($result===-6) {
 					$unmatch[]=$char;
+				} else if($result===-7) { 
+					$ambiguos[]=$char;
 				} else if($result!=NULL) {
 					$autoconvertible[]=$result;
 				} else {
@@ -338,6 +341,7 @@ class SystemController extends Controller
 						'No keyword'=>$noKw,
 						'No components'=>$noComp,
 						'Unmatched keyword'=>$unmatch,
+						'Ambiguos'=>$ambiguos,
 						'Mutliple components'=>$manyComp
 				)
 		)
@@ -414,6 +418,51 @@ class SystemController extends Controller
 		);
 	}
 	
+	public function actionHarvestKeywords($id) {
+		$allChars=Char::model()->findAllByAttributes(array('system'=>$id));
+		$results=array();
+		
+		foreach($allChars as $char)
+		{
+			if(!empty($char->mnemo)) {
+				$keyword=MnemoParser::parseKeyword($char->mnemo);
+				if(is_null($keyword)) continue;
+				
+				$tr=$char->transcriptionAuto;
+				if(!array_key_exists($tr, $results))
+					$results[$tr]=array($keyword);
+				else {
+					$r=$results[$tr];
+					$r[]=$keyword;
+				}
+			}
+		}
+		
+		if(!array_key_exists('commit', $_POST)) {		
+			//output the results
+			asort($results);
+			$this->render('harvested',array(
+					'system'=>System::model()->findByPk($id),
+					'data'=>$results
+			));
+			return;
+		}
+		
+		//else commit to DB
+		Soundword::model()->deleteAllByAttributes(array('system'=>$id));
+		foreach($results as $transcription => $allSoundwords) {
+			foreach($allSoundwords as $soundword) {
+				$s=new Soundword();
+				$s->transcription=$transcription;
+				$s->soundword=$soundword;
+				$s->system=$id;
+				$s->insert();
+			}
+		}
+		echo 'Done';
+	}
+	
+	
 	public function actionDiagnostics($id) 
 	{
 		ini_set('max_execution_time', 60000);
@@ -451,10 +500,10 @@ class SystemController extends Controller
 				} else 				
 				if($result!=NULL) {
 					$other[]=$result;
-
-// 					$char->mnemo=$result;
-// 					$char->system=14;
-// 					$char->update();
+/*
+					$char->mnemo=$result;
+					$char->system=14;
+					$char->update(); */
 // 					$other[]="moved ".$char->chardef;
 					
 				//for first diagnosis

@@ -34,12 +34,15 @@ class MnemoParser {
 				5=>array('robot'),
 		);		
 	
-	static function suggestMiddleToNew($char) {
+	static function suggestMiddleToNew($char, $force=false) {
 		$result=$char->mnemo;
+		
+		if(self::hasTagsAlready($result)) return $result;
+		
 		$kw=$char->keyword;
 		$foundTone=false;
 		
-		//check if it has two lines, otherwise fail
+		//check if it has two (non-empty) lines, otherwise fail
 		$lines=split("\n", $char->mnemo);
 		$newLines=array();
 		for ($i=0; $i<count($lines); $i++) {
@@ -59,7 +62,7 @@ class MnemoParser {
 		foreach(self::$archeTypesSorted as $tone =>$variants) {
 			foreach($variants as $v) {
 				if(stripos($second, $v)!==FALSE) {
-					$result=preg_replace("@$v@i", "[s$tone]$0[/s]", $result);
+					$result=preg_replace("@$v@i", "[a$tone]$0[/a]", $result);
 					$foundTone=true;
 					break 2;
 				}
@@ -83,6 +86,8 @@ class MnemoParser {
 		//first need to get them, as they are not set
 		$compositions=$char->components;
 		if(empty($compositions)) {
+			return -4; //DEBUG - maybe manual
+			
 			$s=new Suggestion();
 			$compositions=$s->suggestComposition($char);
 			if(count($compositions)==0) {
@@ -92,19 +97,32 @@ class MnemoParser {
 			}
 			
 			//we take the only option
-			$compositions=array_shift($compositions);
-			var_dump($compositions);die;
+			$compositions=array_shift($compositions); //Char[]
+			
+			//HERE: PROBLEM: the suggestions refer to Compositions, but we need to 
+			
+		} else {
+			//convert Composition[] to Char[]
+			$newCompositions=array();
 			foreach($compositions as $c) {
-// 				$c
-				$ckw=$c->keyword;
-				$cnum=$c->id;
-				if(stripos($first, $ckw)===FALSE) {
-					return -6; //unmatched keyword
-				} else {
-					$result=preg_replace("@$ckw"."[a-z]*@i", "[c$cnum]$0[/c]", $result, 1);
-				}
-				
+				$newCompositions[]=$c->subchar;
 			}
+			$compositions=$newCompositions;
+		}
+		
+		//do the search and replacement
+		foreach ( $compositions as $c ) {
+			$ckw = $c->keyword;
+			$cnum = $c->id;
+			
+			$found=self::smartSearch($result, $ckw);
+			
+			if(count($found)==0) 
+				return - 6; // unmatched keyword
+			
+			//if(count($found)>1) the searched word is present several times
+			//but the first ist taken always anyway
+			$result=self::applyReplacement($found[0], "[c$cnum]", "[/c]", $result);
 		}
 		
 		return $result;
@@ -255,6 +273,98 @@ class MnemoParser {
 		return array($newMnemo, $totalCount);
 	}
 	
+	static function hasTagsAlready($str) {
+		$reg='@\[[^]]+\]@';
+		$matchCount=preg_match_all($reg, $str, $matches);
+		return $matchCount>=10;
+	}
+	
+	/**
+	 * 
+	 * @param String $subject
+	 * @param String $needle
+	 * @return an array where every element is an array consisting of the matched string at offset 0 and its string offset into subject at offset 1
+	 */
+	static function smartSearch($subject, $needle) {
+	 
+// 		$foundPositions=array(); //array of two-member array (start, match)
+		$len=strlen($needle);
+		
+		//prepare all possible grammar variations (as an regex)
+		$needleFormed=
+				'(?:to )?'. //try adding "to " prefix
+		preg_replace('/f$/', 'ves', //leaf => leaves
+		preg_replace('/^the /', '(?:the )?', //if begins with "the", try removing it 
+				preg_replace('/^a /', '(?:a )?', $needle))). //if begins with "a", try removing it
+		'[a-z]*'.//mark the whole words (e.g. "golden" when matching "gold")  
+		'(?:e?s|ed)?';//try adding "s" "es" or "ed" suffixes
+				
+		//find next [, verify no / follows; i.e. we are not in middle of an marked area
+		$postfixCheck="[^[]*(?:[[^/].+)?$";
+// 		$postfixCheck=".*$";
+// 		$postfixCheck="";
+		$needleFormed="($needleFormed)$postfixCheck";
+/*		
+		$variants=array(
+			'to '.$needle,	
+			$needle.'s',	
+			$needle.'es',
+			$needle.'ed'
+		);
+		if($needle[$len-1]=='f') $variants[]=substr($needle, 0, $len-1).'ves';
+		
+		if(substr($needle, 0,2)=='a ') $variants[]=substr($needle, 2); //remove article
+		if(substr($needle, 0,4)=='the ') $variants[]=substr($needle, 2); //remove article
+*/		
+		//match all the variants
+		//$result = preg_replace ( "@$v@i", "[c$cnum]$0[/c]", $result, 1 );
+		$matches=array();
+// 		$matchesCount = preg_match_all("@$needleFormed@i", $subject, $matches);
+		$matchesCount = preg_match_all("@$needleFormed@mi", $subject, $matches, PREG_OFFSET_CAPTURE);
+		/*
+		if(count($matches)==1) //DBG
+		{
+			var_dump($needleFormed);
+			echo "<br>\n";echo "<br>\n";
+			var_dump($matches);die;
+		}
+		*/
+// 		if($matchesCount==0) return NULL;
+		 /*
+		 if($matchesCount>1) {
+			var_dump($matches);die;
+			return NULL;
+		} */
+		//return $matches[0]; //[0] because there are no capturing groups
+ 		
+ 		 /*
+ 		if($matchesCount>1) {
+ 			echo $needleFormed;
+ 		var_dump($matches);var_dump($subject);die;}
+ 		*/
+		
+		return $matches[1]; //[1] because we want the first capturing group
+	}
+	
+	static function applyReplacement($searchData, $prefix, $suffix, $subject) {
+		list($match, $index)=$searchData;
+		$len=strlen($match);
+		
+		//str_replace($search, $prefix.$search.$suffix, $subject, $count);
+		//this is an alternative of the commented str_replace (line above)
+		//that respects the $index (necessary for ambiguous results)
+		
+		if(substr($subject, $index, $len)!=$match)
+			throw new Exception("Assert error: match not at expected offset");
+		
+		$newSubject=
+			substr($subject, 0, $index).
+			$prefix. $match. $suffix.
+			substr($subject, $index+$len);
+		
+		return $newSubject;
+	}
+	
 	/**
 	 * 
 	 * @param Char $char
@@ -270,7 +380,11 @@ class MnemoParser {
 		$matchCount=0;
 		$matchCount=preg_match_all($reg, $str, $matches);
 
-		if($matchCount==0 && 0==preg_match_all($regB, $newMnemo)) return null;
+		if($matchCount==0 && 0==preg_match_all($regB, $newMnemo)) {
+   			//no tags in the mnemo 
+			if(self::hasTagsAlready($str)) return $str;//check not if already finished  
+			return null;
+		}
 		
 		$archetypeFound=false;
 		$soundwordFound=false;
@@ -573,7 +687,12 @@ The <span style="font-weight:600; color:#ff0000;">giant </span>has already learn
 		// 		return self::STANDARD.implode(" ",$tokens);
 	}	
 	
-	/** Takes a mnemo a produces a keyword entry. */
+	/** Takes a mnemo a produces a keyword entry. 
+	 * 
+	 * WHAT IS THIS actually doing?
+	 * 
+	 * not used anywhere, probably obsolete
+	 * */
 	static function parseStandard($str) {
 		$tokens=array(); 
 		//note the order is relevat
@@ -597,5 +716,15 @@ The <span style="font-weight:600; color:#ff0000;">giant </span>has already learn
 // 		return self::STANDARD.implode(" ",$tokens);
 // 		return self::STANDARD.implode(" ",$tokens);
 	}
-	
+
+	/**
+	 * Takes a mnemo (in standard format) and returns what keyword is marked, if any.
+	 * @param String $mnemo
+	 */
+	static function parseKeyword($mnemo) {
+		$matchCount=preg_match_all('#\[s\d+\](.+?)\[/s\]#', $mnemo, $matches);
+		
+		if($matchCount>0)
+			return $matches[1][0];		
+	}
 }
