@@ -76,11 +76,26 @@ class MnemoParser {
 		//see if it matches the dictionary
 		
 		//on the first line, search for composition and keyword
-		if(stripos($first, $char->keyword)!==FALSE) {
-			$result=preg_replace("@$kw"."[a-z]*@i", "[k]$0[/k]", $result, 1);
-		} else {
-			return -3; //no keyword found
-		}
+// 		if(stripos($first, $char->keyword)!==FALSE) {
+			$found=self::smartSearch($result, $kw); //test run
+			
+			//$result=preg_replace("@$kw"."[a-z]*@i", "[k]$0[/k]", $result, 1);
+
+			if(count($found)==0) {
+// 				var_dump($kw);
+// 				var_dump($result);				
+// 				die;
+				return -3; // unmatched keyword
+			}
+			
+// 			if(count($found)>1) the searched word is present several times
+			//but the first ist taken always anyway
+			$result=self::applyReplacement($found[0], "[k]", "[/k]", $result);
+
+					
+// 		} else {
+// 			return -3; //no keyword found
+// 		}
 		
 		//search also for the components
 		//first need to get them, as they are not set
@@ -290,12 +305,15 @@ class MnemoParser {
 // 		$foundPositions=array(); //array of two-member array (start, match)
 		$len=strlen($needle);
 		
+		$needleFormed=Utilities::escapeStringForRegex($needle);
+		
 		//prepare all possible grammar variations (as an regex)
 		$needleFormed=
-				'(?:to )?'. //try adding "to " prefix
-		preg_replace('/f$/', 'ves', //leaf => leaves
+// 				'(?:to )?'. //try adding "to " prefix
+		preg_replace('/f$/', '(?:f|ves)', //leaf => leaves
+		preg_replace('/^to /', '(?:to )?', //if begins with "the", try removing it 
 		preg_replace('/^the /', '(?:the )?', //if begins with "the", try removing it 
-				preg_replace('/^a /', '(?:a )?', $needle))). //if begins with "a", try removing it
+				preg_replace('/^a /', '(?:a )?', $needleFormed)))). //if begins with "a", try removing it
 		'[a-z]*'.//mark the whole words (e.g. "golden" when matching "gold")  
 		'(?:e?s|ed)?';//try adding "s" "es" or "ed" suffixes
 				
@@ -336,7 +354,12 @@ class MnemoParser {
 			return NULL;
 		} */
 		//return $matches[0]; //[0] because there are no capturing groups
- 		
+ 		/*
+		if($needle=="οryza sativa") {
+			var_dump($subject);
+			var_dump($needleFormed);
+			die;
+		}*/
  		 /*
  		if($matchesCount>1) {
  			echo $needleFormed;

@@ -23,6 +23,9 @@ class Utilities {
 				self::return_bytes(ini_get('post_max_size')));
 	}
 	
+	public static function escapeStringForRegex($str) {
+		return strtr($str, array('('=> '\(', ')'=>'\)'));
+	}
 	public static function escapeStringSingleQuoteJS($str) {
 		return str_ireplace("'", "\\'", $str);
 	}
