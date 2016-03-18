@@ -304,6 +304,7 @@ class SystemController extends Controller
 		$unmatch=array();
 		$ambiguos=array();
 		$incompl=array();
+		$noKeywordComponent=array();
 		
 		$allChars=Char::model()->findAllByAttributes(array('system'=>2));
 		foreach($allChars as $char)
@@ -327,6 +328,8 @@ class SystemController extends Controller
 					$ambiguos[]=$char;
 				} else if($result===-8) { 
 					$incompl[]=$char;
+				} else if($result===-9) { 
+					$noKeywordComponent[]=$char;
 				} else if($result!=NULL) {
 					$autoconvertible[]=$result;
 				} else {
@@ -346,7 +349,8 @@ class SystemController extends Controller
 						'Unmatched keyword'=>$unmatch,
 						'Ambiguos'=>$ambiguos,
 						'Mutliple components'=>$manyComp,
-						'Perhaps incomplete'=>$incompl
+						'No soundword match'=>$incompl,
+						'Component has no keyword match'=>$noKeywordComponent
 				)
 		)
 		);

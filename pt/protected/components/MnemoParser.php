@@ -58,11 +58,13 @@ class MnemoParser {
 		}
 		list($first, $second)=$newLines;
 		
+		$archetypeTone=NULL;
 		//on the second line, search for an archetype
 		foreach(self::$archeTypesSorted as $tone =>$variants) {
 		$kw=$char->keyword;
 			foreach($variants as $v) {
 				if(stripos($second, $v)!==FALSE) {
+					$archetypeTone=$tone;
 					$result=preg_replace("@$v@i", "[a$tone]$0[/a]", $result);
 					$foundTone=true;
 					break 2;
@@ -75,35 +77,37 @@ class MnemoParser {
 		
 		//on the second line, search for a soundword
 		//see if it matches the dictionary
-		
+		$transcription=$char->transcriptionAuto; //TODO - might get problematic with multi-match chars
+		$possibleSoundwords=Soundword::model()->findAllByAttributes(array('transcription'=>$transcription));
+		$soundwordFound=false;
+		foreach($possibleSoundwords as $soundwordModel) {
+			$soundword=$soundwordModel->soundword;
+			$found=self::smartSearch($result, $soundword);
+			
+			if(count($found)==0)
+				continue;
+			
+			//found a match - apply right away
+			$result=self::applyReplacement($found[0], "[s$archetypeTone]", "[/s]", $result);
+			$soundwordFound=true;
+		}
+		if(!$soundwordFound) return -8;
+			
 		//on the first line, search for composition and keyword
-// 		if(stripos($first, $char->keyword)!==FALSE) {
-			$found=self::smartSearch($result, $kw); //test run
+		$found=self::smartSearch($result, $kw); //test run
 			
-			//$result=preg_replace("@$kw"."[a-z]*@i", "[k]$0[/k]", $result, 1);
-
-			if(count($found)==0) {
-// 				var_dump($kw);
-// 				var_dump($result);				
-// 				die;
-				return -3; // unmatched keyword
-			}
+		if(count($found)==0) {
+			return -3; // unmatched keyword
+		}
 			
-// 			if(count($found)>1) the searched word is present several times
-			//but the first ist taken always anyway
-			$result=self::applyReplacement($found[0], "[k]", "[/k]", $result);
-
-					
-// 		} else {
-// 			return -3; //no keyword found
-// 		}
+		// if(count($found)>1) the searched word is present several times
+		//but the first ist taken always anyway
+		$result=self::applyReplacement($found[0], "[k]", "[/k]", $result);
 		
 		//search also for the components
 		//first need to get them, as they are not set
 		$compositions=$char->components;
 		if(empty($compositions)) {
-// 			return -4; //DEBUG - maybe manual
-			
 			$compositions=Suggestion::suggestComposition($char);
 			if(count($compositions)==0) {
 				return -4;//no component available
@@ -116,9 +120,18 @@ class MnemoParser {
 			
 			//the compositions might refer to any system, but we need to use only the current or parent systems
 			$newCompositions=array();
-			foreach($compositions as $char) {
-				$charModels=Suggestion::matchKeywordForComposition($system->allInheritedIds, $char->chardef);
-				if(count($charModels)!=1)
+			foreach($compositions as $componentSearchChar) {
+				//TODO : je to bugle, kdyz nehledamt exact, tak to drbe
+				$charModels=Suggestion::matchKeywordForComposition($system->allInheritedIds, $componentSearchChar->chardef, true);
+				if(count($charModels)==0) {
+// 					var_dump($system->allInheritedIds);
+// 					echo "<br>\n";
+// 					var_dump($char);
+// 					echo "<br>\n";
+// 					var_dump($componentSearchChar);
+// 					die;
+					return -9; //no keyword match
+				} if(count($charModels)>1)
 					return -7; //ambiguous
 				$newCompositions[]=$charModels[0];
 			}

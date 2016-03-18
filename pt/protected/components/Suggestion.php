@@ -181,7 +181,7 @@ class Suggestion {
 		$criteria->compare('chardef', $newcomp, !$exact, "AND");//partial match - @TODO check if not too slow
 		if(!$exact)
 			$criteria->compare('keyword', $newcomp, true, "OR");
-		
+
 		return Char::model()->findAll($criteria);
 	}
 	
