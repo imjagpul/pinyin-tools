@@ -157,8 +157,7 @@ class Char extends CActiveRecord
 		if(!empty($this->transcription)) {
 			return $this->transcription;
 		} else {
-			$suggestion=new Suggestion();
-			return $suggestion->loadTranscription($this->systemValue, $this->chardef);
+			return Suggestion::loadTranscription($this->systemValue, $this->chardef);
 		}
 	}
 	

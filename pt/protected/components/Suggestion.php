@@ -1,4 +1,8 @@
 <?php
+/**
+ *  
+ * @author imjagpul
+ */
 class Suggestion {
 	public $keyword;
 	public $mnemo;
@@ -28,6 +32,14 @@ class Suggestion {
 
 		return true;
 	}
+	
+	/**
+	 * Encodes this object as JSON.
+	 */
+	public function encode() {
+		return CJSON::encode($this);
+	}
+	
 
 	/**
 	 * 
@@ -36,7 +48,7 @@ class Suggestion {
 	 * 					First index of the array is JSON encoded array that is value.
 	 * 					(useful for usage in listbox)
 	 */
-	public function suggestComposition($charModel) {
+	public static function suggestComposition($charModel) {
 		//@TODO add a way to exclude chosen systems (to ignore systems per user basis)
 		
 		if(empty($charModel->chardef)) {
@@ -76,11 +88,11 @@ class Suggestion {
 	}
 	
 	/**
-	 * 
-	 * @param System $system
+	 * Loads the transcription for a given character from the dictionary.
+	 * @param System $system		(used to select a relevant dictionary)
 	 * @param string $chardef
 	 */
-	public function loadTranscription($system, $chardef) {
+	public static function loadTranscription($system, $chardef) {
 		
 		//choose the relevant dictionary 
 		$relevantDicts=Dictionary::model()->findAllByAttributes(array(
@@ -108,6 +120,12 @@ class Suggestion {
 		}		
 	}
 	
+	/**
+	 * Finds a translation in the dictionary that is not yet used in the given system (or the parent systems).
+	 * @param System $system
+	 * @param String $chardef
+	 * @return String	a keyword candidate
+	 */
 	private function suggestKeyword($system, $chardef) {
 		$allInheritedIds=$system->allInheritedIds;
 		
@@ -140,9 +158,5 @@ class Suggestion {
 				}
 			}
 		}		
-	}
-	
-	public function encode() {
-		return CJSON::encode($this);
 	}
 }

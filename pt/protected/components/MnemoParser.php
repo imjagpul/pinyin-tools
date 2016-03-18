@@ -101,10 +101,9 @@ class MnemoParser {
 		//first need to get them, as they are not set
 		$compositions=$char->components;
 		if(empty($compositions)) {
-			return -4; //DEBUG - maybe manual
+// 			return -4; //DEBUG - maybe manual
 			
-			$s=new Suggestion();
-			$compositions=$s->suggestComposition($char);
+			$compositions=Suggestion::suggestComposition($char);
 			if(count($compositions)==0) {
 				return -4;//no component available
 			} else if(count($compositions)>1) {
@@ -114,7 +113,11 @@ class MnemoParser {
 			//we take the only option
 			$compositions=array_shift($compositions); //Char[]
 			
-			//HERE: PROBLEM: the suggestions refer to Compositions, but we need to 
+			//HERE: PROBLEM: the suggestions refer to Compositions, but we need to
+			//$allInheritedIds=System::model()->findByPk((int)$system)->allInheritedIds;
+			//see public function actionSuggestComposition($system, $newcomp) {//called by the Add button (#commponentSuggest)
+			//do the same, but refactor to prevent copy pasta
+			
 			
 		} else {
 			//convert Composition[] to Char[]
@@ -301,7 +304,8 @@ class MnemoParser {
 	 * @return an array where every element is an array consisting of the matched string at offset 0 and its string offset into subject at offset 1
 	 */
 	static function smartSearch($subject, $needle) {
-	 
+		 if(empty($needle))
+		 	throw new Exception("Needle is empty.");
 // 		$foundPositions=array(); //array of two-member array (start, match)
 		$len=strlen($needle);
 		

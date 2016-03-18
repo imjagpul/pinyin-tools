@@ -482,7 +482,7 @@ class CharController extends Controller
 	}
 	/**
 	 * 
-	 * @param int $system
+	 * @param int $system		keywords are taken from  
 	 * @param string $newcomp
 	 */
 	public function actionSuggestComposition($system, $newcomp) {//called by the Add button (#commponentSuggest)

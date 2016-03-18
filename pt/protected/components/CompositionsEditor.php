@@ -45,8 +45,7 @@ class CompositionsEditor extends CGridView {
 	
 	private function echoSuggestionText() {
 		$charModel=$this->char;
-		$suggestion=new Suggestion();
-		$allComponents=$suggestion->suggestComposition($charModel);
+		$allComponents=Suggestion::suggestComposition($charModel);
 		
 		if(count($allComponents)<1) {
 			return ''; //do not display any text if no suggestions found
