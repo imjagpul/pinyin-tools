@@ -34,12 +34,12 @@ class MnemoParser {
 				5=>array('robot'),
 		);		
 	
-	static function suggestMiddleToNew($char, $force=false) {
+	static function suggestMiddleToNew($char, $system, $force=false) {
 		$result=$char->mnemo;
 		
-		if(self::hasTagsAlready($result)) return $result;
+		if(self::hasSomeTagsAlready($result)) return $result; //could mean it is not yet complete, but de facto not
+// 		if(self::hasTagsAlready($result)) return $result;
 		
-		$kw=$char->keyword;
 		$foundTone=false;
 		
 		//check if it has two (non-empty) lines, otherwise fail
@@ -60,6 +60,7 @@ class MnemoParser {
 		
 		//on the second line, search for an archetype
 		foreach(self::$archeTypesSorted as $tone =>$variants) {
+		$kw=$char->keyword;
 			foreach($variants as $v) {
 				if(stripos($second, $v)!==FALSE) {
 					$result=preg_replace("@$v@i", "[a$tone]$0[/a]", $result);
@@ -113,11 +114,15 @@ class MnemoParser {
 			//we take the only option
 			$compositions=array_shift($compositions); //Char[]
 			
-			//HERE: PROBLEM: the suggestions refer to Compositions, but we need to
-			//$allInheritedIds=System::model()->findByPk((int)$system)->allInheritedIds;
-			//see public function actionSuggestComposition($system, $newcomp) {//called by the Add button (#commponentSuggest)
-			//do the same, but refactor to prevent copy pasta
-			
+			//the compositions might refer to any system, but we need to use only the current or parent systems
+			$newCompositions=array();
+			foreach($compositions as $char) {
+				$charModels=Suggestion::matchKeywordForComposition($system->allInheritedIds, $char->chardef);
+				if(count($charModels)!=1)
+					return -7; //ambiguous
+				$newCompositions[]=$charModels[0];
+			}
+			$compositions=$newCompositions;
 			
 		} else {
 			//convert Composition[] to Char[]
@@ -291,6 +296,11 @@ class MnemoParser {
 		return array($newMnemo, $totalCount);
 	}
 	
+	static function hasSomeTagsAlready($str) {
+		$reg='@\[[^]]+\]@';
+		$matchCount=preg_match_all($reg, $str, $matches);
+		return $matchCount>=1;
+	}
 	static function hasTagsAlready($str) {
 		$reg='@\[[^]]+\]@';
 		$matchCount=preg_match_all($reg, $str, $matches);

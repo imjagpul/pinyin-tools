@@ -147,6 +147,11 @@ class System extends CActiveRecord
 // 		return $resultArray;
 // 	}
 
+	/**
+	 * Returns and array of integers containing every ID of the parent systems (inclusive the actual), recursively.  
+	 * @param array $mergeWith
+	 * @return void|Int[]
+	 */
 	public function getAllInheritedIds(&$mergeWith=array()) {
 		if(isset($mergeWith[$this->id])) //already included, skip (prevents loops)
 			return;

@@ -487,7 +487,7 @@ class CharController extends Controller
 	 */
 	public function actionSuggestComposition($system, $newcomp) {//called by the Add button (#commponentSuggest)
 		$allInheritedIds=System::model()->findByPk((int)$system)->allInheritedIds;
-		echo CJSON::encode($this->querySingleComposition($allInheritedIds, $newcomp, false));
+		echo CJSON::encode(Suggestion::matchKeywordForCompositionFormatted($allInheritedIds, $newcomp, false));
 	}
 
 	public function actionSuggestCompositions($system, $comps) { //called by the Suggestions select box (#suggestions)
@@ -495,7 +495,7 @@ class CharController extends Controller
 		$comps=CJSON::decode($comps);
 		$result=array();
 		foreach($comps as $c) {
-			$result[]=$this->querySingleComposition($allInheritedIds, $c, true);
+			$result[]=Suggestion::matchKeywordForCompositionFormatted($allInheritedIds, $c, true);
 		}		
 		echo CJSON::encode($result);
 	}

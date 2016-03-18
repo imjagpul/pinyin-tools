@@ -4,9 +4,13 @@
  * @author imjagpul
  */
 class Suggestion {
+	/** The new keyword that can be used. */
 	public $keyword;
+	/** The suggested mnemo (not implemented). */
 	public $mnemo;
+	/** The full HTML code of the composition editor. */
 	public $compositions;
+	/** The full HTML code of the dictionary widget. */ 
 	public $dict;
 	
 	public function fill($systemID, $chardef, $parentController) {
@@ -159,4 +163,47 @@ class Suggestion {
 			}
 		}		
 	}
+	
+	/**
+	 * 
+	 * @param Int[] $allInheritedIds
+	 * @param String $newcomp
+	 * @param Boolean $exact
+	 * 				if true, the $newcomp is matched only against chardefs
+	 * 				if false, partial matches against chardefs and also keywords are also returned
+	 * @return Char[]
+	 * 			   all possible matches
+	 */
+	public static function matchKeywordForComposition($allInheritedIds, $newcomp, $exact=FALSE) {
+		$criteria=new CDbCriteria();
+		$criteria->limit=Yii::app()->params['maxCompositions'];
+		$criteria->addInCondition('system', $allInheritedIds);
+		$criteria->compare('chardef', $newcomp, !$exact, "AND");//partial match - @TODO check if not too slow
+		if(!$exact)
+			$criteria->compare('keyword', $newcomp, true, "OR");
+		
+		return Char::model()->findAll($criteria);
+	}
+	
+	/**
+	 * 
+	 * @param Int[] $allInheritedIds
+	 * @param String $newcomp
+	 * @param Boolean $exact
+	 * 				if true, the $newcomp is matched only against chardefs
+	 * 				if false, partial matches against chardefs and also keywords are also returned
+	 * @return
+	 * 			an array of arrays of four Strings: (chardef, keyword, system name, ID)  
+	 */
+	public static function matchKeywordForCompositionFormatted($allInheritedIds, $newcomp, $exact=FALSE) {
+		//query the systems, find all possibilities
+		$models=self::matchKeywordForComposition($allInheritedIds, $newcomp, $exact);		
+		
+		$formatted=array();
+		foreach($models as $model) {
+			$formatted[]=array($model->chardef, $model->keyword, $model->systemValue->name, $model->id);
+		}
+		return $formatted;
+	}
+	
 }

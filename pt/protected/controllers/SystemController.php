@@ -303,12 +303,13 @@ class SystemController extends Controller
 		$manyComp=array();
 		$unmatch=array();
 		$ambiguos=array();
+		$incompl=array();
 		
 		$allChars=Char::model()->findAllByAttributes(array('system'=>2));
 		foreach($allChars as $char)
 		{
 			if(!empty($char->mnemo)) {
-				$result=MnemoParser::suggestMiddleToNew($char);
+				$result=MnemoParser::suggestMiddleToNew($char, System::model()->findByPk(2));
 				
 				if($result===-1) {
 					$notTwoLines[]=$char;
@@ -324,6 +325,8 @@ class SystemController extends Controller
 					$unmatch[]=$char;
 				} else if($result===-7) { 
 					$ambiguos[]=$char;
+				} else if($result===-8) { 
+					$incompl[]=$char;
 				} else if($result!=NULL) {
 					$autoconvertible[]=$result;
 				} else {
@@ -342,7 +345,8 @@ class SystemController extends Controller
 						'No components'=>$noComp,
 						'Unmatched keyword'=>$unmatch,
 						'Ambiguos'=>$ambiguos,
-						'Mutliple components'=>$manyComp
+						'Mutliple components'=>$manyComp,
+						'Perhaps incomplete'=>$incompl
 				)
 		)
 		);
