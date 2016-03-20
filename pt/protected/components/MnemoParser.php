@@ -337,10 +337,11 @@ class MnemoParser {
 		//prepare all possible grammar variations (as an regex)
 		$needleFormed=
 // 				'(?:to )?'. //try adding "to " prefix
+		preg_replace('/^"(.+)"$/', '"?$0"?', //leaf => leaves
 		preg_replace('/f$/', '(?:f|ves)', //leaf => leaves
 		preg_replace('/^to /', '(?:to )?', //if begins with "the", try removing it 
 		preg_replace('/^the /', '(?:the )?', //if begins with "the", try removing it 
-				preg_replace('/^a /', '(?:a )?', $needleFormed)))). //if begins with "a", try removing it
+				preg_replace('/^a /', '(?:a )?', $needleFormed))))). //if begins with "a", try removing it
 		'[a-z]*'.//mark the whole words (e.g. "golden" when matching "gold")  
 		'(?:e?s|ed)?';//try adding "s" "es" or "ed" suffixes
 				
