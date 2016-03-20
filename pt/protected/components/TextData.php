@@ -1,9 +1,11 @@
 <?php
 class TextData {
 	private $dir;
+	private $audioURL;
 	
 	public function __construct() {
 		$this->dir=Yii::app()->basePath . '/texts/'.'sanzijing'.'/';
+		$this->audioURL=Yii::app()->baseUrl. '/audio/';
 	}
 	
 	public function getTextSimplified() {
@@ -20,8 +22,7 @@ class TextData {
 	}
 	
 	public function getTextAudioPath() {
-		//@TODO perhaps we need the URL instead
-		$this->dir.'audio/sanzijing_anon.mp3';
+		return $this->audioURL.'sanzijing_anon.mp3';
 	}
 	
 }

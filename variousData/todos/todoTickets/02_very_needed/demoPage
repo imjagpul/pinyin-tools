@@ -1,9 +1,16 @@
 http://localhost/pt/annotator/generateDemo/0
 
 
+  f) Add audio
+    *see how to use Joele 
+    *post it
+    *(will perhaps have to update to HTML5 :-)
+  g) Add synoptic text
+  h) Make the demo page aestetically appealing
+  i) Generate MOBI and EPUBs for downloads
+  j) test the eBook files on the devices
 
-*PREPEND TEXT (as in demonstration.php
-*PREPEND AUDIO (will perhaps have to update to HTML5 :-)
+
 *make it nicer (see design in EPUB)
 *FINE TUNING
 for the demo, remove compositions

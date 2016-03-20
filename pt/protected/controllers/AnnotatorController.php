@@ -52,7 +52,7 @@ class AnnotatorController extends Controller
 		$annotatorEngine->audioURL=$textData->getTextAudioPath();
 		$annotatorEngine->outputMode=AnnotatorMode::MODE_SHOW;
 		$annotatorEngine->whitespaceToHTML=true;
-
+		
 		//choose the correct template
 		if($isJsBased) {
 			$template=$this->templatesList[0];
