@@ -1,7 +1,12 @@
+http://localhost/pt/system/harvestKeywords/10
+
+http://localhost/pt/system/diagnostics/6
+NEXT: 
+ http://localhost/pt/char/update/20047
 
 NEXT STEP:
-reimporting components. next step> 
-mass replace html to [] syntax
+ autoread soundwords 
+  
 
 OLD WORKPLANS:
   

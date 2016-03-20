@@ -1,5 +1,28 @@
+http://localhost/pt/s/%E4%B8%AD
+中央人民政府驻香港特别行政区联络办公室
+ has truncated pronunciation
+ reimport with fresh version
+---
 unknown characters are not marked in quick annotator
 ---
+some characers might be missing from the HSK
+but hard to find a good list
+
+http://www.hanzidb.org/character-list/hsk
+ (in examples)
+lists 2663 , we have only 2636
+
+SOLUTION: first: 
+ add the "list all characters" ability to annotator,
+ then it will be trivial to generate own static page
+ nice looking  
+
+--
+traditional_only
+
+vs 
+AEngine
+----
 in chars browse http://localhost/pt/s - underline less strong
 
 need to be able to delete entries

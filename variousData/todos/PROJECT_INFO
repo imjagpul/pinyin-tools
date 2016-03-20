@@ -3,7 +3,7 @@ GOAL: Propagate this as soon as possible.
 ACTION STEPS:
 1 Create a home page
   $ a) Make title page link work. 
-  b) Design nice homepage (#homepage)
+  $) Design nice homepage (#homepage)
    $ I)   get access to the HTML: a create and use a new template in PY
    $ II)  design silos
      $ *) add four links
@@ -15,14 +15,9 @@ ACTION STEPS:
      $   **) create browse landing page 
      $  *) link to annotator       
     $ III) design quote
-    IV)  design message triplet
-    V)   add CTA
-    VI)  duplicate TOC
-    VII) add footer 
-  c) Link home page to demopage
-  d) test homepage on mobile devices
-  e) test on opera, FF on win
-  f) test on qupzilla
+    $ IV)  design message triplet
+    $ V)   add CTA
+  $ c) Link home page to demopage
    
 2 Create a good demo page   
   $ d) Find out why demopage behaves funny on http://localhost/pt/annotator/generateDemo/0
@@ -49,9 +44,9 @@ ACTION STEPS:
    d) #user
   
 4 Browse page - cosmetics
-  a) underline make thinner
-  b) make matthews browse look seriously
-  c) (not just browse page, also home page) - when the browser is not wide enough, it wraps the menu and the quotes in a funny way
+   a) underline make thinner (PROBABLY DEPENDS: 8d)
+ $ b) make matthews browse look seriously
+   c) (not just browse page, also home page) - when the browser is not wide enough, it wraps the menu and the quotes in a funny way
   
 5 Char view
   a) paint / realign links (the add, the edit links are somewhat funny - when logged in) http://localhost/pt/s/%E6%89%AE
@@ -76,12 +71,20 @@ ACTION STEPS:
   a) set a text limit
   b) (maybe later) make EPUB generation work
   c) parallel make work (then add MuLan to examples)
+  d) list characters ability 
   
 9 Publicate
   a) put online
   b) test user registration, create mnemonic
     (try unauth access, register, creat, add, remove, delete, recover password, remember me login - home page should not be displayed)
     try Remember me - if it works better than on localhost
+  
+  c)  
+  d) test homepage on mobile devices
+  e) test on opera, FF on win
+  f) test on qupzilla
+    
+    
 10 Propagate
   a) post betatest request on a forum
   b) talk about it via italki
