@@ -511,7 +511,7 @@ class SystemController extends Controller
 /*
 					$char->mnemo=$result;
 					$char->system=14;
-					$char->update(); */
+					$char->update();*/
 // 					$other[]="moved ".$char->chardef;
 					
 				//for first diagnosis

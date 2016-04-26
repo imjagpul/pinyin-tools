@@ -46,6 +46,6 @@ $this->echoCharLinksListMatthews($hsk_matthews);
 <h3>HSK level 6</h3> 
 <?php $this->echoCharLinksList($simplified ? $hsk6_simp : $hsk6_trad); ?> 
 <?php  
-echo "Total count: ".(count($hsk1_trad)+count($hsk2_trad)+count($hsk3_trad)+count($hsk4_trad)+count($hsk5_trad)+count($hsk6_trad));
+//echo "Total count: ".(count($hsk1_trad)+count($hsk2_trad)+count($hsk3_trad)+count($hsk4_trad)+count($hsk5_trad)+count($hsk6_trad));
 } ?>
 

@@ -36,8 +36,12 @@ class AnnotatorController extends Controller
 		//first load the predefined input into the engine
 		$textManager=new TextManager();
 		
-		$textData=$textManager->getText('sanzijing');
+		if($id<1 || $id>6)
+			throw new Exception("ID has to be 0>ID>7");
+	 	
 		
+		$textData=$textManager->getText('sanzijing');
+		xdebug_break();
 		$isTraditional=($id==1 || $id==3 || $id==5);
 		$isJsBased = ($id==1 ||$id==2);
 		
@@ -118,7 +122,7 @@ class AnnotatorController extends Controller
 		$annotatorEngine->audioURL=isset($_POST['audioURL']) ? $_POST['audioURL'] : NULL; //@TODO add URL validator
 		$annotatorEngine->outputType=isset($_POST['type']) ? $_POST['type'] : NULL;
 		$annotatorEngine->whitespaceToHTML=true;
-		//@TODO set from settings
+		//@TODO set from settings (after deciding if and how the convereting should be done)
 // 		$annotatorEngine->characterMode=UserSettings::getCurrentSettings()->variant;
 		$annotatorEngine->characterMode=AnnotatorEngine::CHARMOD_SIMPLIFIED_ONLY;
 		

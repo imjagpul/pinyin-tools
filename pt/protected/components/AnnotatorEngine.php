@@ -162,7 +162,12 @@ class AnnotatorEngine {
 // 		$lines=split("(\r\n){1,}", $this->input);
 		$count=count($lines);
 		$lastWrap=false;
-		$wrapText='</div><div class="x">';
+		
+		if(!empty($this->parallel))
+			$wrapText="\n";
+		else
+			$wrapText='</div>'."\n".'<div class="x">';
+		
 		for($i=0;$i<$count-1;$i++) {
 			
 			$l=$lines[$i]; //current line
@@ -208,6 +213,7 @@ class AnnotatorEngine {
 		$templateCount=$this->detectTemplateCount($this->template);
 		
 		if($templateCount==="DUMP") { //if no templates are set, just dump the whole input as-is
+			//parallel does not work in quick dump (but that is not a problem) 
 			echo $this->input;
 			return;
 		}
@@ -226,7 +232,7 @@ class AnnotatorEngine {
 			//loop for every character
 			for($i=0; $i<$this->len; $i++) {
 				$char=mb_substr($this->input, $i, 1, $this->encoding);
-		
+
 				if($this->checkNewline($char)) {
 					//if the line ended, we need to output another line of parallel text if present
 					$this->outputParallelAfterLine($lineIndex, $iTemplate);
@@ -246,10 +252,11 @@ class AnnotatorEngine {
 				$this->outputChar($char, $translations, $mnemos, $phrases, $i, $templateFull);
 			} //end of character loop
 		
+			$this->outputParallelAfterLine($lineIndex, $iTemplate, true);
+			
 			if($templateCount===FALSE)
 				break;
 		}
-		
 		
 	}
 	
@@ -433,8 +440,9 @@ class AnnotatorEngine {
 	  * 
 	  * @param int $lineIndex which line is being outputed
 	  * @param int $templateIteration one-based index of the current template
+	  * @param boolean $finish	if all following lines should be outputed as well
 	  */
-	 private function outputParallelAfterLine($lineIndex, $templateIteration) {
+	 private function outputParallelAfterLine($lineIndex, $templateIteration, $finish=false) {
 	 	if(empty($this->parallel))
 	 		return;
 	 	
@@ -446,6 +454,13 @@ class AnnotatorEngine {
 	 	echo '<td>';
 	 	if(isset($this->parallelLines[$lineIndex])) {
 	 		echo $this->parallelLines[$lineIndex];
+	 		
+	 		if($finish) {
+	 			for($i=$lineIndex+1; $i<count($this->parallelLines); $i++) {
+	 				echo "<br>\n";
+	 				echo $this->parallelLines[$i];
+	 			}
+	 		}
 	 	}
 	 	echo '</td>';
 	 	echo '</tr>';
