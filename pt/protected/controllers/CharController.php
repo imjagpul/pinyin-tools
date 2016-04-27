@@ -239,11 +239,18 @@ class CharController extends Controller
 	public function actionCreate($charDef=NULL, $system=NULL)
 	{
 		$model=new Char;
+		$suggestion=null;
 		
 		$this->handleChar($model);
 		
-		if(!is_null($charDef))
+		if(!is_null($charDef)) {			
 			$model->chardef=$charDef;
+			$this->dictionaryQuery=$model->chardef;
+			
+			$suggestion=new Suggestion();
+			$success=$suggestion->fill($system, $charDef, $this, true);
+			$model->keyword=$suggestion->keyword;
+		}
 		
 		$systemList=System::getWriteableSystems();
 		
@@ -264,10 +271,9 @@ class CharController extends Controller
 				$system=$systemList[0]->id;
 		}
 		$model->system=(int) $system;
-		
-		
+				
 		$this->render('create',array(
-			'model'=>$model, 'systemList'=>$systemList
+			'model'=>$model, 'systemList'=>$systemList, 'suggestion'=>$suggestion
 		));
 	}
 

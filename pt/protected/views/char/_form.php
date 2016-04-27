@@ -2,14 +2,15 @@
 /* @var $this CharController */
 /* @var $model Char */
 /* @var $form CActiveForm */
+/* @var $suggestion Suggestion */
 
 
 $baseUrl=Yii::app()->baseUrl;
 $cs=Yii::app()->clientScript;
 $cs->registerCoreScript('jquery');
-$cs->registerScriptFile($baseUrl.'/js/main.js');
-$cs->registerScriptFile($baseUrl.'/js/tooltip.js');
-$cs->registerScriptFile($baseUrl.'/js/charEditorGUI.js');
+$cs->registerScriptFile($baseUrl.'/js/main.js'); //sticky rows and apply tooltips
+$cs->registerScriptFile($baseUrl.'/js/tooltip.js'); //tooltips library
+$cs->registerScriptFile($baseUrl.'/js/charEditorGUI.js'); //Functions concerning the mnemo editor box and "Mark" buttons.
 $cs->registerCssFile($baseUrl.'/js/fancybox/jquery.fancybox-1.3.1.css');
 $cs->registerCssFile($baseUrl.'/css/main-gi.css');
 
@@ -35,13 +36,6 @@ $systemChangedURL=$this->createUrl("char/suggestSystemChanged");
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 )); 
-
-/*
-	<p class="note">Fields with <span class="required">*</span> are required. 
-	Keyword suggestion is enabled.
-	Click on the <span class="sticky">highlighted fields</span> to edit them.</p>
-
- */
 ?>
 	<p class="note">
 		Click on the <span class="sticky">highlighted fields</span> to edit
@@ -84,8 +78,16 @@ $systemChangedURL=$this->createUrl("char/suggestSystemChanged");
 	</div>
  
     <?php 
-    $compositionsEditor=CompositionsEditor::create($model, $this);
-    $compositionsEditor->outputEditable(); 
+
+    if(!is_null($suggestion) && !empty($suggestion->compositions)) {
+		echo $suggestion->compositions;
+		$compositionsEditorBaseScriptUrl=CompositionsEditor::findBaseScriptUrl($this);
+    } else {
+	    $compositionsEditor=CompositionsEditor::create($model, $this);
+	    $compositionsEditor->outputEditable(); 
+	    $compositionsEditorBaseScriptUrl=$compositionsEditor->baseScriptUrl;
+    }
+
     ?>
 		
 	<div class="row">
@@ -143,17 +145,14 @@ $systemChangedURL=$this->createUrl("char/suggestSystemChanged");
 
 <script type="text/javascript">
 /*<![CDATA[*/
-
-//$("body").data("componentsNames", []);
 <?php
-//Yii::app()->assetManager;
-
 $URLHolder=9999;
 ?>
+
 var picURL={
-		view: "<?php echo $compositionsEditor->baseScriptUrl ?>/view.png",
-		update: "<?php echo $compositionsEditor->baseScriptUrl ?>/update.png",
-		del: "<?php echo $compositionsEditor->baseScriptUrl ?>/delete.png",
+		view: "<?php echo $compositionsEditorBaseScriptUrl ?>/view.png",
+		update: "<?php echo $compositionsEditorBaseScriptUrl ?>/update.png",
+		del: "<?php echo $compositionsEditorBaseScriptUrl ?>/delete.png",
 }
 
 var newCompositionsURLHolder="<?php echo $URLHolder;?>";
@@ -162,8 +161,11 @@ var newCompositionsURL={
 		view: "<?php echo Yii::app()->createUrl("char/view",array("id"=>$URLHolder)); ?>",
 		update: "<?php echo Yii::app()->createUrl("char/update",array("id"=>$URLHolder)); ?>",
 }
+var suggestURL='<?php echo $suggestURL; ?>';
+var suggestURLcompMultiple='<?php echo $suggestURLcompMultiple; ?>';
+var systemChangedURL='<?php echo $systemChangedURL; ?>';
 
-
+//adds a single line in the composition edtior (called after getting response from AJAX)
 function addSingleComponentUnparsed(html) {
 	$('#components-grid table tbody tr td.empty').parent().remove();
 
@@ -172,6 +174,7 @@ function addSingleComponentUnparsed(html) {
 	
 	addSingleComponent(JSON.parse(html));
 }
+
 function addComponent(html) { 
 	objs=JSON.parse(html);
 	
@@ -182,6 +185,7 @@ function addComponent(html) {
 	}
 }
 
+//adds a single line in the composition edtior (called from the above two methods)
 function addSingleComponent(obj) {
 	if(obj.length==0) {
 		// @TODO change this silent ignore to a special row (that adds it as an entry to the system ; or a non interactive closeable warning
@@ -215,7 +219,7 @@ function addSingleComponent(obj) {
 	table.append(html);	
 }
 
-
+//when the chardef changes
 jQuery(function($) {
 	$('body').on('change', '#Char_chardef', function () {
 		//var system=$('#Char_system').val();
@@ -225,7 +229,7 @@ jQuery(function($) {
 			return;
 
 		$.ajax({'type':'GET',
-		'url':'<?php echo $suggestURL; ?>',
+		'url': suggestURL,
 		'data':{'system': $('#Char_system').val(),
 		'chardef': chardef
 		},
@@ -252,12 +256,13 @@ function getComponentsId() {
 	return a;
 }
 
+//when the system changes, the components might have to change as well
 jQuery(function($) {
 	$('body').on('change', '#Char_system', function () {
 		var components=(getComponentsId().join(';'));
 		
 		$.ajax({'type':'GET',
-			'url':'<?php echo $systemChangedURL; ?>',
+			'url': systemChangedURL,
 			'data':{'system': $('#Char_system').val(),
 			'components':components
 			
@@ -289,8 +294,7 @@ jQuery(function($) {
 				'system':$('#Char_system').val(),
 				'comps':chardef
 				},
-				'url':'<?php echo $suggestURLcompMultiple; ?>',
-				//'success': $( "body" ).data( "addComponent")
+				'url': suggestURLcompMultiple,
 				'success': addComponent,
 				});
 	});

@@ -15,4 +15,4 @@
 
 <h1>Add a new entry</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model, 'systemList'=>$systemList)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model, 'systemList'=>$systemList, 'suggestion'=>$suggestion)); ?>

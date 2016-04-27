@@ -1,18 +1,22 @@
-Fix the Add to + no js mode
+*) compontens: show dropbox only if more variants available
+**) implement onStart composition
+$$) if there are more watch out for reduplications bug (more listboxes at once)
+$) add new link need to be filled with suggestions right away
+*) protect composition editor if already 
 
-骤
-
-*) design no JS gui
-*) implement add new link
-
-suggestions
-
-
+*) if the system changes, need to drop or selectively drop existing composition 
 GUI:
-  button / checkbox "enable autosuggest"
-  compontens: show dropbox only if more variants available
-  
-  remove Notes3 et 2 unless set in system as needed
+  button / checkbox "enable autosuggest"  
+
+*) remove Notes3 et 2 unless set in system as needed
+**) implement the choice in system
+***) db
+***) in system form
 
 The GUI editor:
-  buttons displayed only when the component is missing in the text.
+*) replace big ugly buttons with a nice icon
+*) buttons displayed only when the component is missing in the text.
+
+*) no js mode
+
+ 骤

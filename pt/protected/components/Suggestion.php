@@ -13,7 +13,7 @@ class Suggestion {
 	/** The full HTML code of the dictionary widget. */ 
 	public $dict;
 	
-	public function fill($systemID, $chardef, $parentController) {
+	public function fill($systemID, $chardef, $parentController, $skipDict=false) {
 		if(empty($chardef))
 			return false;
 		
@@ -29,6 +29,8 @@ class Suggestion {
 		$this->compositions=ob_get_clean();
 		
 		//dict-portlet
+		if($skipDict)
+			return true;
 		ob_start();
 		ob_implicit_flush(false);
 		$parentController->widget('DictionaryWidget', array('dictionaryQuery' => $chardef));

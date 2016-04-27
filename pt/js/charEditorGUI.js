@@ -1,6 +1,10 @@
 //Used in the char editing form.
-$(document).ready(function() {
 
+//Functions concerning the mnemo editor box and "Mark" buttons.
+
+$(document).ready(function() {
+	//create the "Mark" buttons
+	
 	decorate("[k]", function() {return $("#Char_keyword").val();}, "[/k]", $("#Char_keyword").parent());
 	
 	decoratePrependFunc(function () {return "[a"+getToneFromTranscription()+"]";},

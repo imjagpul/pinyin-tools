@@ -59,10 +59,18 @@ class CompositionsEditor extends CGridView {
 		
 			?>
 			<div class="">
-			<?php echo CHtml::dropDownList('suggestions', '', $listData, array('prompt'=>'Suggestions')); ?>
+			<?php echo CHtml::dropDownList('suggestions', '', $listData, array('prompt'=>'Alternative composition')); ?>
 			</div>
 <?php 
 		} 
+	}
+	
+	public static function findBaseScriptUrl($owner) {
+		//$widget=Yii::app()->getWidgetFactory()->createWidget($owner,'CompositionsEditor');
+// 		$widget=self::create(" ", $owner);
+// 		$widget->init();
+// 		return $widget->baseScriptUrl;
+		return Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('zii.widgets.assets')).'/gridview';
 	}
 	
 	public static function create($char, $owner) {
@@ -196,7 +204,12 @@ class CompositionsEditor extends CGridView {
 	
 	public function outputEditable() {
 		$this->init();
-		$this->echoSuggestionText(); //simply echo it before the table
+		//$this->echoSuggestionText(); //simply echo it before the table
 		$this->run();
+	}
+	
+	public function renderContent() {
+		$this->echoSuggestionText(); //simply echo it before the table
+		parent::renderContent();
 	}
 }
