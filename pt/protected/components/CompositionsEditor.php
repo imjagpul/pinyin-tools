@@ -65,6 +65,15 @@ class CompositionsEditor extends CGridView {
 		} 
 	}
 	
+	private function fillIfEmpty() {
+		if(count($this->char->components)>0)
+			return;
+		
+		 //Suggestion::suggestComposition($this->char);
+		 //CharController#actionSuggestCompositions
+		 //Suggestion::matchKeywordForCompositionFormatted
+	}
+	
 	public static function findBaseScriptUrl($owner) {
 		//$widget=Yii::app()->getWidgetFactory()->createWidget($owner,'CompositionsEditor');
 // 		$widget=self::create(" ", $owner);
@@ -73,11 +82,10 @@ class CompositionsEditor extends CGridView {
 		return Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('zii.widgets.assets')).'/gridview';
 	}
 	
-	public static function create($char, $owner) {
+	public static function create($char, $owner, $fillIfEmpty=false) {
 		$dataProvider=NULL;
 		$dataProvider=self::createDataProvider($char->id);
 		
-		//@TODO add 'suggest compositions' button somewhere
 		$widget=Yii::app()->getWidgetFactory()->createWidget($owner,'CompositionsEditor', array(
 				'id'=>'components-grid',
 				'dataProvider'=>$dataProvider,
@@ -107,6 +115,10 @@ class CompositionsEditor extends CGridView {
 		$widget->char=$char;
 		$widget->owner=$owner;
 		$widget->components=$char->components;
+		
+		if($fillIfEmpty)
+			$widget->fillIfEmpty();
+		
 		return $widget;
 	}
 
@@ -192,24 +204,23 @@ class CompositionsEditor extends CGridView {
 			$this->renderEmptyText();
 			echo "</td></tr>\n";
 		}
-// 		var_dump($dataJS);die;
 		echo "</tbody>\n";
 	}
 	
 	public function renderTableBody() {
 		$this->renderTableBodyMultiplicating();
-		//parent::renderTableBody();
 		$this->renderQuickBar();
 	}
 	
 	public function outputEditable() {
 		$this->init();
-		//$this->echoSuggestionText(); //simply echo it before the table
 		$this->run();
 	}
 	
 	public function renderContent() {
-		$this->echoSuggestionText(); //simply echo it before the table
+		//echo the suggestions listbox before the table
+		//(we place it here to keep it inside the <div> of the grid
+		$this->echoSuggestionText(); 
 		parent::renderContent();
 	}
 }

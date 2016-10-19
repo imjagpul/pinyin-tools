@@ -1,4 +1,11 @@
 GOAL: Propagate this as soon as possible.
+FOCUS: 
+*make adding character to primary system work
+*make the compositions editor bugfree
+*harvesting keywords
+*annotator - list unknown
+*annotator - list known
+*annotator - export epub / mobi
 
 ACTION STEPS:
 1 Create a home page
@@ -22,8 +29,8 @@ ACTION STEPS:
 2 Create a good demo page   
   $ d) Find out why demopage behaves funny on http://localhost/pt/annotator/generateDemo/0
   $ e) Fix xing2 mnemo - is broken
-  f) Add audio
-  g) Add synoptic text
+  $ f) Add audio
+  $ g) Add synoptic text
   h) Make the demo page aestetically appealing
   i) Generate MOBI and EPUBs for downloads
   j) test the eBook files on the devices

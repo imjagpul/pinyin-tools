@@ -1,15 +1,28 @@
-http://localhost/pt/annotator/generateDemo/0
+http://localhost/pt/annotator/generateDemo/2
 
 
-  f) Add audio
-    *see how to use Joele 
-    *post it
-    *(will perhaps have to update to HTML5 :-)
+$input
+
   g) Add synoptic text
+   $ make it display
+   $ respect lines in CN text 
+   * make lines match the parallel
+   ** need TDs (otherwise wrapping sucks)
+   * correct 抒 - to gloom
+  
+  *) reformulate text:
+  		synpotic - line and line
+        (probably not use synoptic)
+        emphasize the mnemonics
+        廿 - explain why not present
+  *) synchronize the MP3 with the text
+  *) generate a simplified version as well
   h) Make the demo page aestetically appealing
+      (intro text smaller, not green, in box)
+      (sound in box)
   i) Generate MOBI and EPUBs for downloads
   j) test the eBook files on the devices
-
+  k) cache into demonstration.php
 
 *make it nicer (see design in EPUB)
 *FINE TUNING

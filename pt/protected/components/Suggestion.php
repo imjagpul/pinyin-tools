@@ -55,13 +55,13 @@ class Suggestion {
 	 * 					(useful for usage in listbox)
 	 */
 	public static function suggestComposition($charModel) {
-		//@TODO add a way to exclude chosen systems (to ignore systems per user basis)
-		
 		if(empty($charModel->chardef)) {
 			return;
 		}
 		
-		//@TODO add a way to exclude chosen systems (to ignore systems per user basis)
+		//@TODO add a way to exclude chosen systems (to ignore systems per user basis) (this would be even for compomentent suggestions, not the actual keywords)
+		
+		//find all Chars in the database that have the same chardef (and are distict for the given one) 
 		$criteria=new CDbCriteria();
 		$criteria->compare('chardef', $charModel->chardef);
 		if(!$charModel->isNewRecord)
