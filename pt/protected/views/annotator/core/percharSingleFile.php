@@ -1,0 +1,1 @@
+<a href="#c<?php echo $char; ?>"><?php echo $char; ?></a>

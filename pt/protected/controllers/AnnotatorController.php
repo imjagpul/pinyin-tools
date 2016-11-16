@@ -41,7 +41,7 @@ class AnnotatorController extends Controller
 	 	
 		
 		$textData=$textManager->getText('sanzijing');
-		xdebug_break();
+
 		$isTraditional=($id==1 || $id==3 || $id==5);
 		$isJsBased = ($id==1 ||$id==2);
 		
@@ -145,7 +145,8 @@ class AnnotatorController extends Controller
 		UserSettings::getCurrentSettings()->saveSettings();
 		
 		ini_set('max_execution_time', 60000); //@TODO not sure if this is the best way
-		$annotatorEngine->annotate();
+// 		$annotatorEngine->annotate();
+		$annotatorEngine->annotate2();
 	}	
 
 	/**
@@ -183,6 +184,13 @@ class AnnotatorController extends Controller
 		echo json_encode(array($result, $phrasesResult));
 	}
 	
+	public function actionOutputCharDictionary() {
+		ini_set('max_execution_time', 60000); //@TODO not sure if this is the best way
+		
+		$dictID=1;
+		$systemID=1; 
+		AnnotatorEngine::outputCharDictionary($this, $dictID, $systemID);
+	}
 	
 	//these two methods perhaps belong in the view
 	/**

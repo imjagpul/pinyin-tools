@@ -1,0 +1,1 @@
+<a href="#<?php echo $wordsIndex; ?>"><?php echo $char; ?></a>

@@ -1,0 +1,3 @@
+*) convert all currently existing chardefs to unicode characters (as they hopefully exist)
+*) limit the new chardefs to 1
+*) create a font test page inspired by the one on ctext.org

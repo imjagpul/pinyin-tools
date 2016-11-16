@@ -1,5 +1,15 @@
 GOAL: Propagate this as soon as possible.
+Do only that what is necessary to prevent harm being done.
+Then all other features.
+Do the annotator optimization as it might be fun.
+It will be easier to develop after deploying.
+Add Japanese as it is currently requested and needed soon.
+
+
 FOCUS: 
+8A Anntoator
+
+FOCUS NEXT:
 *make adding character to primary system work
 *make the compositions editor bugfree
 *harvesting keywords
@@ -32,8 +42,15 @@ ACTION STEPS:
   $ f) Add audio
   $ g) Add synoptic text
   h) Make the demo page aestetically appealing
-  i) Generate MOBI and EPUBs for downloads
-  j) test the eBook files on the devices
+   *) make the mnemonics display on both traditional and simplified (no green chars)
+   
+   *) make the scroll bar more visible and not jumping randomly
+   **) the scroll bar must not include mnemonics
+   **) now, do we need to reconstruct the whole annotator?  << DEPENDS on 8
+   
+   *) make an EPUB generator
+   i) Generate MOBI and EPUBs for downloads
+   j) test the eBook files on the devices
   
 3 Write the full manual description //takes hours but is a lot of fun
   a) add next / previous links on the bottm
@@ -75,10 +92,11 @@ ACTION STEPS:
   e) description - add into the systemsViewRightSidebar.php (see also systemsViewSidebar.php) 
 
 8 Annotator
-  a) set a text limit
+  a) RECONSTRUCT: #annotatorPerformance     
   b) (maybe later) make EPUB generation work
   c) parallel make work (then add MuLan to examples)
-  d) list characters ability 
+  d) list characters ability (?)
+  e) set a text limit
   
 9 Publicate
   a) put online

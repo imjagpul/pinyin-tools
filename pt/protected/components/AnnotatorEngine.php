@@ -11,15 +11,24 @@ class AnnotatorEngine {
 	const CHARMOD_ALLOW_BOTH=5;
 	//const CHARMOD_ALLOW_BOTH=5;
 
+	const MODE_CLIENT_SIDE=1;
+	const MODE_SERVER_SIDE=2;
+	const MODE_HTML=4;
+	const MODE_EPUB=6;
+	
 	public $parent;
 	public $input;
 	public $systemID;
 	public $dictionariesID;
 	public $characterMode;
+	public $mode;
+	/** @var Boolean If FALSE, the characters will link directly to the characters dictionary. If TRUE, the links will go to to the corresponding entry in the words dictionary. */
+	public $wordsDictionary=true;
 	public $template="jsbased";
 	public $whitespaceToHTML=false; 
 	public $parallel;
 	public $audioURL;
+	
 // 	/** @var String If the output is intended for downloading or for viewing (affects the mimetype). */
 // 	public $outputType;
 	/** @var Integer If the output is intended for downloading or for viewing (affects the mimetype). One of AnnotatorMode constants. */
@@ -39,6 +48,57 @@ class AnnotatorEngine {
 	 *
 	 * @throws CException
 	 */
+	public function annotate2() {
+		$dictID=$this->dictionariesID[0];
+		
+		$startTime=time();
+		$this->prepare();
+		$this->outputHeader();
+		$this->go();
+		$this->outputDictionary($this->parent, true, $dictID);
+		$this->outputFooter();
+		
+		//TODO : HERE : do new preprocess input and go templates here
+		$totalTime=time()-$startTime;
+		echo "<!-- took $totalTime s -->";
+	}
+	
+	private function go() {
+		//loop for every character
+		for($i=0; $i<$this->len; $i++) {
+			$char=mb_substr($this->input, $i, 1, $this->encoding);
+		
+			if($this->checkNewline($char)) { //@TODO smarter newlines
+				//if the line ended, we need to output another line of parallel text if present
+// 				$this->outputParallelAfterLine($lineIndex, $iTemplate);
+				continue;
+			}
+		
+			if($this->isIgnoredChar($char)) {
+				echo $char;
+				continue;
+			}
+		
+			if($this->wordsDictionary) {
+				//dictionary search if the phrases dictionary is included
+				//@TODO HERE implement
+				$wordsIndex;
+				$data=array('char'=>$char, 'wordsIndex'=>$wordsIndex);
+				
+				$this->parent->renderPartial('core/percharSingleFileWords', $data) ;				
+				
+			} else {
+				//if not phrases dictionary is included, just output the characters
+				$data=array('char'=>$char);
+				$this->parent->renderPartial('core/percharSingleFile', $data) ;				
+			}
+// 			$translations=$this->loadTranslations($char);
+// 			$mnemos=$this->loadMnemonics($char);
+// 			$phrases=$this->loadPhrases($char, $i);
+
+		} //end of character loop
+	}
+	
 	public function annotate() {
 		$startTime=time();
 		
@@ -496,5 +556,67 @@ class AnnotatorEngine {
 		return strlen($char)<2;
 // 		return  strpos ( self::ignoredChars, $char ) !== FALSE;
 	}
+	
+// 	private function outputWordDictionary($parent, $dictID) {
+		
+// 	}
+	
+	/**
+	 * 
+	 * @param CController $parent	controller to render with
+	 * @param boolean $chars		TRUE if character dictionary is to be outputed, FALSE if the phrase dictionary
+	 * @param integer $dictID
+	 * @param integer $systemID
+	 */
+	public static function outputDictionary($parent, $chars, $dictID, $systemID=NULL) {
+		$dictionariesID=array($dictID);
+		$transcriptionFormatters=self::createFormatters($dictionariesID);
+		
+		$criteria=new CDbCriteria();
+		$criteria->compare('dictionaryId', $dictID);
+		
+		if($chars)
+			$allEntries=DictEntryChar::model()->findAll($criteria);
+		else
+			$allEntries=DictEntryPhrase::model()->findAll($criteria);
+
+		$mnemos=null;
+		
+		foreach ( $allEntries as $entry ) {
+			$entryText=$entry->traditional;
+			$translations=self::loadTranslationsFromDictionaries($entryText, $dictionariesID, self::CHARMOD_TRADITIONAL_ONLY);
+			
+			if (!is_null($systemID))
+				$mnemos=AnnotatorEngine::loadMnemonicsForSystem($entryText, System::model()->findByAttributes(array (
+						"id" => $systemID 
+				)));
+				
+				// $phrases=$this->loadPhrases($char, $i);
+			
+			if($chars) {
+				$data=array (
+						'char' => $entryText,
+						'translations' => $translations,
+						'mnemos' => $mnemos,
+						'transcriptionFormatters' => $transcriptionFormatters 
+				);
+				
+				$parent->renderPartial('core/charEntry', $data, false, true);
+			} else {
+				$data=array (
+						'phrase' => $entryText,
+						'translations' => $translations,
+						'mnemos' => $mnemos,
+						'transcriptionFormatters' => $transcriptionFormatters 
+				);
+				
+				$parent->renderPartial('core/phraseEntry', $data, false, true);
+				
+			}
+		}
+	}
+	
+	
+	
 	
 }
