@@ -19,13 +19,14 @@ class AnnotatorEngine {
 	public $parent;
 	public $input;
 	public $systemID;
-	public $dictionariesID;
+	private $dictionariesID;
+ 	public $dictID;
 	public $characterMode;
 	public $mode;
 	/** @var Boolean If FALSE, the characters will link directly to the characters dictionary. If TRUE, the links will go to to the corresponding entry in the words dictionary. */
 	public $wordsDictionary=true;
 	public $template="jsbased";
-	public $whitespaceToHTML=false; 
+	public $whitespaceToHTML=true; 
 	public $parallel;
 	public $audioURL;
 	
@@ -49,19 +50,28 @@ class AnnotatorEngine {
 	 * @throws CException
 	 */
 	public function annotate2() {
-		$dictID=$this->dictionariesID[0];
+		$dictID=$this->dictID;
 		
 		$startTime=time();
 		$this->prepare();
 		$this->outputHeader();
 		$this->go();
+		if($this->wordsDictionary)
+			$this->outputDictionary($this->parent, false, $dictID);
 		$this->outputDictionary($this->parent, true, $dictID);
 		$this->outputFooter();
 		
-		//TODO : HERE : do new preprocess input and go templates here
 		$totalTime=time()-$startTime;
 		echo "<!-- took $totalTime s -->";
 	}
+	
+	public function annotateChunk() {
+		$this->prepare();
+		ob_start();
+		$this->go();
+		return ob_get_clean();
+	}
+	
 	
 	private function go() {
 		//loop for every character
@@ -82,8 +92,13 @@ class AnnotatorEngine {
 			if($this->wordsDictionary) {
 				//dictionary search if the phrases dictionary is included
 				//@TODO HERE implement
-				$wordsIndex;
-				$data=array('char'=>$char, 'wordsIndex'=>$wordsIndex);
+				$phraseEntry = $this->loadLongestPhrase($char, $i);
+				if(is_null($phraseEntry))
+					$phrase=null;
+				else
+					$phrase=$phraseEntry->getTraditional();
+				
+				$data=array('char'=>$char, 'link'=>$phrase);
 				
 				$this->parent->renderPartial('core/percharSingleFileWords', $data) ;				
 				
@@ -92,11 +107,24 @@ class AnnotatorEngine {
 				$data=array('char'=>$char);
 				$this->parent->renderPartial('core/percharSingleFile', $data) ;				
 			}
-// 			$translations=$this->loadTranslations($char);
-// 			$mnemos=$this->loadMnemonics($char);
-// 			$phrases=$this->loadPhrases($char, $i);
-
 		} //end of character loop
+	}
+
+	public function finalOutputAnnotate() {
+		$startTime=time();
+		
+		$this->prepare();
+		$this->outputHeader();
+		$this->outputAudioPlayer();
+		$this->outputParallelBeforeChars();
+// 		$this->preprocessInput();
+// 		$this->goTemplates();
+		echo $this->input;
+		$this->outputParallelAfterChars();
+		$this->outputFooter();
+		
+		$totalTime=time()-$startTime;
+		echo "<!-- took $totalTime s -->";
 	}
 	
 	public function annotate() {
@@ -126,6 +154,7 @@ class AnnotatorEngine {
 		$this->encoding=Yii::app()->params['annotatorEncoding'];
 		$this->colors=UserSettings::getCurrentSettings()->annotatorColors;
 		$this->len=mb_strlen($this->input,$this->encoding);
+		$this->dictionariesID=array($this->dictID);
 		
 		if($this->len==0) {
 			//no input given - even though that should be checked already
@@ -140,7 +169,10 @@ class AnnotatorEngine {
 		
 	}
 	
-	private function handleOutputMode() {
+	/**
+	 * Sends the headers corresponding to the requested output mode.
+	 */
+	public function handleOutputMode() {
 		if($this->outputMode===AnnotatorMode::MODE_DOWNLOAD) {
 			header('Content-type: application/octet-stream');
 			header('Content-Disposition: attachment; filename="export.html"');
@@ -201,7 +233,13 @@ class AnnotatorEngine {
 		));
 	}
 	
-	private function preprocessInput() {
+	/**
+	 * Rewraps text using \n newlines.
+	 * Does not handle HTML encoding (for > < characters).
+	 * @param unknown $input
+	 * @param string $parallel
+	 */
+	public static function preprocessInput($input) {
 		//An attempt to guess correct places for paragraph endings based on whitespace
 		/**
 		For each line, two variables are determined:
@@ -218,15 +256,15 @@ class AnnotatorEngine {
 		
 		$output='';
 		
-		$lines=split("(\r\n)|\r|\n", $this->input);
+		$lines=split("(\r\n)|\r|\n", $input);
 // 		$lines=split("(\r\n){1,}", $this->input);
 		$count=count($lines);
 		$lastWrap=false;
 		
-		if(!empty($this->parallel))
+// 		if(!empty($parallel))
 			$wrapText="\n";
-		else
-			$wrapText='</div>'."\n".'<div class="x">';
+// 		else
+// 			$wrapText='</div>'."\n".'<div class="x">';
 		
 		for($i=0;$i<$count-1;$i++) {
 			
@@ -251,7 +289,8 @@ class AnnotatorEngine {
 			for(; $currentIndent<$len && ($l[$currentIndent]==' ' || $l[$currentIndent]=="\t"); $currentIndent++);
 			for(; $nextIndent<$nlen && ($n[$nextIndent]==' ' || $n[$nextIndent]=="\t"); $nextIndent++);
 			
-			$output.=CHtml::encode($l); //append line to output - and HTML encode as well (in case of < >)
+			$output.=$l; //append line to output
+// 			$output.=CHtml::encode($l); //append line to output - and HTML encode as well (in case of < >)
 			//implement rules as described in the comment above
 			if($len>30 && $len<200 && $nextIndent<=$currentIndent) {
 				//no newline
@@ -263,9 +302,9 @@ class AnnotatorEngine {
 		}
 		$output.=$lines[$count-1]; //last line
 		
-		//save the preprocessed input (this should perhaps be in a different variable)
-		$this->input=$output;
-		$this->len=mb_strlen($this->input,$this->encoding);
+		//return the preprocessed input 
+		return $output;
+// 		$this->len=mb_strlen($this->input,$this->encoding);
 // 		implode('</div><br><div class="x">', split("(\r\n){1,}", $this->input));
 	}
 	
@@ -442,6 +481,14 @@ class AnnotatorEngine {
 		return self::loadPhrasesFromDictionaries($char, $compounds, $this->dictionariesID, $this->characterMode);
 	}
 	
+	private function loadLongestPhrase($char, $offset) {
+		$phrases=self::loadPhrases($char, $offset);
+		if(!empty($phrases))
+			return $phrases[0];
+		else
+			return null;
+	}
+	
 	/**
 	 *
 	 * @param array $dictionariesID
@@ -574,46 +621,61 @@ class AnnotatorEngine {
 		
 		$criteria=new CDbCriteria();
 		$criteria->compare('dictionaryId', $dictID);
+		$dbStepSize=Yii::app()->params['dbStepSize'];
 		
-		if($chars)
-			$allEntries=DictEntryChar::model()->findAll($criteria);
-		else
-			$allEntries=DictEntryPhrase::model()->findAll($criteria);
-
-		$mnemos=null;
-		
-		foreach ( $allEntries as $entry ) {
-			$entryText=$entry->traditional;
-			$translations=self::loadTranslationsFromDictionaries($entryText, $dictionariesID, self::CHARMOD_TRADITIONAL_ONLY);
-			
-			if (!is_null($systemID))
-				$mnemos=AnnotatorEngine::loadMnemonicsForSystem($entryText, System::model()->findByAttributes(array (
-						"id" => $systemID 
-				)));
-				
-				// $phrases=$this->loadPhrases($char, $i);
-			
-			if($chars) {
-				$data=array (
-						'char' => $entryText,
-						'translations' => $translations,
-						'mnemos' => $mnemos,
-						'transcriptionFormatters' => $transcriptionFormatters 
-				);
-				
-				$parent->renderPartial('core/charEntry', $data, false, true);
-			} else {
-				$data=array (
-						'phrase' => $entryText,
-						'translations' => $translations,
-						'mnemos' => $mnemos,
-						'transcriptionFormatters' => $transcriptionFormatters 
-				);
-				
-				$parent->renderPartial('core/phraseEntry', $data, false, true);
-				
-			}
+		if($dbStepSize!=0) {
+			$criteria->offset=0;
+			$criteria->limit=$dbStepSize;
 		}
+
+		
+		do {
+			if($chars)
+				$allEntries=DictEntryChar::model()->findAll($criteria);
+			else
+				$allEntries=DictEntryPhrase::model()->findAll($criteria);
+
+			foreach ( $allEntries as $entry ) {
+				$entryText=$entry->traditional;
+				
+// 				if($chars)
+// 					$translations=self::loadTranslationsFromDictionaries($entryText, $dictionariesID, self::CHARMOD_TRADITIONAL_ONLY);
+// 				else
+// 					$translations=self::loadPhrasesFromDictionaries($entryText, $dictionariesID, self::CHARMOD_TRADITIONAL_ONLY);
+				
+				$mnemos=null;
+				
+				if (!is_null($systemID)) {
+					$systemData = System::model()->findByAttributes(array("id" => $systemID));
+					$mnemos=AnnotatorEngine::loadMnemonicsForSystem($entryText, $systemData);
+				}
+					
+				if($chars) {
+					$data=array (
+							'char' => $entryText,
+							'entry' => $entry,
+							'mnemos' => $mnemos,
+							'transcriptionFormatters' => $transcriptionFormatters 
+					);
+					
+					$parent->renderPartial('core/charEntry', $data, false, true);
+				} else {
+					$data=array (
+							'char' => $entryText,
+							'entry' => $entry,
+							'mnemos' => $mnemos,
+							'transcriptionFormatters' => $transcriptionFormatters 
+					);
+					
+					$parent->renderPartial('core/charEntry', $data, false, true);
+					
+				}
+			}
+			
+			if($dbStepSize==0) break;
+			
+			$criteria->offset+=$dbStepSize;
+		} while(!empty($allEntries));
 	}
 	
 	

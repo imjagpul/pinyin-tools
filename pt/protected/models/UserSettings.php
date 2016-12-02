@@ -21,6 +21,7 @@
  * @property integer $backgroundBoxTranscription
  * @property integer $lastSystemInAnnotator
  * @property integer $lastTemplateInAnnotator
+ * @property integer $lastDictionaryInAnnotator
  * @property integer $defaultSystem
  * @property Enum  $variant
  * @property integer $autosuggestCharform
@@ -148,27 +149,27 @@ class UserSettings extends CActiveRecord
 		return $colors; 		
 	}
 	
-	/**
-	 * Which dictionaries have been selected last time annotator was used.
-	 */
-	public function getLastAnnotatorDictionaries() {
-		$result=$this->lastAnnotatorDictionariesCache;
+// 	/**
+// 	 * Which dictionaries have been selected last time annotator was used.
+// 	 */
+// 	public function getLastAnnotatorDictionaries() {
+// 		$result=$this->lastAnnotatorDictionariesCache;
 		
-		if($result==NULL) { 
-			if(!empty($this->userId)) {
-				//pull it out of db (if an user is logged in)
-				$result=UserSettingsDictionaries::model()->findAllByAttributes(array('userId'=>$this->userId,
-						'annotator'=>1));
-				$result=CHtml::listData($result,'dictionaryId','dictionaryId');
-				$this->lastAnnotatorDictionariesCache=$result;
-			} else {
-				//return default value;
-				$result = array("1"); 
-			}
-		}
+// 		if($result==NULL) { 
+// 			if(!empty($this->userId)) {
+// 				//pull it out of db (if an user is logged in)
+// 				$result=UserSettingsDictionaries::model()->findAllByAttributes(array('userId'=>$this->userId,
+// 						'annotator'=>1));
+// 				$result=CHtml::listData($result,'dictionaryId','dictionaryId');
+// 				$this->lastAnnotatorDictionariesCache=$result;
+// 			} else {
+// 				//return default value;
+// 				$result = array("1"); 
+// 			}
+// 		}
 		
-		return $result;
-	}
+// 		return $result;
+// 	}
 	
 	/**
 	 * Which dictionaries have been selected last time annotator was used.

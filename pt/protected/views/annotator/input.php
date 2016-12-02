@@ -3,6 +3,9 @@
 /* @var $mode AnnotatorMode */
 /* @var $systemListOwn System[] */
 /* @var $systemList System[] */
+/* @var $systemLast */
+/* @var $allDicts */
+/* @var $selectedDict */
 
 $baseUrl=Yii::app()->baseUrl;
 $cs=Yii::app()->clientScript;
@@ -99,7 +102,9 @@ if(!is_null($mode->getDescription())) echo $mode->getDescription();
 </div>
 <div class="row">
 	<?php
-	echo CHtml::checkBoxList('selectedDictionaries', $selectedDicts, CHtml::listData($allDicts,'id','name'));
+	
+	echo CHtml::dropDownList('selectedDictionaries', $selectedDict, CHtml::listData($allDicts,'id','name'), array('prompt'=>'(no dictionary)'));
+// 	echo CHtml::checkBoxList('selectedDictionaries', $selectedDicts, CHtml::listData($allDicts,'id','name'));
 	?> 
 </div>
 </div>

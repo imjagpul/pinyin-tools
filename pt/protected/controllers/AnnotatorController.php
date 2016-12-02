@@ -4,16 +4,16 @@ class AnnotatorController extends Controller
 {
 	//@TODO move this template list to a config or autodetect
 	//@TODO convert to a constant
-	private $templatesList=array(
-			0 => 'jsbased', 
-			1 => 'kindle',
-			2 => 'dynamic'
-			);
-	private $templatesListLabels=array(
-			0 => 'Default',
-			1 => 'Optimized for Kindle',
-			2 => 'Dynamic'
-			);
+// 	private $templatesList=array(
+// 			0 => 'jsbased', 
+// 			1 => 'kindle',
+// 			2 => 'dynamic'
+// 			);
+// 	private $templatesListLabels=array(
+// 			0 => 'Default',
+// 			1 => 'Optimized for Kindle',
+// 			2 => 'Dynamic'
+// 			);
 	 
 	/**
 	 * This method runs the annotator with hardcoded settings.
@@ -87,7 +87,8 @@ class AnnotatorController extends Controller
 		$systemListOwn=System::getWriteableSystems();
 		
 		$allDicts=Dictionary::model()->findAll();
-		$defaultSelectedDicts=UserSettings::getCurrentSettings()->lastAnnotatorDictionaries;
+// 		$defaultSelectedDicts=UserSettings::getCurrentSettings()->lastAnnotatorDictionaries;
+		$defaultSelectedDict=UserSettings::getCurrentSettings()->lastDictionaryInAnnotator;
 		$systemLast=UserSettings::getCurrentSettings()->lastSystemInAnnotator;
 		$lastTemplate=UserSettings::getCurrentSettings()->lastTemplateInAnnotator;
 
@@ -97,12 +98,140 @@ class AnnotatorController extends Controller
 				'systemLast'=>$systemLast,
 				'mode'=>$mode,
 				'allDicts'=>$allDicts,
-				'selectedDicts'=>$defaultSelectedDicts,
-				'templatesList'=>$this->templatesListLabels,
+				'selectedDict'=>$defaultSelectedDict,
+// 				'templatesList'=>$this->templatesListLabels,
 				));
 	}
 	
+	/**
+	 * Displays the pages that is displayed to the user when a process is being requested.
+	 * 
+	 * The view will send repeated keep-alive AJAX queries.
+	 * 
+	 * @param Integer $id
+	 * 			ID of the Longtask
+	 */
+	public function actionProcess($id) {
+		$this->render('process', array(
+				'id'=>$id
+		));
+	}
+	
+	/**
+	 * Shows or downloads the results of a Longtask.
+	 * 
+	 * @param Integer $id
+	 * 			ID of the Longtask
+	 */
+	public function actionGetTask($id) {
+		$task = Longtask::model()->findByAttributes(array('id'=>$id));
+		$annotatorEngine=$task->createFinalAnnotatorEngine($this);
+		$annotatorEngine->handleOutputMode();
+		
+		$annotatorEngine->finalOutputAnnotate();
+	}
+
+	/**
+	 * This is called from by AJAX from the client repeatedly, until the job is finished.
+	 * 
+	 * It starts or continues to process the task repeatedly
+	 * @param Integer $id
+	 * 				the Longtask id
+	 */
+	public function actionProcessBackground($id) {
+		//@TODO : this could be extended by returning a "wait" command if there are too much other processes running
+		//we do not have to be able to handle limited execution time after all
+		/*
+		$maxtime=30;
+		if(!empty(ini_get('max_execution_time'))) { //@TODO move magic numbers to configuration
+			$maxtime=min(30, ini_get('max_execution_time')-10);
+		} 
+		$finish=$_SERVER['REQUEST_TIME']+$maxtime;
+		
+		$done=false;
+
+		while(time()<$finish && !$done) {
+			//HERE implement
+		}
+*/
+
+		$longtask=Longtask::model()->findByAttributes(array('id'=>$id));
+		list($annotatorEngine, $chunk)=$longtask->createNextAnnotatorEngine($this);
+		
+		$chunk->result=$annotatorEngine->annotateChunk();
+		$success=$chunk->update();
+		
+		if(!$success)
+			$status='error';
+		else if($longtask->last_chunk === $longtask->max_chunk)
+			$status='ok';
+		else {
+			$status='continue';
+			
+			$longtask->last_chunk++;
+			$longtask->update();
+		}
+		
+		header('Content-Type: application/json; charset="UTF-8"');
+		echo CJSON::encode(array('status'=>$status));
+	}
+	
 	public function actionGo()
+	{
+		
+		if(!isset($_POST['input']) || empty($_POST['input'])) {
+			$this->redirect(array('index'));
+		}
+		
+		
+		$annotationTask = new Longtask();
+// 		$annotationTask->input=$_POST['input'];
+		
+		$annotationTask->system_id=!empty($_POST['system']) ? ((int)$_POST['system']) : NULL;
+		$annotationTask->dict_id=isset($_POST['selectedDictionaries']) ? ($_POST['selectedDictionaries']) : NULL;
+
+		$annotationTask->mode==isset($_POST['template']) ? ((int)$_POST['template']) : NULL;
+
+		//see which action the user has chosen
+		if(array_key_exists('submit-download', $_POST)) {
+			$annotationTask->outputMode=AnnotatorMode::MODE_DOWNLOAD;
+		}  else {
+			$annotationTask->outputMode=AnnotatorMode::MODE_SHOW;
+		}
+		
+		$success=$annotationTask->insert();	
+		
+		if($success!==TRUE)
+			$this->redirect(array('index')); //@TODO implement an error message
+
+		//preprocess the input during this request
+		//@TODO: but why here? and what does it not destroy parallel?
+		$input=AnnotatorEngine::preprocessInput($_POST['input']);
+
+		//now we need to split the input into chunks and save into the DB
+		$encoding = Yii::app()->params['annotatorEncoding'];
+		$chunksize=Yii::app()->params ['annotatorChunkInputSize'];
+		$len=mb_strlen($input, $encoding);
+		
+		$lastId=0;
+		for($i=0; $i < $len; $i+=$chunksize) {
+			$chunk = new LongtaskChunk();
+			$chunk->longtask_id=$annotationTask->id;
+			$chunk->id=$lastId++;
+			$chunk->input=mb_substr($input, $i, $chunksize, $encoding);
+
+			$chunk->insert();
+		}
+		
+		$annotationTask->max_chunk=$lastId-1; //-1 because it got increased once too often (could remove it and rename to chunkCount)
+		$annotationTask->update();
+		
+		$this->redirect(array('process', 'id'=>$annotationTask->id));
+			
+	}
+	
+	//@TODO delete
+	public function goInit()
 	{
 		//@TODO check the right to read from the given system (obviously after the reading permissions have been implemented)
 		
@@ -121,7 +250,7 @@ class AnnotatorController extends Controller
 		$annotatorEngine->parallel=isset($_POST['parallel']) ? $_POST['parallel'] : NULL;
 		$annotatorEngine->audioURL=isset($_POST['audioURL']) ? $_POST['audioURL'] : NULL; //@TODO add URL validator
 		$annotatorEngine->outputType=isset($_POST['type']) ? $_POST['type'] : NULL;
-		$annotatorEngine->whitespaceToHTML=true;
+
 		//@TODO set from settings (after deciding if and how the convereting should be done)
 // 		$annotatorEngine->characterMode=UserSettings::getCurrentSettings()->variant;
 		$annotatorEngine->characterMode=AnnotatorEngine::CHARMOD_SIMPLIFIED_ONLY;
@@ -144,7 +273,7 @@ class AnnotatorController extends Controller
 		UserSettings::getCurrentSettings()->lastTemplateInAnnotator=$templateId;
 		UserSettings::getCurrentSettings()->saveSettings();
 		
-		ini_set('max_execution_time', 60000); //@TODO not sure if this is the best way
+// 		ini_set('max_execution_time', 60000); //@TODO not sure if this is the best way
 // 		$annotatorEngine->annotate();
 		$annotatorEngine->annotate2();
 	}	
@@ -184,12 +313,12 @@ class AnnotatorController extends Controller
 		echo json_encode(array($result, $phrasesResult));
 	}
 	
-	public function actionOutputCharDictionary() {
-		ini_set('max_execution_time', 60000); //@TODO not sure if this is the best way
+	public function actionOutputDictionary() {
+// 		ini_set('max_execution_time', 60000); //@TODO not sure if this is the best way
 		
 		$dictID=1;
-		$systemID=1; 
-		AnnotatorEngine::outputCharDictionary($this, $dictID, $systemID);
+		$systemID=null; 
+		AnnotatorEngine::outputDictionary($this, false, $dictID, $systemID);
 	}
 	
 	//these two methods perhaps belong in the view

@@ -183,6 +183,8 @@ return array(
 		'staticAnnotatorCompositionLengthLimit'=> 20, //20 is the maximal meaningful value. Lower this value if the annotator is too slow.
 		'dynamicAnnotatorCompositionLengthLimit'=> 4, //20 is the maximal meaningful value. Lower this value if the annotator is too slow.
 		'maxCompositions'=> 20, //used in CharController - querySingleComposition
-		'maxTemplateParts'=> 10 //used in AnnotatorController
+		'maxTemplateParts'=> 10, //used in AnnotatorController
+		'dbStepSize'=> 1000, //used in AnnotatorEngine when generating dictionaries
+		'annotatorChunkInputSize'=> 100, //used in AnnotatorEngine when spliting input into chunks
 	),
 );

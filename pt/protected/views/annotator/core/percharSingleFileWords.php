@@ -1,1 +1,1 @@
-<a href="#<?php echo $wordsIndex; ?>"><?php echo $char; ?></a>
+<a href="#<?php echo $link; ?>"><?php echo $char; ?></a>
