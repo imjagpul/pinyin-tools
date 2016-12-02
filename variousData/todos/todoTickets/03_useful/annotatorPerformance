@@ -1,4 +1,5 @@
 Wishes:
+
 Generate by a worker in background, shorter text anonymously
 Allow files of almost arbitrary size - implement an upload, perhaps convert long (or all?) texts to files
 
@@ -6,22 +7,62 @@ The customizations (e.g. CangJie, Traditional / SImplifiend variant) can be done
 
 Separate the words dictionary form the chars.
 The dictionary (-ies), can be cached in one HTML file, with a place to insert the mnemonics.
+--------------------------------------------
+Dictionary variants:
+A) JS data - have a big JS script
+B) full html - to be integrated into an EPUB and linked
+C) tailored html - to be integrated into an EPUB and linked (cannot be cached; in theory could be tailored on client and save using saveAs library)
+D) no / request - no data on client, every search generates a query
 
-Output variants:
-1A epub (word dictionary, character dictionary in separate HTML files, inside one EPUB)
-1B portable (a single HTML - the dictionaries have to be merged in)
-2A js full preloaded (HTML output - js tooltips (can be loaded from the other file - client side))
-2B js preloaded (HTML output - js tooltips, JS annotation client side, dictionary search client side
-2C js online  (HTML output - js tooltips, JS annotation client side, (dictionary search and results server side))
+Outcomes (replaces above list) (Dictionary variant in brackets):
+1A ePub (BC)
+1B HTML - offline - no JS (BC)
+2A HTML - offline - JS    (A)
+2B HTML - online  - JS    (D)
 
+How to get them: (modes)
+server-side generation - serve complete file (1A,1B,2A,2B) - highest server-impact, highest user-friendliness; relies on circumventing max-exec server-side
+client-supported generation - result is generated completely on server, but the client keeps sending AJAX request to prevet script timeout serverside (or user has to keep clicking when he has disabled JS :-) / Location with pause would work as well )
+client-side generation - serve dictionary and JS, produce result on client (1A,1B) - this would work only for some clients, but causes the smallest server impact
 
+Which modes to implement?
+*1BB
+ $) job-splitting
+    After upload, add job to DB
+    and start continuous processing (need to save progress at the end of each job, and somehow notify user when it is finished)
+ $) merge the results into a file
+ *) implmement dictionary generation <<HERE
+ **) need to be able to create pregenerated dictionaries on the server side, save them to file or DB
+      Should we use the Yii caching or code or own?
+      Yii caching off course, but hopefully the generated dictionaries can be transfered via FTP (though it does not really matter, it's just a few minutes of work)
+      (or, use yii caching, for the filled dicts, as they have to be regenerated often; but rely on ftp for the base translations)
+ **) make them link from the results 
+ 
+ *) implement pregenerated dictionary support
+ *) implement tailored dictionary support (will need another column in the results)
+ *) implement the rest of output variants
+ *) run a profiler to see why it takes so long	
+  
+*) client supported
+ *) job-splitting
+    After upload, add job to DB
+    and ping pong with user on parts (progress also has to be saved)
+*) client side can be done later 
+    (use client side Workers to do all the work)
+*) implement all other modes
 ***
+
+
+Steps needed:
+Generate (or load from cache) dictionary variant
+
 What to cache the dictionary results by?
 >) HTML merged
- **) make git work again and backup old code
+ $$) make git work again and backup old code
+ $$) implement dictionary searches (to be able to use phrase dictionary)
+ **) make dictionary results link to the char dictionary
  **) remove obsolete code
  **) redo the interface (phrase dictionary Y/N)
- **) implement dictionary searches (to be able to use phrase dictionary)
  **) update CSS to hide traditional / simplified (if undesired according to user settings)
  **) merge preprocess into the annotating (in order to require only one pass but still have smart wrap)
  **) cache the dictionaries
