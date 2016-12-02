@@ -28,7 +28,17 @@
 </div>
 
 <h2>Info</h2>
-<p>~/Data/javaprojekty/PinyinToolsDb/yi/pt/protected/data/dictionaries</p>
+
 <p>Max file size: <?php echo Yii::app()->params->maxDictUploadFileSize; ?>
+
+<p>Encoding: 
+<?php 
+/* Set internal character encoding to UTF-8 */
+// mb_internal_encoding("UTF-8");
+
+/* Display current internal character encoding */
+echo mb_internal_encoding();
+?></p>
+
 <p>You are uploading into this dictionary: </p>
 <?php $this->renderPartial('_view', array('data'=>$model)); ?>

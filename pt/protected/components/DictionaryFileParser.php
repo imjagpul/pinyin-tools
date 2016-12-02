@@ -39,11 +39,13 @@ class DictionaryFileParser
 					continue;
 		
 				$currentValue=array();
-// 				$regex="%^\s*(\S+)\s+(\S+)\s+\[([^\]]+)\]\s*/?(.*?)/?$%";
-// 				$regex="%^\s*(\S+)\s+(\S+)\s+\[([^\]]+)\]\s*/?(.*?)/?$%";
-				$regex="%^\s*(\S++)\s++(\S++)\s++\[([^\]]++)\]\s*+/?+(.*?)/?+$%";
-				$res=preg_match($regex, $line, $currentValue);
-				if($res===0) { //failed to match
+
+				$regex="^\s*(\S++)\s++(\S++)\s++\[([^\]]++)\]\s*+/?+(.*?)/?+$";
+
+				//we need to use mb_eregi (otherwise false whitespace in the middle of a multibyte char would be matched)
+				$res=mb_eregi($regex, $line, $currentValue);
+
+				if($res===FALSE) { //check if failed to match
 					$badLines[]=$line;
 					continue;
 				}

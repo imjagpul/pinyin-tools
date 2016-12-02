@@ -183,6 +183,8 @@ class DictionaryController extends Controller
 	public function actionImport()
 	{
 		
+		ini_set('max_execution_time', 1200);
+		
 		if(isset($_GET['id'])) {
 			$id=$_GET['id'];
 			settype($id, "integer");
@@ -215,7 +217,6 @@ class DictionaryController extends Controller
 			$dictModel=$this->loadModel($id);
 			$dictModel->truncate();
 			$msg='Imported successfully. ';
-			ini_set('max_execution_time', 1200);
 			
 			//have it parsed
 			$uploadedFile=new UploadedFile('upfile', "#");
@@ -233,6 +234,8 @@ class DictionaryController extends Controller
 			//update timestamp of the dictionary
 			$dictModel->lastchange=time();
 			$dictModel->save();
+			
+			$msg.="Took ". (microtime(true)-YII_BEGIN_TIME)."s";
 			
 			$this->render('import',array(
 					'model'=>$dictModel,
