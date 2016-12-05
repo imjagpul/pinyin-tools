@@ -28,14 +28,20 @@ class UploadedFile {
 		return $this->contents[$this->lineIndex];
 	}
 	
-	function serialize() { //NOTE line index is currently not serialized!
-		return $this->contents;
+	function peekline($stepSize=1) {
+		$desiredIndex=$this->lineIndex+$stepSize;
+		if(count($this->contents)<=$desiredIndex || $desiredIndex<0) return FALSE;
+		return $this->contents[$desiredIndex];
 	}
 	
-	function deserialize($contents) {
-		$this->contents=$contents;
-		$this->rewindFile();
-	}
+// 	function serialize() { //NOTE line index is currently not serialized!
+// 		return $this->contents;
+// 	}
+	
+// 	function deserialize($contents) {
+// 		$this->contents=$contents;
+// 		$this->rewindFile();
+// 	}
 	
 	/*
 	function readline() {

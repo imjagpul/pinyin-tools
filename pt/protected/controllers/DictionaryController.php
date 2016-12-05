@@ -177,13 +177,62 @@ class DictionaryController extends Controller
 	}
 
 	/**
+	 * Generates a file that is to be used in annotator.
+	 */
+	public function actionGenerateFiles()
+	{
+		$datadir=Yii::getPathOfAlias('application.data.generatedDicts');
+		
+		//TODO implement output to file with fopens
+		
+		if(isset($_GET['id'])) {
+			$id=$_GET['id'];
+			settype($id, "integer");
+				
+			$dictModel=$this->loadModel($id);
+		
+			$this->render('generate',array(
+					'model'=>$dictModel,
+			));
+		} else if(isset($_POST['id'])) {
+			$id=$_POST['id'];
+			settype($id, "integer");
+
+			$systemID=NULL;
+			if(isset($_POST['systemID']) && !is_integer($_POST['systemID'])) {
+				$systemID=$_POST['systemID'];
+				settype($systemID, "integer");
+			}
+				
+			DictionaryCacheWorker::cacheDictionary(true, $id, $systemID);
+			DictionaryCacheWorker::cacheDictionary(false, $id, $systemID);
+
+			$msg='Files generated. ';
+			
+			//measure time it took
+			$msg.="Took ". (microtime(true)-YII_BEGIN_TIME)."s";
+				
+			$this->render('generate',array(
+					'model'=>$dictModel,
+					'msg'=>$msg
+			));
+		
+		} else {
+			//no ID specified
+			//@TODO redirect to index
+			throw new CHttpException(400,'Your request is invalid.');
+		}
+		
+		
+	}
+	
+	/**
 	 * Imports data to the given dictionary.
 	 * Note this always erases to present data. 
 	 */
 	public function actionImport()
 	{
-		
-		ini_set('max_execution_time', 1200);
+		ini_set('max_execution_time', 3600);
 		
 		if(isset($_GET['id'])) {
 			$id=$_GET['id'];
@@ -209,18 +258,27 @@ class DictionaryController extends Controller
 				throw new CHttpException(400,'File upload error. (errcode='.$_FILES['upfile']['error'].')');
 			}
 			
-			
-			//get the contents of the file
-// 			$content=file_get_contents($tmpfile);
-			
 			//save to db
 			$dictModel=$this->loadModel($id);
+
+			//remove existing entries
 			$dictModel->truncate();
-			$msg='Imported successfully. ';
+			$msg="Trucated db after ". (microtime(true)-YII_BEGIN_TIME)." seconds.";
 			
 			//have it parsed
 			$uploadedFile=new UploadedFile('upfile', "#");
-			$r=DictionaryFileParser::parseAndAdd($uploadedFile, $dictModel);
+			//parseAndAdd is an alternate method - does not create temporary SQL files but is slower
+// 			$r=DictionaryFileParser::parseAndAdd($uploadedFile, $dictModel);
+			$r=DictionaryFileParser::prepareSQL($uploadedFile, $dictModel);			
+			$msg.="Prepared SQL files after ". (microtime(true)-YII_BEGIN_TIME)." seconds.";
+			$r2=DictionaryFileParser::executeSQL($dictModel);
+			
+			if($r2>0)
+				$msg.="Imported successfully after ". (microtime(true)-YII_BEGIN_TIME)." seconds ($r2 rows affected).";
+			else
+				$msg.='SQL execution failed. ';
+			
+			//report any irregularities in the input
 			if($r!==false) {
 				$c=count($r);
 				$msg.="$c invalid lines were skipped.";
@@ -230,12 +288,17 @@ class DictionaryController extends Controller
 			}
 			$tmpfile=$_FILES['upfile']['tmp_name'];
 			unlink($tmpfile); //delete the temporary file
+			//@TODO delete the generated SQL files after import
 			
 			//update timestamp of the dictionary
-			$dictModel->lastchange=time();
+			$dictModel->lastchange=date('Y-m-d H:i:s');
 			$dictModel->save();
 			
-			$msg.="Took ". (microtime(true)-YII_BEGIN_TIME)."s";
+			//prune cache
+			DictionaryCacheWorker::nullifyCacheDictionary($dictModel->id);
+					
+			//measure time it took
+			$msg.="In total it took ". (microtime(true)-YII_BEGIN_TIME)."s";
 			
 			$this->render('import',array(
 					'model'=>$dictModel,
