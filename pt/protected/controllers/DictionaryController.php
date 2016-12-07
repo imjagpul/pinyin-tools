@@ -181,9 +181,10 @@ class DictionaryController extends Controller
 	 */
 	public function actionGenerateFiles()
 	{
-		$datadir=Yii::getPathOfAlias('application.data.generatedDicts');
+		session_write_close();
+		ini_set('max_execution_time', 3600);
 		
-		//TODO implement output to file with fopens
+		$datadir=Yii::getPathOfAlias('application.data.generatedDicts');
 		
 		if(isset($_GET['id'])) {
 			$id=$_GET['id'];
@@ -193,28 +194,35 @@ class DictionaryController extends Controller
 		
 			$this->render('generate',array(
 					'model'=>$dictModel,
+					'systemID'=>NULL,
 			));
 		} else if(isset($_POST['id'])) {
 			$id=$_POST['id'];
 			settype($id, "integer");
 
+			$dictModel=$this->loadModel($id);
+			
+			//mnemonics system (if any)
 			$systemID=NULL;
-			if(isset($_POST['systemID']) && !is_integer($_POST['systemID'])) {
+			if(isset($_POST['systemID']) && is_numeric($_POST['systemID'])) {
 				$systemID=$_POST['systemID'];
 				settype($systemID, "integer");
 			}
-				
-			DictionaryCacheWorker::cacheDictionary(true, $id, $systemID);
-			DictionaryCacheWorker::cacheDictionary(false, $id, $systemID);
-
-			$msg='Files generated. ';
+			
+			$msg='';
+			//generate the cache files
+			$r=DictionaryCacheWorker::ensureCacheDictionary(true, $id, $systemID);
+			$msg.=$r ? 'Chars cache regenerated. ' : 'Skipped chars cache generation.';
+			$r=DictionaryCacheWorker::ensureCacheDictionary(false, $id, $systemID);
+			$msg.=$r ? 'Phrases cache regenerated. ' : 'Skipped phrases cache generation.';
 			
 			//measure time it took
 			$msg.="Took ". (microtime(true)-YII_BEGIN_TIME)."s";
 				
 			$this->render('generate',array(
 					'model'=>$dictModel,
-					'msg'=>$msg
+					'msg'=>$msg,
+					'systemID'=>$systemID,
 			));
 		
 		} else {
@@ -311,7 +319,6 @@ class DictionaryController extends Controller
 			throw new CHttpException(400,'Your request is invalid.');
 		}
 	}
-	
 	
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

@@ -115,12 +115,18 @@ class Longtask extends CActiveRecord
 	}
 	
 
+	/**
+	 * 
+	 * @param CController $parent
+	 * @return AnnotatorEngine
+	 */
 	public function createFinalAnnotatorEngine($parent) {
 
 		$annotatorEngine=new AnnotatorEngine();
 		$annotatorEngine->parent=$parent;
 		$annotatorEngine->systemID=$this->system_id;
 		$annotatorEngine->dictID=$this->dict_id;
+		$annotatorEngine->template=AnnotatorController::$templatesList[$this->mode]; //@TODO needs refactoring
 		$annotatorEngine->outputMode=$this->outputMode;
 		$annotatorEngine->input='';
 		

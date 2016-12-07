@@ -157,11 +157,11 @@ return array(
 				'class'=>'CPhpAuthManager',
 		),
 		
-		'cache'=>array(
-				'class'=>'system.caching.CFileCache',
-				//'cachePath'=>'/tmp/',
-				'cachePath'=>'D:/tmp/',
-		),
+// 		'cache'=>array(
+// 				'class'=>'system.caching.CFileCache',
+// 				//'cachePath'=>'/tmp/',
+// 				'cachePath'=>'D:/tmp/',
+// 		),
 		
 // 		'authManager'=>array(
 // 				'class'=>'CDbAuthManager',
@@ -185,6 +185,7 @@ return array(
 		'maxCompositions'=> 20, //used in CharController - querySingleComposition
 		'maxTemplateParts'=> 10, //used in AnnotatorController
 		'dbStepSize'=> 1000, //used in AnnotatorEngine when generating dictionaries
-		'annotatorChunkInputSize'=> 100, //used in AnnotatorEngine when spliting input into chunks
+		'annotatorChunkInputSizeMin'=> 30, //used in AnnotatorEngine when spliting input into chunks
+		'annotatorChunkInputSizeMax'=> 55, //used in AnnotatorEngine when spliting input into chunks
 	),
 );

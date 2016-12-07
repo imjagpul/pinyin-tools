@@ -4,11 +4,11 @@ class AnnotatorController extends Controller
 {
 	//@TODO move this template list to a config or autodetect
 	//@TODO convert to a constant
-// 	private $templatesList=array(
-// 			0 => 'jsbased', 
-// 			1 => 'kindle',
-// 			2 => 'dynamic'
-// 			);
+	public static $templatesList=array(
+			0 => 'jsbased', 
+			1 => 'kindle',
+			2 => 'dynamic'
+			);
 // 	private $templatesListLabels=array(
 // 			0 => 'Default',
 // 			1 => 'Optimized for Kindle',
@@ -154,8 +154,24 @@ class AnnotatorController extends Controller
 			//HERE implement
 		}
 */
-
 		$longtask=Longtask::model()->findByAttributes(array('id'=>$id));
+
+		//first make sure the dictionaries exist
+		$worked=DictionaryCacheWorker::ensureCacheDictionary(false, $longtask->dict_id, $longtask->system_id);
+		if($worked) {
+			//if the charactes dictionary was generated, not further work will be done in this call
+			echo CJSON::encode(array('status'=>'continueWordsDict'));
+			return;
+		}
+		
+		$worked=DictionaryCacheWorker::ensureCacheDictionary(true, $longtask->dict_id, $longtask->system_id);
+		if($worked) {
+			//if the phrases dictionary was generated, not further work will be done in this call
+			echo CJSON::encode(array('status'=>'continuePhrasesDict'));
+			return;
+		}
+		
+		//create an AnnotatorEngine and annotate next chunk
 		list($annotatorEngine, $chunk)=$longtask->createNextAnnotatorEngine($this);
 		
 		$chunk->result=$annotatorEngine->annotateChunk();
@@ -210,20 +226,36 @@ class AnnotatorController extends Controller
 
 		//now we need to split the input into chunks and save into the DB
 		$encoding = Yii::app()->params['annotatorEncoding'];
-		$chunksize=Yii::app()->params ['annotatorChunkInputSize'];
+		$chunksizeMin=Yii::app()->params ['annotatorChunkInputSizeMin'];
+		$chunksizeMax=Yii::app()->params ['annotatorChunkInputSizeMax'];
 		$len=mb_strlen($input, $encoding);
 		
 		$lastId=0;
-		for($i=0; $i < $len; $i+=$chunksize) {
+		for($i=0; $i < $len; $i+=$chunksizeMax) {
 			$chunk = new LongtaskChunk();
 			$chunk->longtask_id=$annotationTask->id;
 			$chunk->id=$lastId++;
-			$chunk->input=mb_substr($input, $i, $chunksize, $encoding);
-
+			
+			//split at an "ignored char"
+			$nextChunkText = mb_substr($input, $i, $chunksizeMax, $encoding);
+			for($j=$chunksizeMax;$j>$chunksizeMin;$j--) {
+				if(AnnotatorEngine::isIgnoredChar(mb_substr($nextChunkText, $j, 1, $encoding))) {
+					//we have found a good splitting point
+					$nextChunkText=mb_substr($input, $i, $j, $encoding);
+					
+					//also need to adjust the starting point for next chunk
+					$i+=$j;
+					$i-=$chunksizeMax;
+					break;
+				}
+			}
+			//if no "ignored char" is within the limits, just keep the maximum size chunk
+				
+			$chunk->input=$nextChunkText;
 			$chunk->insert();
 		}
 		
-		$annotationTask->max_chunk=$lastId-1; //-1 because it got increased once too often (could remove it and rename to chunkCount)
+		$annotationTask->max_chunk=$lastId-1; //-1 because it got increased once too often (one could remove this command and rename the column to chunkCount)
 		$annotationTask->update();
 		
 		$this->redirect(array('process', 'id'=>$annotationTask->id));
@@ -334,7 +366,7 @@ class AnnotatorController extends Controller
 	 *
 	 * @param Composition[] $composition
 	  */
-	  public function outputKeywords($composition) {
+	  public static function outputKeywords($composition) {
 	  	
 	  	if(count ( $composition )==0)
 	  		return "";

@@ -2,6 +2,7 @@
 class AnnotatorEngine {
 	const ignoredCharsJs=" \\\"</>,.;'!。，《》…：“”？！　0"; //withonut newlines and with escaped quote
 	const ignoredChars=" \n\t\r\"</>,.;'!。，《》…：“”？！　0"; // @TODO complement special asian characters
+	const ignoredCharsMultibyte="。，《》…：“”？！　"; // ignored chars that are multibyte
 
 	const CHARMOD_SIMPLIFIED_ONLY=1;
 	const CHARMOD_TRADITIONAL_ONLY=2;
@@ -72,6 +73,16 @@ class AnnotatorEngine {
 		return ob_get_clean();
 	}
 	
+	/**
+	 * Converts an dictionary entry text to an anchor name.
+	 * @param String $text
+	 * 			the text of the entry to be linked
+	 * @return String
+	 * 			what name should be used in the href/name of the "a" HTML tag
+	 */
+	public static function textToLink($text) {
+		return $text;
+	}
 	
 	private function go() {
 		//loop for every character
@@ -89,29 +100,37 @@ class AnnotatorEngine {
 				continue;
 			}
 		
+			$charData = self::loadDictChar($char, $this->characterMode);
+			if($charData==null) { //if not in the dictionary, treat as ignored
+				//@TODO this is not optimal, it would not output mnemonics on rare characters (esp. when using smaller dictionaries)
+				echo $char;
+				continue;
+			}
+			
 			if($this->wordsDictionary) {
+				//@TODO this is the place where the simplified <-> traditional conversion can be implemented (just replace $char with the desired variant from the dictionary)
+				
 				//dictionary search if the phrases dictionary is included
-				//@TODO HERE implement
 				$phraseEntry = $this->loadLongestPhrase($char, $i);
+				
 				if(is_null($phraseEntry))
-					$phrase=null;
+					$phrase=$charData->traditional; //if no phrase found, just link to the characters dictionary (but we always need the traditional variant for the link)
 				else
 					$phrase=$phraseEntry->getTraditional();
 				
-				$data=array('char'=>$char, 'link'=>$phrase);
+				$data=array('char'=>$char, 'link'=>self::textToLink($phrase));
 				
 				$this->parent->renderPartial('core/percharSingleFileWords', $data) ;				
 				
 			} else {
 				//if not phrases dictionary is included, just output the characters
-				$data=array('char'=>$char);
+				$data=array('char'=>$char, 'link'=>self::textToLink($charData->traditional));
 				$this->parent->renderPartial('core/percharSingleFile', $data) ;				
 			}
 		} //end of character loop
 	}
 
 	public function finalOutputAnnotate() {
-		$startTime=time();
 		
 		$this->prepare();
 		$this->outputHeader();
@@ -121,10 +140,14 @@ class AnnotatorEngine {
 // 		$this->goTemplates();
 		echo $this->input;
 		$this->outputParallelAfterChars();
+		
+		//now output the dictionaries
+		DictionaryCacheWorker::outputDictionary(true, $this->dictID, $this->systemID);
+		DictionaryCacheWorker::outputDictionary(false, $this->dictID, $this->systemID);
+		
 		$this->outputFooter();
 		
-		$totalTime=time()-$startTime;
-		echo "<!-- took $totalTime s -->";
+// 		echo "<!-- took ". (microtime(true)-YII_BEGIN_TIME)." s -->";
 	}
 	
 	public function annotate() {
@@ -481,6 +504,17 @@ class AnnotatorEngine {
 		return self::loadPhrasesFromDictionaries($char, $compounds, $this->dictionariesID, $this->characterMode);
 	}
 	
+	private static function loadDictChar($char, $characterMode) {
+		$criteria=new CDbCriteria();
+		
+		if($characterMode!=self::CHARMOD_SIMPLIFIED_ONLY) //in all other modes have to search both
+			$criteria->compare('traditional', $char, false, 'OR');
+		if($characterMode!=self::CHARMOD_TRADITIONAL_ONLY)
+			$criteria->compare('simplified', $char, false, 'OR');
+		
+		return DictEntryChar::model()->find($criteria);
+	}
+	
 	private function loadLongestPhrase($char, $offset) {
 		$phrases=self::loadPhrases($char, $offset);
 		if(!empty($phrases))
@@ -489,6 +523,17 @@ class AnnotatorEngine {
 			return null;
 	}
 	
+	/**
+	 *
+	 * @param integer $dictID
+	 * @return Formatter
+	 */
+	public static function createFormatter($dictID) {
+		$result=array();
+		$dict=Dictionary::model()->findByAttributes(array('id'=>$dictID));
+		
+		return FormattersFactory::getFormatterForDictionaryWidget($dict->transcriptionName, PINYIN_FORMAT_MARKS);
+	}
 	/**
 	 *
 	 * @param array $dictionariesID
@@ -597,86 +642,16 @@ class AnnotatorEngine {
 	 * @param String $char        	
 	 * @return boolean
 	 */
-	private function isIgnoredChar($char) {
+	public static function isIgnoredChar($char) {
 		// (maybe should be replaced by testing unicode ranges for hanzi - to ignore alphanumeric chars
 		//this is a dirty hack - unicode characters outside ascii range (like hanzi) - have more bytes in length (contrast with mb_strlen)
-		return strlen($char)<2;
+		return strlen($char)<2 || (strpos ( self::ignoredCharsMultibyte, $char ) !== FALSE);
 // 		return  strpos ( self::ignoredChars, $char ) !== FALSE;
 	}
 	
 // 	private function outputWordDictionary($parent, $dictID) {
 		
 // 	}
-	
-	/**
-	 * 
-	 * @param CController $parent	controller to render with
-	 * @param boolean $chars		TRUE if character dictionary is to be outputed, FALSE if the phrase dictionary
-	 * @param integer $dictID
-	 * @param integer $systemID
-	 */
-	public static function outputDictionary($parent, $chars, $dictID, $systemID=NULL) {
-		$dictionariesID=array($dictID);
-		$transcriptionFormatters=self::createFormatters($dictionariesID);
-		
-		$criteria=new CDbCriteria();
-		$criteria->compare('dictionaryId', $dictID);
-		$dbStepSize=Yii::app()->params['dbStepSize'];
-		
-		if($dbStepSize!=0) {
-			$criteria->offset=0;
-			$criteria->limit=$dbStepSize;
-		}
-
-		
-		do {
-			if($chars)
-				$allEntries=DictEntryChar::model()->findAll($criteria);
-			else
-				$allEntries=DictEntryPhrase::model()->findAll($criteria);
-
-			foreach ( $allEntries as $entry ) {
-				$entryText=$entry->traditional;
-				
-// 				if($chars)
-// 					$translations=self::loadTranslationsFromDictionaries($entryText, $dictionariesID, self::CHARMOD_TRADITIONAL_ONLY);
-// 				else
-// 					$translations=self::loadPhrasesFromDictionaries($entryText, $dictionariesID, self::CHARMOD_TRADITIONAL_ONLY);
-				
-				$mnemos=null;
-				
-				if (!is_null($systemID)) {
-					$systemData = System::model()->findByAttributes(array("id" => $systemID));
-					$mnemos=AnnotatorEngine::loadMnemonicsForSystem($entryText, $systemData);
-				}
-					
-				if($chars) {
-					$data=array (
-							'char' => $entryText,
-							'entry' => $entry,
-							'mnemos' => $mnemos,
-							'transcriptionFormatters' => $transcriptionFormatters 
-					);
-					
-					$parent->renderPartial('core/charEntry', $data, false, true);
-				} else {
-					$data=array (
-							'char' => $entryText,
-							'entry' => $entry,
-							'mnemos' => $mnemos,
-							'transcriptionFormatters' => $transcriptionFormatters 
-					);
-					
-					$parent->renderPartial('core/charEntry', $data, false, true);
-					
-				}
-			}
-			
-			if($dbStepSize==0) break;
-			
-			$criteria->offset+=$dbStepSize;
-		} while(!empty($allEntries));
-	}
 	
 	
 	

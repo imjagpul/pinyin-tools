@@ -22,7 +22,7 @@ class DictEntryPhrase extends DictEntry
 		return 'dict_entry_phrase';
 	}
 	
-	private static function splitInTwo($string) {
+	public static function splitInTwo($string) {
 		$encoding=Yii::app()->params->fileUploadEncoding;
 		
 // 		$len=mb_strlen($string, $encoding);

@@ -27,8 +27,15 @@ Yii::app()->clientScript->registerScript('worker',
 				    if(data.status=="continue") {
 						$( "#log" ).append( "<p>Chunk processed...</p>" );
 						sendRequest();
+				    } else if(data.status=="continueWordsDict") {
+						$( "#log" ).append( "<p>Generated words dictionary.</p>" );
+						sendRequest();
+				    } else if(data.status=="continuePhrasesDict") {
+						$( "#log" ).append( "<p>Generated phrases dictionary.</p>" );
+						sendRequest();
 				    } else if(data.status=="ok") {
 						$( "#log" ).append( "<p>Done!</p>");
+						document.location = "'.$this->createUrl('getTask', array('id'=>$id)).'";
 				    } else if(data.status=="error") {
 						$( "#log" ).append( "<p>Error processing file!</p>");
 					} else {

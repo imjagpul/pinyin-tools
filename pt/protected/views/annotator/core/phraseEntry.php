@@ -1,15 +1,17 @@
-<div><a name="<?php echo $char; ?>"></a><?php 
+<?php /* @var $this DictionaryCacheWorker */ 
+
+?><div><a name="<?php echo $entryText; ?>"></a><?php 
 if(!empty($mnemos)) {
 	echo '<div class="tags">';
 	echo '<b>'.$mnemos->keyword.'</b><br>';
 	echo $mnemos->mnemonicsHTML;
-	$this->outputKeywords($mnemos->components);
+	AnnotatorController::outputKeywords($mnemos->components);
 	echo '</div>';
 }
 echo '<p></p>';
-      ?><div class="ch s"><?php echo $entry->getText(AnnotatorEngine::CHARMOD_SIMPLIFIED_ONLY); 
-?></div><div class="ch t"><?php echo $entry->getText(AnnotatorEngine::CHARMOD_TRADITIONAL_ONLY); 
-?></div><div class="pinyin"><?php echo $transcriptionFormatters[$entry->dictionaryId]->format($entry->transcription); 
+      ?><div class="ch s"><?php echo self::linkify($entry->getText(AnnotatorEngine::CHARMOD_SIMPLIFIED_ONLY)); 
+?></div><div class="ch t"><?php echo self::linkify($entry->getText(AnnotatorEngine::CHARMOD_TRADITIONAL_ONLY)); 
+?></div><div class="pinyin"><?php echo $transcriptionFormatter->format($entry->transcription); 
 ?></div><ul><?php foreach($entry->translationsArray as $tr)  //might be replaced with implode </li><li>
 					echo "<li>$tr</li>"; 
 		?></ul></div>

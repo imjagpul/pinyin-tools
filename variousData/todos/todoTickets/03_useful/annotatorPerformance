@@ -7,6 +7,12 @@ The customizations (e.g. CangJie, Traditional / SImplifiend variant) can be done
 
 Separate the words dictionary form the chars.
 The dictionary (-ies), can be cached in one HTML file, with a place to insert the mnemonics.
+
+LATER: The cache does not have to be regenerated as a whole, only the edited part can be modified quickly. (it is possible to insert a text in the middle of a file)
+NOW: regenerate dictionaries
+NOW: resolve tagged / untagged chars
+NOW: Chunking does have to be aligned, or we will be skipping some results.
+LATER: The output could be saved to a file instead of the database, in order to allow for faster retrieval.
 --------------------------------------------
 Dictionary variants:
 A) JS data - have a big JS script
@@ -26,60 +32,40 @@ client-supported generation - result is generated completely on server, but the 
 client-side generation - serve dictionary and JS, produce result on client (1A,1B) - this would work only for some clients, but causes the smallest server impact
 
 Which modes to implement?
-*1BB
+$ 1BB
  $) job-splitting
-    After upload, add job to DB
-    and start continuous processing (need to save progress at the end of each job, and somehow notify user when it is finished)
+ $) implement pregenerated dictionary support
  $) merge the results into a file
- *) implmement dictionary generation <<HERE
- **) need to be able to create pregenerated dictionaries on the server side, save them to file or DB
-      Should we use the Yii caching or code or own?
-      Yii caching off course, but hopefully the generated dictionaries can be transfered via FTP (though it does not really matter, it's just a few minutes of work)
-      (or, use yii caching, for the filled dicts, as they have to be regenerated often; but rely on ftp for the base translations)
- **) make them link from the results 
- 
- *) implement pregenerated dictionary support
+ $) implmement dictionary generation
+ $$) need to be able to create pregenerated dictionaries on the server side, save them to file
+ $$) make them link from the results 
+* 1BC ) 
  *) implement tailored dictionary support (will need another column in the results)
  *) implement the rest of output variants
- *) run a profiler to see why it takes so long	
+
+* 1A)
+* 2A)
+* 2B)
   
-*) client supported
- *) job-splitting
-    After upload, add job to DB
-    and ping pong with user on parts (progress also has to be saved)
-*) client side can be done later 
-    (use client side Workers to do all the work)
-*) implement all other modes
 ***
 
-
-Steps needed:
-Generate (or load from cache) dictionary variant
-
-What to cache the dictionary results by?
->) HTML merged
+*) final tuning
  $$) make git work again and backup old code
  $$) implement dictionary searches (to be able to use phrase dictionary)
- **) make dictionary results link to the char dictionary
+ $$) make dictionary results link to the char dictionary
  **) remove obsolete code
  **) redo the interface (phrase dictionary Y/N)
- **) update CSS to hide traditional / simplified (if undesired according to user settings)
+ **) update CSS to hide traditional / simplified (if undesired according to user settings) (in pregenerated dictionaries)
  **) merge preprocess into the annotating (in order to require only one pass but still have smart wrap)
- **) cache the dictionaries
- **) finalize Portable
- **) implement EPUB creation
- **) implement parallel mode
- **) online mode with jJS
+ **) make a nice progress bar for the generation
+ 
+ *) run a profiler to see why it takes so long	
  **) (perhaps) cache dictionary searches
 
-  
-*) an action - output precached char dict (dictID, systemID)
-  $$) generate a list of characters
-    Do want to precache single characters, and then join the pieces? OR just cache the whole thing (memory vs. performace question - let's do 2 for now)
->> *) an action - output precached word dict (dictID)
- 
- 
-Ideas:
+*) client side workers (move the todo to extensions)  
+
+
+Ideas (probably not worth implementing):
 reduce HTML - what about gzip compression (for cached files?)
 perhaps precache whole texts with specific settings (md5?)
 reduce HTML - remove spaces 
@@ -87,7 +73,7 @@ reduce HTML - perhaps even use GBK to get faster
 
 MINI TEST DATA:
 2016-11-13 44s, 42s without preprocess, 45s ~ 47s
-
+2016-12-06 
 --
 
 前传

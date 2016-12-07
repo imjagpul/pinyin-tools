@@ -1,1 +1,1 @@
-<a href="#c<?php echo $char; ?>"><?php echo $char; ?></a>
+<a href="#<?php echo $link; ?>"><?php echo $char; ?></a>

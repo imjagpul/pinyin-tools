@@ -15,7 +15,8 @@
 	</div>
 	
 	<div class="row">
-	<?php echo CHtml::textField('system_id', $model->id)?>
+	<?php echo CHtml::label('System ID (mnemonics):', 'system_id')?>
+	<?php echo CHtml::textField('systemID', is_null($systemID) ? '(none)' : $systemID)?>
 	</div>
 
 	<div class="row buttons">

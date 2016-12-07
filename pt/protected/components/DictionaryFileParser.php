@@ -87,8 +87,8 @@ class DictionaryFileParser {
 			if ($line[0] == '#')
 				continue;
 				
-			// we need to use mb_eregi (otherwise false whitespace in the middle of a multibyte char would be matched)
-			$currentRes=mb_eregi($regex, $line, $currentValue);
+			// we need to use mb_ereg (otherwise false whitespace in the middle of a multibyte char would be matched)
+			$currentRes=mb_ereg($regex, $line, $currentValue);
 			
 			if ($currentRes === FALSE) { // check if failed to match
 				$badLines[]=$line;
@@ -109,8 +109,8 @@ class DictionaryFileParser {
 			// For some reason, the entries are not always sorted alphabetically by transcription in the input data,
 			// so we have to look several lines ahead.
 			// We assume there is a maximum of one duplicate per entry.
-			for($i=1; stripos($peekline=$uploadedFile->peekline($i), $currentValue[1] . ' ') === 0; $i++) {
-				$peekRes=mb_eregi($regex, $peekline, $peekValue);
+			for($i=1; strpos($peekline=$uploadedFile->peekline($i), $currentValue[1] . ' ') === 0; $i++) {
+				$peekRes=mb_ereg($regex, $peekline, $peekValue);
 				if ($currentValue[3] == strtolower($peekValue[3])) {
 					// we have a dupliacte - save and go to next line
 					$duplicates[$currentValue[3]]=$currentValue[4];
