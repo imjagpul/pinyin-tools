@@ -1,7 +1,10 @@
 <?php
 class AnnotatorModeUntagged extends AnnotatorMode {
-	function getTemplateID() {
+	protected function getTemplateID() {
 		return 1;//'kindle'
 	}
-	
+
+	function getID() {
+		return 6;
+	}
 }

@@ -12,21 +12,18 @@ class AnnotatorEngine {
 	const CHARMOD_ALLOW_BOTH=5;
 	//const CHARMOD_ALLOW_BOTH=5;
 
-	const MODE_CLIENT_SIDE=1;
-	const MODE_SERVER_SIDE=2;
-	const MODE_HTML=4;
-	const MODE_EPUB=6;
-	
+	/** @var CController */
 	public $parent;
 	public $input;
 	public $systemID;
 	private $dictionariesID;
  	public $dictID;
 	public $characterMode;
+// 	/** @var Boolean If FALSE, the characters will link directly to the characters dictionary. If TRUE, the links will go to to the corresponding entry in the words dictionary. */
+// 	public $wordsDictionary=true;
+
+	/** @var AnnotatorMode */
 	public $mode;
-	/** @var Boolean If FALSE, the characters will link directly to the characters dictionary. If TRUE, the links will go to to the corresponding entry in the words dictionary. */
-	public $wordsDictionary=true;
-	public $template="jsbased";
 	public $whitespaceToHTML=true; 
 	public $parallel;
 	public $audioURL;
@@ -37,6 +34,8 @@ class AnnotatorEngine {
 	public $outputMode;
 	/** @var String Text to be included as is at the beginning of the output. Useful for the demo page. */
 	public $prependText=NULL;
+	/** @var integer The starting index of the current chunk in the whole input. */
+	public $startingIndex=0;
 	
 	private $encoding;
 	private $colors;
@@ -44,33 +43,40 @@ class AnnotatorEngine {
 	private $transcriptionFormatters;
 	private $parallelLines;
 	private $len;
-// 	private $currentTemplateFull;
+	private $template;
+	private $templateFull=NULL;
+	private $templateFull2=NULL;
 
 	/**
 	 *
 	 * @throws CException
 	 */
-	public function annotate2() {
-		$dictID=$this->dictID;
+// 	public function annotate2() {
+// 		$dictID=$this->dictID;
 		
-		$startTime=time();
-		$this->prepare();
-		$this->outputHeader();
-		$this->go();
-		if($this->wordsDictionary)
-			$this->outputDictionary($this->parent, false, $dictID);
-		$this->outputDictionary($this->parent, true, $dictID);
-		$this->outputFooter();
+// 		$startTime=time();
+// 		$this->prepare();
+// 		$this->outputHeader();
+// 		$this->go();
+// 		if($this->wordsDictionary)
+// 			$this->outputDictionary($this->parent, false, $dictID);
+// 		$this->outputDictionary($this->parent, true, $dictID);
+// 		$this->outputFooter();
 		
-		$totalTime=time()-$startTime;
-		echo "<!-- took $totalTime s -->";
-	}
+// 		$totalTime=time()-$startTime;
+// 		echo "<!-- took $totalTime s -->";
+// 	}
 	
+	/**
+	 * Annotates the input without adding header and footer, and returns the output.
+	 * 
+	 * @return string[] an array of two elements, the first being the output, the second being the other part of the output in two-part templates.
+	 */
 	public function annotateChunk() {
 		$this->prepare();
-		ob_start();
-		$this->go();
-		return ob_get_clean();
+//		ob_start();
+		return $this->go();
+//		return ob_get_clean();
 	}
 	
 	/**
@@ -84,50 +90,77 @@ class AnnotatorEngine {
 		return $text;
 	}
 	
+	/**
+	 * 
+	 * @return string[] an array of two elements, the first being the output, the second being the other part of the output in two-part templates.
+	 */
 	private function go() {
+		$result='';
+		$result2='';
+		
 		//loop for every character
 		for($i=0; $i<$this->len; $i++) {
 			$char=mb_substr($this->input, $i, 1, $this->encoding);
 		
-			if($this->checkNewline($char)) { //@TODO smarter newlines
+			//handle newlines
+			if($this->checkNewline($char)) {
+				
+				if($this->whitespaceToHTML)
+					$result.='<br>';
+				else
+					$result.= "\n";
+				
 				//if the line ended, we need to output another line of parallel text if present
 // 				$this->outputParallelAfterLine($lineIndex, $iTemplate);
 				continue;
 			}
 		
-			if($this->isIgnoredChar($char)) {
-				echo $char;
+			if($this->isIgnoredChar($char)) { //ignored chars are simply appended to the first output
+				$result.=$char;
 				continue;
 			}
 		
-			$charData = self::loadDictChar($char, $this->characterMode);
-			if($charData==null) { //if not in the dictionary, treat as ignored
-				//@TODO this is not optimal, it would not output mnemonics on rare characters (esp. when using smaller dictionaries)
-				echo $char;
-				continue;
+			$translations=$this->loadTranslations($char);
+			$mnemos=$this->loadMnemonics($char);
+			$phrases=$this->loadPhrases($char, $i);
+			
+			$result.=$this->outputChar($char, $translations, $mnemos, $phrases, $this->startingIndex+$i, $this->templateFull, true);
+			if(!is_null($this->templateFull2)) { 
+				$result2.=$this->outputChar($char, $translations, $mnemos, $phrases, $this->startingIndex+$i, $this->templateFull2, true);
 			}
 			
-			if($this->wordsDictionary) {
-				//@TODO this is the place where the simplified <-> traditional conversion can be implemented (just replace $char with the desired variant from the dictionary)
+// 			$charData = self::loadDictChar($char, $this->characterMode);
+// 			if($charData==null) { //if not in the dictionary, treat as ignored
+// 				//@TODO this is not optimal, it would not output mnemonics on rare characters (esp. when using smaller dictionaries)
+// 				echo $char;
+// 				continue;
+// 			}
+			
+							
+			
+// 			if($this->wordsDictionary) {
+// 				//@TODO this is the place where the simplified <-> traditional conversion can be implemented (just replace $char with the desired variant from the dictionary)
 				
-				//dictionary search if the phrases dictionary is included
-				$phraseEntry = $this->loadLongestPhrase($char, $i);
+// 				//dictionary search if the phrases dictionary is included
+// 				$phraseEntry = $this->loadLongestPhrase($char, $i);
 				
-				if(is_null($phraseEntry))
-					$phrase=$charData->traditional; //if no phrase found, just link to the characters dictionary (but we always need the traditional variant for the link)
-				else
-					$phrase=$phraseEntry->getTraditional();
+// 				if(is_null($phraseEntry))
+// 					$phrase=$charData->traditional; //if no phrase found, just link to the characters dictionary (but we always need the traditional variant for the link)
+// 				else
+// 					$phrase=$phraseEntry->getTraditional();
 				
-				$data=array('char'=>$char, 'link'=>self::textToLink($phrase));
+// 				$data=array('char'=>$char, 'link'=>self::textToLink($phrase));
 				
-				$this->parent->renderPartial('core/percharSingleFileWords', $data) ;				
+// 				$this->parent->renderPartial('core/percharSingleFileWords', $data) ;				
 				
-			} else {
-				//if not phrases dictionary is included, just output the characters
-				$data=array('char'=>$char, 'link'=>self::textToLink($charData->traditional));
-				$this->parent->renderPartial('core/percharSingleFile', $data) ;				
-			}
+// 			} else {
+// 				//if not phrases dictionary is included, just output the characters
+// 				$data=array('char'=>$char, 'link'=>self::textToLink($charData->traditional));
+// 				$this->parent->renderPartial('core/percharSingleFile', $data) ;				
+// 			}
 		} //end of character loop
+		
+		return array($result, $result2);
 	}
 
 	public function finalOutputAnnotate() {
@@ -142,8 +175,8 @@ class AnnotatorEngine {
 		$this->outputParallelAfterChars();
 		
 		//now output the dictionaries
-		DictionaryCacheWorker::outputDictionary(true, $this->dictID, $this->systemID);
-		DictionaryCacheWorker::outputDictionary(false, $this->dictID, $this->systemID);
+// 		DictionaryCacheWorker::outputDictionary(true, $this->dictID, $this->systemID);
+// 		DictionaryCacheWorker::outputDictionary(false, $this->dictID, $this->systemID);
 		
 		$this->outputFooter();
 		
@@ -185,21 +218,33 @@ class AnnotatorEngine {
 		}
 		
 		$this->transcriptionFormatters=$this->createFormatters($this->dictionariesID);
+		
 		if(!is_null($this->systemID))
 			$this->system=System::model()->findByPk($this->systemID);
 		else
 			$this->system=NULL;
 		
+			
+		$this->template=$this->mode->getTemplatePath();
+		if($this->mode->getTemplateCount()==1)
+			$this->templateFull=$this->template.'/perchar';
+		else if($this->mode->getTemplateCount()==2) {
+			$this->templateFull=$this->template.'/perchar1of2';
+			$this->templateFull2=$this->template.'/perchar2of2';
+		} else {
+			throw new Exception("Invalid subtemplates count!");
+		}
+			
 	}
 	
 	/**
 	 * Sends the headers corresponding to the requested output mode.
 	 */
 	public function handleOutputMode() {
-		if($this->outputMode===AnnotatorMode::MODE_DOWNLOAD) {
+		if($this->outputMode==AnnotatorMode::MODE_DOWNLOAD) {
 			header('Content-type: application/octet-stream');
 			header('Content-Disposition: attachment; filename="export.html"');
-		} else if($this->outputMode===AnnotatorMode::MODE_DOWNLOAD_EPUB) {
+		} else if($this->outputMode==AnnotatorMode::MODE_DOWNLOAD_EPUB) {
 			header('Content-type: application/epub+zip');
 			header('Content-Disposition: attachment; filename="export.epub"');
 		}
@@ -229,8 +274,9 @@ class AnnotatorEngine {
 	 * @param DictEntryPhrase $phrases
 	 * @param int $index
 	 * @param string $templateFull
+	 * @param boolean $return whether the rendering result should be returned instead of being displayed to end users
 	 */
-	private function outputChar($char, $translations, $mnemos, $phrases, $index, $templateFull) {
+	private function outputChar($char, $translations, $mnemos, $phrases, $index, $templateFull, $return=false) {
 		$data=array(
 				'char'=>$char,
 				'translations'=>$translations,
@@ -240,7 +286,7 @@ class AnnotatorEngine {
 				'characterMode'=>$this->characterMode,
 				'transcriptionFormatters'=>$this->transcriptionFormatters
 		);
-		$this->parent->renderPartial($templateFull, $data) ;
+		return $this->parent->renderPartial($templateFull, $data, $return) ;
 	}
 	
 	private function outputAudioPlayer() {
@@ -332,16 +378,18 @@ class AnnotatorEngine {
 	}
 	
 	private function goTemplates() {
-		$templateCount=$this->detectTemplateCount($this->template);
+		die('deprecated');
+// 		$templateCount=$this->detectTemplateCount($this->template);
 		
-		if($templateCount==="DUMP") { //if no templates are set, just dump the whole input as-is
-			//parallel does not work in quick dump (but that is not a problem) 
-			echo $this->input;
-			return;
-		}
+// 		if($templateCount==="DUMP") { //if no templates are set, just dump the whole input as-is
+// 			//parallel does not work in quick dump (but that is not a problem) 
+// 			echo $this->input;
+// 			return;
+// 		}
 		
 		//if $templateCount is false, run the following loop once
 		//else ($templateCount is number), run it $templateCount times
+
 		for($iTemplate=1;$templateCount===FALSE || $iTemplate<$templateCount+1;$iTemplate++) {
 				
 			if($templateCount===FALSE)
@@ -504,24 +552,24 @@ class AnnotatorEngine {
 		return self::loadPhrasesFromDictionaries($char, $compounds, $this->dictionariesID, $this->characterMode);
 	}
 	
-	private static function loadDictChar($char, $characterMode) {
-		$criteria=new CDbCriteria();
+// 	private static function loadDictChar($char, $characterMode) {
+// 		$criteria=new CDbCriteria();
 		
-		if($characterMode!=self::CHARMOD_SIMPLIFIED_ONLY) //in all other modes have to search both
-			$criteria->compare('traditional', $char, false, 'OR');
-		if($characterMode!=self::CHARMOD_TRADITIONAL_ONLY)
-			$criteria->compare('simplified', $char, false, 'OR');
+// 		if($characterMode!=self::CHARMOD_SIMPLIFIED_ONLY) //in all other modes have to search both
+// 			$criteria->compare('traditional', $char, false, 'OR');
+// 		if($characterMode!=self::CHARMOD_TRADITIONAL_ONLY)
+// 			$criteria->compare('simplified', $char, false, 'OR');
 		
-		return DictEntryChar::model()->find($criteria);
-	}
+// 		return DictEntryChar::model()->find($criteria);
+// 	}
 	
-	private function loadLongestPhrase($char, $offset) {
-		$phrases=self::loadPhrases($char, $offset);
-		if(!empty($phrases))
-			return $phrases[0];
-		else
-			return null;
-	}
+// 	private function loadLongestPhrase($char, $offset) {
+// 		$phrases=self::loadPhrases($char, $offset);
+// 		if(!empty($phrases))
+// 			return $phrases[0];
+// 		else
+// 			return null;
+// 	}
 	
 	/**
 	 *
@@ -553,22 +601,22 @@ class AnnotatorEngine {
 		return $result;
 	}
 	
-	private function detectTemplateCount($template) {
-		if(($viewFile=$this->parent->getViewFile("$template/dumpoutput"))!==false) {
-			return "DUMP";
-		}
+// 	private function detectTemplateCount($template) {
+// 		if(($viewFile=$this->parent->getViewFile("$template/dumpoutput"))!==false) {
+// 			return "DUMP";
+// 		}
 		
-		if(($viewFile=$this->parent->getViewFile("$template/perchar"))!==false) {
-			return FALSE;
-		} else {
-			for($i=0;$i<Yii::app()->params['maxTemplateParts'];$i++) {
-				if(($viewFile=$this->parent->getViewFile("$template/perchar1of$i"))!==false) {
-					return $i;
-				}
-			}
-		}
-		throw new CException("Invalid template: $template");
-	}
+// 		if(($viewFile=$this->parent->getViewFile("$template/perchar"))!==false) {
+// 			return FALSE;
+// 		} else {
+// 			for($i=0;$i<Yii::app()->params['maxTemplateParts'];$i++) {
+// 				if(($viewFile=$this->parent->getViewFile("$template/perchar1of$i"))!==false) {
+// 					return $i;
+// 				}
+// 			}
+// 		}
+// 		throw new CException("Invalid template: $template");
+// 	}
 	
 
 	
@@ -578,14 +626,7 @@ class AnnotatorEngine {
 	 * @return boolean  true if the char is a newline (that was handled properly)
 	 */
 	 private function checkNewline($char) {
-	 if($char=="\n") { //@TODO what about mac endings?
-	 if($this->whitespaceToHTML)
-	 	echo "<br>";
-	 	else
-	 		echo "\n";
-	 	return true;
-	 }
-	 return false;
+	 	return $char=="\n";
 	 }
 	
 	 /**

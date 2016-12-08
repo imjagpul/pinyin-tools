@@ -2,19 +2,6 @@
 
 class AnnotatorController extends Controller
 {
-	//@TODO move this template list to a config or autodetect
-	//@TODO convert to a constant
-	public static $templatesList=array(
-			0 => 'jsbased', 
-			1 => 'kindle',
-			2 => 'dynamic'
-			);
-// 	private $templatesListLabels=array(
-// 			0 => 'Default',
-// 			1 => 'Optimized for Kindle',
-// 			2 => 'Dynamic'
-// 			);
-	 
 	/**
 	 * This method runs the annotator with hardcoded settings.
 	 * The purpose is to generate a typical output that can server as a good demonstration of the annotator
@@ -59,16 +46,11 @@ class AnnotatorController extends Controller
 		
 		//choose the correct template
 		if($isJsBased) {
-			$template=$this->templatesList[0];
-			if($template!=='jsbased')
-				throw new Exception("Assertion error : templates changed.");
+			$annotatorEngine->mode=new AnnotatorModeOffline;
 		} else {
-			$template=$this->templatesList[1];
-			if($template!=='kindle')
-				throw new Exception("Assertion error : templates changed.");
+			$annotatorEngine->mode=new AnnotatorModePortable;
 		}
 		
-		$annotatorEngine->template=$template;
 		$annotatorEngine->prependText=$this->renderPartial('demonstrationText',null,true,false);
 		
 		//then start the annotation
@@ -99,7 +81,6 @@ class AnnotatorController extends Controller
 				'mode'=>$mode,
 				'allDicts'=>$allDicts,
 				'selectedDict'=>$defaultSelectedDict,
-// 				'templatesList'=>$this->templatesListLabels,
 				));
 	}
 	
@@ -174,7 +155,9 @@ class AnnotatorController extends Controller
 		//create an AnnotatorEngine and annotate next chunk
 		list($annotatorEngine, $chunk)=$longtask->createNextAnnotatorEngine($this);
 		
-		$chunk->result=$annotatorEngine->annotateChunk();
+		$result = $annotatorEngine->annotateChunk();
+		list($chunk->result, $chunk->result2)=$result;
+// 		var_dump($chunk);die;
 		$success=$chunk->update();
 		
 		if(!$success)
@@ -191,22 +174,24 @@ class AnnotatorController extends Controller
 		header('Content-Type: application/json; charset="UTF-8"');
 		echo CJSON::encode(array('status'=>$status));
 	}
-	
+
+	/**
+	 * Creates a new Longtask and redirects to the processing page.
+	 */
 	public function actionGo()
 	{
-		
 		if(!isset($_POST['input']) || empty($_POST['input'])) {
 			$this->redirect(array('index'));
 		}
 		
-		
 		$annotationTask = new Longtask();
-// 		$annotationTask->input=$_POST['input'];
 		
 		$annotationTask->system_id=!empty($_POST['system']) ? ((int)$_POST['system']) : NULL;
 		$annotationTask->dict_id=isset($_POST['selectedDictionaries']) ? ($_POST['selectedDictionaries']) : NULL;
 
-		$annotationTask->mode==isset($_POST['template']) ? ((int)$_POST['template']) : NULL;
+		//setup the mode
+		$modeID=isset($_POST['mode']) ? ((int)$_POST['mode']) : NULL;
+		$annotationTask->mode=$modeID;
 
 		//see which action the user has chosen
 		if(array_key_exists('submit-download', $_POST)) {
@@ -215,13 +200,13 @@ class AnnotatorController extends Controller
 			$annotationTask->outputMode=AnnotatorMode::MODE_SHOW;
 		}
 		
-		$success=$annotationTask->insert();	
+		$success=$annotationTask->insert();	//insert (to get the ID)
 		
 		if($success!==TRUE)
 			$this->redirect(array('index')); //@TODO implement an error message
 
 		//preprocess the input during this request
-		//@TODO: but why here? and what does it not destroy parallel?
+		//@TODO: check if it works fine with parallel; or skip during parallel
 		$input=AnnotatorEngine::preprocessInput($_POST['input']);
 
 		//now we need to split the input into chunks and save into the DB
@@ -235,6 +220,7 @@ class AnnotatorController extends Controller
 			$chunk = new LongtaskChunk();
 			$chunk->longtask_id=$annotationTask->id;
 			$chunk->id=$lastId++;
+			$chunk->startIndex=$i;
 			
 			//split at an "ignored char"
 			$nextChunkText = mb_substr($input, $i, $chunksizeMax, $encoding);
@@ -249,7 +235,7 @@ class AnnotatorController extends Controller
 					break;
 				}
 			}
-			//if no "ignored char" is within the limits, just keep the maximum size chunk
+			//if there is no "ignored char" within the limits, just keep the maximum size chunk
 				
 			$chunk->input=$nextChunkText;
 			$chunk->insert();
@@ -262,10 +248,11 @@ class AnnotatorController extends Controller
 			
 	}
 	
-	//@TODO delete
-	public function goInit()
+	//@TODO delete (or maybe keep for the quick processing)
+	public function goDirect()
 	{
 		//@TODO check the right to read from the given system (obviously after the reading permissions have been implemented)
+		//@TODO to be tested
 		
 		$annotatorEngine=new AnnotatorEngine();
 		
@@ -287,11 +274,9 @@ class AnnotatorController extends Controller
 // 		$annotatorEngine->characterMode=UserSettings::getCurrentSettings()->variant;
 		$annotatorEngine->characterMode=AnnotatorEngine::CHARMOD_SIMPLIFIED_ONLY;
 		
-		//check if the selected template exists
-		$templateId=isset($_POST['template']) ? ((int)$_POST['template']) : NULL;
-		$templateId=($templateId>=0 && $templateId<count($this->templatesList)) ? $templateId : 0;
-		$annotatorEngine->template=$this->templatesList[$templateId];
-// 		$annotatorEngine->template=$_POST['templateID'];
+		//setup the mode
+		$modeID=isset($_POST['mode']) ? ((int)$_POST['mode']) : NULL;
+		$annotatorEngine->mode=AnnotatorMode::parseMode($modeID);
 
 		//see which action the user has chosen
 		if(array_key_exists('submit-download', $_POST)) {

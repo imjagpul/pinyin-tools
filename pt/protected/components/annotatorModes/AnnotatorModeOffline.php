@@ -8,7 +8,11 @@ class AnnotatorModeOffline extends AnnotatorMode  {
 		return "The result has the tooltip preloaded (i.e. it is suitable for offline usage but takes slightly longer to generate).";
 	}
 	
-	function getTemplateID() {
+	function getID() {
+		return 1;
+	}
+	
+	protected function getTemplateID() {
 		return 0; //'jsbased'
 	}
 }

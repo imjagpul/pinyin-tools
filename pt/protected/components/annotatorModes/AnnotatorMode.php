@@ -15,12 +15,17 @@ abstract class AnnotatorMode {
 	}
 	
 	/**
-	 * See constants in AnnotatorController.
+	 * See constants here.
 	 * 0 => 'jsbased' 
 	 * 1 => 'kindle'
 	 * 2 => 'dynamic'
 	 */
-	abstract function getTemplateID();
+	protected abstract function getTemplateID();
+
+	/**
+	 * Returns the numerical representation of the mode (to be used in the database).
+	 */
+	public abstract function getID();
 	
 	/**
 	 * @var String[][] 
@@ -31,7 +36,8 @@ abstract class AnnotatorMode {
 				array("AnnotatorModeQuick", "Quick"),
 				array("AnnotatorModeOffline", "Offline"),
 				array("AnnotatorModeParallel", "Parallel"),
-				array("AnnotatorModeEpub", "Portable"),
+				array("AnnotatorModePortable", "Portable"),
+// 				array("AnnotatorModeEpub", "EPUB"),
 // 				array("AnnotatorModeMobi", "MOBI"),
 // 				array("AnnotatorModeUntagged", "Only list untagged")
 	);
@@ -47,4 +53,22 @@ abstract class AnnotatorMode {
 	static function getModesList() {
 		return self::$modesList;
 	}
+	
+	private static $templatesList=array(
+			0 => 'jsbased',
+			1 => 'kindle',
+			2 => 'dynamic'
+	);
+	
+	public function getTemplatePath() {
+		return self::$templatesList[$this->getTemplateID()];
+	}
+	
+	public function getTemplateCount() {
+		if($this->getTemplateID()==1) return 2; //hard-coded: only one template needs separate dictionary
+		else return 1;
+		
+		//output dumping is to be handled separately
+	}
+	
 }

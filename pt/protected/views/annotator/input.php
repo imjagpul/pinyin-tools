@@ -46,7 +46,7 @@ if(!is_null($mode->getDescription())) echo $mode->getDescription();
 </p>
 </div>
  
- <?php echo CHtml::hiddenField('template', $mode->getTemplateID()); ?> 
+ <?php echo CHtml::hiddenField('mode', $mode->getID()); ?> 
 
 <?php /* *************************** Main text input.  ***************************************************/ ?>
 <div class="row"><?php echo CHtml::label('Text to annotate:', 'input'); ?></div>

@@ -5,4 +5,7 @@ class AnnotatorModeMobi extends AnnotatorModeEpub {
 		return "You will get a MOBI file with translations and mnemonics, suitable for Kindle.";
 	}
 	
+	function getID() {
+		return 5;
+	}
 }

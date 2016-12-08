@@ -10,5 +10,9 @@ class AnnotatorModeParallel extends AnnotatorMode  {
 	function getDescription() {
 		return "Shows a second column with a translation and/or a playable audio file.";
 	}
+
+	function getID() {
+		return 2;
+	}
 	
 }

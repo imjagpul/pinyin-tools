@@ -114,75 +114,58 @@ class Longtask extends CActiveRecord
 		return parent::model($className);
 	}
 	
-
+	/**
+	 * Create an AnnotatorEngine with the data from this Longtask, but with no input set.
+	 * @param CController $parent
+	 * @return AnnotatorEngine an empty 
+	 */
+	private function createEmptyAnnotatorEngine($parent) {
+		$annotatorEngine=new AnnotatorEngine();
+		$annotatorEngine->parent=$parent;
+		$annotatorEngine->systemID=$this->system_id;
+		$annotatorEngine->dictID=$this->dict_id;
+		$annotatorEngine->mode=AnnotatorMode::parseMode($this->mode);
+		$annotatorEngine->outputMode=$this->outputMode;
+		
+		return $annotatorEngine;
+	}
+	
 	/**
 	 * 
 	 * @param CController $parent
 	 * @return AnnotatorEngine
 	 */
 	public function createFinalAnnotatorEngine($parent) {
-
-		$annotatorEngine=new AnnotatorEngine();
-		$annotatorEngine->parent=$parent;
-		$annotatorEngine->systemID=$this->system_id;
-		$annotatorEngine->dictID=$this->dict_id;
-		$annotatorEngine->template=AnnotatorController::$templatesList[$this->mode]; //@TODO needs refactoring
-		$annotatorEngine->outputMode=$this->outputMode;
-		$annotatorEngine->input='';
+		$annotatorEngine=$this->createEmptyAnnotatorEngine($parent);
 		
-		$chunks=LongtaskChunk::model()->findAllByAttributes(array('longtask_id'=>$this->id));
-// 		$chunks=LongtaskChunk::model()->findAllByAttributes(array('longtask_id'=>$this->id), '', array('ORDER BY'=>'id'));
+		$criteria=new CDbCriteria();
+		$criteria->order="id";
+		$criteria->compare('longtask_id',$this->id);
+		$chunks=LongtaskChunk::model()->findAll($criteria);
+
+		$secondResults='';
+				
 		foreach($chunks as $chunk) {
 			$annotatorEngine->input.=$chunk->result;
+			
+			if(!is_null($chunk->result2)) {
+				$secondResults.=$chunk->result2;
+			}
 		}
+		
+		//append the second results to after the first results
+		$annotatorEngine->input.=$secondResults;
 		
 		return $annotatorEngine;
 	}
 	
 	public function createNextAnnotatorEngine($parent) {
-	
+		$annotatorEngine=$this->createEmptyAnnotatorEngine($parent);
+		
 		$lastChunkId=!empty($this->last_chunk) ? $this->last_chunk : 0;
-	
 		$chunk=LongtaskChunk::model()->findByAttributes(array('id' => $lastChunkId, 'longtask_id'=>$this->id));
-	
-		$annotatorEngine=new AnnotatorEngine();
-	
 		$annotatorEngine->input=$chunk->input;
-	
-		$annotatorEngine->parent=$parent;
-		$annotatorEngine->systemID=$this->system_id;
-		$annotatorEngine->dictID=$this->dict_id;
-	
-		// 		$annotatorEngine->parallel=isset($_POST['parallel']) ? $_POST['parallel'] : NULL;
-		// 		$annotatorEngine->audioURL=isset($_POST['audioURL']) ? $_POST['audioURL'] : NULL; //@TODO add URL validator
-		// 		$annotatorEngine->outputType=isset($_POST['type']) ? $_POST['type'] : NULL;
-	
-		//@TODO set from settings (after deciding if and how the convereting should be done)
-		// 		$annotatorEngine->characterMode=UserSettings::getCurrentSettings()->variant;
-		// 		$annotatorEngine->characterMode=AnnotatorEngine::CHARMOD_SIMPLIFIED_ONLY;
-	
-		//check if the selected template exists
-		// 		$templateId=isset($_POST['template']) ? ((int)$_POST['template']) : NULL;
-		// 		$templateId=($templateId>=0 && $templateId<count($this->templatesList)) ? $templateId : 0;
-		// 		$annotatorEngine->template=$this->templatesList[$templateId];
-		// 		$annotatorEngine->template=$_POST['templateID'];
-	
-		//see which action the user has chosen
-		// 		if(array_key_exists('submit-download', $_POST)) {
-		// 			$annotatorEngine->outputMode=AnnotatorMode::MODE_DOWNLOAD;
-		// 		}  else {
-		// 			$annotatorEngine->outputMode=AnnotatorMode::MODE_SHOW;
-		// 		}
-	
-		// 		UserSettings::getCurrentSettings()->lastSystemInAnnotator=$annotatorEngine->systemID;
-		// 		UserSettings::getCurrentSettings()->lastAnnotatorDictionaries=$annotatorEngine->dictionariesID;
-		// 		UserSettings::getCurrentSettings()->lastTemplateInAnnotator=$templateId;
-		// 		UserSettings::getCurrentSettings()->saveSettings();
-	
-		// 		ini_set('max_execution_time', 60000); //@TODO not sure if this is the best way
-		// 		$annotatorEngine->annotate();
-		// 		$annotatorEngine->annotate2();
-	
+		$annotatorEngine->startingIndex=$chunk->startIndex;
 	
 		return array($annotatorEngine, $chunk);
 	}
