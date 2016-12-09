@@ -35,7 +35,7 @@ Yii::app()->clientScript->registerScript('worker',
 						sendRequest();
 				    } else if(data.status=="ok") {
 						$( "#log" ).append( "<p>Done!</p>");
-						document.location = "'.$this->createUrl('getTask', array('id'=>$id)).'";
+						document.location = "'.$this->createUrl('process', array('id'=>$id)).'";
 				    } else if(data.status=="error") {
 						$( "#log" ).append( "<p>Error processing file!</p>");
 					} else {

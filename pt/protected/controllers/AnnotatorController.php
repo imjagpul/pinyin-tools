@@ -93,6 +93,15 @@ class AnnotatorController extends Controller
 	 * 			ID of the Longtask
 	 */
 	public function actionProcess($id) {
+		
+		$model=Longtask::model()->findByAttributes(array('id'=>$id));
+		
+		if($model->last_chunk === $model->max_chunk) {
+			//we are done already, return the result
+			$this->actionGetTask($id);
+			return;
+		}
+		
 		$this->render('process', array(
 				'id'=>$id
 		));
@@ -137,20 +146,28 @@ class AnnotatorController extends Controller
 */
 		$longtask=Longtask::model()->findByAttributes(array('id'=>$id));
 
-		//first make sure the dictionaries exist
-		$worked=DictionaryCacheWorker::ensureCacheDictionary(false, $longtask->dict_id, $longtask->system_id);
-		if($worked) {
-			//if the charactes dictionary was generated, not further work will be done in this call
-			echo CJSON::encode(array('status'=>'continueWordsDict'));
+		if($longtask->last_chunk === $longtask->max_chunk) {
+			//we are done already, return the result
+			header('Content-Type: application/json; charset="UTF-8"');
+			echo CJSON::encode(array('status'=>'ok'));
 			return;
 		}
 		
-		$worked=DictionaryCacheWorker::ensureCacheDictionary(true, $longtask->dict_id, $longtask->system_id);
-		if($worked) {
-			//if the phrases dictionary was generated, not further work will be done in this call
-			echo CJSON::encode(array('status'=>'continuePhrasesDict'));
-			return;
-		}
+		//first make sure the dictionaries exist
+		//@TODO generate cached dictionary only if using pregenerated dictionaries
+// 		$worked=DictionaryCacheWorker::ensureCacheDictionary(false, $longtask->dict_id, $longtask->system_id);
+// 		if($worked) {
+// 			//if the charactes dictionary was generated, not further work will be done in this call
+// 			echo CJSON::encode(array('status'=>'continueWordsDict'));
+// 			return;
+// 		}
+		
+// 		$worked=DictionaryCacheWorker::ensureCacheDictionary(true, $longtask->dict_id, $longtask->system_id);
+// 		if($worked) {
+// 			//if the phrases dictionary was generated, not further work will be done in this call
+// 			echo CJSON::encode(array('status'=>'continuePhrasesDict'));
+// 			return;
+// 		}
 		
 		//create an AnnotatorEngine and annotate next chunk
 		list($annotatorEngine, $chunk)=$longtask->createNextAnnotatorEngine($this);
