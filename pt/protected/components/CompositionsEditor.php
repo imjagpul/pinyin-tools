@@ -137,9 +137,10 @@ class CompositionsEditor extends CGridView {
 		$this->renderJSData();
 		echo '</td><td>';
 		
-		$buttonsRendered=$this->getButtonsColumn()->renderDataCellContentTemplate("'+newId+'", "'+obj[0][3]+'");
-		$deleteOnlyButton=$this->getButtonsColumn()->renderDataCellContentDeleteOnlyTemplate("'+newId+'");
-		
+		//now what was this for?
+// 		$buttonsRendered=$this->getButtonsColumn()->renderDataCellContentTemplate("'+newId+'", "'+obj[0][3]+'");
+// 		$deleteOnlyButton=$this->getButtonsColumn()->renderDataCellContentDeleteOnlyTemplate("'+newId+'");
+
 		//@TODO in the select - group by system (instead of paranthesis)
 		echo CHtml::ajaxButton("Add", array('char/suggestComposition'),
 				array(

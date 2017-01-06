@@ -79,7 +79,7 @@ $systemChangedURL=$this->createUrl("char/suggestSystemChanged");
  
     <?php 
 
-    if(!is_null($suggestion) && !empty($suggestion->compositions)) {
+    if(isset($suggestion) && !empty($suggestion->compositions)) {
 		echo $suggestion->compositions;
 		$compositionsEditorBaseScriptUrl=CompositionsEditor::findBaseScriptUrl($this);
     } else {
