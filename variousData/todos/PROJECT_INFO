@@ -1,4 +1,8 @@
-GOAL: Propagate this as soon as possible.
+Run annotator with profiler.
+=> there are way too many DB requests - see what can be reduced in loadPhrases
+Implement progress bar.
+
+ Propagate this as soon as possible.
 Do only that what is necessary to prevent harm being done.
 Then all other features.
 Do the annotator optimization as it might be fun.

@@ -6,9 +6,10 @@
  * The followings are the available columns in table 'longtask':
  * @property integer $id
  * @property integer $user_id
+ * @property string $submit_time
  * @property string $expire_time
- * @property integer $last_chunk
- * @property integer $max_chunk
+ * @property integer $next_chunk
+ * @property integer $chunk_count 	
  * @property integer $system_id
  * @property integer $dict_id
  * @property integer $mode
@@ -32,12 +33,12 @@ class Longtask extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, max_chunk, outputMode', 'required'),
-			array('user_id, last_chunk, max_chunk, system_id, dict_id, mode, outputMode', 'numerical', 'integerOnly'=>true),
+			array('user_id, outputMode', 'required'),
+			array('user_id, system_id, dict_id, mode, outputMode', 'numerical', 'integerOnly'=>true),
 			array('expire_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, expire_time, last_chunk, max_chunk, system_id, dict_id, mode, outputMode', 'safe', 'on'=>'search'),
+			array('id, user_id, expire_time, system_id, dict_id, mode, outputMode', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,8 +62,6 @@ class Longtask extends CActiveRecord
 			'id' => 'ID',
 			'user_id' => 'User',
 			'expire_time' => 'Expire Time',
-			'last_chunk' => 'Last Chunk',
-			'max_chunk' => 'Max Chunk',
 			'system_id' => 'System',
 			'dict_id' => 'Dict',
 			'mode' => 'Mode',
@@ -91,8 +90,6 @@ class Longtask extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('expire_time',$this->expire_time,true);
-		$criteria->compare('last_chunk',$this->last_chunk);
-		$criteria->compare('max_chunk',$this->max_chunk);
 		$criteria->compare('system_id',$this->system_id);
 		$criteria->compare('dict_id',$this->dict_id);
 		$criteria->compare('mode',$this->mode);
@@ -162,7 +159,7 @@ class Longtask extends CActiveRecord
 	public function createNextAnnotatorEngine($parent) {
 		$annotatorEngine=$this->createEmptyAnnotatorEngine($parent);
 		
-		$lastChunkId=!empty($this->last_chunk) ? $this->last_chunk : 0;
+		$lastChunkId=$this->next_chunk;
 		$chunk=LongtaskChunk::model()->findByAttributes(array('id' => $lastChunkId, 'longtask_id'=>$this->id));
 		$annotatorEngine->input=$chunk->input;
 		$annotatorEngine->startingIndex=$chunk->startIndex;
@@ -179,6 +176,8 @@ class Longtask extends CActiveRecord
 			// 			$this->end_time = date('Y-m-d H:i:s');
 			// 			$this->task = Yii::app()->request->url;
 			// 			$this->username = Yii::app()->user->id;
+			$this->submit_time=date('Y-m-d H:i:s', strtotime('now'));
+			//@TODO convert this to a settings value, and update after finishing every chunk; also some maitenance script that deletes non-used chars
 			$this->expire_time=date('Y-m-d H:i:s', strtotime('+3 hours'));
 		}
 	}

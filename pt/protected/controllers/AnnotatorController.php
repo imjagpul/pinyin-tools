@@ -96,7 +96,7 @@ class AnnotatorController extends Controller
 		
 		$model=Longtask::model()->findByAttributes(array('id'=>$id));
 		
-		if($model->last_chunk === $model->max_chunk) {
+		if($model->next_chunk === $model->chunk_count) {
 			//we are done already, return the result
 			$this->actionGetTask($id);
 			return;
@@ -114,11 +114,13 @@ class AnnotatorController extends Controller
 	 * 			ID of the Longtask
 	 */
 	public function actionGetTask($id) {
-		$task = Longtask::model()->findByAttributes(array('id'=>$id));
-		$annotatorEngine=$task->createFinalAnnotatorEngine($this);
+		$longtask = Longtask::model()->findByAttributes(array('id'=>$id));
+		
+		$annotatorEngine=$longtask->createFinalAnnotatorEngine($this);
 		$annotatorEngine->handleOutputMode();
 		
 		$annotatorEngine->finalOutputAnnotate();
+		
 	}
 
 	/**
@@ -146,7 +148,7 @@ class AnnotatorController extends Controller
 */
 		$longtask=Longtask::model()->findByAttributes(array('id'=>$id));
 
-		if($longtask->last_chunk === $longtask->max_chunk) {
+		if($longtask->next_chunk == $longtask->chunk_count) {
 			//we are done already, return the result
 			header('Content-Type: application/json; charset="UTF-8"');
 			echo CJSON::encode(array('status'=>'ok'));
@@ -174,18 +176,28 @@ class AnnotatorController extends Controller
 		
 		$result = $annotatorEngine->annotateChunk();
 		list($chunk->result, $chunk->result2)=$result;
-// 		var_dump($chunk);die;
+
 		$success=$chunk->update();
 		
 		if(!$success)
 			$status='error';
-		else if($longtask->last_chunk === $longtask->max_chunk)
-			$status='ok';
 		else {
-			$status='continue';
-			
-			$longtask->last_chunk++;
+			$longtask->next_chunk++;
 			$longtask->update();
+			
+			if($longtask->next_chunk == $longtask->chunk_count) {
+				$status='ok';
+				
+				//log total time
+				if(YII_DEBUG) {
+					$jobId=$longtask->id;
+					$totalTime=time()-strtotime($longtask->submit_time);
+					Yii::log("Job (id=$jobId) finished in $totalTime seconds.",CLogger::LEVEL_PROFILE);
+				}
+			} else {
+				$status='continue';
+				
+			}
 		}
 		
 		header('Content-Type: application/json; charset="UTF-8"');
@@ -258,7 +270,7 @@ class AnnotatorController extends Controller
 			$chunk->insert();
 		}
 		
-		$annotationTask->max_chunk=$lastId-1; //-1 because it got increased once too often (one could remove this command and rename the column to chunkCount)
+		$annotationTask->chunk_count=$lastId; //it got increased once too often (so this is not actually and ID, but the total count of chunks)
 		$annotationTask->update();
 		
 		$this->redirect(array('process', 'id'=>$annotationTask->id));

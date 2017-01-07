@@ -9,7 +9,6 @@ Separate the words dictionary form the chars.
 The dictionary (-ies), can be cached in one HTML file, with a place to insert the mnemonics.
 
 LATER: The cache does not have to be regenerated as a whole, only the edited part can be modified quickly. (it is possible to insert a text in the middle of a file)
-NOW: regenerate dictionaries
 NOW: resolve tagged / untagged chars
 NOW: Chunking does have to be aligned, or we will be skipping some results.
 LATER: The output could be saved to a file instead of the database, in order to allow for faster retrieval.
@@ -40,13 +39,17 @@ $ 1BB
  $$) need to be able to create pregenerated dictionaries on the server side, save them to file
  $$) make them link from the results 
 * 1BC ) 
- *) implement tailored dictionary support (will need another column in the results)
- *) implement the rest of output variants
-
+ $$) implement tailored dictionary support (will need another column in the results)
+ $$) make back button work again (get rid of separate process / getTask actions)
+ 
+ *) measure results
+ 
+ implement the rest of output variants:
 * 1A)
 * 2A)
 * 2B)
   
+ *) implement CHARMOD support (conversions, both entries in dictionary, etc.)
 ***
 
 *) final tuning
@@ -58,10 +61,10 @@ $ 1BB
  **) update CSS to hide traditional / simplified (if undesired according to user settings) (in pregenerated dictionaries)
  **) merge preprocess into the annotating (in order to require only one pass but still have smart wrap)
  **) make a nice progress bar for the generation
- 
+ **) detect maximum execution time running out, restart request (and perhaps save progress?)
  *) run a profiler to see why it takes so long	
  **) (perhaps) cache dictionary searches
-
+**) make results respect prefered charachter settings
 *) client side workers (move the todo to extensions)  
 
 
