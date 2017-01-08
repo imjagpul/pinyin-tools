@@ -1,5 +1,28 @@
 Wishes:
 
+---------- Optimize the performance
+A
+AB
+ABC
+ABCDE
+ABCDEF 
+-> this method needs (len) DB queries
+
+But it could be reduced to one AB query
+ABUKJ
+ABSDALKW
+AB
+ABHIUED
+AB
+
+
+
+
+
+---------
+
+
+
 Generate by a worker in background, shorter text anonymously
 Allow files of almost arbitrary size - implement an upload, perhaps convert long (or all?) texts to files
 
