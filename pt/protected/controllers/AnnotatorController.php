@@ -131,6 +131,8 @@ class AnnotatorController extends Controller
 	 * 				the Longtask id
 	 */
 	public function actionProcessBackground($id) {
+		header('Content-Type: application/json; charset="UTF-8"');
+			
 		//@TODO : this could be extended by returning a "wait" command if there are too much other processes running
 		//we do not have to be able to handle limited execution time after all
 		/*
@@ -147,10 +149,10 @@ class AnnotatorController extends Controller
 		}
 */
 		$longtask=Longtask::model()->findByAttributes(array('id'=>$id));
+		$chunkCount=$longtask->chunk_count;
 
-		if($longtask->next_chunk == $longtask->chunk_count) {
+		if($longtask->next_chunk == $chunkCount) {
 			//we are done already, return the result
-			header('Content-Type: application/json; charset="UTF-8"');
 			echo CJSON::encode(array('status'=>'ok'));
 			return;
 		}
@@ -185,7 +187,7 @@ class AnnotatorController extends Controller
 			$longtask->next_chunk++;
 			$longtask->update();
 			
-			if($longtask->next_chunk == $longtask->chunk_count) {
+			if($longtask->next_chunk == $chunkCount) {
 				$status='ok';
 				
 				//log total time
@@ -195,12 +197,11 @@ class AnnotatorController extends Controller
 					Yii::log("Job (id=$jobId) finished in $totalTime seconds.",CLogger::LEVEL_PROFILE);
 				}
 			} else {
-				$status='continue';
-				
+				echo CJSON::encode(array('status'=>'progress', 'current'=>$longtask->next_chunk, 'count'=>$chunkCount));
+				return;
 			}
 		}
 		
-		header('Content-Type: application/json; charset="UTF-8"');
 		echo CJSON::encode(array('status'=>$status));
 	}
 

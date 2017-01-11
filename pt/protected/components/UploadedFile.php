@@ -69,6 +69,13 @@ class UploadedFile {
 		else
 			return FALSE;
 	}
+	
+	/**
+	 * Deletes the source file from the disk.
+	 */
+	function unlink() {
+		
+	}
 }
 
 

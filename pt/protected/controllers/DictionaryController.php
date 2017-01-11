@@ -266,25 +266,27 @@ class DictionaryController extends Controller
 				throw new CHttpException(400,'File upload error. (errcode='.$_FILES['upfile']['error'].')');
 			}
 			
-			//save to db
+			//connect to db
 			$dictModel=$this->loadModel($id);
-
+			$msg="";
+			
 			//remove existing entries
-			$dictModel->truncate();
-			$msg="Trucated db after ". (microtime(true)-YII_BEGIN_TIME)." seconds.";
+// 			$dictModel->truncate();
+// 			$msg=."Trucated db after ". (microtime(true)-YII_BEGIN_TIME)." seconds. ";
 			
 			//have it parsed
 			$uploadedFile=new UploadedFile('upfile', "#");
 			//parseAndAdd is an alternate method - does not create temporary SQL files but is slower
 // 			$r=DictionaryFileParser::parseAndAdd($uploadedFile, $dictModel);
 			$r=DictionaryFileParser::prepareSQL($uploadedFile, $dictModel);			
-			$msg.="Prepared SQL files after ". (microtime(true)-YII_BEGIN_TIME)." seconds.";
-			$r2=DictionaryFileParser::executeSQL($dictModel);
+			$msg.="Prepared SQL files after ". (microtime(true)-YII_BEGIN_TIME)." seconds. ";
 			
-			if($r2>0)
-				$msg.="Imported successfully after ". (microtime(true)-YII_BEGIN_TIME)." seconds ($r2 rows affected).";
-			else
-				$msg.='SQL execution failed. ';
+// 			$r2=DictionaryFileParser::executeSQL($dictModel);
+			
+// 			if($r2>0)
+// 				$msg.="Imported successfully after ". (microtime(true)-YII_BEGIN_TIME)." seconds ($r2 rows affected).";
+// 			else
+// 				$msg.='SQL execution failed. ';
 			
 			//report any irregularities in the input
 			if($r!==false) {
@@ -294,8 +296,10 @@ class DictionaryController extends Controller
 				$msg.=$r[0];
 				$msg.='-->';
 			}
-			$tmpfile=$_FILES['upfile']['tmp_name'];
-			unlink($tmpfile); //delete the temporary file
+			
+			//delete the temporary file
+			$uploadedFile->unlink();
+
 			//@TODO delete the generated SQL files after import
 			
 			//update timestamp of the dictionary

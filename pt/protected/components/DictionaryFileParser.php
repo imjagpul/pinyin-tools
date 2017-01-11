@@ -63,9 +63,9 @@ class DictionaryFileParser {
 		$phrasesSQLhandle=fopen($phrasesFilepath, 'wb');
 		
 		//@TODO turn these to constants
-		$joinCommands=true; // if FALSE, each entry has it own command; if TRUE, the whole dictionary is only two INSERT INTO commands
-		$insertIntoWords='INSERT INTO `dict_entry_char` (`dictionaryId`, `simplified`, `traditional`, `transcription`, `translation`) VALUES ';
-		$insertIntoPhrases='INSERT INTO `dict_entry_phrase` (`dictionaryId`, `simplified_begin`, `simplified_rest`, `traditional_begin`, `traditional_rest`, `transcription`, `translation`) VALUES ';
+		$joinCommands=false; // if FALSE, each entry has it own command; if TRUE, the whole dictionary is only two INSERT INTO commands
+		$insertIntoWords='INSERT INTO `'.(new DictEntryChar)->tableName().'` (`dictionaryId`, `simplified`, `traditional`, `transcription`, `translation`) VALUES ';
+		$insertIntoPhrases='INSERT INTO `'.(new DictEntryPhrase)->tableName().'` (`dictionaryId`, `simplified_begin`, `simplified_rest`, `traditional_begin`, `traditional_rest`, `transcription`, `translation`) VALUES ';
 		
 		if ($joinCommands) {
 			fwrite($charsSQLhandle, $insertIntoWords);
@@ -98,7 +98,7 @@ class DictionaryFileParser {
 			$phrase=mb_strlen($currentValue[1], $encoding) > 1;
 			$handle=$phrase ? $phrasesSQLhandle : $charsSQLhandle;
 			
-			$currentValue[3]=strtolower($currentValue[3]);
+			$currentValue[3]=mb_strtolower($currentValue[3], $encoding); //note we have to use multibyte function here, because it can contain · (the dot between transcribed words)
 			
 			// Eliminate duplicates (this is necessary because the translation serves as primary key in db)
 			// as a duplicate is considered an entry that has the same traditional and transcription as this one.
@@ -161,7 +161,7 @@ class DictionaryFileParser {
 			}
 				
 			if (!$joinCommands)
-				fwrite($handle, ";");
+				fwrite($handle, ";\n");
 		}
 		
 		if ($joinCommands) {
