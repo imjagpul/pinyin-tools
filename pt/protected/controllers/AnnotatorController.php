@@ -35,7 +35,7 @@ class AnnotatorController extends Controller
 		$annotatorEngine=new AnnotatorEngine();
 		$annotatorEngine->parent=$this;
 		$annotatorEngine->input=$isTraditional ? $textData->getTextSimplified() : $textData->getTextTraditional();
-		$annotatorEngine->characterMode=$isTraditional ? AnnotatorEngine::CHARMOD_SIMPLIFIED_ONLY : AnnotatorEngine::CHARMOD_TRADITIONAL_ONLY;
+		$annotatorEngine->characterMode=$isTraditional ? CharacterMode::CHARMOD_SIMPLIFIED_ONLY : CharacterMode::CHARMOD_TRADITIONAL_ONLY;
 		
 		$annotatorEngine->systemID=13; //hardcoded ("Explanation of characters by Herbert A. Giles")
 		$annotatorEngine->dictionariesID=array(1); //hardcoded ("English")
@@ -116,11 +116,7 @@ class AnnotatorController extends Controller
 	public function actionGetTask($id) {
 		$longtask = Longtask::model()->findByAttributes(array('id'=>$id));
 		
-		$annotatorEngine=$longtask->createFinalAnnotatorEngine($this);
-		$annotatorEngine->handleOutputMode();
-		
-		$annotatorEngine->finalOutputAnnotate();
-		
+		$longtask->finalOutput($this);		
 	}
 
 	/**
@@ -206,19 +202,16 @@ class AnnotatorController extends Controller
 	}
 
 	/**
-	 * Creates a new Longtask and redirects to the processing page.
+	 * Creates and returns a new LongTask object, excluding input.
+	 * @retunr LongTask
 	 */
-	public function actionGo()
-	{
-		if(!isset($_POST['input']) || empty($_POST['input'])) {
-			$this->redirect(array('index'));
-		}
-		
+	private function createLongtaskFromPost() {
 		$annotationTask = new Longtask();
-		
+
+		//system and dictionaries
 		$annotationTask->system_id=!empty($_POST['system']) ? ((int)$_POST['system']) : NULL;
 		$annotationTask->dict_id=isset($_POST['selectedDictionaries']) ? ($_POST['selectedDictionaries']) : NULL;
-
+		
 		//setup the mode
 		$modeID=isset($_POST['mode']) ? ((int)$_POST['mode']) : NULL;
 		$annotationTask->mode=$modeID;
@@ -230,8 +223,39 @@ class AnnotatorController extends Controller
 			$annotationTask->outputMode=AnnotatorMode::MODE_SHOW;
 		}
 		
-		$success=$annotationTask->insert();	//insert (to get the ID)
 		
+		//COPIED FROM goDirect - check in the form and implement
+// 		$annotatorEngine->parallel=isset($_POST['parallel']) ? $_POST['parallel'] : NULL;
+// 		$annotatorEngine->audioURL=isset($_POST['audioURL']) ? $_POST['audioURL'] : NULL; //@TODO add URL validator
+// (IS THIS something still relevant? or is it mode?)
+// 		$annotatorEngine->outputType=isset($_POST['type']) ? $_POST['type'] : NULL;
+		
+		
+		return $annotationTask;
+	}
+	
+	/**
+	 * Creates a new Longtask and redirects to the processing page.
+	 */
+	public function actionGo()
+	{
+		if(!isset($_POST['input']) || empty($_POST['input'])) {
+			$this->redirect(array('index'));
+		}
+		
+		//first process the input form
+		$annotationTask = $this->createLongtaskFromPost();
+		$annotationTask->saveAsLastUsedToSettings(); //TODO implment
+		
+		//TODO THEN:
+		//$annotatorEngine->annotate2()
+		//(see what it does and if it works)
+		
+		//TODO also, what is this?:
+		//$annotatorEngine->parent=$this; 
+		
+		//insert the task data to DB and then split into chunks
+		$success=$annotationTask->insert();	//insert (to get the ID)
 		if($success!==TRUE)
 			$this->redirect(array('index')); //@TODO implement an error message
 
@@ -278,9 +302,10 @@ class AnnotatorController extends Controller
 			
 	}
 	
-	//@TODO delete (or maybe keep for the quick processing)
-	public function goDirect()
+	//@TODO delete (already fully merged to actionGo; at least commented)
+	private function goDirect()
 	{
+		die('obsolete');
 		//@TODO check the right to read from the given system (obviously after the reading permissions have been implemented)
 		//@TODO to be tested
 		
@@ -302,7 +327,7 @@ class AnnotatorController extends Controller
 
 		//@TODO set from settings (after deciding if and how the convereting should be done)
 // 		$annotatorEngine->characterMode=UserSettings::getCurrentSettings()->variant;
-		$annotatorEngine->characterMode=AnnotatorEngine::CHARMOD_SIMPLIFIED_ONLY;
+		$annotatorEngine->characterMode=CharacterMode::CHARMOD_SIMPLIFIED_ONLY;
 		
 		//setup the mode
 		$modeID=isset($_POST['mode']) ? ((int)$_POST['mode']) : NULL;
@@ -336,7 +361,7 @@ class AnnotatorController extends Controller
 		$dictionariesID=$_GET['d'];
 		$char=$_GET['t'];
 		$compoundsOnly=$_GET['o'];
- 		$characterMode=AnnotatorEngine::CHARMOD_ALLOW_BOTH; //@TODO (perhaps) load from request
+ 		$characterMode=CharacterMode::CHARMOD_ALLOW_BOTH; //@TODO (perhaps) load from request
 				
 		$transcriptionFormatters=AnnotatorEngine::createFormatters($dictionariesID);
 		$result=null;

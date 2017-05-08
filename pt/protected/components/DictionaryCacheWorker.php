@@ -149,9 +149,9 @@ class DictionaryCacheWorker {
 				$entryText=$entry->traditional;
 				
 				// if($chars)
-				// $translations=self::loadTranslationsFromDictionaries($entryText, $dictionariesID, self::CHARMOD_TRADITIONAL_ONLY);
+				// $translations=self::loadTranslationsFromDictionaries($entryText, $dictionariesID, CharacterMode::CHARMOD_TRADITIONAL_ONLY);
 				// else
-				// $translations=self::loadPhrasesFromDictionaries($entryText, $dictionariesID, self::CHARMOD_TRADITIONAL_ONLY);
+				// $translations=self::loadPhrasesFromDictionaries($entryText, $dictionariesID, CharacterMode::CHARMOD_TRADITIONAL_ONLY);
 				
 				$mnemos=null;
 				
@@ -207,7 +207,7 @@ class DictionaryCacheWorker {
 			$char = mb_substr($text, $i, 1, $encoding);
 	
 			$result.='<a href="#';
-			$result.=AnnotatorEngine::textToLink($char);
+			$result.=Utilities::textToLink($char);
 			$result.='">';
 			$result.=$char ;
 			$result.='</a>';

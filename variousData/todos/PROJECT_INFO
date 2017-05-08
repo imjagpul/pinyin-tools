@@ -1,13 +1,24 @@
-Run annotator with profiler.
-=> there are way too many DB requests - see what can be reduced in loadPhrases
-Implement progress bar.
+== Why ==
 
+I want to share my original approach to learning Chinese.
+I want to create an opportunity for a passive income.
+I want to build a following / community.
+
+== Current principle ==
+Make it into a useful tool that can be shared, and then publish as soon as possible.
+
+== Next step == 
+(see #annotatorPerformance)
+Offline and Portable - works quite fine
+Quick - currently does not work
+Parallel - currently does not work
+ 
+ 
+ ---
  Propagate this as soon as possible.
 Do only that what is necessary to prevent harm being done.
 Then all other features.
-Do the annotator optimization as it might be fun.
 It will be easier to develop after deploying.
-Add Japanese as it is currently requested and needed soon.
 
 There are many annotators but only this one allows you to customize the results and use your ebook reader.
 

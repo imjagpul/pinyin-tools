@@ -4,6 +4,8 @@ abstract class AnnotatorMode {
 	const MODE_SHOW=1;
 	const MODE_DOWNLOAD_EPUB=2;
 	
+	const DUMP="dump";
+	
 	function allowParallel() { return false; }
 	function allowView() { return true; }
 	function allowDownload() { return true; }
@@ -65,10 +67,10 @@ abstract class AnnotatorMode {
 	}
 	
 	public function getTemplateCount() {
-		if($this->getTemplateID()==1) return 2; //hard-coded: only one template needs separate dictionary
-		else return 1;
+		if($this->getTemplateID()==1) return 2; //hard-coded: kindle - needs dictionary separatedly
+		if($this->getTemplateID()==2) return self::DUMP; //hard-coded: dynamic - dumping
 		
-		//output dumping is to be handled separately
+		return 1;		
 	}
 	
 }

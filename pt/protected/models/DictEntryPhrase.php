@@ -19,7 +19,7 @@
  * 
  * Make sure the tableName() returns correct value as well.
  */
-define("DICTDATA_FIRSTPART_LENGTH", 1); 
+define("DICTDATA_FIRSTPART_LENGTH", 2); 
 
 class DictEntryPhrase extends DictEntry
 {
@@ -29,7 +29,8 @@ class DictEntryPhrase extends DictEntry
 	 */
 	public function tableName()
 	{
-		return 'dict_entry_phrase_obsolete';
+		return 'dict_entry_phrase_two';
+// 		return 'dict_entry_phrase_obsolete';
 	}
 	
 	public static function splitInTwo($string) {
@@ -38,6 +39,10 @@ class DictEntryPhrase extends DictEntry
 		$first=mb_substr($string, 0, DICTDATA_FIRSTPART_LENGTH, $encoding); //the first and second character
 		$last=mb_substr($string, DICTDATA_FIRSTPART_LENGTH, null, $encoding); //the rest of the input
 		return array($first, $last);
+	}
+	
+	public static function getFirstPartLength() {
+		return DICTDATA_FIRSTPART_LENGTH;
 	}
 	
 	public function getSimplified() {

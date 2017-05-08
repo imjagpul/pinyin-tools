@@ -132,28 +132,27 @@ class Longtask extends CActiveRecord
 	 * @param CController $parent
 	 * @return AnnotatorEngine
 	 */
-	public function createFinalAnnotatorEngine($parent) {
+	public function finalOutput($parent) {
 		$annotatorEngine=$this->createEmptyAnnotatorEngine($parent);
+		$annotatorEngine->input="(DIRECT)"; //AnnotatorEngine checks for non empty input - @TODO refactor
 		
-		$criteria=new CDbCriteria();
-		$criteria->order="id";
-		$criteria->compare('longtask_id',$this->id);
-		$chunks=LongtaskChunk::model()->findAll($criteria);
-
-		$secondResults='';
-				
-		foreach($chunks as $chunk) {
-			$annotatorEngine->input.=$chunk->result;
-			
-			if(!is_null($chunk->result2)) {
-				$secondResults.=$chunk->result2;
-			}
+		$annotatorEngine->finalOutputAnnotatePre();
+		
+		//we have to iterate and output directly, otherwise it would take too much memory
+		
+		//@TODO - only query single field
+		
+		for ($i=0; $i<$this->chunk_count; $i++) {
+			$chunk=LongtaskChunk::model()->findByAttributes(array('longtask_id'=>$this->id, 'id'=>$i));
+			echo $chunk->result;
 		}
 		
-		//append the second results to after the first results
-		$annotatorEngine->input.=$secondResults;
+		for ($i=0; $i<$this->chunk_count; $i++) {
+			$chunk=LongtaskChunk::model()->findByAttributes(array('longtask_id'=>$this->id, 'id'=>$i));
+			echo $chunk->result2;
+		}
 		
-		return $annotatorEngine;
+		$annotatorEngine->finalOutputAnnotatePost();
 	}
 	
 	public function createNextAnnotatorEngine($parent) {
@@ -165,6 +164,17 @@ class Longtask extends CActiveRecord
 		$annotatorEngine->startingIndex=$chunk->startIndex;
 	
 		return array($annotatorEngine, $chunk);
+	}
+	
+	public function saveAsLastUsedToSettings() {
+// 		$settings=UserSettings::getCurrentSettings();
+		//TODO implement if still relevant
+		//Is this still relevant? There is to be multiple systems and dictionaries
+		// 		UserSettings::getCurrentSettings()->lastSystemInAnnotator=$annotatorEngine->systemID;
+		// 		UserSettings::getCurrentSettings()->lastAnnotatorDictionaries=$annotatorEngine->dictionariesID;
+		// 		UserSettings::getCurrentSettings()->lastTemplateInAnnotator=$templateId;
+		// 		UserSettings::getCurrentSettings()->saveSettings();
+		
 	}
 	
 	//the folowing method is taken from the Yii wiki:

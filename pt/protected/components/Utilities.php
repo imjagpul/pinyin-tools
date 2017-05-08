@@ -40,4 +40,15 @@ class Utilities {
 		
 		return 0+"0x$value";
 	}	
+	
+	/**
+	 * Converts an dictionary entry text to an anchor name.
+	 * @param String $text
+	 * 			the text of the entry to be linked
+	 * @return String
+	 * 			what name should be used in the href/name of the "a" HTML tag
+	 */
+	public static function textToLink($text) {
+		return $text;
+	}
 }

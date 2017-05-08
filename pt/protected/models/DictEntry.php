@@ -18,9 +18,9 @@ abstract class DictEntry extends CActiveRecord {
 	 */
 	public function getText($characterMode) {
 		switch($characterMode) {
-			case AnnotatorEngine::CHARMOD_SIMPLIFIED_ONLY:
-			case AnnotatorEngine::CHARMOD_CONVERT_TO_SIMPLIFIED:
-			case AnnotatorEngine::CHARMOD_ALLOW_BOTH_PREFER_SIMP:
+			case CharacterMode::CHARMOD_SIMPLIFIED_ONLY:
+			case CharacterMode::CHARMOD_CONVERT_TO_SIMPLIFIED:
+			case CharacterMode::CHARMOD_ALLOW_BOTH_PREFER_SIMP:
 				return $this->simplified;
 			default:
 				return $this->traditional;

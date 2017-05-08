@@ -4,14 +4,6 @@ class AnnotatorEngine {
 	const ignoredChars=" \n\t\r\"</>,.;'!。，《》…：“”？！　0"; // @TODO complement special asian characters
 	const ignoredCharsMultibyte="。，《》…：“”？！　"; // ignored chars that are multibyte
 
-	const CHARMOD_SIMPLIFIED_ONLY=1;
-	const CHARMOD_TRADITIONAL_ONLY=2;
-	const CHARMOD_CONVERT_TO_SIMPLIFIED=3;
-	const CHARMOD_CONVERT_TO_TRADITIONAL=4;
-	const CHARMOD_ALLOW_BOTH_PREFER_SIMP=5;
-	const CHARMOD_ALLOW_BOTH=5;
-	//const CHARMOD_ALLOW_BOTH=5;
-
 	/** @var CController */
 	public $parent;
 	public $input;
@@ -74,27 +66,20 @@ class AnnotatorEngine {
 	 */
 	public function annotateChunk() {
 		$this->prepare();
-//		ob_start();
 		return $this->go();
-//		return ob_get_clean();
 	}
-	
-	/**
-	 * Converts an dictionary entry text to an anchor name.
-	 * @param String $text
-	 * 			the text of the entry to be linked
-	 * @return String
-	 * 			what name should be used in the href/name of the "a" HTML tag
-	 */
-	public static function textToLink($text) {
-		return $text;
-	}
-	
+		
 	/**
 	 * 
 	 * @return string[] an array of two elements, the first being the output, the second being the other part of the output in two-part templates.
 	 */
 	private function go() {
+						
+	    if($this->templateFull===AnnotatorMode::DUMP) { //if no templates are set, just dump the whole input as-is
+			//parallel does not work in quick dump (but that is not a problem)
+			return array($this->input, '');
+		}
+			
 		$result='';
 		$result2='';
 		
@@ -122,7 +107,7 @@ class AnnotatorEngine {
 		
 			$translations=$this->loadTranslations($char);
 			$mnemos=$this->loadMnemonics($char);
-			$phrases=$this->loadPhrases($char, $i);
+			$phrases=$this->loadPhrasesDouble($char, $i);
 			
 			$result.=$this->outputChar($char, $translations, $mnemos, $phrases, $this->startingIndex+$i, $this->templateFull, true);
 			if(!is_null($this->templateFull2)) { 
@@ -149,13 +134,13 @@ class AnnotatorEngine {
 // 				else
 // 					$phrase=$phraseEntry->getTraditional();
 				
-// 				$data=array('char'=>$char, 'link'=>self::textToLink($phrase));
+// 				$data=array('char'=>$char, 'link'=>Utilities::textToLink($phrase));
 				
 // 				$this->parent->renderPartial('core/percharSingleFileWords', $data) ;				
 				
 // 			} else {
 // 				//if not phrases dictionary is included, just output the characters
-// 				$data=array('char'=>$char, 'link'=>self::textToLink($charData->traditional));
+// 				$data=array('char'=>$char, 'link'=>Utilities::textToLink($charData->traditional));
 // 				$this->parent->renderPartial('core/percharSingleFile', $data) ;				
 // 			}
 		} //end of character loop
@@ -163,6 +148,19 @@ class AnnotatorEngine {
 		return array($result, $result2);
 	}
 
+	public function finalOutputAnnotatePre() {
+		
+		$this->prepare();
+		$this->outputHeader();
+		$this->outputAudioPlayer();
+		$this->outputParallelBeforeChars();
+	}
+	public function finalOutputAnnotatePost() {
+		$this->outputParallelAfterChars();
+		$this->outputFooter();
+	}
+	
+	/*
 	public function finalOutputAnnotate() {
 		
 		$this->prepare();
@@ -182,22 +180,22 @@ class AnnotatorEngine {
 		
 // 		echo "<!-- took ". (microtime(true)-YII_BEGIN_TIME)." s -->";
 	}
-	
-	public function annotate() {
-		$startTime=time();
+	*/
+// 	public function annotate() {
+// 		$startTime=time();
 		
-		$this->prepare();
-		$this->outputHeader();
-		$this->outputAudioPlayer();
-		$this->outputParallelBeforeChars();
-		$this->preprocessInput();
-		$this->goTemplates();
-		$this->outputParallelAfterChars();
-		$this->outputFooter();
+// 		$this->prepare();
+// 		$this->outputHeader();
+// 		$this->outputAudioPlayer();
+// 		$this->outputParallelBeforeChars();
+// 		$this->preprocessInput();
+// 		$this->goTemplates();
+// 		$this->outputParallelAfterChars();
+// 		$this->outputFooter();
 		
-		$totalTime=time()-$startTime;
-		echo "<!-- took $totalTime s -->";
-	}
+// 		$totalTime=time()-$startTime;
+// 		echo "<!-- took $totalTime s -->";
+// 	}
 /*	
 	public static function getBoxData($systemID, $dictionariesID, $char) {
 		self::loadTranslationsFromDictionaries($char, $dictionariesID);
@@ -211,12 +209,7 @@ class AnnotatorEngine {
 		$this->colors=UserSettings::getCurrentSettings()->annotatorColors;
 		$this->len=mb_strlen($this->input,$this->encoding);
 		$this->dictionariesID=array($this->dictID);
-		
-		if($this->len==0) {
-			//no input given - even though that should be checked already
-			throw new CException("No input given.");
-		}
-		
+				
 		$this->transcriptionFormatters=$this->createFormatters($this->dictionariesID);
 		
 		if(!is_null($this->systemID))
@@ -226,7 +219,9 @@ class AnnotatorEngine {
 		
 			
 		$this->template=$this->mode->getTemplatePath();
-		if($this->mode->getTemplateCount()==1)
+		if($this->mode->getTemplateCount()===AnnotatorMode::DUMP)
+			$this->templateFull=AnnotatorMode::DUMP;
+		else if($this->mode->getTemplateCount()==1)
 			$this->templateFull=$this->template.'/perchar';
 		else if($this->mode->getTemplateCount()==2) {
 			$this->templateFull=$this->template.'/perchar1of2';
@@ -240,7 +235,7 @@ class AnnotatorEngine {
 	/**
 	 * Sends the headers corresponding to the requested output mode.
 	 */
-	public function handleOutputMode() {
+	private function handleOutputMode() {
 		if($this->outputMode==AnnotatorMode::MODE_DOWNLOAD) {
 			header('Content-type: application/octet-stream');
 			header('Content-Disposition: attachment; filename="export.html"');
@@ -441,9 +436,9 @@ class AnnotatorEngine {
 	public static function loadTranslationsFromDictionaries($char, $dictionariesID, $characterMode) {
 		$criteria=new CDbCriteria();
 
-		if($characterMode!=self::CHARMOD_TRADITIONAL_ONLY)
+		if($characterMode!=CharacterMode::CHARMOD_TRADITIONAL_ONLY)
 			$criteria->compare('simplified', $char);
-		if($characterMode!=self::CHARMOD_SIMPLIFIED_ONLY)
+		if($characterMode!=CharacterMode::CHARMOD_SIMPLIFIED_ONLY)
 			$criteria->compare('traditional', $char, false, 'OR');
 		//in other cases than CHARMOD_SIMPLIFIED_ONLY and CHARMOD_TRADITIONAL_ONLY both are searched
 		
@@ -487,9 +482,9 @@ class AnnotatorEngine {
 		$criteria=new CDbCriteria();
 		
 		foreach($compounds as $search) {
-			if($characterMode!=self::CHARMOD_SIMPLIFIED_ONLY) //in all other modes have to search both
+			if($characterMode!=CharacterMode::CHARMOD_SIMPLIFIED_ONLY) //in all other modes have to search both
 				$criteria->compare('traditional_rest', $search, false, 'OR');
-			if($characterMode!=self::CHARMOD_TRADITIONAL_ONLY)
+			if($characterMode!=CharacterMode::CHARMOD_TRADITIONAL_ONLY)
 				$criteria->compare('simplified_rest', $search, false, 'OR');
 		}
 		
@@ -498,9 +493,9 @@ class AnnotatorEngine {
 		
 		//@TODO the condition is not escaped (so it would fail if $char would be an apostrophe)
 		//the first letter (because of the DB structure)
-		if($characterMode==self::CHARMOD_SIMPLIFIED_ONLY)
+		if($characterMode==CharacterMode::CHARMOD_SIMPLIFIED_ONLY)
 			$criteria->addCondition("simplified_begin='$char'");
-		if($characterMode==self::CHARMOD_TRADITIONAL_ONLY)
+		if($characterMode==CharacterMode::CHARMOD_TRADITIONAL_ONLY)
 			$criteria->addCondition("traditional_begin='$char'");
 		else
 			$criteria->addCondition("simplified_begin='$char' OR traditional_begin='$char'");
@@ -518,6 +513,61 @@ class AnnotatorEngine {
 	}
 	
 	
+	private function loadPhrasesDouble($char, $offset) {
+		if(DictEntryPhrase::getFirstPartLength()!=2) die;
+		
+		$nextChar=mb_substr($this->input, $offset+1, 1, $this->encoding);
+		
+		if(empty($nextChar) || $this->isIgnoredChar($nextChar))
+			return null;
+		
+		$search=$char.$nextChar;
+		
+		$criteria=new CDbCriteria();
+		
+		//note by adding the other conditions after the _rest column search makes the OR and AND in the correct brackets
+		$criteria->addInCondition('dictionaryId',  $this->dictionariesID); //it has to be in one of the chosen dictionaries
+		
+		//@TODO the condition is not escaped (so it would fail if $char would be an apostrophe)
+		//the first letter (because of the DB structure)
+		if($this->characterMode==CharacterMode::CHARMOD_SIMPLIFIED_ONLY)
+			$criteria->addCondition("simplified_begin='$search'");
+		else if($this->characterMode==CharacterMode::CHARMOD_TRADITIONAL_ONLY)
+			$criteria->addCondition("traditional_begin='$search'");
+		else
+			$criteria->addCondition("simplified_begin='$search' OR traditional_begin='$search'");
+		
+		$results=DictEntryPhrase::model()->findAll($criteria);
+
+		$matches=array();
+		foreach ($results as $result) {
+			//check if any of the phrases match
+			$len=mb_strlen($result->traditional_rest, $this->encoding);
+			$searched=mb_substr($this->input, $offset+2, $len, $this->encoding);
+			
+			if($this->characterMode!=CharacterMode::CHARMOD_TRADITIONAL_ONLY) {
+				if($result->simplified_rest==$searched) {
+						$matches[]=$result;
+						continue; //no need to compare the traditional if the simplifed matches (in any mode)
+				}
+			} //no else here - both have to be compared in some modes
+			if($this->characterMode!=CharacterMode::CHARMOD_SIMPLIFIED_ONLY) {
+				if($result->traditional_rest==$searched) {
+						$matches[]=$result;
+						continue; //no need to compare the traditional if the simplifed matches (in any mode)
+				}
+			}
+		}
+		
+		//sort to put the longest first
+		usort($matches,function($a,$b) {
+			$encoding=Yii::app()->params['annotatorEncoding'];
+			return mb_strlen($b->traditional_rest, $encoding)- mb_strlen($a->traditional_rest, $encoding);
+		} );
+		
+		return $matches;
+	}
+	
 	/**
 	 * Loads the phrases based on a point in the text.
 	 * 
@@ -534,7 +584,15 @@ class AnnotatorEngine {
 		//step through the text we are annotating to reach first boundary character or the limit length of a composition
 		$search='';
 		$compounds=array();
-		$j=1;
+		
+		$j=DictEntryPhrase::getFirstPartLength();
+		
+		if($j>1) {
+			$char.=mb_substr($this->input, $offset+1, $j-1, $this->encoding);
+			$compounds[]='';
+		}
+		
+		//@TODO BUG HERE - if $limit = $j - it does not work
 		for(;$j<=$limit;$j++) {
 			//stop at ignored char
 			$sub=mb_substr($this->input, $offset+$j, 1, $this->encoding);
@@ -555,9 +613,9 @@ class AnnotatorEngine {
 // 	private static function loadDictChar($char, $characterMode) {
 // 		$criteria=new CDbCriteria();
 		
-// 		if($characterMode!=self::CHARMOD_SIMPLIFIED_ONLY) //in all other modes have to search both
+// 		if($characterMode!=CharacterMode::CHARMOD_SIMPLIFIED_ONLY) //in all other modes have to search both
 // 			$criteria->compare('traditional', $char, false, 'OR');
-// 		if($characterMode!=self::CHARMOD_TRADITIONAL_ONLY)
+// 		if($characterMode!=CharacterMode::CHARMOD_TRADITIONAL_ONLY)
 // 			$criteria->compare('simplified', $char, false, 'OR');
 		
 // 		return DictEntryChar::model()->find($criteria);
