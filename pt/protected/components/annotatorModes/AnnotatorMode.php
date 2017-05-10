@@ -44,6 +44,11 @@ abstract class AnnotatorMode {
 // 				array("AnnotatorModeUntagged", "Only list untagged")
 	);
 	
+	/**
+	 * 
+	 * @param int $modeID
+	 * @return AnnotatorMode
+	 */
 	static function parseMode($modeID) {
 		return new self::$modesList[$modeID][0];		
 	}
@@ -72,5 +77,8 @@ abstract class AnnotatorMode {
 		
 		return 1;		
 	}
-	
+
+	public function getAlwaysDirectProcessing() {
+		return false;
+	}	
 }

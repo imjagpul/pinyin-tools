@@ -116,15 +116,24 @@ class Longtask extends CActiveRecord
 	 * @param CController $parent
 	 * @return AnnotatorEngine an empty 
 	 */
-	private function createEmptyAnnotatorEngine($parent) {
+	public function createEmptyAnnotatorEngine($parent) {
 		$annotatorEngine=new AnnotatorEngine();
 		$annotatorEngine->parent=$parent;
 		$annotatorEngine->systemID=$this->system_id;
 		$annotatorEngine->dictID=$this->dict_id;
-		$annotatorEngine->mode=AnnotatorMode::parseMode($this->mode);
+		$annotatorEngine->mode=$this->getModeParsed();
 		$annotatorEngine->outputMode=$this->outputMode;
 		
 		return $annotatorEngine;
+	}
+	
+	/**
+	 * 
+	 * @return AnnotatorMode
+	 */
+	public function getModeParsed() {
+		//TODO rename $this->mode to $this->modeID; and this method to getMode()
+		return AnnotatorMode::parseMode($this->mode);
 	}
 	
 	/**
@@ -134,7 +143,6 @@ class Longtask extends CActiveRecord
 	 */
 	public function finalOutput($parent) {
 		$annotatorEngine=$this->createEmptyAnnotatorEngine($parent);
-		$annotatorEngine->input="(DIRECT)"; //AnnotatorEngine checks for non empty input - @TODO refactor
 		
 		$annotatorEngine->finalOutputAnnotatePre();
 		

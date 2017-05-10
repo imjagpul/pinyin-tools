@@ -247,21 +247,24 @@ class AnnotatorController extends Controller
 		$annotationTask = $this->createLongtaskFromPost();
 		$annotationTask->saveAsLastUsedToSettings(); //TODO implment
 		
-		//TODO THEN:
-		//$annotatorEngine->annotate2()
-		//(see what it does and if it works)
-		
-		//TODO also, what is this?:
-		//$annotatorEngine->parent=$this; 
-		
+		//preprocess the input always during this request
+		//@TODO: check if it works fine with parallel; or skip during parallel
+		$input=AnnotatorEngine::preprocessInput($_POST['input']);
+				
+		//now there are two options: the input gets annotated 
+		//either directly in this request, or saved as a background task		
+		if(mb_strlen($input)<Yii::app()->params ['annotatorChunkInputSizeAlwaysDirectMax'] || $annotationTask->getModeParsed()->getAlwaysDirectProcessing()) {
+			//if the input is short; or if using the Quick mode, we can handle it in this request
+			$annotatorEngine=$annotationTask->createEmptyAnnotatorEngine($this);
+			$annotatorEngine->input=$input;
+			$annotatorEngine->annotateDirect();
+			return;
+		}
+
 		//insert the task data to DB and then split into chunks
 		$success=$annotationTask->insert();	//insert (to get the ID)
 		if($success!==TRUE)
 			$this->redirect(array('index')); //@TODO implement an error message
-
-		//preprocess the input during this request
-		//@TODO: check if it works fine with parallel; or skip during parallel
-		$input=AnnotatorEngine::preprocessInput($_POST['input']);
 
 		//now we need to split the input into chunks and save into the DB
 		$encoding = Yii::app()->params['annotatorEncoding'];

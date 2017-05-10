@@ -1,8 +1,8 @@
 <?php
 class AnnotatorEngine {
-	const ignoredCharsJs=" \\\"</>,.;'!。，《》…：“”？！　0"; //withonut newlines and with escaped quote
-	const ignoredChars=" \n\t\r\"</>,.;'!。，《》…：“”？！　0"; // @TODO complement special asian characters
-	const ignoredCharsMultibyte="。，《》…：“”？！　"; // ignored chars that are multibyte
+	const ignoredCharsJs=" \\\"</>,.;'!。，《》…：“”？！　0（）"; //withonut newlines and with escaped quote
+	const ignoredChars=" \n\t\r\"</>,.;'!。，《》…：“”？！　0（）"; // @TODO complement special asian characters
+	const ignoredCharsMultibyte="。，《》…：“”？！（）　"; // ignored chars that are multibyte
 
 	/** @var CController */
 	public $parent;
@@ -58,7 +58,15 @@ class AnnotatorEngine {
 // 		$totalTime=time()-$startTime;
 // 		echo "<!-- took $totalTime s -->";
 // 	}
-	
+
+	public function annotateDirect() {
+		$this->finalOutputAnnotatePre();
+		list($firstOutput, $secondOutput)=$this->go();
+		echo $firstOutput;
+		echo $secondOutput;
+		$this->finalOutputAnnotatePost();
+	}
+
 	/**
 	 * Annotates the input without adding header and footer, and returns the output.
 	 * 
@@ -149,7 +157,6 @@ class AnnotatorEngine {
 	}
 
 	public function finalOutputAnnotatePre() {
-		
 		$this->prepare();
 		$this->outputHeader();
 		$this->outputAudioPlayer();

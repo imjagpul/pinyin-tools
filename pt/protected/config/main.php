@@ -181,14 +181,18 @@ return array(
 		'fileUploadEncoding'=> 'utf8',
 		'annotatorEncoding'=> 'utf8',
 		'staticAnnotatorCompositionLengthLimit'=> 2, //20 is the maximal meaningful value. Lower this value if the annotator is too slow.
-// 		'staticAnnotatorCompositionLengthLimit'=> 20, //20 is the maximal meaningful value. Lower this value if the annotator is too slow.
-// 		'dynamicAnnotatorCompositionLengthLimit'=> 4, //20 is the maximal meaningful value. Lower this value if the annotator is too slow.
+
+		//used in dynamic/footer template (Quick mode)
+		//20 is the maximal meaningful value. Lower this value if the annotator is too slow.
+		'dynamicAnnotatorCompositionLengthLimit'=> 4, 
+		
 		'maxCompositions'=> 20, //used in CharController - querySingleComposition
 		'maxTemplateParts'=> 10, //used in AnnotatorController
 		'dbStepSize'=> 1000, //used in AnnotatorEngine when generating dictionaries
-		'annotatorChunkInputSizeMin'=> 30, //used in AnnotatorEngine when spliting input into chunks
-		'annotatorChunkInputSizeMax'=> 55, //used in AnnotatorEngine when spliting input into chunks
-// 		'annotatorChunkInputSizeMin'=> 10000, //used in AnnotatorEngine when spliting input into chunks
-// 		'annotatorChunkInputSizeMax'=> 10000, //used in AnnotatorEngine when spliting input into chunks
+		
+		//following three constants are used in AnnotatorEngine when spliting input into chunks
+		'annotatorChunkInputSizeMin'=> 50, //the minimal size of a chunk 
+		'annotatorChunkInputSizeMax'=> 70, //the maximal size of a chunk
+		'annotatorChunkInputSizeAlwaysDirectMax'=> 70, //when the input text length is smaller than this, background task is never created
 	),
 );

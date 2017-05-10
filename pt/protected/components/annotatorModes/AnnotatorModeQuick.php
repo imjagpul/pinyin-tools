@@ -10,4 +10,9 @@ class AnnotatorModeQuick extends AnnotatorMode {
 	function getID() {
 		return 0;
 	}
+	
+	public function getAlwaysDirectProcessing() {
+		return true;
+	}
+	
 }
