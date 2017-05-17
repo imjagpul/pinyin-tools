@@ -91,6 +91,8 @@ class AnnotatorEngine {
 		$result='';
 		$result2='';
 		
+		$lineIndex=0;
+		
 		//loop for every character
 		for($i=0; $i<$this->len; $i++) {
 			$char=mb_substr($this->input, $i, 1, $this->encoding);
@@ -104,7 +106,8 @@ class AnnotatorEngine {
 					$result.= "\n";
 				
 				//if the line ended, we need to output another line of parallel text if present
-// 				$this->outputParallelAfterLine($lineIndex, $iTemplate);
+				$result.=$this->outputParallelAfterLine($lineIndex);
+				$lineIndex++;
 				continue;
 			}
 		
@@ -152,6 +155,8 @@ class AnnotatorEngine {
 // 				$this->parent->renderPartial('core/percharSingleFile', $data) ;				
 // 			}
 		} //end of character loop
+		
+		$result.=$this->outputParallelAfterLine($lineIndex, true);
 		
 		return array($result, $result2);
 	}
@@ -261,7 +266,7 @@ class AnnotatorEngine {
 		$this->handleOutputMode();
 		
 		if(!empty($this->parallel)) {
-			Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/colResizable-1.3.min.js');
+			Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/colResizable-1.6.min.js');
 			Yii::app()->clientScript->registerScript('resizableCol','$("table.parallel").colResizable({gripInnerHtml:"<div class=\'grip\'></div>"});');
 		}
 		
@@ -700,30 +705,26 @@ class AnnotatorEngine {
 	  * @param int $templateIteration one-based index of the current template
 	  * @param boolean $finish	if all following lines should be outputed as well
 	  */
-	 private function outputParallelAfterLine($lineIndex, $templateIteration, $finish=false) {
+	 private function outputParallelAfterLine($lineIndex, $finish=false) {
 	 	if(empty($this->parallel))
 	 		return;
 	 	
-	 	if($templateIteration>1)
-	 		return;
-	 	
+	 	$output='';
+	 		
 	 	//@TODO push down to template
-	 	echo '</td>';
-	 	echo '<td>';
+	 	$output.='</td><td>';
 	 	if(isset($this->parallelLines[$lineIndex])) {
-	 		echo $this->parallelLines[$lineIndex];
+	 		$output.= $this->parallelLines[$lineIndex];
 	 		
 	 		if($finish) {
 	 			for($i=$lineIndex+1; $i<count($this->parallelLines); $i++) {
-	 				echo "<br>\n";
-	 				echo $this->parallelLines[$i];
+	 				$output.="<br>\n";
+	 				$output.=$this->parallelLines[$i];
 	 			}
 	 		}
 	 	}
-	 	echo '</td>';
-	 	echo '</tr>';
-	 	echo '<tr>';
-	 	echo '<td>';
+	 	$output.='</td></tr><tr><td>';
+	 	return $output;
 	 }
 	 
 	 private function outputParallelBeforeChars() {

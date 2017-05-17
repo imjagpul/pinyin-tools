@@ -3,8 +3,8 @@ class AnnotatorModeParallel extends AnnotatorMode  {
 	function allowParallel() { return true; }
 	function allowDownload() { return false; }
 	
-	function getTemplateID() {
-		return 2;//dynamic
+	protected function getTemplateID() {
+		return 0; //'jsbased'
 	}
 	
 	function getDescription() {

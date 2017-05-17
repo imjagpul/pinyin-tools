@@ -14,6 +14,8 @@
  * @property integer $dict_id
  * @property integer $mode
  * @property integer $outputMode
+ * @property string $parallelText
+ * @property string $audioLink
  */
 class Longtask extends CActiveRecord
 {
@@ -123,6 +125,9 @@ class Longtask extends CActiveRecord
 		$annotatorEngine->dictID=$this->dict_id;
 		$annotatorEngine->mode=$this->getModeParsed();
 		$annotatorEngine->outputMode=$this->outputMode;
+		
+		$annotatorEngine->parallel=$this->parallelText;
+		$annotatorEngine->audioURL=$this->audioLink;
 		
 		return $annotatorEngine;
 	}

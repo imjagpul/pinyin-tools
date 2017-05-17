@@ -222,20 +222,16 @@ class AnnotatorController extends Controller
 		}  else {
 			$annotationTask->outputMode=AnnotatorMode::MODE_SHOW;
 		}
-		
-		
-		//COPIED FROM goDirect - check in the form and implement
-// 		$annotatorEngine->parallel=isset($_POST['parallel']) ? $_POST['parallel'] : NULL;
-// 		$annotatorEngine->audioURL=isset($_POST['audioURL']) ? $_POST['audioURL'] : NULL; //@TODO add URL validator
-// (IS THIS something still relevant? or is it mode?)
-// 		$annotatorEngine->outputType=isset($_POST['type']) ? $_POST['type'] : NULL;
-		
-		
+				
+		$annotationTask->parallelText=isset($_POST['parallel']) ? $_POST['parallel'] : NULL;
+		$annotationTask->audioLink=isset($_POST['audioURL']) ? $_POST['audioURL'] : NULL; //@TODO add URL validator
+
 		return $annotationTask;
 	}
 	
 	/**
-	 * Creates a new Longtask and redirects to the processing page.
+	 * Either creates a new Longtask and redirects to the processing page
+	 * or processes the input directly.
 	 */
 	public function actionGo()
 	{
@@ -246,20 +242,26 @@ class AnnotatorController extends Controller
 		//first process the input form
 		$annotationTask = $this->createLongtaskFromPost();
 		$annotationTask->saveAsLastUsedToSettings(); //TODO implment
+		$parallelMode=isset($_POST['parallel']);
+		
 		
 		//preprocess the input always during this request
-		//@TODO: check if it works fine with parallel; or skip during parallel
-		$input=AnnotatorEngine::preprocessInput($_POST['input']);
-				
+		if(!$parallelMode)
+			$input=AnnotatorEngine::preprocessInput($_POST['input']);
+		else
+			$input=$_POST['input'];
+			
 		//now there are two options: the input gets annotated 
 		//either directly in this request, or saved as a background task		
-		if(mb_strlen($input)<Yii::app()->params ['annotatorChunkInputSizeAlwaysDirectMax'] || $annotationTask->getModeParsed()->getAlwaysDirectProcessing()) {
+		if(mb_strlen($input)<Yii::app()->params ['annotatorChunkInputSizeAlwaysDirectMax'] || $annotationTask->getModeParsed()->getAlwaysDirectProcessing() || $parallelMode) {
 			//if the input is short; or if using the Quick mode, we can handle it in this request
 			$annotatorEngine=$annotationTask->createEmptyAnnotatorEngine($this);
 			$annotatorEngine->input=$input;
 			$annotatorEngine->annotateDirect();
 			return;
 		}
+		//@TODO implement background mode for $parallelMode
+		//(perhaps could modify to line per chunk?)
 
 		//insert the task data to DB and then split into chunks
 		$success=$annotationTask->insert();	//insert (to get the ID)
