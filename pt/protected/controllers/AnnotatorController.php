@@ -69,7 +69,6 @@ class AnnotatorController extends Controller
 		$systemListOwn=System::getWriteableSystems();
 		
 		$allDicts=Dictionary::model()->findAll();
-// 		$defaultSelectedDicts=UserSettings::getCurrentSettings()->lastAnnotatorDictionaries;
 		$defaultSelectedDict=UserSettings::getCurrentSettings()->lastDictionaryInAnnotator;
 		$systemLast=UserSettings::getCurrentSettings()->lastSystemInAnnotator;
 		$lastTemplate=UserSettings::getCurrentSettings()->lastTemplateInAnnotator;
@@ -128,22 +127,7 @@ class AnnotatorController extends Controller
 	 */
 	public function actionProcessBackground($id) {
 		header('Content-Type: application/json; charset="UTF-8"');
-			
-		//@TODO : this could be extended by returning a "wait" command if there are too much other processes running
-		//we do not have to be able to handle limited execution time after all
-		/*
-		$maxtime=30;
-		if(!empty(ini_get('max_execution_time'))) { //@TODO move magic numbers to configuration
-			$maxtime=min(30, ini_get('max_execution_time')-10);
-		} 
-		$finish=$_SERVER['REQUEST_TIME']+$maxtime;
-		
-		$done=false;
 
-		while(time()<$finish && !$done) {
-			//HERE implement
-		}
-*/
 		$longtask=Longtask::model()->findByAttributes(array('id'=>$id));
 		$chunkCount=$longtask->chunk_count;
 
@@ -152,23 +136,7 @@ class AnnotatorController extends Controller
 			echo CJSON::encode(array('status'=>'ok'));
 			return;
 		}
-		
-		//first make sure the dictionaries exist
-		//@TODO generate cached dictionary only if using pregenerated dictionaries
-// 		$worked=DictionaryCacheWorker::ensureCacheDictionary(false, $longtask->dict_id, $longtask->system_id);
-// 		if($worked) {
-// 			//if the charactes dictionary was generated, not further work will be done in this call
-// 			echo CJSON::encode(array('status'=>'continueWordsDict'));
-// 			return;
-// 		}
-		
-// 		$worked=DictionaryCacheWorker::ensureCacheDictionary(true, $longtask->dict_id, $longtask->system_id);
-// 		if($worked) {
-// 			//if the phrases dictionary was generated, not further work will be done in this call
-// 			echo CJSON::encode(array('status'=>'continuePhrasesDict'));
-// 			return;
-// 		}
-		
+				
 		//create an AnnotatorEngine and annotate next chunk
 		list($annotatorEngine, $chunk)=$longtask->createNextAnnotatorEngine($this);
 		
@@ -242,8 +210,7 @@ class AnnotatorController extends Controller
 		//first process the input form
 		$annotationTask = $this->createLongtaskFromPost();
 		$annotationTask->saveAsLastUsedToSettings(); //TODO implment
-		$parallelMode=isset($_POST['parallel']);
-		
+		$parallelMode=isset($_POST['parallel']);		
 		
 		//preprocess the input always during this request
 		if(!$parallelMode)
@@ -306,54 +273,6 @@ class AnnotatorController extends Controller
 		$this->redirect(array('process', 'id'=>$annotationTask->id));
 			
 	}
-	
-	//@TODO delete (already fully merged to actionGo; at least commented)
-	private function goDirect()
-	{
-		die('obsolete');
-		//@TODO check the right to read from the given system (obviously after the reading permissions have been implemented)
-		//@TODO to be tested
-		
-		$annotatorEngine=new AnnotatorEngine();
-		
-		if(isset($_POST['input']) && !empty($_POST['input'])) {
-			$annotatorEngine->input=$_POST['input'];
-		} else {
-			$this->redirect(array('index'));
-		}
-				
-		$annotatorEngine->parent=$this;
-		$annotatorEngine->systemID=!empty($_POST['system']) ? ((int)$_POST['system']) : NULL;
-		$annotatorEngine->dictionariesID=isset($_POST['selectedDictionaries']) ? ($_POST['selectedDictionaries']) : NULL;
-		
-		$annotatorEngine->parallel=isset($_POST['parallel']) ? $_POST['parallel'] : NULL;
-		$annotatorEngine->audioURL=isset($_POST['audioURL']) ? $_POST['audioURL'] : NULL; //@TODO add URL validator
-		$annotatorEngine->outputType=isset($_POST['type']) ? $_POST['type'] : NULL;
-
-		//@TODO set from settings (after deciding if and how the convereting should be done)
-// 		$annotatorEngine->characterMode=UserSettings::getCurrentSettings()->variant;
-		$annotatorEngine->characterMode=CharacterMode::CHARMOD_SIMPLIFIED_ONLY;
-		
-		//setup the mode
-		$modeID=isset($_POST['mode']) ? ((int)$_POST['mode']) : NULL;
-		$annotatorEngine->mode=AnnotatorMode::parseMode($modeID);
-
-		//see which action the user has chosen
-		if(array_key_exists('submit-download', $_POST)) {
-			$annotatorEngine->outputMode=AnnotatorMode::MODE_DOWNLOAD;
-		}  else {
-			$annotatorEngine->outputMode=AnnotatorMode::MODE_SHOW;
-		}
-		
-		UserSettings::getCurrentSettings()->lastSystemInAnnotator=$annotatorEngine->systemID;
-		UserSettings::getCurrentSettings()->lastAnnotatorDictionaries=$annotatorEngine->dictionariesID;
-		UserSettings::getCurrentSettings()->lastTemplateInAnnotator=$templateId;
-		UserSettings::getCurrentSettings()->saveSettings();
-		
-// 		ini_set('max_execution_time', 60000); //@TODO not sure if this is the best way
-// 		$annotatorEngine->annotate();
-		$annotatorEngine->annotate2();
-	}	
 
 	/**
 	 * Called via AJAX when the user points on a character.
@@ -391,8 +310,6 @@ class AnnotatorController extends Controller
 	}
 	
 	public function actionOutputDictionary() {
-// 		ini_set('max_execution_time', 60000); //@TODO not sure if this is the best way
-		
 		$dictID=1;
 		$systemID=null; 
 		AnnotatorEngine::outputDictionary($this, false, $dictID, $systemID);
@@ -511,14 +428,6 @@ class AnnotatorController extends Controller
 	
 	public function boxToArray($translations, $mnemos, $transcriptionFormatters, $characterMode) {
 		$result=array();
-		//phrases
-		/*
-		if(!empty($phrases))
-		foreach($phrases as $phrase) {
-			$result[]=$phrase->getText($characterMode);
-			$result[]=$transcriptionFormatters[$phrase->dictionaryId]->format($phrase->transcription);
-			$result[]=$phrase->translationsArray;
-		}*/
 		
 		//single character translations
 		foreach($translations as $trans) {

@@ -380,65 +380,9 @@ class AnnotatorEngine {
 		
 		//return the preprocessed input 
 		return $output;
-// 		$this->len=mb_strlen($this->input,$this->encoding);
-// 		implode('</div><br><div class="x">', split("(\r\n){1,}", $this->input));
 	}
-	
-	private function goTemplates() {
-		die('deprecated');
-// 		$templateCount=$this->detectTemplateCount($this->template);
 		
-// 		if($templateCount==="DUMP") { //if no templates are set, just dump the whole input as-is
-// 			//parallel does not work in quick dump (but that is not a problem) 
-// 			echo $this->input;
-// 			return;
-// 		}
-		
-		//if $templateCount is false, run the following loop once
-		//else ($templateCount is number), run it $templateCount times
-
-		for($iTemplate=1;$templateCount===FALSE || $iTemplate<$templateCount+1;$iTemplate++) {
-				
-			if($templateCount===FALSE)
-				$templateFull=$this->template.'/perchar';
-			else
-				$templateFull=$this->template.'/perchar'.$iTemplate."of$templateCount";
-		
-			$lineIndex=0;
-				
-			//loop for every character
-			for($i=0; $i<$this->len; $i++) {
-				$char=mb_substr($this->input, $i, 1, $this->encoding);
-
-				if($this->checkNewline($char)) {
-					//if the line ended, we need to output another line of parallel text if present
-					$this->outputParallelAfterLine($lineIndex, $iTemplate);
-					$lineIndex++;
-					continue;
-				}
-		
-				if($this->isIgnoredChar($char)) {
-					echo $char;
-					continue;
-				}
-		
-				$translations=$this->loadTranslations($char);
-				$mnemos=$this->loadMnemonics($char);
-				$phrases=$this->loadPhrases($char, $i);
-		
-				$this->outputChar($char, $translations, $mnemos, $phrases, $i, $templateFull);
-			} //end of character loop
-		
-			$this->outputParallelAfterLine($lineIndex, $iTemplate, true);
-			
-			if($templateCount===FALSE)
-				break;
-		}
-		
-	}
-	
 	private function outputFooter() {
-		
 		$this->parent->renderPartial($this->template."/footer", array(
 				 'systemID'=>$this->systemID,
 				 'dictionariesID'=>$this->dictionariesID

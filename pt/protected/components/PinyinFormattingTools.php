@@ -99,14 +99,7 @@ class PinyinFormattingTools extends Formatter
 					//and replace it with the accented character
 					$vowelPos=strpos(ACCENT_CANDIDATES, $matches[1][0]);
 					if($vowelPos!==FALSE) {
-// 						var_dump($vowelPos);
-// 						var_dump($matches);
-// 						die($vowelPos);
-	// 					echo " p:$pinyin t:$tone ?:$toneNumeric vowelPos:$vowelPos ";
 						$resultingChar=mb_substr($accentReplacements[$tone], $vowelPos, 1, $encoding);
-						//$pinyin[$matches[1][1]]=$accentReplacements[$tone][$vowelPos];
-	// 					var_dump($resultingChar);
-	// 					var_dump($accentReplacements[$tone]);
 						$pinyin=substr($pinyin, 0,$matches[1][1]).$resultingChar.substr($pinyin, $matches[1][1]+1);
 					}  //else : no vowel (i.e. "r5" in erhua) - nothing to do
 					
