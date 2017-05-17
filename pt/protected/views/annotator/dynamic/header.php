@@ -64,8 +64,8 @@ table.parallel td:last-child {
 .grip {
 	width: 20px;
 	height: 30px;
-	margin-top: -3px;
-	background-image: url('../images/grip.png');
+	margin-top: -3px; 
+	background-image: url('<?php echo Yii::app()->baseUrl; ?>/images/grip.png');
 	margin-left: -5px;
 	position: relative;
 	z-index: 88;
