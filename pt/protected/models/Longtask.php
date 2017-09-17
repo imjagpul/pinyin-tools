@@ -129,6 +129,8 @@ class Longtask extends CActiveRecord
 		$annotatorEngine->parallel=$this->parallelText;
 		$annotatorEngine->audioURL=$this->audioLink;
 		
+		
+		
 		return $annotatorEngine;
 	}
 	

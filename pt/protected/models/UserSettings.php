@@ -23,7 +23,8 @@
  * @property integer $lastTemplateInAnnotator
  * @property integer $lastDictionaryInAnnotator
  * @property integer $defaultSystem
- * @property Enum  $variant
+ * @property Enum  $characterModeAnnotations (use the parsed variant)
+ * @property Enum  $characterModeInput (use the parsed variant)
  * @property integer $autosuggestCharform
  * 
  * The followings are the available model relations:
@@ -234,6 +235,60 @@ class UserSettings extends CActiveRecord
 
 		return $result;
 	}
+	
+	public function getCharacterModeAnnotationsParsed() {
+		//TODO refator these to a java-style Enum
+		switch ($this->characterModeAnnotations) {
+			case 'simplified_only':
+				return CharacterModeAnnotations::CHARMOD_SIMPLIFIED_ONLY;
+				
+			case 'traditional_only':
+				return CharacterModeAnnotations::CHARMOD_TRADITIONAL_ONLY;
+				
+			case 'simplified_prefer':
+				return CharacterModeAnnotations::CHARMOD_ALLOW_BOTH_PREFER_SIMP;
+				
+			case 'traditional_prefer':
+				return CharacterModeAnnotations::CHARMOD_ALLOW_BOTH_PREFER_TRAD;
+		}
+		throw new Exception("Illegal value in DB.");
+	}
+
+	public function setCharacterModeAnnotationsParsed($intValue) {
+		switch ($intValue) {
+				case CharacterModeAnnotations::CHARMOD_SIMPLIFIED_ONLY:
+					$this->characterModeAnnotations='simplified_only';
+					return;
+	
+				case CharacterModeAnnotations::CHARMOD_TRADITIONAL_ONLY:
+					$this->characterModeAnnotations='traditional_only';
+					return;
+	
+				case CharacterModeAnnotations::CHARMOD_ALLOW_BOTH_PREFER_SIMP:
+					$this->characterModeAnnotations='simplified_prefer';
+					return;
+	
+				case CharacterModeAnnotations::CHARMOD_ALLOW_BOTH_PREFER_TRAD:
+					$this->characterModeAnnotations='traditional_prefer';
+					return;
+		}
+		throw new Exception("Illegal value in input.");
+	}
+	
+	public function getCharacterModeInputParsed() {
+		switch ($this->characterModeInput) {
+			case 'no_conversion':
+				return CharacterModeInput::CHARMOD_NO_CONVERSION;
+						
+			case 'convert_to_simplified':
+				return CharacterModeInput::CHARMOD_CONVERT_TO_SIMPLIFIED;
+						
+			case 'convert_to_traditional':
+				return CharacterModeInput::CHARMOD_CONVERT_TO_TRADITIONAL;
+		}
+		throw new Exception("Illegal value in DB.");
+	}
+	
 	
 	/**
 	 * Returns the static model of the specified AR class.

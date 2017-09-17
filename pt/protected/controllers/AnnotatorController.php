@@ -35,7 +35,7 @@ class AnnotatorController extends Controller
 		$annotatorEngine=new AnnotatorEngine();
 		$annotatorEngine->parent=$this;
 		$annotatorEngine->input=$isTraditional ? $textData->getTextSimplified() : $textData->getTextTraditional();
-		$annotatorEngine->characterMode=$isTraditional ? CharacterMode::CHARMOD_SIMPLIFIED_ONLY : CharacterMode::CHARMOD_TRADITIONAL_ONLY;
+		$annotatorEngine->characterModeAnnotations=$isTraditional ? CharacterModeAnnotations::CHARMOD_SIMPLIFIED_ONLY : CharacterModeAnnotations::CHARMOD_TRADITIONAL_ONLY;
 		
 		$annotatorEngine->systemID=13; //hardcoded ("Explanation of characters by Herbert A. Giles")
 		$annotatorEngine->dictionariesID=array(1); //hardcoded ("English")
@@ -194,6 +194,10 @@ class AnnotatorController extends Controller
 		$annotationTask->parallelText=isset($_POST['parallel']) ? $_POST['parallel'] : NULL;
 		$annotationTask->audioLink=isset($_POST['audioURL']) ? $_POST['audioURL'] : NULL; //@TODO add URL validator
 
+		//apply globel settings to the current task
+		//TODO - it would be more consequent to have it here; now it is done at annotator creating
+// 		$annotationTask->
+		
 		return $annotationTask;
 	}
 	
@@ -285,7 +289,7 @@ class AnnotatorController extends Controller
 		$dictionariesID=$_GET['d'];
 		$char=$_GET['t'];
 		$compoundsOnly=$_GET['o'];
- 		$characterMode=CharacterMode::CHARMOD_ALLOW_BOTH; //@TODO (perhaps) load from request
+ 		$characterMode=UserSettings::getCurrentSettings()->characterModeAnnotationsParsed;
 				
 		$transcriptionFormatters=AnnotatorEngine::createFormatters($dictionariesID);
 		$result=null;
@@ -294,7 +298,7 @@ class AnnotatorController extends Controller
 		//load the data from the dictionary (if required)
 		if(!$compoundsOnly) {
 			$system=System::model()->findByPk($systemID);
-			$translations=AnnotatorEngine::loadTranslationsFromDictionaries($char, $dictionariesID, $characterMode);
+			$translations=AnnotatorEngine::loadTranslationsFromDictionaries($char, $dictionariesID);
 			$mnemos=AnnotatorEngine::loadMnemonicsForSystem($char, $system);
 			$result=$this->boxToArray($translations, $mnemos, $transcriptionFormatters, $characterMode);
 		}
@@ -302,7 +306,7 @@ class AnnotatorController extends Controller
 		//load the data for the phrases (if any specified)
 		if(!empty($_GET['c'])) {
 			$compounds=$_GET['c'];
-			$phrases=AnnotatorEngine::loadPhrasesFromDictionaries($char, $compounds, $dictionariesID, $characterMode);
+			$phrases=AnnotatorEngine::loadPhrasesFromDictionaries($char, $compounds, $dictionariesID);
 			$phrasesResult=$this->phrasesToArray($phrases,$transcriptionFormatters, $characterMode);
 		}
 		
@@ -349,8 +353,10 @@ class AnnotatorController extends Controller
 	}
 	
 	//shared between jsbased/perchar.php & dynamic (server-side in ajax)
-	public function boxToDisplay($translations, $mnemos, $phrases, $transcriptionFormatters, $characterMode) {
+	public function boxToDisplay($translations, $mnemos, $phrases, $transcriptionFormatters, $characterModeAnnotations) {
 
+		$characterMode=TRUE; //TODO DEBUG Replace these with both values. (depending on the last param)
+		
 		$result='';
 		//phrases
 		if($phrases!=null)
@@ -411,7 +417,9 @@ class AnnotatorController extends Controller
 	 *        whose first item is the transcription
 	 *        and second item is the array of translations  
 	 */
-	public function phrasesToArray($phrases,$transcriptionFormatters, $characterMode) {
+	public function phrasesToArray($phrases,$transcriptionFormatters, $characterModeAnnotations) {
+		$characterMode=TRUE; //TODO DEBUG Replace these with both values. (depending on the last param)
+		
 		$result=array();
 		
 		if(!empty($phrases))
@@ -426,7 +434,9 @@ class AnnotatorController extends Controller
 		return $result;
 	}
 	
-	public function boxToArray($translations, $mnemos, $transcriptionFormatters, $characterMode) {
+	public function boxToArray($translations, $mnemos, $transcriptionFormatters, $characterModeAnnotations) {
+		$characterMode=TRUE; //TODO DEBUG Replace these with both values. (depending on the last param)
+		
 		$result=array();
 		
 		//single character translations

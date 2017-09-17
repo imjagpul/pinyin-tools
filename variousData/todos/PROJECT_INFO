@@ -8,11 +8,26 @@ I want to build a following / community.
 Make it into a useful tool that can be shared, and then publish as soon as possible.
 
 == Next step == 
-(see #annotatorPerformance)
-Offline and Portable - works quite fine
-Quick - currently does not work
-Parallel - currently does not work
- 
+test the annotator 
+>) see why does it produce traditioaal
+   >>) now refactoring CharacterMode
+    >>>) replacing all characterMode usages with the correct one
+     
+     
+     ****) need to extract the script in jsbased/header and dynamic/header
+       to be then able to implement both variants
+       
+       search for:
+       $characterMode=TRUE; //TODO DEBUG Replace these with both values. (depending on the last param)
+       
+       boxToDisplay
+       boxToArray
+       phrasesToArray
+       
+        
+        
+     
+//Write a nice manual. 
  
  ---
  Propagate this as soon as possible.

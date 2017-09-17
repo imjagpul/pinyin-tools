@@ -79,10 +79,8 @@ class UserSettingsController extends Controller
 			
 			//parse variant (allow only permitted values)
 			if(isset($_POST['variant'])) {
-				if($_POST['variant']=='simplified_only') $model->variant='simplified_only';
-				else if($_POST['variant']=='traditional_only') $model->variant='traditional_only';
-				else if($_POST['variant']=='simplified_prefer') $model->variant='simplified_prefer';
-				else if($_POST['variant']=='traditional_prefer') $model->variant='traditional_prefer';
+				//throws an exception if there is an invalid value
+				$model->characterModeAnnotationsParsed=$_POST['variant'];
 			}
 			
 			$model->save();

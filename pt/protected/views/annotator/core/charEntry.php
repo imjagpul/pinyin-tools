@@ -26,8 +26,8 @@ if(!empty($mnemos)) {
 	echo '</div>';
 }
 echo '<p></p>';
-      ?><div class="ch s"><?php echo $entry->getText(CharacterMode::CHARMOD_SIMPLIFIED_ONLY); 
-?></div><div class="ch t"><?php echo $entry->getText(CharacterMode::CHARMOD_TRADITIONAL_ONLY); 
+      ?><div class="ch s"><?php echo $entry->getText(CharacterModeAnnotations::CHARMOD_SIMPLIFIED_ONLY); 
+?></div><div class="ch t"><?php echo $entry->getText(CharacterModeAnnotations::CHARMOD_TRADITIONAL_ONLY); 
 ?></div><div class="pinyin"><?php echo $transcriptionFormatter->format($entry->transcription); 
 ?></div><ul><?php foreach($entry->translationsArray as $tr)  //might be replaced with implode </li><li>
 					echo "<li>$tr</li>"; 

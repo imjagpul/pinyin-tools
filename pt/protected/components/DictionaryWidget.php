@@ -20,12 +20,12 @@ class DictionaryWidget extends CWidget {
 	public function outputEntries($r, $formatter) {
 		foreach ( $r as $entry ) {
 			//display depends on the user settings
-			$userVariant=UserSettings::getCurrentSettings()->variant;
+			$userVariant=UserSettings::getCurrentSettings()->characterModeAnnotationsParsed;
 			
-			if($userVariant=='simplified_only') {$first = $entry->simplified; $alt=NULL;}
-			else if($userVariant=='traditional_only') {$first = $entry->traditional; $alt=NULL;}
-			else if($userVariant=='simplified_prefer') {$first = $entry->simplified; $alt = $entry->traditional;}
-			else if($userVariant=='traditional_prefer') {$first = $entry->traditional; $alt = $entry->simplified;}
+			if($userVariant==CharacterModeAnnotations::CHARMOD_SIMPLIFIED_ONLY ) {$first = $entry->simplified; $alt=NULL;}
+			else if($userVariant==CharacterModeAnnotations::CHARMOD_TRADITIONAL_ONLY) {$first = $entry->traditional; $alt=NULL;}
+			else if($userVariant==CharacterModeAnnotations::CHARMOD_ALLOW_BOTH_PREFER_SIMP) {$first = $entry->simplified; $alt = $entry->traditional;}
+			else if($userVariant==CharacterModeAnnotations::CHARMOD_ALLOW_BOTH_PREFER_TRAD) {$first = $entry->traditional; $alt = $entry->simplified;}
 	/*			
 			?>
 <p>

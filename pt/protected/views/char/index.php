@@ -6,9 +6,9 @@
 //@TODO find a better way to get variables from a php data file (see CPhpAuth)
 //@TODO data should be loaded in Controller
 
-$userVariant=UserSettings::getCurrentSettings()->variant;
+$userVariant=UserSettings::getCurrentSettings()->characterModeAnnotationsParsed;
 	
-$simplified=($userVariant=='simplified_only' || $userVariant=='simplified_prefer');
+$simplified=($userVariant==CharacterModeAnnotations::CHARMOD_SIMPLIFIED_ONLY ||  $userVariant==CharacterModeAnnotations::CHARMOD_ALLOW_BOTH_PREFER_SIMP);
 
 if($msg) {
 ?>
@@ -16,7 +16,6 @@ if($msg) {
 Search for a concrete character by using the search box on the right, or use one of the lists on the left.
 <?php 
 }
-
 ?>
 
 <?php if($criteria=='matthews') { ?>

@@ -27,7 +27,7 @@ function output($controller, $form, $model, $attribute, $label="") {
  */
 function outputChoice($name, $charPrimary, $charSecondary, $enumVal, $model) {
 	$secondary=empty($charSecondary) ? '' : '<span class="alternate">'.$charSecondary.'</span>';
-	$selected=($model->variant==$enumVal) ? 'checked="checked"' : "";
+	$selected=($model->characterModeAnnotationsParsed==$enumVal) ? 'checked="checked"' : "";
 	
 	echo <<<EOT
 <label for="mode_$enumVal">
@@ -59,11 +59,11 @@ echo '<p>You are not logged in. Your settings will not be saved between sessions
 }?>
 <h1>Language preferences</h1>
 <div class="charvariant">
-<p>This applies to dictionary results only.</p>
-<?php outputChoice('Simplified', '寿', null, 'simplified_only', $model); ?>
-<?php outputChoice('Traditional', '壽', null, 'traditional_only', $model); ?>
-<?php outputChoice('Both (prefer simplified)', '寿', '壽', 'simplified_prefer', $model); ?>
-<?php outputChoice('Both (prefer traditional)', '壽', '寿', 'traditional_prefer', $model); ?>
+<p>Applies to both dictionary results and the annotator output.</p>
+<?php outputChoice('Simplified', '寿', null, CharacterModeAnnotations::CHARMOD_SIMPLIFIED_ONLY, $model); ?>
+<?php outputChoice('Traditional', '壽', null, CharacterModeAnnotations::CHARMOD_TRADITIONAL_ONLY, $model); ?>
+<?php outputChoice('Both (prefer simplified)', '寿', '壽', CharacterModeAnnotations::CHARMOD_ALLOW_BOTH_PREFER_SIMP, $model); ?>
+<?php outputChoice('Both (prefer traditional)', '壽', '寿', CharacterModeAnnotations::CHARMOD_ALLOW_BOTH_PREFER_TRAD, $model); ?>
 </div>
 
 <h1>Tone colors</h1>
