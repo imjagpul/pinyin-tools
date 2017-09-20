@@ -306,8 +306,13 @@ class AnnotatorController extends Controller
 		//load the data for the phrases (if any specified)
 		if(!empty($_GET['c'])) {
 			$compounds=$_GET['c'];
-			$phrases=AnnotatorEngine::loadPhrasesFromDictionaries($char, $compounds, $dictionariesID);
-			$phrasesResult=$this->phrasesToArray($phrases,$transcriptionFormatters, $characterMode);
+			$phrasesSimpl=AnnotatorEngine::loadPhrasesFromDictionaries($char, $compounds, $dictionariesID, CharacterModeInput::CHARMOD_CONVERT_TO_SIMPLIFIED);
+			$phrasesTrad=AnnotatorEngine::loadPhrasesFromDictionaries($char, $compounds, $dictionariesID, CharacterModeInput::CHARMOD_CONVERT_TO_TRADITIONAL);
+			
+			$phrasesResult=$this->phrasesToArray($phrasesSimpl, $phrasesTrad, $transcriptionFormatters, $characterMode);
+			
+// 			$phrases=AnnotatorEngine::loadPhrasesFromDictionaries($char, $compounds, $dictionariesID);
+// 			$phrasesResult=$this->phrasesToArray($phrases,$transcriptionFormatters, $characterMode);
 		}
 		
 		echo json_encode(array($result, $phrasesResult));
@@ -426,18 +431,39 @@ class AnnotatorController extends Controller
 	 *        whose first item is the transcription
 	 *        and second item is the array of translations  
 	 */
-	public function phrasesToArray($phrases,$transcriptionFormatters, $characterModeAnnotations) {
-		$characterMode=TRUE; //TODO DEBUG Replace these with both values. (depending on the last param)
+	public function phrasesToArray($phrasesSimpl, $phrasesTrad, $transcriptionFormatters, $characterModeAnnotations) {
+// 		$characterMode=TRUE; //TODO DEBUG Replace these with both values. (depending on the last param)
 		
 		$result=array();
 		
-		if(!empty($phrases))
-		foreach($phrases as $phrase) {
-			$text=$phrase->getText($characterMode); //note there are sometimes multiple results with one text (with different pronunciation)
+		if(!empty($phrasesSimpl))
 			
-			$result[$text][]=
-			array($transcriptionFormatters[$phrase->dictionaryId]->format($phrase->transcription),
-			$phrase->translationsArray);
+		foreach($phrasesSimpl as $phrase) {
+			$simpl=$phrase->getText(true);
+			$trad=$phrase->getText(false);
+			
+			$result[$simpl][]=
+			array(
+				$simpl,
+				$trad,
+				$transcriptionFormatters[$phrase->dictionaryId]->format($phrase->transcription),
+				$phrase->translationsArray);
+		}
+		
+		if(!empty($phrasesTrad))
+		foreach($phrasesTrad as $phrase) {
+			$simpl=$phrase->getText(true);
+			$trad=$phrase->getText(false);
+			
+			if($simpl!=$trad || empty($phrasesSimpl)) { //return no phrases twice
+				
+				$result[$text][]=
+				array(
+					$simpl,
+					$trad,
+					$transcriptionFormatters[$phrase->dictionaryId]->format($phrase->transcription),
+					$phrase->translationsArray);
+				 }
 		}
 		
 		return $result;

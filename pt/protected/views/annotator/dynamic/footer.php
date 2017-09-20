@@ -85,10 +85,10 @@ function getComponentsData(t, components) {
 			//componentsData[cFull]=compCache[cFull];
 			var entry=compCache[cFull];
 			for(var j=0;j<entry.length;j++) {
-				componentsData.push(cFull); //text
-				componentsData.push(cFull); //HACK text
-				componentsData.push(entry[j][0]); //transcription
-				componentsData.push(entry[j][1]); //translations
+				componentsData.push(entry[j][0]); //simplified
+				componentsData.push(entry[j][1]); //traditional
+				componentsData.push(entry[j][2]); //transcription
+				componentsData.push(entry[j][3]); //translations
 			}
 			
 		}

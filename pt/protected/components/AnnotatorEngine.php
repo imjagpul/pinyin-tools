@@ -406,7 +406,7 @@ class AnnotatorEngine {
 	private function loadMnemonics($char) {
 		return AnnotatorEngine::loadMnemonicsForSystem($char, $this->system);
 	}
-	public static function loadPhrasesFromDictionaries($char, $compounds, $dictionariesID) {
+	public static function loadPhrasesFromDictionaries($char, $compounds, $dictionariesID, $characterSearchMode=CharacterModeInput::CHARMOD_NO_CONVERSION) {
 		$mode=DictEntryPhrase::getFirstPartLength();
 		$encoding=Yii::app()->params['annotatorEncoding'];
 		// if(DictEntryPhrase::getFirstPartLength()!=1) die("invalid method call");
@@ -423,6 +423,10 @@ class AnnotatorEngine {
 		$criteriaSimplified=new CDbCriteria();
 		$criteriaTraditional=new CDbCriteria();
 		
+		if($characterSearchMode==CharacterModeInput::CHARMOD_NO_CONVERSION) {
+			$criteriaSimplified=$criteriaTraditional;
+		}
+		
 		foreach ( $compounds as $searchFull ) {
 			if ($mode > 1) {
 				if (is_null($begin))
@@ -434,9 +438,11 @@ class AnnotatorEngine {
 				$search=$searchFull;
 			}
 			
+			//note compare cannot be used when the text is empty because it ignores empty values
+			//and addContition does not handle all encodings well
 			if(!empty($search)) {
-				$criteriaSimplified->compare('simplified_rest', "$search", false, 'OR');
-				$criteriaTraditional->compare('traditional_rest', "$search", false, 'OR');
+				$criteriaSimplified->compare('simplified_rest', $search, false, 'OR');
+				$criteriaTraditional->compare('traditional_rest', $search, false, 'OR');
 			} else {
 				$criteriaSimplified->addCondition("simplified_rest=''", 'OR');
 				$criteriaTraditional->addCondition("traditional_rest=''", 'OR');
@@ -452,8 +458,14 @@ class AnnotatorEngine {
 		$criteriaTraditional->compare('traditional_begin', $begin);
 		
 		$results=array();
+		if($characterSearchMode==CharacterModeInput::CHARMOD_CONVERT_TO_TRADITIONAL) {
+			$results=DictEntryPhrase::model()->findAll($criteriaTraditional);
+		} else {
+			$results=DictEntryPhrase::model()->findAll($criteriaSimplified);			
+		}
+		
 		// $results=DictEntryPhrase::model()->findAll($criteria);
-		$results=DictEntryPhrase::model()->findAll($criteriaSimplified);
+// 		$results=DictEntryPhrase::model()->findAll($criteriaSimplified);
 		// $results=DictEntryPhrase::model()->findAll($criteriaTraditional);
 		
 		// sort to put the longest first

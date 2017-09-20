@@ -96,7 +96,7 @@
               htmldata+='</div>';
 
               htmldata+='<ul>';
-              for(j=0; j<boxdata[i+3].length-1; j++) {
+              for(j=0; j<boxdata[i+3].length; j++) {
                  htmldata+='<li>'+boxdata[i+3][j]+'</li>';
               }
               
