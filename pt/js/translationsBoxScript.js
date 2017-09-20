@@ -59,7 +59,7 @@
         }
 
         //boxdata is an array of lengeth = n*3 + 1  
-        //thrices of cn, transcription, translations
+        //quadruples of cn-primary, cn-alt, transcription, translations
         //last element is the tags
         function setBoxdata(boxdata, t) {
             if(expected!=t)
@@ -78,19 +78,26 @@
 	            htmldata+='</div>';
             }
 
-
-            for(i=0; i<boxdata.length-2; i+=3) {
-              htmldata+='<div class="ch">';
-              htmldata+=boxdata[i];
-              htmldata+='</div>'; 
+            for(i=0; i<boxdata.length-3; i+=4) {
+            	var cn=boxdata[i];
+            	var cnAlt=boxdata[i+1];
+            	
+            	htmldata+='<div class="ch">';
+            	htmldata+=cn;
+            	if(cnAlt!='' && cn!=cnAlt) {
+            		htmldata+=" [";
+            		htmldata+=boxdata[i+1];
+            		htmldata+="]";
+            	}
+            	htmldata+='</div>'; 
               
               htmldata+='<div class="pinyin">';
-              htmldata+=boxdata[i+1];
+              htmldata+=boxdata[i+2];
               htmldata+='</div>';
 
               htmldata+='<ul>';
-              for(j=0; j<boxdata[i+2].length; j++) {
-                 htmldata+='<li>'+boxdata[i+2][j]+'</li>';
+              for(j=0; j<boxdata[i+3].length-1; j++) {
+                 htmldata+='<li>'+boxdata[i+3][j]+'</li>';
               }
               
               htmldata+='</ul>';

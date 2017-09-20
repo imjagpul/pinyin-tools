@@ -86,6 +86,7 @@ function getComponentsData(t, components) {
 			var entry=compCache[cFull];
 			for(var j=0;j<entry.length;j++) {
 				componentsData.push(cFull); //text
+				componentsData.push(cFull); //HACK text
 				componentsData.push(entry[j][0]); //transcription
 				componentsData.push(entry[j][1]); //translations
 			}

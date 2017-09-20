@@ -352,17 +352,24 @@ class AnnotatorController extends Controller
 		return $result;
 	}
 	
-	//shared between jsbased/perchar.php & dynamic (server-side in ajax)
+	/**
+	 * This method returns a javascript array that is used in offline js-based template.
+	 */	
 	public function boxToDisplay($translations, $mnemos, $phrases, $transcriptionFormatters, $characterModeAnnotations) {
-
-		$characterMode=TRUE; //TODO DEBUG Replace these with both values. (depending on the last param)
-		
+		//format (has to be synchronized with translationsBox.js):
+		//boxdata is an array of lengeth = n*3 + 1
+		//quadruples of cn-primary, cn-alt, transcription, translations
+		//last element is the tags
+				
 		$result='';
+		
 		//phrases
 		if($phrases!=null)
 		foreach($phrases as $phrase) {
 			$result.="'";	
-			$result.=$phrase->getText($characterMode); 
+			$result.=CharacterModeAnnotations::getPrimary($characterModeAnnotations, $phrase->getText(true), $phrase->getText(false));
+			$result.="','";
+			$result.=CharacterModeAnnotations::getAlternate($characterModeAnnotations, $phrase->getText(true), $phrase->getText(false));
 			$result.="','";
 			$result.=$transcriptionFormatters[$phrase->dictionaryId]->format($phrase->transcription); 
 			$result.="',new Array("; 
@@ -382,7 +389,9 @@ class AnnotatorController extends Controller
 		foreach($translations as $trans) { 
 		
 				$result.="'"; 
-				$result.=$trans->getText($characterMode); 
+				$result.=CharacterModeAnnotations::getPrimary($characterModeAnnotations, $trans->getText(true), $trans->getText(false));
+				$result.="','";
+				$result.=CharacterModeAnnotations::getAlternate($characterModeAnnotations, $trans->getText(true), $trans->getText(false));
 				$result.="','"; 
 				$result.=$transcriptionFormatters[$trans->dictionaryId]->format($trans->transcription); 
 				$result.="',new Array("; 
@@ -435,13 +444,12 @@ class AnnotatorController extends Controller
 	}
 	
 	public function boxToArray($translations, $mnemos, $transcriptionFormatters, $characterModeAnnotations) {
-		$characterMode=TRUE; //TODO DEBUG Replace these with both values. (depending on the last param)
-		
 		$result=array();
 		
 		//single character translations
 		foreach($translations as $trans) {
-			$result[]=$trans->getText($characterMode);
+			$result[]=CharacterModeAnnotations::getPrimary($characterModeAnnotations, $trans->getText(true), $trans->getText(false));
+			$result[]=CharacterModeAnnotations::getAlternate($characterModeAnnotations, $trans->getText(true), $trans->getText(false));
 			$result[]=$transcriptionFormatters[$trans->dictionaryId]->format($trans->transcription);
 			$result[]=$trans->translationsArray ;
 		}

@@ -17,12 +17,6 @@ AB
 
 
 
-
-
----------
-
-
-
 Generate by a worker in background, shorter text anonymously
 Allow files of almost arbitrary size - implement an upload, perhaps convert long (or all?) texts to files
 
@@ -53,6 +47,16 @@ server-side generation - serve complete file (1A,1B,2A,2B) - highest server-impa
 client-supported generation - result is generated completely on server, but the client keeps sending AJAX request to prevet script timeout serverside (or user has to keep clicking when he has disabled JS :-) / Location with pause would work as well )
 client-side generation - serve dictionary and JS, produce result on client (1A,1B) - this would work only for some clients, but causes the smallest server impact
 
+---------
+
+ jsbased/perchar se pouziva u Offline - funguje
+ dynamic/perchar u Qucik - kde je?
+    
+Run annotator with profiler.
+=> there are way too many DB requests - see what can be reduced in loadPhrases
+-----------
+
+
 Which modes to implement?
 $ 1BB
  $) job-splitting
@@ -61,17 +65,14 @@ $ 1BB
  $) implmement dictionary generation
  $$) need to be able to create pregenerated dictionaries on the server side, save them to file
  $$) make them link from the results 
-* 1BC ) 
+$ 1BC ) 
  $$) implement tailored dictionary support (will need another column in the results)
  $$) make back button work again (get rid of separate process / getTask actions)
  
- *) measure results
+ *) Quick mode 2B
+ **) next step: MOVE textLink 
+ **) annotate vs. annotateChunk
  
- implement the rest of output variants:
-* 1A)
-* 2A)
-* 2B)
-  
  *) implement CHARMOD support (conversions, both entries in dictionary, etc.)
 ***
 
@@ -79,16 +80,20 @@ $ 1BB
  $$) make git work again and backup old code
  $$) implement dictionary searches (to be able to use phrase dictionary)
  $$) make dictionary results link to the char dictionary
- **) remove obsolete code
+ $$) remove obsolete code
  **) redo the interface (phrase dictionary Y/N)
  **) update CSS to hide traditional / simplified (if undesired according to user settings) (in pregenerated dictionaries)
  **) merge preprocess into the annotating (in order to require only one pass but still have smart wrap)
- **) make a nice progress bar for the generation
- **) detect maximum execution time running out, restart request (and perhaps save progress?)
- *) run a profiler to see why it takes so long	
+ $$) make a nice progress bar for the generation
+ *) (perhaps) run a profiler to see why it takes so long	
  **) (perhaps) cache dictionary searches
 **) make results respect prefered charachter settings
 *) client side workers (move the todo to extensions)  
+
+ implement more of the output variants:
+* 1A)
+* 2A)
+
 
 
 Ideas (probably not worth implementing):
@@ -100,6 +105,24 @@ reduce HTML - perhaps even use GBK to get faster
 MINI TEST DATA:
 2016-11-13 44s, 42s without preprocess, 45s ~ 47s
 2016-12-06 
+2017-01-10 315s, legacy mode (xdebug on, profiler off, static 20, dynamic 4, chunksizes 30; 55) 
+2017-01-10 310s, legacy mode (xdebug off, profiler off, static 20, dynamic 4, chunksizes 30; 55) 
+2017-01-10 299s, legacy mode (xdebug off, profiler off, static 2, dynamic N/A, chunksizes 30; 55) 
+2017-01-10 276s, legacy mode (xdebug off, profiler off, static 2, dynamic N/A, chunksizes 10000; 10000) 
+
+ utf8_unicode_ci -> utf16_bin (in chars and phrases)
+ utf8_unicode_ci -> utf8_bin (in transcription, translation)
+ 
+2017-01-10  67s, legacy mode single  (xdebug off, profiler off, static 2, dynamic N/A, chunksizes 10000; 10000) 
+2017-01-10 BAD RESULTS 146s, invalid legacy mode double (xdebug on, profiler off, static 2, dynamic N/A, chunksizes 50; 70) 
+2017-01-10  82s, legacy mode single (xdebug on, profiler off, static 2, dynamic N/A, chunksizes 50; 70) 
+2017-01-10  72s, legacy mode single (xdebug off, profiler off, static 2, dynamic N/A, chunksizes 50; 70) 
+2017-01-10  75s, legacy mode single (xdebug off, profiler off, static 2, dynamic N/A, chunksizes 50; 70) 
+
+2017-01-10  157s, double mode (xdebug on, profiler off, chunksizes 50; 70) 
+2017-01-10  161s, double mode (xdebug on, profiler off, chunksizes 50; 70) 
+
+
 --
 
 前传
@@ -184,7 +207,10 @@ MINI TEST DATA:
 
 TEST DATA: (first ten chapters of the book, Imjagpul final, Chinese-English (CC-CEDICT), number as in generated text):
 2016-11-13 - 3058s
-
+2017-01-10 - STOPPED - legacy mode (xdebug on, profiler off, static 20, dynamic 4, chunksizes 30; 55) stopped, estimated total around 8 hours (?)
+2017-01-10 - failed MEMORY EXHAUSTED - legacy mode with case sensitive collations (xdebug off, profiler off, static 2, dynamic N/A, chunksizes 300;550) 
+2017-01-10 - ___ - legacy mode with case sensitive collations (xdebug off, profiler off, static 2, dynamic N/A, chunksizes 50; 70) 
+2017-01-11 - 4455s done but crashed when outputing -  legacy mode with case sensitive collations (xdebug off, profiler off, static 2, dynamic N/A, chunksizes 50; 70)
 
  ---
  《三生三世，十里桃花》唐七公子
