@@ -432,8 +432,6 @@ class AnnotatorController extends Controller
 	 *        and second item is the array of translations  
 	 */
 	public function phrasesToArray($phrasesSimpl, $phrasesTrad, $transcriptionFormatters, $characterModeAnnotations) {
-// 		$characterMode=TRUE; //TODO DEBUG Replace these with both values. (depending on the last param)
-		
 		$result=array();
 		
 		if(!empty($phrasesSimpl))
@@ -442,10 +440,13 @@ class AnnotatorController extends Controller
 			$simpl=$phrase->getText(true);
 			$trad=$phrase->getText(false);
 			
+			$primary=CharacterModeAnnotations::getPrimary($characterModeAnnotations, $simpl, $trad);
+			$alt=CharacterModeAnnotations::getAlternate($characterModeAnnotations, $simpl, $trad);
+			
 			$result[$simpl][]=
 			array(
-				$simpl,
-				$trad,
+				$primary,
+				$alt,
 				$transcriptionFormatters[$phrase->dictionaryId]->format($phrase->transcription),
 				$phrase->translationsArray);
 		}
@@ -454,13 +455,16 @@ class AnnotatorController extends Controller
 		foreach($phrasesTrad as $phrase) {
 			$simpl=$phrase->getText(true);
 			$trad=$phrase->getText(false);
-			
+
+			$primary=CharacterModeAnnotations::getPrimary($characterModeAnnotations, $simpl, $trad);
+			$alt=CharacterModeAnnotations::getAlternate($characterModeAnnotations, $simpl, $trad);
+				
 			if($simpl!=$trad || empty($phrasesSimpl)) { //return no phrases twice
 				
-				$result[$text][]=
+				$result[$trad][]=
 				array(
-					$simpl,
-					$trad,
+					$primary,
+					$alt,
 					$transcriptionFormatters[$phrase->dictionaryId]->format($phrase->transcription),
 					$phrase->translationsArray);
 				 }
