@@ -29,6 +29,9 @@ class Utilities {
 	public static function escapeStringSingleQuoteJS($str) {
 		return str_ireplace("'", "\\'", $str);
 	}
+	public static function escapeStringDoubleQuoteJSAttribute($str) {
+		return str_ireplace('"', '\"', $str);
+	}
 	
 	public static function colorAsHex($col) {
 		return sprintf("%'06x", $col);

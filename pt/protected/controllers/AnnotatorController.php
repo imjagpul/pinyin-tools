@@ -414,7 +414,7 @@ class AnnotatorController extends Controller
 				 	$result.='<b>'.$this->prepare($mnemos->keyword).'</b><br>'; 
 		// 		 	echo $mnemos->keyword; //no html, destroys the JS
 				 	$result.=$this->prepare($mnemos->mnemonicsHTML);
-				 	$result.=$this->outputKeywords($mnemos->components);
+				 	$result.=$this->prepare($this->outputKeywords($mnemos->components));
 				 }
 		$result.="'";
 		return $result;				 
