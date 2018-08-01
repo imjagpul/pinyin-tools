@@ -21,7 +21,7 @@ class SiteController extends Controller
 			// They can be accessed via: index.php?r=site/page&view=FileName
 			'page'=>array(
 				'class'=>'CViewAction',
-				'defaultView'=>'whatsthis'
+				'defaultView'=>'extensiveReading'
 			),
 				
 			'log.'=>'application.components.LoginFormWidget',

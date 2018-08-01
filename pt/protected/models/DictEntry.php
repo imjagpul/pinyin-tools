@@ -13,7 +13,7 @@ abstract class DictEntry extends CActiveRecord {
 	
 	/**
 	 *
-	 * @param boolean $characterMode
+	 * @param boolean $characterModeSimplified
 	 * 			if the simplified version should be returned (as opposed to the traditional)
 	 */
 	public function getText($characterModeSimplified) {
