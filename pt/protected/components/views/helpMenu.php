@@ -24,7 +24,7 @@ echoList("What's this about", array(
 		array('Chinese characters', 'chineseCharacters'),
 		array('Annotator helps', 'annotatorHelps')
 ));
-
+/*
 echoList("Further tips", array(
 		array('Use your devices', 'useYourReader'),
 		array('Efficent memorization', 'anki'),
@@ -40,7 +40,7 @@ echoList("Usage", array(
 		array('Transcription systems', ''),
 		array('Soundwords index', ''),
 ));
-
+*/
 //Appendix - memory tips
 /*
 Why mnemonics are powerful 

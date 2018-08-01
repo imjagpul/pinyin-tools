@@ -358,6 +358,33 @@ class AnnotatorController extends Controller
 	}
 	
 	/**
+	 * Joins the elements of the given array so that 
+	 * the results of calling #prepare() on each element is surronded with single quotes
+	 * and separated with commas.
+	 * 
+	 * @param String[] $arr
+	 */
+	private function implodeWithPrepare($arr) {
+		$result='';
+		
+		$first=true;
+		foreach($arr as $tr) {
+			//separate with commas
+			if(!$first)
+				$result.=",";
+			else 
+				$first=false;
+		
+			//every entry in single quotes
+			$result.="'";
+			$result.=$this->prepare($tr);
+			$result.="'";
+		}
+		
+		return $result;
+	}
+	
+	/**
 	 * This method returns a javascript array that is used in offline js-based template.
 	 */	
 	public function boxToDisplay($translations, $mnemos, $phrases, $transcriptionFormatters, $characterModeAnnotations) {
@@ -368,6 +395,7 @@ class AnnotatorController extends Controller
 				
 		$result='';
 		
+		//TODO remove code duplicity
 		//phrases
 		if($phrases!=null)
 		foreach($phrases as $phrase) {
@@ -378,16 +406,8 @@ class AnnotatorController extends Controller
 			$result.="','";
 			$result.=$transcriptionFormatters[$phrase->dictionaryId]->format($phrase->transcription); 
 			$result.="',new Array("; 
-
-			//$result.="'".implode("','", $phrase->translationsArray)."'";
-					
-			foreach($phrase->translationsArray as $tr) {
-				$result.="'"; 
-				$result.=$this->prepare($tr); 
-				$result.="',"; 
-			} 
-			$result.="''),"; 
-// 			$result.="),"; 
+			$result.=$this->implodeWithPrepare($phrase->translationsArray);
+			$result.="),"; 
 		}
 		
 		//single character translations
@@ -400,12 +420,8 @@ class AnnotatorController extends Controller
 				$result.="','"; 
 				$result.=$transcriptionFormatters[$trans->dictionaryId]->format($trans->transcription); 
 				$result.="',new Array("; 
-				foreach($trans->translationsArray as $tr) {
-					$result.="'"; 
-					$result.=str_replace(array('\'', '"'), "\\'", $tr); 
-					$result.="',"; 
-				} 
-				$result.="''),"; 				
+				$result.=$this->implodeWithPrepare($trans->translationsArray);
+				$result.="),"; 				
 		} 
 		
 		//tag (or empty dashes if none set)
@@ -498,5 +514,20 @@ class AnnotatorController extends Controller
 		}
 		
 		return $result;
-		}	
+	}
+		
+	public function echoVariants($phrase, $characterModeAnnotations) {
+		$simplified=$phrase->getText(true);
+		$traditional=$phrase->getText(false);
+		
+		$primary=CharacterModeAnnotations::getPrimary($characterModeAnnotations, $simplified, $traditional); 
+		$alt=CharacterModeAnnotations::getAlternate($characterModeAnnotations, $simplified, $traditional);
+		
+		echo $primary;
+		if(!empty($alt) && $alt!=$primary) {
+			echo '[';
+			echo $alt;
+			echo ']';			
+		}		
+	}
 }

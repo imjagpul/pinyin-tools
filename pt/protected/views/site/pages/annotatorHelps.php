@@ -12,5 +12,5 @@ I found it very practical, so I assume it will be of use for you as well.
 <p>Since it is tiring to stare into a computer screen for a long time, the annotator can also produce MOBIs (for <a href="http://www.amazon.com/gp/product/B007OZNZG0/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B007OZNZG0&linkCode=as2&tag=pinyintools-20">Kindle</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=pinyintools-20&l=as2&o=1&a=B007OZNZG0" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />) and EPUBs (compatible with most other eBook readers).
 
 <p>It's a pity that most of the eInk readers are not able to play audiobooks, so you have to carry another device that can play sound.
-I ended <a href="http://www.mobileread.com/forums/showthread.php?t=126023">rooting my kindle for this purpose</a>. 
+(I actually ended <a href="http://www.mobileread.com/forums/showthread.php?t=126023">rooting my kindle for this purpose</a>.) 
 It's too bad the newer editions have no loudspeaker, so you have to stick to your portable mp3 player (or your computer).
