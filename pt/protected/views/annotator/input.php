@@ -79,7 +79,7 @@ if(!is_null($mode->getDescription())) echo $mode->getDescription();
 <?php /* *************************** System choice.  ***************************************************/ ?>
 <div class="section">
 <div class="row">
-<?php if(!empty($systemList)) { ?>
+<?php if(!empty($systemList) || !empty($systemListOwn)) { ?>
 	<?php 
 	echo CHtml::label('System:', 'system');?>  
 </div>
